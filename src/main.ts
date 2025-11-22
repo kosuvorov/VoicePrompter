@@ -96,6 +96,7 @@ interface ScriptWord {
     element: HTMLElement | null;
     skip: boolean;
     isStop: boolean;
+    isBreak?: boolean;
 }
 
 interface AppConfig {
@@ -106,6 +107,7 @@ interface AppConfig {
     bgColor: string;
     textAlign: 'left' | 'center' | 'right';
     showStopIcon: boolean;
+    preserveFormatting: boolean;
 }
 
 interface AppState {
@@ -114,6 +116,7 @@ interface AppState {
     currentIndex: number;
     recognition: any; // Using any for SpeechRecognition as it's experimental
     isMirrored: boolean;
+    selectedLanguage: string;
     config: AppConfig;
 }
 
@@ -131,6 +134,7 @@ const state: AppState = {
     currentIndex: 0,
     recognition: null,
     isMirrored: false,
+    selectedLanguage: 'en-US', // User's selected language
     config: {
         fontSize: 20,
         lineHeight: 1.5,
@@ -138,7 +142,8 @@ const state: AppState = {
         textColor: '#ffffff',
         bgColor: '#000000',
         textAlign: 'center',
-        showStopIcon: false
+        showStopIcon: false,
+        preserveFormatting: false
     }
 };
 
@@ -186,9 +191,11 @@ const els = {
     copyScriptBtn: document.getElementById('copyScriptBtn')!,
     clearScriptBtn: document.getElementById('clearScriptBtn')!,
     pasteScriptBtn: document.getElementById('pasteScriptBtn')!,
-    // Language Detection
-    languageIndicator: document.getElementById('languageIndicator')!,
-    detectedLanguage: document.getElementById('detectedLanguage')!
+    // Language Selection
+    languageSelect: document.getElementById('languageSelect') as HTMLSelectElement,
+    autoDetectBtn: document.getElementById('autoDetectBtn')!,
+    // Toggles
+    preserveFormattingToggle: document.getElementById('preserveFormattingToggle') as HTMLInputElement
 };
 
 // --- Initialization ---
@@ -221,22 +228,29 @@ function loadScript(scriptText: string | null = null) {
     if (!scriptText) saveToHistory(text);
 
     // Detect language and update Speech Recognition
-    const detectedLang = detectLanguage(text);
+    // If auto-detect was NOT explicitly requested (i.e. just loading script),
+    // use the manually selected language from dropdown.
+    // If user clicked "Auto-detect", that button's handler will update the dropdown,
+    // and then call loadScript, so we just trust the dropdown.
+    const selectedLang = els.languageSelect.value;
+    state.selectedLanguage = selectedLang;
     if (state.recognition) {
-        state.recognition.lang = detectedLang;
+        state.recognition.lang = selectedLang;
     }
-
-    // Update language indicator UI
-    els.detectedLanguage.textContent = getLanguageName(detectedLang);
-    els.languageIndicator.classList.remove('hidden');
-
-    console.log(`Detected language: ${getLanguageName(detectedLang)} (${detectedLang})`);
+    console.log(`Using language: ${selectedLang}`);
 
     // Instant Update Logic:
     // Always substitute newlines with a special token to generate the 🛑 elements,
     // but control their visibility with CSS.
     // ' ||LB|| ' acts as a unique placeholder for the split
-    text = text.replace(/\n+/g, ' ||LB|| ');
+
+    // If preserveFormatting is ON, we want to treat newlines as actual breaks.
+    // We'll use ||BR|| for this.
+    if (state.config.preserveFormatting) {
+        text = text.replace(/\n/g, ' ||BR|| ');
+    } else {
+        text = text.replace(/\n+/g, ' ||LB|| ');
+    }
 
     const rawWords = text.split(/\s+/);
 
@@ -250,6 +264,18 @@ function loadScript(scriptText: string | null = null) {
                 element: null,
                 skip: true,
                 isStop: true // Flag to mark as stop marker
+            };
+        }
+
+        // Check special break token
+        if (word === '||BR||') {
+            return {
+                word: '',
+                clean: '',
+                element: null,
+                skip: true,
+                isBreak: true, // Flag to mark as line break
+                isStop: false
             };
         }
 
@@ -287,6 +313,11 @@ function loadScript(scriptText: string | null = null) {
 
         if (obj.isStop) {
             classList += "stop-marker ";
+        } else if (obj.isBreak) {
+            classList += "line-break ";
+            span.style.display = 'block';
+            span.style.height = '1em'; // Add some height to the empty line
+            span.style.width = '100%';
         } else if (obj.skip) {
             classList += "skipped-word ";
         } else {
@@ -578,6 +609,47 @@ function setTextAlign(align: 'left' | 'center' | 'right') {
         }
     });
 }
+
+// --- Event Listeners for New Controls ---
+
+// Language Selector
+els.languageSelect.addEventListener('change', (e) => {
+    const lang = (e.target as HTMLSelectElement).value;
+    state.selectedLanguage = lang;
+    if (state.recognition) {
+        state.recognition.lang = lang;
+    }
+    console.log(`Language changed to: ${lang}`);
+});
+
+// Auto-Detect Button
+els.autoDetectBtn.addEventListener('click', () => {
+    const text = els.inputScript.value.trim();
+    if (!text) return alert("Please enter some text to detect language.");
+
+    const detectedLang = detectLanguage(text);
+    state.selectedLanguage = detectedLang;
+    els.languageSelect.value = detectedLang;
+
+    if (state.recognition) {
+        state.recognition.lang = detectedLang;
+    }
+
+    // Visual feedback
+    const originalText = els.autoDetectBtn.textContent;
+    els.autoDetectBtn.textContent = `Detected: ${getLanguageName(detectedLang)}`;
+    els.autoDetectBtn.classList.add('bg-green-600', 'text-white');
+
+    setTimeout(() => {
+        els.autoDetectBtn.textContent = originalText;
+        els.autoDetectBtn.classList.remove('bg-green-600', 'text-white');
+    }, 2000);
+});
+
+// Preserve Formatting Toggle
+els.preserveFormattingToggle.addEventListener('change', (e) => {
+    state.config.preserveFormatting = (e.target as HTMLInputElement).checked;
+});
 
 function applyColors() {
     els.appBody.style.backgroundColor = state.config.bgColor;

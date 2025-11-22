@@ -7,8 +7,8 @@
     <title>Voice Teleprompter</title>
     <meta name="description" content="A voice-activated teleprompter app">
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <script type="module" crossorigin src="/Teleprompter/assets/index-CBOZUri8.js"></script>
-  <link rel="stylesheet" crossorigin href="/Teleprompter/assets/index-Cw09pGwE.css">
+  <script type="module" crossorigin src="/Teleprompter/assets/index-DUOQcR_f.js"></script>
+  <link rel="stylesheet" crossorigin href="/Teleprompter/assets/index-U51KZZB1.css">
 <link rel="manifest" href="/Teleprompter/manifest.webmanifest"></head>
 
 <body id="appBody"
@@ -81,10 +81,37 @@
                 </button>
             </div>
 
-            <!-- Language Indicator -->
-            <div id="languageIndicator" class="hidden mt-3 text-center">
-                <span class="text-xs text-neutral-500">🌐 Language: <span id="detectedLanguage"
-                        class="text-blue-400">English (US)</span></span>
+            <!-- Language Selector -->
+            <div class="mt-4 flex items-center justify-center gap-2">
+                <label class="text-sm text-neutral-400">🌐 Language:</label>
+                <select id="languageSelect"
+                    class="bg-neutral-800 border border-neutral-700 rounded px-3 py-1 text-sm text-neutral-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
+                    <option value="en-US">English (US)</option>
+                    <option value="es-ES">Spanish</option>
+                    <option value="fr-FR">French</option>
+                    <option value="de-DE">German</option>
+                    <option value="it-IT">Italian</option>
+                    <option value="pt-PT">Portuguese</option>
+                    <option value="ru-RU">Russian</option>
+                    <option value="ja-JP">Japanese</option>
+                    <option value="zh-CN">Chinese</option>
+                    <option value="ko-KR">Korean</option>
+                    <option value="ar-SA">Arabic</option>
+                    <option value="nl-NL">Dutch</option>
+                    <option value="pl-PL">Polish</option>
+                    <option value="uk-UA">Ukrainian</option>
+                    <option value="hi-IN">Hindi</option>
+                    <option value="tr-TR">Turkish</option>
+                    <option value="sv-SE">Swedish</option>
+                    <option value="da-DK">Danish</option>
+                    <option value="fi-FI">Finnish</option>
+                    <option value="no-NO">Norwegian</option>
+                </select>
+                <button id="autoDetectBtn"
+                    class="bg-neutral-700 hover:bg-neutral-600 border border-neutral-600 text-neutral-300 px-3 py-1 rounded text-sm transition-all"
+                    title="Auto-detect language from script">
+                    Auto-detect
+                </button>
             </div>
 
             <!-- History Section -->
@@ -265,6 +292,16 @@
                     <span class="text-sm text-neutral-300">Show Stop Signs</span>
                     <label class="relative inline-flex items-center cursor-pointer">
                         <input id="stopSignToggle" type="checkbox" class="sr-only peer">
+                        <div
+                            class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600">
+                        </div>
+                    </label>
+                </div>
+
+                <div class="flex items-center justify-between">
+                    <span class="text-sm text-neutral-300">Preserve Formatting</span>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input id="preserveFormattingToggle" type="checkbox" class="sr-only peer">
                         <div
                             class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600">
                         </div>
