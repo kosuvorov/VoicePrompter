@@ -7,8 +7,8 @@
     <title>Voice Teleprompter</title>
     <meta name="description" content="A voice-activated teleprompter app">
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <script type="module" crossorigin src="/Teleprompter/assets/index-CQ51gwdU.js"></script>
-  <link rel="stylesheet" crossorigin href="/Teleprompter/assets/index-CPZABf8F.css">
+  <script type="module" crossorigin src="/Teleprompter/assets/index-ChKJDW1y.js"></script>
+  <link rel="stylesheet" crossorigin href="/Teleprompter/assets/index-CyCMCarY.css">
 <link rel="manifest" href="/Teleprompter/manifest.webmanifest"></head>
 
 <body id="appBody"
@@ -196,8 +196,19 @@
 
         <!-- Settings Panel -->
         <div id="settingsPanel"
-            class="hidden absolute top-4 right-4 z-30 w-80 max-h-[80vh] overflow-y-auto bg-neutral-900/95 backdrop-blur border border-neutral-800 rounded-xl shadow-2xl p-4 transition-all duration-200 origin-top-right">
-            <h3 class="text-sm font-bold text-neutral-400 uppercase tracking-wider mb-4">Display Settings</h3>
+            class="hidden absolute top-4 right-4 z-30 w-80 max-h-[85vh] overflow-y-auto bg-neutral-900/95 backdrop-blur border border-neutral-800 rounded-xl shadow-2xl p-4 transition-all duration-200 origin-top-right no-scrollbar">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-sm font-bold text-neutral-400 uppercase tracking-wider">Display Settings</h3>
+                <button id="closeSettingsBtn"
+                    class="text-neutral-400 hover:text-white transition-colors p-1 rounded hover:bg-neutral-800"
+                    title="Close Settings">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
 
             <!-- Font Size -->
             <div class="mb-4">
@@ -324,7 +335,7 @@
                 <div class="flex items-center justify-between">
                     <div class="flex flex-col">
                         <span class="text-sm text-neutral-300">Rotate Screen</span>
-                        <span class="text-xs text-neutral-500">90° counterclockwise for iOS</span>
+                        <span class="text-xs text-neutral-500">90° clockwise for iOS</span>
                     </div>
                     <label class="relative inline-flex items-center cursor-pointer">
                         <input id="screenRotationToggle" type="checkbox" class="sr-only peer">
