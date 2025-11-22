@@ -342,5 +342,33 @@ els.clearHistoryBtn.addEventListener('click', clearHistory);
 renderHistoryList(getHistory(), loadScript);
 
 // Initialize UI with defaults
+els.fontSizeVal.textContent = `${state.config.fontSize}px`;
+els.fontSizeInput.value = state.config.fontSize.toString();
+els.scriptContent.style.fontSize = `${state.config.fontSize}px`;
+
+els.lineHeightVal.textContent = `${state.config.lineHeight}x`;
+els.lineHeightInput.value = state.config.lineHeight.toString();
+els.scriptContent.style.lineHeight = `${state.config.lineHeight}`;
+
+els.paragraphSpacingVal.textContent = `${state.config.paragraphSpacing}em`;
+els.paragraphSpacingInput.value = state.config.paragraphSpacing.toString();
+
 els.marginVal.textContent = `${state.config.margin}px`;
 els.marginInput.value = state.config.margin.toString();
+els.scriptContent.style.paddingLeft = `${state.config.margin}px`;
+els.scriptContent.style.paddingRight = `${state.config.margin}px`;
+
+els.scriptContent.style.textAlign = state.config.textAlign;
+// Update alignment buttons
+(['left', 'center', 'right'] as const).forEach(a => {
+    const btn = els.alignBtns[a];
+    if (a === state.config.textAlign) {
+        btn.classList.remove('hover:bg-neutral-600');
+        btn.classList.add('bg-neutral-500', 'text-white');
+    } else {
+        btn.classList.add('hover:bg-neutral-600');
+        btn.classList.remove('bg-neutral-500', 'text-white');
+    }
+});
+
+applySettings();

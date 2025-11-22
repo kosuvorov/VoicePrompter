@@ -8,15 +8,15 @@ export const state: AppState = {
     isMirrored: false,
     selectedLanguage: 'en-US', // User's selected language
     config: {
-        fontSize: 20,
-        lineHeight: 1.5,
-        margin: window.innerWidth < 768 ? 8 : 32, // 8px mobile, 32px desktop
+        fontSize: 40,
+        lineHeight: 1.0,
+        margin: 0,
         textColor: '#ffffff',
         bgColor: '#000000',
-        textAlign: 'center',
+        textAlign: 'left',
         showStopIcon: false,
         preserveFormatting: false,
         voiceCommandsEnabled: true,
-        paragraphSpacing: 1.0
+        paragraphSpacing: 0.5
     }
 };
