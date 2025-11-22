@@ -16,6 +16,7 @@ interface ScriptWord {
 interface AppConfig {
     fontSize: number;
     lineHeight: number;
+    margin: number;
     textColor: string;
     bgColor: string;
     textAlign: 'left' | 'center' | 'right';
@@ -48,6 +49,7 @@ const state: AppState = {
     config: {
         fontSize: 20,
         lineHeight: 1.5,
+        margin: window.innerWidth < 768 ? 8 : 32, // 8px mobile, 32px desktop
         textColor: '#ffffff',
         bgColor: '#000000',
         textAlign: 'center',
@@ -68,6 +70,8 @@ const els = {
     fontSizeVal: document.getElementById('fontSizeVal')!,
     lineHeightInput: document.getElementById('lineHeightInput') as HTMLInputElement,
     lineHeightVal: document.getElementById('lineHeightVal')!,
+    marginInput: document.getElementById('marginInput') as HTMLInputElement,
+    marginVal: document.getElementById('marginVal')!,
     textColorInput: document.getElementById('textColorInput') as HTMLInputElement,
     bgColorInput: document.getElementById('bgColorInput') as HTMLInputElement,
     appBody: document.getElementById('appBody')!,
@@ -113,6 +117,12 @@ if (!SpeechRecognition) {
 
 renderHistory();
 setupEventListeners();
+
+// Initialize margin UI
+els.marginInput.value = String(state.config.margin);
+els.marginVal.textContent = `${state.config.margin}px`;
+els.scriptContent.style.paddingLeft = `${state.config.margin}px`;
+els.scriptContent.style.paddingRight = `${state.config.margin}px`;
 
 // --- Core Functions ---
 
@@ -564,6 +574,14 @@ function setupEventListeners() {
         state.config.lineHeight = parseFloat(height);
         els.lineHeightVal.textContent = `${height}x`;
         els.scriptContent.style.lineHeight = height;
+    });
+
+    els.marginInput.addEventListener('input', (e) => {
+        const margin = (e.target as HTMLInputElement).value;
+        state.config.margin = parseInt(margin);
+        els.marginVal.textContent = `${margin}px`;
+        els.scriptContent.style.paddingLeft = `${margin}px`;
+        els.scriptContent.style.paddingRight = `${margin}px`;
     });
 
     els.textColorInput.addEventListener('input', (e) => {
