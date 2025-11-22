@@ -48,6 +48,57 @@ html {
 }
 
 /* Opacity Classes */
+
+/* Custom Range Slider Styling for Mobile */
+input[type=range] {
+    -webkit-appearance: none;
+    /* Hides the slider so that custom slider can be made */
+    width: 100%;
+    /* Specific width is required for Firefox. */
+    background: transparent;
+    /* Otherwise white in Chrome */
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background: #3b82f6;
+    /* blue-500 */
+    cursor: pointer;
+    margin-top: -8px;
+    /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+input[type=range]::-moz-range-thumb {
+    height: 24px;
+    width: 24px;
+    border: none;
+    border-radius: 50%;
+    background: #3b82f6;
+    cursor: pointer;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: #374151;
+    /* neutral-700 */
+    border-radius: 4px;
+}
+
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: #374151;
+    border-radius: 4px;
+}
+
 .text-future {
     @apply opacity-80;
 }

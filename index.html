@@ -213,7 +213,7 @@
                     <span class="text-neutral-300">Line Spacing</span>
                     <span id="lineHeightVal" class="text-blue-400 font-mono">1.5x</span>
                 </div>
-                <input id="lineHeightInput" type="range" min="1" max="3" step="0.1" value="1.5"
+                <input id="lineHeightInput" type="range" min="0.5" max="3" step="0.1" value="1.5"
                     class="w-full h-2 bg-neutral-700 rounded-lg appearance-none cursor-pointer">
             </div>
 
@@ -233,16 +233,16 @@
                     <label class="block text-xs text-neutral-400 mb-1">Text Color</label>
                     <div class="flex items-center bg-neutral-800 rounded p-1 border border-neutral-700">
                         <input id="textColorInput" type="color" value="#ffffff"
-                            class="w-6 h-6 rounded cursor-pointer bg-transparent border-none p-0">
-                        <span class="text-xs ml-2 font-mono text-neutral-400">Pick</span>
+                            class="w-8 h-8 rounded cursor-pointer bg-transparent border-none p-0 mr-2">
+                        <span class="text-xs text-neutral-300 font-mono">#ffffff</span>
                     </div>
                 </div>
                 <div>
                     <label class="block text-xs text-neutral-400 mb-1">Background</label>
                     <div class="flex items-center bg-neutral-800 rounded p-1 border border-neutral-700">
                         <input id="bgColorInput" type="color" value="#000000"
-                            class="w-6 h-6 rounded cursor-pointer bg-transparent border-none p-0">
-                        <span class="text-xs ml-2 font-mono text-neutral-400">Pick</span>
+                            class="w-8 h-8 rounded cursor-pointer bg-transparent border-none p-0 mr-2">
+                        <span class="text-xs text-neutral-300 font-mono">#000000</span>
                     </div>
                 </div>
             </div>
@@ -296,6 +296,18 @@
                     </label>
                 </div>
 
+                <div class="flex items-center justify-between">
+                    <div class="flex flex-col">
+                        <span class="text-sm text-neutral-300">Voice Commands</span>
+                        <span class="text-xs text-neutral-500">Say "prompter restart" to reset</span>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input id="voiceCommandToggle" type="checkbox" checked class="sr-only peer">
+                        <div
+                            class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600">
+                        </div>
+                    </label>
+                </div>
                 <div class="flex items-center justify-between">
                     <span class="text-sm text-neutral-300">Preserve Formatting</span>
                     <label class="relative inline-flex items-center cursor-pointer">

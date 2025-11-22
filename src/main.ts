@@ -108,6 +108,7 @@ interface AppConfig {
     textAlign: 'left' | 'center' | 'right';
     showStopIcon: boolean;
     preserveFormatting: boolean;
+    voiceCommandsEnabled: boolean;
 }
 
 interface AppState {
@@ -143,7 +144,8 @@ const state: AppState = {
         bgColor: '#000000',
         textAlign: 'center',
         showStopIcon: false,
-        preserveFormatting: false
+        preserveFormatting: false,
+        voiceCommandsEnabled: true
     }
 };
 
@@ -195,7 +197,8 @@ const els = {
     languageSelect: document.getElementById('languageSelect') as HTMLSelectElement,
     autoDetectBtn: document.getElementById('autoDetectBtn')!,
     // Toggles
-    preserveFormattingToggle: document.getElementById('preserveFormattingToggle') as HTMLInputElement
+    preserveFormattingToggle: document.getElementById('preserveFormattingToggle') as HTMLInputElement,
+    voiceCommandToggle: document.getElementById('voiceCommandToggle') as HTMLInputElement
 };
 
 // --- Initialization ---
@@ -441,7 +444,7 @@ if (state.recognition) {
         const spokenWords = transcript.trim().toLowerCase().split(/\s+/);
 
         const recentString = spokenWords.slice(-5).join(' ');
-        if (recentString.includes('prompter restart')) {
+        if (state.config.voiceCommandsEnabled && recentString.includes('prompter restart')) {
             restartScript();
             return;
         }
@@ -649,6 +652,32 @@ els.autoDetectBtn.addEventListener('click', () => {
 // Preserve Formatting Toggle
 els.preserveFormattingToggle.addEventListener('change', (e) => {
     state.config.preserveFormatting = (e.target as HTMLInputElement).checked;
+
+    // Instant update if we have text
+    const text = els.inputScript.value.trim();
+    if (text) {
+        // Reload script with new formatting setting
+        // We pass the text explicitly to avoid saving to history again if not needed,
+        // but loadScript handles history saving only if scriptText is null.
+        // Here we want to re-process the current text.
+
+        // Save current index to try and restore position
+        const currentIndex = state.currentIndex;
+
+        loadScript(text);
+
+        // Restore position (approximate)
+        if (currentIndex < state.scriptWords.length) {
+            state.currentIndex = currentIndex;
+            updateHighlight();
+            scrollToCurrent();
+        }
+    }
+});
+
+// Voice Command Toggle
+els.voiceCommandToggle.addEventListener('change', (e) => {
+    state.config.voiceCommandsEnabled = (e.target as HTMLInputElement).checked;
 });
 
 function applyColors() {
