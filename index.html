@@ -7,8 +7,8 @@
     <title>Voice Teleprompter</title>
     <meta name="description" content="A voice-activated teleprompter app">
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <script type="module" crossorigin src="/Teleprompter/assets/index-Dc5NA2QX.js"></script>
-  <link rel="stylesheet" crossorigin href="/Teleprompter/assets/index-C515DwM3.css">
+  <script type="module" crossorigin src="/Teleprompter/assets/index-Dj_L_dGA.js"></script>
+  <link rel="stylesheet" crossorigin href="/Teleprompter/assets/index-z5Ujx-bi.css">
 <link rel="manifest" href="/Teleprompter/manifest.webmanifest"></head>
 
 <body id="appBody"
@@ -291,11 +291,12 @@
             <div class="space-y-3">
                 <div class="flex items-center justify-between">
                     <span class="text-sm text-neutral-300">Mirror Mode</span>
-                    <button id="mirrorBtn"
-                        class="w-12 h-6 rounded-full bg-neutral-600 relative transition-colors focus:outline-none">
-                        <div id="mirrorToggleKnob"
-                            class="w-4 h-4 bg-white rounded-full absolute top-1 left-1 transition-transform"></div>
-                    </button>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input id="mirrorToggle" type="checkbox" class="sr-only peer">
+                        <div
+                            class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600">
+                        </div>
+                    </label>
                 </div>
 
                 <div class="flex items-center justify-between">
