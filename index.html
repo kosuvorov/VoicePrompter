@@ -7,8 +7,8 @@
     <title>Voice Teleprompter</title>
     <meta name="description" content="A voice-activated teleprompter app">
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <script type="module" crossorigin src="/Teleprompter/assets/index-Btog0IPn.js"></script>
-  <link rel="stylesheet" crossorigin href="/Teleprompter/assets/index-COhezJuw.css">
+  <script type="module" crossorigin src="/Teleprompter/assets/index-BXSFBPMw.js"></script>
+  <link rel="stylesheet" crossorigin href="/Teleprompter/assets/index-DMIYE0-p.css">
 <link rel="manifest" href="/Teleprompter/manifest.webmanifest"></head>
 
 <body id="appBody"
@@ -144,15 +144,14 @@
         </div>
 
         <!-- Controls Overlay -->
-        <div
-            class="absolute bottom-8 landscape:bottom-2 left-0 right-0 flex justify-center items-center gap-6 landscape:gap-3 z-20 pointer-events-none">
+        <div class="absolute bottom-8 left-0 right-0 flex justify-center items-center gap-6 z-20 pointer-events-none">
 
             <!-- Reset App -->
             <button id="resetAppBtn"
-                class="pointer-events-auto p-3 landscape:p-2 rounded-full bg-neutral-800/80 backdrop-blur text-neutral-400 hover:text-white hover:bg-neutral-700 transition-all"
+                class="pointer-events-auto p-3 rounded-full bg-neutral-800/80 backdrop-blur text-neutral-400 hover:text-white hover:bg-neutral-700 transition-all"
                 title="Back to Editor">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 landscape:h-5 landscape:w-5" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M11 17l-5-5m0 0l5-5m-5 5h12" />
                 </svg>
@@ -160,24 +159,24 @@
 
             <!-- Mic Button -->
             <button id="micButton"
-                class="pointer-events-auto h-16 w-16 landscape:h-12 landscape:w-12 rounded-full bg-neutral-800 border-2 border-neutral-600 flex items-center justify-center transition-all shadow-xl hover:scale-105 active:scale-95 group">
+                class="pointer-events-auto h-16 w-16 rounded-full bg-neutral-800 border-2 border-neutral-600 flex items-center justify-center transition-all shadow-xl hover:scale-105 active:scale-95 group">
                 <svg id="micIcon" xmlns="http://www.w3.org/2000/svg"
-                    class="h-8 w-8 landscape:h-6 landscape:w-6 text-white group-hover:text-blue-400 transition-colors"
-                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    class="h-8 w-8 text-white group-hover:text-blue-400 transition-colors" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
                 </svg>
                 <div id="statusIndicator"
-                    class="hidden absolute -top-1 -right-1 h-4 w-4 landscape:h-3 landscape:w-3 bg-green-500 rounded-full border-2 border-black">
+                    class="hidden absolute -top-1 -right-1 h-4 w-4 bg-green-500 rounded-full border-2 border-black">
                 </div>
             </button>
 
             <!-- Restart Script -->
             <button id="restartScriptBtn"
-                class="pointer-events-auto p-3 landscape:p-2 rounded-full bg-neutral-800/80 backdrop-blur text-neutral-400 hover:text-white hover:bg-neutral-700 transition-all"
+                class="pointer-events-auto p-3 rounded-full bg-neutral-800/80 backdrop-blur text-neutral-400 hover:text-white hover:bg-neutral-700 transition-all"
                 title="Restart Script">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 landscape:h-5 landscape:w-5" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                 </svg>
@@ -185,10 +184,10 @@
 
             <!-- Settings Toggle -->
             <button id="toggleSettingsBtn"
-                class="pointer-events-auto p-3 landscape:p-2 rounded-full bg-neutral-800/80 backdrop-blur text-neutral-400 hover:text-white hover:bg-neutral-700 transition-all"
+                class="pointer-events-auto p-3 rounded-full bg-neutral-800/80 backdrop-blur text-neutral-400 hover:text-white hover:bg-neutral-700 transition-all"
                 title="Settings">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 landscape:h-5 landscape:w-5" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
