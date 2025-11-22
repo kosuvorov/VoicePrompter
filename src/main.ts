@@ -432,7 +432,8 @@ function matchWords(spokenWords: string[]) {
     const LOOKAHEAD = 5;
 
     for (let spokenWord of spokenWords) {
-        const cleanSpoken = spokenWord.replace(/[^\w]|_/g, "");
+        // Clean spoken word: preserve letters from ALL languages (Cyrillic, Arabic, CJK, etc.)
+        const cleanSpoken = spokenWord.replace(/[^\p{L}\p{N}]/gu, "");
         if (!cleanSpoken) continue;
 
         let scriptPtr = state.currentIndex;
