@@ -1,11 +1,12 @@
 import { AppState } from './types';
 
 export const state: AppState = {
-    isListening: false,
     scriptWords: [],
     currentIndex: 0,
     recognition: null,
+    isListening: false,
     isMirrored: false,
+    isScreenRotated: false,
     selectedLanguage: 'en-US', // User's selected language
     config: {
         fontSize: 40,

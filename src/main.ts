@@ -330,6 +330,17 @@ els.voiceCommandToggle.addEventListener('change', (e) => {
     state.config.voiceCommandsEnabled = (e.target as HTMLInputElement).checked;
 });
 
+// Screen Rotation Toggle
+els.screenRotationToggle.addEventListener('change', (e) => {
+    state.isScreenRotated = (e.target as HTMLInputElement).checked;
+
+    if (state.isScreenRotated) {
+        document.body.classList.add('screen-rotated');
+    } else {
+        document.body.classList.remove('screen-rotated');
+    }
+});
+
 // Clear History Button
 els.clearHistoryBtn.addEventListener('click', clearHistory);
 

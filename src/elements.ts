@@ -48,6 +48,7 @@ export interface Elements {
     // Toggles
     preserveFormattingToggle: HTMLInputElement;
     voiceCommandToggle: HTMLInputElement;
+    screenRotationToggle: HTMLInputElement;
 }
 
 export let els: Elements;
@@ -102,6 +103,7 @@ export function initElements(): void {
         autoDetectBtn: document.getElementById('autoDetectBtn')!,
         // Toggles
         preserveFormattingToggle: document.getElementById('preserveFormattingToggle') as HTMLInputElement,
-        voiceCommandToggle: document.getElementById('voiceCommandToggle') as HTMLInputElement
+        voiceCommandToggle: document.getElementById('voiceCommandToggle') as HTMLInputElement,
+        screenRotationToggle: document.getElementById('screenRotationToggle') as HTMLInputElement
     };
 }

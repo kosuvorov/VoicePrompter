@@ -26,6 +26,7 @@ export interface AppState {
     currentIndex: number;
     recognition: any; // Using any for SpeechRecognition as it's experimental
     isMirrored: boolean;
+    isScreenRotated: boolean;
     selectedLanguage: string;
     config: AppConfig;
 }
