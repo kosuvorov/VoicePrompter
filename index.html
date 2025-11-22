@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Teleprompter</title>
+    <meta name="description" content="A voice-activated teleprompter app">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+</head>
+<body id="appBody" class="bg-black text-white h-screen w-screen overflow-hidden font-sans selection:bg-blue-500 selection:text-white">
+
+    <!-- Browser Warning -->
+    <div id="browserWarning" class="hidden fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center p-4">
+        <div class="bg-neutral-900 border border-red-500 rounded-lg p-6 max-w-md text-center">
+            <h2 class="text-xl font-bold text-red-500 mb-2">Browser Not Supported</h2>
+            <p class="text-neutral-300">Your browser does not support Speech Recognition. Please use Google Chrome or Safari.</p>
+        </div>
+    </div>
+
+    <!-- Setup Screen -->
+    <div id="setupScreen" class="flex flex-col h-full max-w-4xl mx-auto p-4 md:p-8">
+        <header class="mb-8 text-center">
+            <h1 class="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500 mb-2">Voice Teleprompter</h1>
+            <p class="text-neutral-400">Paste your script and let your voice control the scroll.</p>
+        </header>
+
+        <main class="flex-1 flex flex-col gap-6 min-h-0">
+            <div class="flex-1 flex flex-col min-h-0">
+                <textarea id="inputScript" 
+                    class="flex-1 w-full bg-neutral-900 border border-neutral-800 rounded-lg p-4 text-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none resize-none transition-all placeholder-neutral-600"
+                    placeholder="Paste your script here..."></textarea>
+            </div>
+
+            <div class="flex justify-center">
+                <button id="loadScriptBtn" class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-full font-bold text-lg shadow-lg shadow-blue-900/20 transition-all transform hover:scale-105 active:scale-95">
+                    Start Teleprompter
+                </button>
+            </div>
+
+            <!-- History Section -->
+            <div id="historySection" class="mt-4 border-t border-neutral-800 pt-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-neutral-400 font-medium uppercase tracking-wider text-sm">Recent Scripts</h3>
+                    <button id="clearHistoryBtn" class="text-xs text-red-400 hover:text-red-300 transition-colors hidden">Clear History</button>
+                </div>
+                <div id="historyList" class="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-48 overflow-y-auto no-scrollbar">
+                    <!-- History items will be injected here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Prompter Container -->
+    <div id="prompterContainer" class="hidden relative h-full w-full">
+        
+        <!-- Scroll Container -->
+        <div id="scrollContainer" class="h-full w-full overflow-y-auto no-scrollbar relative scroll-smooth">
+            <div id="topSpacer" class="h-[45vh]"></div>
+            <div id="scriptContent" class="max-w-5xl mx-auto px-8 pb-[50vh] text-center outline-none" style="font-size: 40px; line-height: 1.5;">
+                <!-- Script content injected here -->
+            </div>
+        </div>
+
+        <!-- Controls Overlay -->
+        <div class="absolute bottom-8 left-0 right-0 flex justify-center items-center gap-6 z-20 pointer-events-none">
+            
+            <!-- Reset App -->
+            <button id="resetAppBtn" class="pointer-events-auto p-3 rounded-full bg-neutral-800/80 backdrop-blur text-neutral-400 hover:text-white hover:bg-neutral-700 transition-all" title="Back to Editor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
+                </svg>
+            </button>
+
+            <!-- Mic Button -->
+            <button id="micButton" class="pointer-events-auto h-16 w-16 rounded-full bg-neutral-800 border-2 border-neutral-600 flex items-center justify-center transition-all shadow-xl hover:scale-105 active:scale-95 group">
+                <svg id="micIcon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white group-hover:text-blue-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                </svg>
+                <div id="statusIndicator" class="hidden absolute -top-1 -right-1 h-4 w-4 bg-green-500 rounded-full border-2 border-black"></div>
+            </button>
+
+            <!-- Restart Script -->
+            <button id="restartScriptBtn" class="pointer-events-auto p-3 rounded-full bg-neutral-800/80 backdrop-blur text-neutral-400 hover:text-white hover:bg-neutral-700 transition-all" title="Restart Script">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+            </button>
+
+            <!-- Settings Toggle -->
+            <button id="toggleSettingsBtn" class="pointer-events-auto p-3 rounded-full bg-neutral-800/80 backdrop-blur text-neutral-400 hover:text-white hover:bg-neutral-700 transition-all" title="Settings">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Settings Panel -->
+        <div id="settingsPanel" class="hidden absolute top-4 right-4 z-30 w-80 bg-neutral-900/95 backdrop-blur border border-neutral-800 rounded-xl shadow-2xl p-4 transition-all duration-200 origin-top-right">
+            <h3 class="text-sm font-bold text-neutral-400 uppercase tracking-wider mb-4">Display Settings</h3>
+            
+            <!-- Font Size -->
+            <div class="mb-4">
+                <div class="flex justify-between text-sm mb-1">
+                    <span class="text-neutral-300">Font Size</span>
+                    <span id="fontSizeVal" class="text-blue-400 font-mono">40px</span>
+                </div>
+                <input id="fontSizeInput" type="range" min="20" max="100" value="40" class="w-full h-2 bg-neutral-700 rounded-lg appearance-none cursor-pointer">
+            </div>
+
+            <!-- Line Height -->
+            <div class="mb-4">
+                <div class="flex justify-between text-sm mb-1">
+                    <span class="text-neutral-300">Line Spacing</span>
+                    <span id="lineHeightVal" class="text-blue-400 font-mono">1.5x</span>
+                </div>
+                <input id="lineHeightInput" type="range" min="1" max="3" step="0.1" value="1.5" class="w-full h-2 bg-neutral-700 rounded-lg appearance-none cursor-pointer">
+            </div>
+
+            <!-- Colors -->
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label class="block text-xs text-neutral-400 mb-1">Text Color</label>
+                    <div class="flex items-center bg-neutral-800 rounded p-1 border border-neutral-700">
+                        <input id="textColorInput" type="color" value="#ffffff" class="w-6 h-6 rounded cursor-pointer bg-transparent border-none p-0">
+                        <span class="text-xs ml-2 font-mono text-neutral-400">Pick</span>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs text-neutral-400 mb-1">Background</label>
+                    <div class="flex items-center bg-neutral-800 rounded p-1 border border-neutral-700">
+                        <input id="bgColorInput" type="color" value="#000000" class="w-6 h-6 rounded cursor-pointer bg-transparent border-none p-0">
+                        <span class="text-xs ml-2 font-mono text-neutral-400">Pick</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alignment -->
+            <div class="mb-4">
+                <label class="block text-xs text-neutral-400 mb-2">Alignment</label>
+                <div class="flex bg-neutral-800 rounded-lg p-1 border border-neutral-700">
+                    <button id="alignLeftBtn" class="flex-1 py-1 rounded hover:bg-neutral-700 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h10M4 18h16" /></svg>
+                    </button>
+                    <button id="alignCenterBtn" class="flex-1 py-1 rounded bg-neutral-600 text-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                    </button>
+                    <button id="alignRightBtn" class="flex-1 py-1 rounded hover:bg-neutral-700 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M10 12h10M4 18h16" /></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Toggles -->
+            <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                    <span class="text-sm text-neutral-300">Mirror Mode</span>
+                    <button id="mirrorBtn" class="w-12 h-6 rounded-full bg-neutral-600 relative transition-colors focus:outline-none">
+                        <div id="mirrorToggleKnob" class="w-4 h-4 bg-white rounded-full absolute top-1 left-1 transition-transform"></div>
+                    </button>
+                </div>
+                
+                <div class="flex items-center justify-between">
+                    <span class="text-sm text-neutral-300">Show Stop Signs</span>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input id="stopSignToggle" type="checkbox" class="sr-only peer">
+                        <div class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Theme Presets -->
+            <div class="mt-6 pt-4 border-t border-neutral-800">
+                <div class="grid grid-cols-2 gap-2">
+                    <button id="themeDarkBtn" class="px-3 py-2 bg-neutral-800 hover:bg-neutral-700 rounded text-xs text-neutral-300 border border-neutral-700">Dark Theme</button>
+                    <button id="themeLightBtn" class="px-3 py-2 bg-white hover:bg-gray-100 rounded text-xs text-black border border-gray-200">Light Theme</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
