@@ -87,12 +87,40 @@ export function scrollToCurrent(): void {
             // Position at 1/3 from top
             const targetPosition = currentWordObj.element.offsetTop - (containerHeight / 3);
 
-            els.scrollContainer.scrollTo({
-                top: targetPosition,
-                behavior: state.config.smoothAnimations ? 'smooth' : 'auto'
-            });
+            if (state.config.smoothAnimations) {
+                smoothScrollTo(els.scrollContainer, targetPosition, 600);
+            } else {
+                els.scrollContainer.scrollTo({
+                    top: targetPosition,
+                    behavior: 'auto'
+                });
+            }
         }
     }
+}
+
+function smoothScrollTo(element: HTMLElement, target: number, duration: number): void {
+    const start = element.scrollTop;
+    const change = target - start;
+    const startTime = performance.now();
+
+    function animateScroll(currentTime: number) {
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+
+        // EaseInOutQuad
+        const ease = progress < 0.5
+            ? 2 * progress * progress
+            : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+        element.scrollTop = start + change * ease;
+
+        if (timeElapsed < duration) {
+            requestAnimationFrame(animateScroll);
+        }
+    }
+
+    requestAnimationFrame(animateScroll);
 }
 
 export function advancePastSkipped(): void {
