@@ -19,6 +19,7 @@ export interface AppConfig {
     voiceCommandsEnabled: boolean;
     paragraphSpacing: number;
     smoothAnimations: boolean;
+    activeLinePosition: number; // 0 to 100 (percentage from top)
 }
 
 export interface AppState {

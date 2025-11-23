@@ -209,7 +209,20 @@ els.marginInput.addEventListener('input', (e) => {
     state.config.margin = val;
     els.marginVal.textContent = `${val}px`;
     els.scriptContent.style.paddingLeft = `${val}px`;
-    els.scriptContent.style.paddingRight = `${val}px`;
+    els.scriptContent.style.paddingRight = `${state.config.margin}px`;
+});
+
+// Active Line Position Slider
+els.activeLinePositionInput.addEventListener('input', (e) => {
+    const val = parseInt((e.target as HTMLInputElement).value);
+    state.config.activeLinePosition = val;
+    els.activeLinePositionVal.textContent = `${val}%`;
+
+    // Update spacer to allow scrolling to the bottom-most position
+    // If position is 90% (bottom), we need less spacer at top but more at bottom?
+    // Actually, scrollToCurrent handles the positioning logic.
+    // We just need to trigger a scroll update.
+    scrollToCurrent();
 });
 
 // Text Color Picker
@@ -383,6 +396,9 @@ els.marginVal.textContent = `${state.config.margin}px`;
 els.marginInput.value = state.config.margin.toString();
 els.scriptContent.style.paddingLeft = `${state.config.margin}px`;
 els.scriptContent.style.paddingRight = `${state.config.margin}px`;
+
+els.activeLinePositionVal.textContent = `${state.config.activeLinePosition}%`;
+els.activeLinePositionInput.value = state.config.activeLinePosition.toString();
 
 els.scriptContent.style.textAlign = state.config.textAlign;
 // Update alignment buttons

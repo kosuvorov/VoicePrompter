@@ -14,6 +14,8 @@ export interface Elements {
     paragraphSpacingVal: HTMLElement;
     marginInput: HTMLInputElement;
     marginVal: HTMLElement;
+    activeLinePositionInput: HTMLInputElement;
+    activeLinePositionVal: HTMLElement;
     textColorInput: HTMLInputElement;
     bgColorInput: HTMLInputElement;
     appBody: HTMLElement;
@@ -73,6 +75,8 @@ export function initElements(): void {
         paragraphSpacingVal: document.getElementById('paragraphSpacingVal')!,
         marginInput: document.getElementById('marginInput') as HTMLInputElement,
         marginVal: document.getElementById('marginVal')!,
+        activeLinePositionInput: document.getElementById('activeLinePositionInput') as HTMLInputElement,
+        activeLinePositionVal: document.getElementById('activeLinePositionVal')!,
         textColorInput: document.getElementById('textColorInput') as HTMLInputElement,
         bgColorInput: document.getElementById('bgColorInput') as HTMLInputElement,
         appBody: document.getElementById('appBody')!,

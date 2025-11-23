@@ -84,8 +84,9 @@ export function scrollToCurrent(): void {
         const currentWordObj = state.scriptWords[state.currentIndex];
         if (currentWordObj && currentWordObj.element) {
             const containerHeight = els.scrollContainer.clientHeight;
-            // Position at 1/3 from top
-            const targetPosition = currentWordObj.element.offsetTop - (containerHeight / 3);
+            // Position based on user setting (percentage from top)
+            const positionRatio = state.config.activeLinePosition / 100;
+            const targetPosition = currentWordObj.element.offsetTop - (containerHeight * positionRatio);
 
             if (state.config.smoothAnimations) {
                 smoothScrollTo(els.scrollContainer, targetPosition, 600);
