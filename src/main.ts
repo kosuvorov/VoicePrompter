@@ -346,6 +346,12 @@ els.screenRotationToggle.addEventListener('change', (e) => {
     }
 });
 
+// Smooth Animations Toggle
+els.smoothAnimationsToggle.addEventListener('change', (e) => {
+    state.config.smoothAnimations = (e.target as HTMLInputElement).checked;
+    applySettings();
+});
+
 // Clear History Button
 els.clearHistoryBtn.addEventListener('click', clearHistory);
 
@@ -381,5 +387,7 @@ els.scriptContent.style.textAlign = state.config.textAlign;
         btn.classList.remove('bg-neutral-500', 'text-white');
     }
 });
+
+els.smoothAnimationsToggle.checked = state.config.smoothAnimations;
 
 applySettings();

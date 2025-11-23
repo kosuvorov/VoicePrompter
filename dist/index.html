@@ -7,8 +7,8 @@
     <title>Voice Teleprompter</title>
     <meta name="description" content="A voice-activated teleprompter app">
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <script type="module" crossorigin src="/Teleprompter/assets/index-BXSFBPMw.js"></script>
-  <link rel="stylesheet" crossorigin href="/Teleprompter/assets/index-DMIYE0-p.css">
+  <script type="module" crossorigin src="/Teleprompter/assets/index-CoRtA626.js"></script>
+  <link rel="stylesheet" crossorigin href="/Teleprompter/assets/index-CW8zbn3N.css">
 <link rel="manifest" href="/Teleprompter/manifest.webmanifest"></head>
 
 <body id="appBody"
@@ -224,7 +224,7 @@
                                 d="M4 6h16M4 12h10M4 18h16" />
                         </svg>
                     </button>
-                    <button id="alignCenterBtn" class="flex-1 py-1 rounded bg-neutral-600 text-white transition-colors">
+                    <button id="alignCenterBtn" class="flex-1 py-1 rounded hover:bg-neutral-700 transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mx-auto" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -291,6 +291,18 @@
                     <span class="text-sm text-neutral-300">Preserve Formatting</span>
                     <label class="relative inline-flex items-center cursor-pointer">
                         <input id="preserveFormattingToggle" type="checkbox" class="sr-only peer">
+                        <div
+                            class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600">
+                        </div>
+                    </label>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="flex flex-col">
+                        <span class="text-sm text-neutral-300">Smooth Animations</span>
+                        <span class="text-xs text-neutral-500">Smoother scroll & highlighting</span>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input id="smoothAnimationsToggle" type="checkbox" class="sr-only peer">
                         <div
                             class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600">
                         </div>

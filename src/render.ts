@@ -89,7 +89,7 @@ export function scrollToCurrent(): void {
 
             els.scrollContainer.scrollTo({
                 top: targetPosition,
-                behavior: 'smooth'
+                behavior: state.config.smoothAnimations ? 'smooth' : 'auto'
             });
         }
     }
@@ -112,7 +112,14 @@ export function restartScript(): void {
 export function applySettings(): void {
     els.appBody.style.backgroundColor = state.config.bgColor;
     els.appBody.style.color = state.config.textColor;
+    els.appBody.style.setProperty('--base-color', state.config.textColor);
     els.scriptContent.style.setProperty('--paragraph-spacing', `${state.config.paragraphSpacing}em`);
+
+    if (state.config.smoothAnimations) {
+        els.scriptContent.classList.add('smooth-animations');
+    } else {
+        els.scriptContent.classList.remove('smooth-animations');
+    }
 }
 
 export function updateMicUI(isListening: boolean): void {

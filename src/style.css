@@ -179,3 +179,19 @@ input[type=range]::-moz-range-track {
         z-index: 9999 !important;
     }
 }
+/* Smooth Animations */
+.smooth-animations .current-word {
+    transition: none;
+    background-image: linear-gradient(to right, #f97316 50%, var(--base-color, #ffffff) 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: highlight-wipe 0.25s linear forwards;
+}
+
+@keyframes highlight-wipe {
+    0% { background-position: 100% 0; }
+    100% { background-position: 0 0; }
+}

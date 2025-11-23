@@ -18,6 +18,7 @@ export interface AppConfig {
     preserveFormatting: boolean;
     voiceCommandsEnabled: boolean;
     paragraphSpacing: number;
+    smoothAnimations: boolean;
 }
 
 export interface AppState {

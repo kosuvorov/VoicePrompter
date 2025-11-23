@@ -50,6 +50,7 @@ export interface Elements {
     preserveFormattingToggle: HTMLInputElement;
     voiceCommandToggle: HTMLInputElement;
     screenRotationToggle: HTMLInputElement;
+    smoothAnimationsToggle: HTMLInputElement;
 }
 
 export let els: Elements;
@@ -106,6 +107,7 @@ export function initElements(): void {
         // Toggles
         preserveFormattingToggle: document.getElementById('preserveFormattingToggle') as HTMLInputElement,
         voiceCommandToggle: document.getElementById('voiceCommandToggle') as HTMLInputElement,
-        screenRotationToggle: document.getElementById('screenRotationToggle') as HTMLInputElement
+        screenRotationToggle: document.getElementById('screenRotationToggle') as HTMLInputElement,
+        smoothAnimationsToggle: document.getElementById('smoothAnimationsToggle') as HTMLInputElement
     };
 }
