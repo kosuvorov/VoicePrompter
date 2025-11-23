@@ -27,7 +27,11 @@
     <meta property="twitter:image" content="https://voiceprompter.xyz/pwa-512x512.png">
 
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <script type="module" crossorigin src="/assets/index-C9euBTjr.js"></script>
+
+    <!-- Umami Analytics -->
+    <script defer src="https://reactive-analytics.up.railway.app/script.js"
+        data-website-id="eee38a2c-9b72-4937-9ee4-37827bae546c"></script>
+  <script type="module" crossorigin src="/assets/index-9rSBwBLP.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/index-83HT6_Zz.css">
 <link rel="manifest" href="/manifest.webmanifest"></head>
 
@@ -53,9 +57,10 @@
     <div id="setupScreen"
         class="flex flex-col h-full max-w-4xl mx-auto p-4 md:p-8 landscape:p-2 landscape:max-h-screen landscape:overflow-y-auto">
         <header class="mb-8 landscape:mb-3 text-center relative">
-            <a href="https://github.com/kosuvorov/Teleprompter" target="_blank" rel="noopener noreferrer"
+            <a id="githubLink" href="https://github.com/kosuvorov/Teleprompter" target="_blank"
+                rel="noopener noreferrer"
                 class="absolute top-0 right-0 p-2 text-neutral-500 hover:text-white transition-colors"
-                title="View on GitHub">
+                title="View on GitHub" onclick="window.umami?.track('github-link')">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="lucide lucide-github">

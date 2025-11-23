@@ -113,11 +113,13 @@ function clearHistory(): void {
 
 // Load Script Button
 els.loadScriptBtn.addEventListener('click', () => {
+    (window as any).umami?.track('start-teleprompter');
     loadScript(els.inputScript.value);
 });
 
 // Clear Script Button
 els.clearScriptBtn.addEventListener('click', () => {
+    (window as any).umami?.track('clear-script');
     els.inputScript.value = '';
     els.inputScript.focus();
 });
@@ -126,6 +128,7 @@ els.clearScriptBtn.addEventListener('click', () => {
 els.copyScriptBtn.addEventListener('click', async () => {
     const text = els.inputScript.value;
     if (!text) return;
+    (window as any).umami?.track('copy-script');
     try {
         await navigator.clipboard.writeText(text);
         const originalText = els.copyScriptBtn.textContent;
@@ -138,6 +141,7 @@ els.copyScriptBtn.addEventListener('click', async () => {
 
 // Paste Script Button
 els.pasteScriptBtn.addEventListener('click', async () => {
+    (window as any).umami?.track('paste-script');
     try {
         const text = await navigator.clipboard.readText();
         els.inputScript.value = text;
@@ -150,8 +154,10 @@ els.pasteScriptBtn.addEventListener('click', async () => {
 // Mic Button
 els.micButton.addEventListener('click', () => {
     if (state.isListening) {
+        (window as any).umami?.track('mic-stop');
         stopListening();
     } else {
+        (window as any).umami?.track('mic-start');
         startListening();
     }
 });
@@ -164,6 +170,7 @@ els.restartScriptBtn.addEventListener('click', restartScript);
 
 // Toggle Settings
 els.toggleSettingsBtn.addEventListener('click', () => {
+    (window as any).umami?.track('settings-toggle');
     els.settingsPanel.classList.toggle('hidden');
 });
 
@@ -278,6 +285,7 @@ els.stopSignToggle.addEventListener('change', (e) => {
 // Language Selector
 els.languageSelect.addEventListener('change', (e) => {
     const lang = (e.target as HTMLSelectElement).value;
+    (window as any).umami?.track('language-select', { language: lang });
     state.selectedLanguage = lang;
     if (state.recognition) {
         state.recognition.lang = lang;
@@ -291,6 +299,7 @@ els.autoDetectBtn.addEventListener('click', () => {
     if (!text) return alert("Please enter some text to detect language.");
 
     const detectedLang = detectLanguage(text);
+    (window as any).umami?.track('language-auto-detect', { language: detectedLang });
     state.selectedLanguage = detectedLang;
     els.languageSelect.value = detectedLang;
 
