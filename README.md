@@ -138,7 +138,6 @@ Your scripts are automatically saved to your browser's local storage:
 
 - **No External Services** - Everything runs locally in your browser
 - **No Data Collection** - Your scripts never leave your device
-- **No Analytics** - Completely private usage
 - **Offline Capable** - Works without internet connection (after initial load)
 - **Open Source** - Code available on GitHub for transparency
 
