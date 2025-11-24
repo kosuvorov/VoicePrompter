@@ -8,8 +8,8 @@ export default defineConfig({
             registerType: 'autoUpdate',
             includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
             manifest: {
-                name: 'Voice Teleprompter',
-                short_name: 'Teleprompter',
+                name: 'VoicePrompter',
+                short_name: 'VoicePrompter',
                 description: 'A voice-activated teleprompter app',
                 theme_color: '#000000',
                 background_color: '#000000',
