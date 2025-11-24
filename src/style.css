@@ -73,8 +73,8 @@ input[type=range]::-webkit-slider-thumb {
     height: 24px;
     width: 24px;
     border-radius: 50%;
-    background: #3b82f6;
-    /* blue-500 */
+    background: #DAA000;
+    /* blue-500 -> golden */
     cursor: pointer;
     margin-top: -8px;
     /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
@@ -86,7 +86,7 @@ input[type=range]::-moz-range-thumb {
     width: 24px;
     border: none;
     border-radius: 50%;
-    background: #3b82f6;
+    background: #DAA000;
     cursor: pointer;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
@@ -140,11 +140,11 @@ input[type=range]::-moz-range-track {
 /* Toggle Switch Styling */
 .toggle-checkbox:checked {
     right: 0;
-    border-color: #3b82f6;
+    border-color: #DAA000;
 }
 
 .toggle-checkbox:checked+.toggle-label {
-    background-color: #3b82f6;
+    background-color: #DAA000;
 }
 
 /* Animations */
@@ -179,6 +179,7 @@ input[type=range]::-moz-range-track {
         z-index: 9999 !important;
     }
 }
+
 /* Smooth Animations */
 .smooth-animations .current-word {
     transition: none;
@@ -192,6 +193,11 @@ input[type=range]::-moz-range-track {
 }
 
 @keyframes highlight-wipe {
-    0% { background-position: 100% 0; }
-    100% { background-position: 0 0; }
+    0% {
+        background-position: 100% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
 }
