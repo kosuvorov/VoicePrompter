@@ -31,9 +31,9 @@
     <!-- Umami Analytics -->
     <script defer src="https://reactive-analytics.up.railway.app/script.js"
         data-website-id="eee38a2c-9b72-4937-9ee4-37827bae546c"></script>
-  <script type="module" crossorigin src="/assets/main-A6g5-Ctr.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/style-BFlqVvZk.js">
-  <link rel="stylesheet" crossorigin href="/assets/style-DMibfV8w.css">
+  <script type="module" crossorigin src="/assets/main-dAizgqty.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/style-DXihZl5N.js">
+  <link rel="stylesheet" crossorigin href="/assets/style-D9RrpG3Z.css">
 <link rel="manifest" href="/manifest.webmanifest"></head>
 
 <body id="appBody"
@@ -70,7 +70,7 @@
                 </svg>
             </a>
             <h1
-                class="text-4xl landscape:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500 mb-2 landscape:mb-1">
+                class="text-3xl md:text-4xl landscape:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500 mb-2 landscape:mb-1">
                 VoicePrompter</h1>
             <p class="text-neutral-400 landscape:text-sm landscape:hidden sm:landscape:block mb-2">
                 100% Free & Open Source. Paste your script and let your voice control the scroll.
@@ -125,7 +125,7 @@
 
             <div class="flex justify-center landscape:mt-2">
                 <button id="loadScriptBtn"
-                    class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 landscape:px-6 landscape:py-2 rounded-full font-bold text-lg landscape:text-base shadow-lg shadow-blue-900/20 transition-all transform hover:scale-105 active:scale-95">
+                    class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 md:px-8 md:py-3 landscape:px-6 landscape:py-2 rounded-full font-bold text-base md:text-lg landscape:text-base shadow-lg shadow-blue-900/20 transition-all transform hover:scale-105 active:scale-95">
                     Start Teleprompter
                 </button>
             </div>
@@ -171,7 +171,7 @@
                         class="text-xs text-red-400 hover:text-red-300 transition-colors hidden">Clear History</button>
                 </div>
                 <div id="historyList"
-                    class="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-48 overflow-y-auto no-scrollbar">
+                    class="flex overflow-x-auto gap-3 pb-2 md:grid md:grid-cols-2 md:gap-3 md:max-h-48 md:overflow-y-auto md:pb-0 no-scrollbar snap-x">
                     <!-- History items will be injected here -->
                 </div>
             </div>
@@ -180,7 +180,7 @@
         <footer class="mt-8 landscape:mt-4 text-center text-neutral-500 text-sm pb-4 landscape:pb-2">
             <p class="mb-3">Made with ❤️ by <a href="https://github.com/kosuvorov" target="_blank"
                     class="hover:text-neutral-300 transition-colors">Konstantin Suvorov</a></p>
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mt-8 text-sm">
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-6 mt-4 sm:mt-8 text-sm">
                 <a href="https://buymeacoffee.com/kosuvorov" target="_blank" rel="noopener noreferrer"
                     class="text-neutral-500 hover:text-[#FFDD00] transition-colors flex items-center gap-1"
                     onclick="window.umami?.track('buy-coffee')">
