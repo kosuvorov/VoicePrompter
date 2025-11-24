@@ -16,8 +16,5 @@
     "typescript": "^5.2.2",
     "vite": "^5.0.0",
     "vite-plugin-pwa": "^0.16.7"
-  },
-  "dependencies": {
-    "franc-min": "^6.2.0"
   }
 }

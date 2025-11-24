@@ -2,7 +2,6 @@ import './style.css';
 import { registerSW } from 'virtual:pwa-register';
 import { initElements, els } from './elements';
 import { state } from './state';
-import { detectLanguage, getLanguageName } from './utils';
 import { renderScript, updateHighlight, scrollToCurrent, applySettings, renderHistoryList, restartScript } from './render';
 import { initSpeech, startListening, stopListening } from './speech';
 import { saveToHistory, getHistory, clearAllHistory } from './storage';
@@ -293,31 +292,6 @@ els.languageSelect.addEventListener('change', (e) => {
         state.recognition.lang = lang;
     }
 
-});
-
-// Auto-Detect Button
-els.autoDetectBtn.addEventListener('click', () => {
-    const text = els.inputScript.value.trim();
-    if (!text) return alert("Please enter some text to detect language.");
-
-    const detectedLang = detectLanguage(text);
-    (window as any).umami?.track('language-auto-detect', { language: detectedLang });
-    state.selectedLanguage = detectedLang;
-    els.languageSelect.value = detectedLang;
-
-    if (state.recognition) {
-        state.recognition.lang = detectedLang;
-    }
-
-    // Visual feedback
-    const originalText = els.autoDetectBtn.textContent;
-    els.autoDetectBtn.textContent = `Detected: ${getLanguageName(detectedLang)}`;
-    els.autoDetectBtn.classList.add('bg-green-600', 'text-white');
-
-    setTimeout(() => {
-        els.autoDetectBtn.textContent = originalText;
-        els.autoDetectBtn.classList.remove('bg-green-600', 'text-white');
-    }, 2000);
 });
 
 // Preserve Formatting Toggle
