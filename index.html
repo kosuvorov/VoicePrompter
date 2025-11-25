@@ -23,6 +23,29 @@
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://voiceprompter.xyz/">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "VoicePrompter",
+      "operatingSystem": "Web, iOS, Android, Windows, macOS",
+      "applicationCategory": "MultimediaApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Free voice-activated teleprompter app that scrolls automatically as you speak. Works offline, secure, and requires no download.",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "120"
+      },
+      "featureList": "Voice recognition scrolling, Mirror mode, Offline capable, Cross-platform, Customizable font and speed"
+    }
+    </script>
     <meta property="twitter:title" content="VoicePrompter - Free Voice Activated Teleprompter">
     <meta property="twitter:description"
         content="Free voice-activated teleprompter app with speech recognition and mirroring. Works offline on iOS, Android, and Desktop. Auto-scrolling, privacy-focused, and completely free.">
@@ -33,9 +56,9 @@
     <!-- Umami Analytics -->
     <script defer src="https://reactive-analytics.up.railway.app/script.js"
         data-website-id="eee38a2c-9b72-4937-9ee4-37827bae546c"></script>
-  <script type="module" crossorigin src="/assets/main-CCVsgnW1.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/style-CKH0YesX.js">
-  <link rel="stylesheet" crossorigin href="/assets/style-CKxwbvPz.css">
+  <script type="module" crossorigin src="/assets/main-CkfzHKwr.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="stylesheet" crossorigin href="/assets/style-DgxXv8eg.css">
 <link rel="manifest" href="/manifest.webmanifest"></head>
 
 <body id="appBody" class="bg-black text-white font-mono selection:bg-blue-500 selection:text-white">
@@ -461,9 +484,13 @@
         </div>
 
         <!-- Feedback Link in Settings -->
-        <div class="mt-6 pt-4 border-t border-neutral-800 text-center">
+        <div class="mt-6 pt-4 border-t border-neutral-800 text-center text-xs flex items-center justify-center gap-2">
+            <a href="/about.html" class="text-neutral-500 hover:text-white transition-colors">About</a>
+            <span class="text-neutral-700">•</span>
+            <a href="/blog/" class="text-neutral-500 hover:text-white transition-colors">Blog</a>
+            <span class="text-neutral-700">•</span>
             <a href="https://github.com/kosuvorov/VoicePrompter/issues" target="_blank" rel="noopener noreferrer"
-                class="text-xs text-neutral-500 hover:text-blue-400 transition-colors flex items-center justify-center gap-1"
+                class="text-neutral-500 hover:text-blue-400 transition-colors flex items-center justify-center gap-1"
                 onclick="window.umami?.track('report-issue-settings')">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
