@@ -4,92 +4,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VoicePrompter Blog - Teleprompter Tips & Guides</title>
+    <title>VoicePrompter Blog</title>
     <meta name="description"
-        content="Tips, guides, and best practices for using teleprompters, video production, and public speaking. Learn how to read naturally and improve your on-camera presence.">
+        content="Tips, guides, and best practices for using teleprompters, video production, and public speaking.">
 
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-    <!-- Tailwind CSS (reusing main style) -->
+    <!-- Inter Font for Notion look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" crossorigin href="/assets/style-DgxXv8eg.css">
 <link rel="manifest" href="/manifest.webmanifest"></head>
 
-<body class="bg-black text-neutral-200 font-mono selection:bg-blue-500/30 selection:text-blue-200">
-    <div class="max-w-4xl mx-auto p-8">
+<body
+    class="bg-[#191919] text-[#D4D4D4] font-['Inter',sans-serif] antialiased selection:bg-[#2383E2]/30 selection:text-white">
+
+    <!-- Notion-style Cover Image -->
+    <div class="h-[30vh] w-full bg-cover bg-center relative group"
+        style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop');">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <!-- Reposition button (visual only) -->
+        <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+            <button class="bg-black/50 hover:bg-black/70 text-xs text-white px-2 py-1 rounded">Change cover</button>
+        </div>
+    </div>
+
+    <div class="max-w-[900px] mx-auto px-[96px] relative">
+
+        <!-- Icon -->
+        <div class="text-[78px] absolute -top-[42px] select-none">
+            🎤
+        </div>
 
         <!-- Header -->
-        <header class="mb-12 flex justify-between items-center">
-            <a href="/" class="flex items-center gap-2 group">
-                <div class="text-2xl">🎤</div>
-                <h1
-                    class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#DAA000] to-purple-500">
-                    VoicePrompter
-                </h1>
-            </a>
-            <a href="/" class="text-sm text-neutral-400 hover:text-white transition-colors">← Back to App</a>
+        <header class="pt-[60px] mb-12">
+            <h1 class="text-4xl font-bold text-white mb-4">VoicePrompter Blog</h1>
+
+            <!-- Properties / Meta -->
+            <div class="flex flex-col gap-1 text-sm text-[#9B9B9B]">
+                <div class="flex items-center gap-2">
+                    <span class="w-24">Created by</span>
+                    <div class="flex items-center gap-1.5">
+                        <img src="/favicon.ico" class="w-4 h-4 rounded-full">
+                        <span class="text-[#D4D4D4]">VoicePrompter Team</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-24">Description</span>
+                    <span class="text-[#D4D4D4]">Master the art of reading from a teleprompter.</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-24">Back to App</span>
+                    <a href="/"
+                        class="text-[#D4D4D4] underline decoration-neutral-600 underline-offset-4 hover:text-white">Open
+                        App ↗</a>
+                </div>
+            </div>
         </header>
 
         <main>
-            <h2 class="text-4xl font-bold mb-8 text-white">Guides & Articles</h2>
-            <p class="text-xl text-neutral-400 mb-12">Master the art of reading from a teleprompter and improve your
-                video production workflow.</p>
+            <!-- Database View Header -->
+            <div class="border-b border-[#2F2F2F] pb-2 mb-2 flex items-center gap-4 text-sm text-[#9B9B9B] font-medium">
+                <div class="flex-1 pl-2">Name</div>
+                <div class="w-32 hidden md:block">Tags</div>
+                <div class="w-32 hidden md:block">Date</div>
+            </div>
 
-            <div class="grid gap-8 md:grid-cols-2">
+            <!-- Article List -->
+            <div class="flex flex-col">
 
                 <!-- Article 1 -->
-                <article
-                    class="bg-neutral-900/50 border border-neutral-800 rounded-xl p-6 hover:border-[#DAA000]/50 transition-colors group">
-                    <a href="/blog/how-to-read-teleprompter-naturally.html" class="block h-full">
-                        <div class="text-sm text-[#DAA000] mb-2 font-bold">TIPS & TRICKS</div>
-                        <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#DAA000] transition-colors">
-                            How to Read a Teleprompter Naturally
-                        </h3>
-                        <p class="text-neutral-400 mb-4">
-                            Stop looking like a robot. Learn the 5 secrets to maintaining eye contact and sounding
-                            conversational while reading a script.
-                        </p>
-                        <span class="text-sm text-neutral-500">5 min read</span>
-                    </a>
-                </article>
+                <a href="/blog/how-to-read-teleprompter-naturally.html"
+                    class="group flex items-center gap-4 py-2 hover:bg-[#2F2F2F]/50 rounded px-2 -mx-2 transition-colors border-b border-[#2F2F2F]/30">
+                    <div class="flex-1 flex items-center gap-3 overflow-hidden">
+                        <span class="text-xl">👀</span>
+                        <span
+                            class="text-[#D4D4D4] font-medium truncate border-b border-transparent group-hover:border-[#D4D4D4] transition-colors">How
+                            to Read a Teleprompter Naturally</span>
+                    </div>
+                    <div class="w-32 hidden md:flex">
+                        <span class="bg-[#4D3800] text-[#E0C075] px-1.5 py-0.5 rounded text-xs font-medium">Tips &
+                            Tricks</span>
+                    </div>
+                    <div class="w-32 hidden md:block text-sm text-[#9B9B9B]">Nov 24, 2025</div>
+                </a>
 
                 <!-- Article 2 -->
-                <article
-                    class="bg-neutral-900/50 border border-neutral-800 rounded-xl p-6 hover:border-[#DAA000]/50 transition-colors group">
-                    <a href="/blog/best-free-teleprompter-2025.html" class="block h-full">
-                        <div class="text-sm text-[#DAA000] mb-2 font-bold">TOOLS</div>
-                        <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#DAA000] transition-colors">
-                            Best Free Teleprompter Tools for 2025
-                        </h3>
-                        <p class="text-neutral-400 mb-4">
-                            A comprehensive comparison of free teleprompter apps. Why web-based voice-activated tools
-                            are winning over traditional apps.
-                        </p>
-                        <span class="text-sm text-neutral-500">7 min read</span>
-                    </a>
-                </article>
+                <a href="/blog/best-free-teleprompter-2025.html"
+                    class="group flex items-center gap-4 py-2 hover:bg-[#2F2F2F]/50 rounded px-2 -mx-2 transition-colors border-b border-[#2F2F2F]/30">
+                    <div class="flex-1 flex items-center gap-3 overflow-hidden">
+                        <span class="text-xl">🛠️</span>
+                        <span
+                            class="text-[#D4D4D4] font-medium truncate border-b border-transparent group-hover:border-[#D4D4D4] transition-colors">Best
+                            Free Teleprompter Tools for 2025</span>
+                    </div>
+                    <div class="w-32 hidden md:flex">
+                        <span class="bg-[#1D394D] text-[#6BB0DF] px-1.5 py-0.5 rounded text-xs font-medium">Tools</span>
+                    </div>
+                    <div class="w-32 hidden md:block text-sm text-[#9B9B9B]">Nov 22, 2025</div>
+                </a>
 
                 <!-- Article 3 -->
-                <article
-                    class="bg-neutral-900/50 border border-neutral-800 rounded-xl p-6 hover:border-[#DAA000]/50 transition-colors group">
-                    <a href="/blog/why-voice-scrolling-is-essential.html" class="block h-full">
-                        <div class="text-sm text-[#DAA000] mb-2 font-bold">SOLO CREATORS</div>
-                        <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#DAA000] transition-colors">
-                            Why Voice Scrolling is Essential for Solo Creators
-                        </h3>
-                        <p class="text-neutral-400 mb-4">
-                            Filming alone? Discover why manual scrolling teleprompters are killing your workflow and how
-                            voice recognition changes the game.
-                        </p>
-                        <span class="text-sm text-neutral-500">4 min read</span>
-                    </a>
-                </article>
+                <a href="/blog/why-voice-scrolling-is-essential.html"
+                    class="group flex items-center gap-4 py-2 hover:bg-[#2F2F2F]/50 rounded px-2 -mx-2 transition-colors border-b border-[#2F2F2F]/30">
+                    <div class="flex-1 flex items-center gap-3 overflow-hidden">
+                        <span class="text-xl">🗣️</span>
+                        <span
+                            class="text-[#D4D4D4] font-medium truncate border-b border-transparent group-hover:border-[#D4D4D4] transition-colors">Why
+                            Voice Scrolling is Essential</span>
+                    </div>
+                    <div class="w-32 hidden md:flex">
+                        <span class="bg-[#283E2C] text-[#7FC08B] px-1.5 py-0.5 rounded text-xs font-medium">Solo
+                            Creators</span>
+                    </div>
+                    <div class="w-32 hidden md:block text-sm text-[#9B9B9B]">Nov 20, 2025</div>
+                </a>
+
+                <!-- New row placeholder -->
+                <div class="flex items-center gap-4 py-2 px-2 -mx-2 text-[#5A5A5A] text-sm cursor-default">
+                    <div class="flex-1 flex items-center gap-3">
+                        <span class="text-xl opacity-50">➕</span>
+                        <span>New</span>
+                    </div>
+                </div>
 
             </div>
         </main>
 
-        <footer class="mt-20 pt-8 border-t border-neutral-800 text-center text-neutral-500 text-sm">
-            <p>&copy; 2025 VoicePrompter. All rights reserved.</p>
+        <footer class="mt-20 pt-8 border-t border-[#2F2F2F] text-center text-[#5A5A5A] text-xs pb-12">
+            <p>&copy; 2025 VoicePrompter. Built with ❤️ for creators.</p>
         </footer>
     </div>
 </body>
