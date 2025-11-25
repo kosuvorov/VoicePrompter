@@ -56,7 +56,9 @@ mdFiles.forEach(file => {
         .replace(/\{\{DESCRIPTION\}\}/g, article.description)
         .replace(/\{\{DATE\}\}/g, article.date)
         .replace(/\{\{CONTENT\}\}/g, article.content)
-        .replace(/\{\{KEYWORDS\}\}/g, article.keywords.join(', '));
+        .replace(/\{\{KEYWORDS\}\}/g, article.keywords.join(', '))
+        .replace(/\{\{SLUG\}\}/g, article.slug)
+        .replace(/\{\{IMAGE\}\}/g, article.image || 'https://voiceprompter.xyz/og-image.png');
 
     // Write HTML file
     const outputPath = path.join(BLOG_DIR, `${slug}.html`);
@@ -77,6 +79,45 @@ const articleCards = articles.map(article => `
 const indexHtml = indexTemplate.replace('/*ARTICLES_DATA*/', articleCards);
 fs.writeFileSync(path.join(BLOG_DIR, 'index.html'), indexHtml);
 console.log(`✓ Generated blog index with ${articles.length} articles`);
+
+// Generate sitemap.xml
+const today = new Date().toISOString().split('T')[0];
+const sitemapEntries = [
+    `  <url>
+    <loc>https://voiceprompter.xyz/</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>`,
+    `  <url>
+    <loc>https://voiceprompter.xyz/about.html</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>`,
+    `  <url>
+    <loc>https://voiceprompter.xyz/blog/</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>`,
+    ...articles.map(article => `  <url>
+    <loc>https://voiceprompter.xyz/blog/${article.slug}.html</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>`)
+];
+
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemapEntries.join('\n')}
+</urlset>
+`;
+
+const publicDir = path.join(__dirname, '../public');
+fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), sitemap);
+console.log(`✓ Generated sitemap.xml with ${sitemapEntries.length} URLs`);
 
 // Generate vite config entries
 const viteEntries = articles.map((article, index) =>

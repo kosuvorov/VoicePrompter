@@ -7,25 +7,31 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://voiceprompter.xyz/about.html</loc>
+    <lastmod>2025-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://voiceprompter.xyz/blog/</loc>
     <lastmod>2025-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://voiceprompter.xyz/blog/how-to-read-teleprompter-naturally.html</loc>
+    <loc>https://voiceprompter.xyz/blog/best-free-tools-2025.html</loc>
     <lastmod>2025-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://voiceprompter.xyz/blog/best-free-teleprompter-2025.html</loc>
+    <loc>https://voiceprompter.xyz/blog/how-to-read-naturally.html</loc>
     <lastmod>2025-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://voiceprompter.xyz/blog/why-voice-scrolling-is-essential.html</loc>
+    <loc>https://voiceprompter.xyz/blog/voice-scrolling-solo-creators.html</loc>
     <lastmod>2025-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
