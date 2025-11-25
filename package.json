@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build:blog": "node scripts/build-blog.js",
+    "build": "npm run build:blog && tsc && vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
