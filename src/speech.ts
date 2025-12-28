@@ -2,8 +2,8 @@ import { state } from './state';
 import { els } from './elements';
 import { updateMicUI, updateHighlight, scrollToCurrent, advancePastSkipped, restartScript } from './render';
 
-// Track the last processed transcript length to only process NEW words
-let lastProcessedLength = 0;
+// Track the last matched word to prevent matching the same word twice in a row
+let lastMatchedWord = '';
 
 export function initSpeech(): void {
     const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
@@ -21,27 +21,16 @@ export function initSpeech(): void {
             for (let i = event.resultIndex; i < event.results.length; i++) {
                 transcript += event.results[i][0].transcript;
             }
-            const allSpokenWords = transcript.trim().toLowerCase().split(/\s+/);
+            const spokenWords = transcript.trim().toLowerCase().split(/\s+/);
 
-            const recentString = allSpokenWords.slice(-5).join(' ');
+            const recentString = spokenWords.slice(-5).join(' ');
             if (state.config.voiceCommandsEnabled && recentString.includes('prompter restart')) {
                 restartScript();
-                lastProcessedLength = 0; // Reset on restart
+                lastMatchedWord = '';
                 return;
             }
 
-            // Only process NEW words that weren't in the previous transcript
-            const currentLength = allSpokenWords.length;
-            if (currentLength <= lastProcessedLength) {
-                // No new words, skip processing
-                return;
-            }
-
-            // Get only the new words since last processing
-            const newWords = allSpokenWords.slice(lastProcessedLength);
-            lastProcessedLength = currentLength;
-
-            matchWords(newWords);
+            matchWords(spokenWords.slice(-5));
         };
 
         state.recognition.onend = () => {
@@ -53,7 +42,6 @@ export function initSpeech(): void {
                 }
             } else {
                 updateMicUI(false);
-                lastProcessedLength = 0; // Reset when stopping
             }
         };
     }
@@ -62,7 +50,7 @@ export function initSpeech(): void {
 export function startListening(): void {
     if (!state.recognition) return;
     state.isListening = true;
-    lastProcessedLength = 0; // Reset on start
+    lastMatchedWord = '';
     try {
         state.recognition.start();
         updateMicUI(true);
@@ -76,7 +64,7 @@ export function startListening(): void {
 export function stopListening(): void {
     if (!state.recognition) return;
     state.isListening = false;
-    lastProcessedLength = 0; // Reset on stop
+    lastMatchedWord = '';
     try {
         state.recognition.stop();
         updateMicUI(false);
@@ -115,6 +103,16 @@ function matchWords(spokenWords: string[]) {
 
         // Check if this script word was spoken
         if (spokenSet.has(scriptWordObj.clean)) {
+            // Prevent matching the same word twice in a row (prevents double-jump)
+            // But allow it if it's at the current position (position 0 in lookahead)
+            if (scriptWordObj.clean === lastMatchedWord && validWordsChecked > 0) {
+                // Same word as last match, and not at current position - skip it
+                scriptPtr++;
+                validWordsChecked++;
+                continue;
+            }
+
+            lastMatchedWord = scriptWordObj.clean;
             state.currentIndex = scriptPtr + 1;
             advancePastSkipped();
             updateHighlight();
@@ -126,3 +124,4 @@ function matchWords(spokenWords: string[]) {
         validWordsChecked++;
     }
 }
+
