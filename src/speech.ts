@@ -71,7 +71,11 @@ function matchWords(spokenWords: string[]) {
     if (state.currentIndex >= state.scriptWords.length) return;
     const LOOKAHEAD = state.config.lookaheadWords;
 
-    for (let spokenWord of spokenWords) {
+    // Deduplicate spoken words to prevent jumping over multiple identical words
+    // This ensures "it ... it" in speech only matches the nearest "it" in script
+    const uniqueSpokenWords = [...new Set(spokenWords)];
+
+    for (let spokenWord of uniqueSpokenWords) {
         // Clean spoken word: preserve letters from ALL languages (Cyrillic, Arabic, CJK, etc.)
         const cleanSpoken = spokenWord.replace(/[^\p{L}\p{N}]/gu, "");
         if (!cleanSpoken) continue;
