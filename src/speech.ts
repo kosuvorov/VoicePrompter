@@ -71,36 +71,36 @@ function matchWords(spokenWords: string[]) {
     if (state.currentIndex >= state.scriptWords.length) return;
     const LOOKAHEAD = state.config.lookaheadWords;
 
-    // Deduplicate spoken words to prevent jumping over multiple identical words
-    // This ensures "it ... it" in speech only matches the nearest "it" in script
-    const uniqueSpokenWords = [...new Set(spokenWords)];
+    // Create a Set of cleaned spoken words for fast lookup
+    const spokenSet = new Set(
+        spokenWords
+            .map(w => w.replace(/[^\p{L}\p{N}]/gu, "").toLowerCase())
+            .filter(w => w.length > 0)
+    );
 
-    for (let spokenWord of uniqueSpokenWords) {
-        // Clean spoken word: preserve letters from ALL languages (Cyrillic, Arabic, CJK, etc.)
-        const cleanSpoken = spokenWord.replace(/[^\p{L}\p{N}]/gu, "");
-        if (!cleanSpoken) continue;
+    // Iterate through SCRIPT words from nearest to farthest
+    // This ensures we always advance to the nearest matching word
+    let scriptPtr = state.currentIndex;
+    let validWordsChecked = 0;
 
-        let scriptPtr = state.currentIndex;
-        let validWordsChecked = 0;
+    while (scriptPtr < state.scriptWords.length && validWordsChecked < LOOKAHEAD) {
+        const scriptWordObj = state.scriptWords[scriptPtr];
 
-        while (scriptPtr < state.scriptWords.length && validWordsChecked < LOOKAHEAD) {
-            const scriptWordObj = state.scriptWords[scriptPtr];
-
-            if (scriptWordObj.skip) {
-                scriptPtr++;
-                continue;
-            }
-
-            if (scriptWordObj.clean === cleanSpoken) {
-                state.currentIndex = scriptPtr + 1;
-                advancePastSkipped();
-                updateHighlight();
-                scrollToCurrent();
-                return;
-            }
-
+        if (scriptWordObj.skip) {
             scriptPtr++;
-            validWordsChecked++;
+            continue;
         }
+
+        // Check if this script word was spoken
+        if (spokenSet.has(scriptWordObj.clean)) {
+            state.currentIndex = scriptPtr + 1;
+            advancePastSkipped();
+            updateHighlight();
+            scrollToCurrent();
+            return;
+        }
+
+        scriptPtr++;
+        validWordsChecked++;
     }
 }
