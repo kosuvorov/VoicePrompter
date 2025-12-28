@@ -19,7 +19,8 @@ export const state: AppState = {
         preserveFormatting: true,
         voiceCommandsEnabled: true,
         paragraphSpacing: 0.5,
-        smoothAnimations: true,
+        smoothAnimations: false,
+        highlightActiveWord: false,
         activeLinePosition: 35 // Default to 35% from top
     }
 };

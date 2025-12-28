@@ -337,6 +337,13 @@ els.smoothAnimationsToggle.addEventListener('change', (e) => {
     applySettings();
 });
 
+// Highlight Active Word Toggle
+els.highlightActiveWordToggle.addEventListener('change', (e) => {
+    state.config.highlightActiveWord = (e.target as HTMLInputElement).checked;
+    applySettings();
+    updateHighlight();
+});
+
 // Clear History Button
 els.clearHistoryBtn.addEventListener('click', clearHistory);
 
@@ -367,6 +374,7 @@ function initializeUI(): void {
     updateAlignmentButtons();
 
     els.smoothAnimationsToggle.checked = state.config.smoothAnimations;
+    els.highlightActiveWordToggle.checked = state.config.highlightActiveWord;
 
     // Render history
     renderHistoryList(getHistory(), loadScript);

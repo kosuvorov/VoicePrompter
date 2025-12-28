@@ -17,9 +17,14 @@ html {
     scrollbar-width: none;
 }
 
-/* The Active Word Highlight - Orange */
+/* The Active Word - Full white by default (no orange highlight) */
 .current-word {
-    @apply text-orange-500 underline decoration-orange-500 decoration-[3px] inline-block transition-colors duration-100;
+    @apply inline-block transition-colors duration-100;
+}
+
+/* Active Word Highlight - Orange (when toggle is enabled) */
+.highlight-active-word .current-word {
+    @apply text-orange-500 underline decoration-orange-500 decoration-[3px];
 }
 
 /* Word Spacing Helper */

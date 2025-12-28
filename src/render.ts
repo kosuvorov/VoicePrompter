@@ -150,6 +150,12 @@ export function applySettings(): void {
     } else {
         els.scriptContent.classList.remove('smooth-animations');
     }
+
+    if (state.config.highlightActiveWord) {
+        els.scriptContent.classList.add('highlight-active-word');
+    } else {
+        els.scriptContent.classList.remove('highlight-active-word');
+    }
 }
 
 export function updateMicUI(isListening: boolean): void {

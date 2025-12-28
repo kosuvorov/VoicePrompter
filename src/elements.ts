@@ -53,6 +53,7 @@ export interface Elements {
     voiceCommandToggle: HTMLInputElement;
     screenRotationToggle: HTMLInputElement;
     smoothAnimationsToggle: HTMLInputElement;
+    highlightActiveWordToggle: HTMLInputElement;
 }
 
 export let els: Elements;
@@ -112,6 +113,7 @@ export function initElements(): void {
         preserveFormattingToggle: document.getElementById('preserveFormattingToggle') as HTMLInputElement,
         voiceCommandToggle: document.getElementById('voiceCommandToggle') as HTMLInputElement,
         screenRotationToggle: document.getElementById('screenRotationToggle') as HTMLInputElement,
-        smoothAnimationsToggle: document.getElementById('smoothAnimationsToggle') as HTMLInputElement
+        smoothAnimationsToggle: document.getElementById('smoothAnimationsToggle') as HTMLInputElement,
+        highlightActiveWordToggle: document.getElementById('highlightActiveWordToggle') as HTMLInputElement
     };
 }
