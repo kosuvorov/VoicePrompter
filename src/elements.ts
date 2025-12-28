@@ -16,6 +16,8 @@ export interface Elements {
     marginVal: HTMLElement;
     activeLinePositionInput: HTMLInputElement;
     activeLinePositionVal: HTMLElement;
+    lookaheadWordsInput: HTMLInputElement;
+    lookaheadWordsVal: HTMLElement;
     textColorInput: HTMLInputElement;
     bgColorInput: HTMLInputElement;
     appBody: HTMLElement;
@@ -77,6 +79,8 @@ export function initElements(): void {
         marginVal: document.getElementById('marginVal')!,
         activeLinePositionInput: document.getElementById('activeLinePositionInput') as HTMLInputElement,
         activeLinePositionVal: document.getElementById('activeLinePositionVal')!,
+        lookaheadWordsInput: document.getElementById('lookaheadWordsInput') as HTMLInputElement,
+        lookaheadWordsVal: document.getElementById('lookaheadWordsVal')!,
         textColorInput: document.getElementById('textColorInput') as HTMLInputElement,
         bgColorInput: document.getElementById('bgColorInput') as HTMLInputElement,
         appBody: document.getElementById('appBody')!,

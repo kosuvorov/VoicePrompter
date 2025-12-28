@@ -69,7 +69,7 @@ export function stopListening(): void {
 
 function matchWords(spokenWords: string[]) {
     if (state.currentIndex >= state.scriptWords.length) return;
-    const LOOKAHEAD = 5;
+    const LOOKAHEAD = state.config.lookaheadWords;
 
     for (let spokenWord of spokenWords) {
         // Clean spoken word: preserve letters from ALL languages (Cyrillic, Arabic, CJK, etc.)

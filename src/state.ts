@@ -20,7 +20,8 @@ export const state: AppState = {
         voiceCommandsEnabled: true,
         paragraphSpacing: 0.5,
         smoothAnimations: false,
-        highlightActiveWord: false,
-        activeLinePosition: 35 // Default to 35% from top
+        highlightActiveWord: true,
+        activeLinePosition: 35, // Default to 35% from top
+        lookaheadWords: 5 // Default lookahead
     }
 };

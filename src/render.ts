@@ -142,6 +142,11 @@ export function applySettings(): void {
     els.appBody.style.backgroundColor = state.config.bgColor;
     els.appBody.style.color = state.config.textColor;
     els.appBody.style.setProperty('--base-color', state.config.textColor);
+
+    // Apply background to prompter container for theme support
+    els.prompterContainer.style.backgroundColor = state.config.bgColor;
+    els.scrollContainer.style.backgroundColor = state.config.bgColor;
+
     els.scriptContent.style.setProperty('--paragraph-spacing', `${state.config.paragraphSpacing}em`);
     els.scriptContent.style.textAlign = state.config.textAlign;
 

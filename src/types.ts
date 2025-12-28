@@ -21,6 +21,7 @@ export interface AppConfig {
     smoothAnimations: boolean;
     highlightActiveWord: boolean;
     activeLinePosition: number; // 0 to 100 (percentage from top)
+    lookaheadWords: number; // 1-10 words to look ahead
 }
 
 export interface AppState {

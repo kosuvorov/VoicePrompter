@@ -224,6 +224,13 @@ els.activeLinePositionInput.addEventListener('input', (e) => {
     scrollToCurrent();
 });
 
+// Lookahead Words Slider
+els.lookaheadWordsInput.addEventListener('input', (e) => {
+    const val = parseInt((e.target as HTMLInputElement).value);
+    state.config.lookaheadWords = val;
+    els.lookaheadWordsVal.textContent = `${val}`;
+});
+
 // Text Color Picker
 els.textColorInput.addEventListener('input', (e) => {
     state.config.textColor = (e.target as HTMLInputElement).value;
@@ -369,6 +376,9 @@ function initializeUI(): void {
 
     els.activeLinePositionVal.textContent = `${state.config.activeLinePosition}%`;
     els.activeLinePositionInput.value = state.config.activeLinePosition.toString();
+
+    els.lookaheadWordsVal.textContent = `${state.config.lookaheadWords}`;
+    els.lookaheadWordsInput.value = state.config.lookaheadWords.toString();
 
     // Update alignment buttons
     updateAlignmentButtons();
