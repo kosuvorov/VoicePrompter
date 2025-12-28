@@ -2,6 +2,9 @@ import { state } from './state';
 import { els } from './elements';
 import { updateMicUI, updateHighlight, scrollToCurrent, advancePastSkipped, restartScript } from './render';
 
+// Track the last processed transcript length to only process NEW words
+let lastProcessedLength = 0;
+
 export function initSpeech(): void {
     const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
 
@@ -18,15 +21,27 @@ export function initSpeech(): void {
             for (let i = event.resultIndex; i < event.results.length; i++) {
                 transcript += event.results[i][0].transcript;
             }
-            const spokenWords = transcript.trim().toLowerCase().split(/\s+/);
+            const allSpokenWords = transcript.trim().toLowerCase().split(/\s+/);
 
-            const recentString = spokenWords.slice(-5).join(' ');
+            const recentString = allSpokenWords.slice(-5).join(' ');
             if (state.config.voiceCommandsEnabled && recentString.includes('prompter restart')) {
                 restartScript();
+                lastProcessedLength = 0; // Reset on restart
                 return;
             }
 
-            matchWords(spokenWords.slice(-5));
+            // Only process NEW words that weren't in the previous transcript
+            const currentLength = allSpokenWords.length;
+            if (currentLength <= lastProcessedLength) {
+                // No new words, skip processing
+                return;
+            }
+
+            // Get only the new words since last processing
+            const newWords = allSpokenWords.slice(lastProcessedLength);
+            lastProcessedLength = currentLength;
+
+            matchWords(newWords);
         };
 
         state.recognition.onend = () => {
@@ -38,6 +53,7 @@ export function initSpeech(): void {
                 }
             } else {
                 updateMicUI(false);
+                lastProcessedLength = 0; // Reset when stopping
             }
         };
     }
@@ -46,6 +62,7 @@ export function initSpeech(): void {
 export function startListening(): void {
     if (!state.recognition) return;
     state.isListening = true;
+    lastProcessedLength = 0; // Reset on start
     try {
         state.recognition.start();
         updateMicUI(true);
@@ -59,6 +76,7 @@ export function startListening(): void {
 export function stopListening(): void {
     if (!state.recognition) return;
     state.isListening = false;
+    lastProcessedLength = 0; // Reset on stop
     try {
         state.recognition.stop();
         updateMicUI(false);
@@ -69,6 +87,8 @@ export function stopListening(): void {
 
 function matchWords(spokenWords: string[]) {
     if (state.currentIndex >= state.scriptWords.length) return;
+    if (spokenWords.length === 0) return;
+
     const LOOKAHEAD = state.config.lookaheadWords;
 
     // Create a Set of cleaned spoken words for fast lookup
@@ -77,6 +97,8 @@ function matchWords(spokenWords: string[]) {
             .map(w => w.replace(/[^\p{L}\p{N}]/gu, "").toLowerCase())
             .filter(w => w.length > 0)
     );
+
+    if (spokenSet.size === 0) return;
 
     // Iterate through SCRIPT words from nearest to farthest
     // This ensures we always advance to the nearest matching word
