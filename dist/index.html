@@ -4,30 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VoicePrompter - Free Voice Activated Teleprompter</title>
+    <title>VoicePrompter — Free Voice-Activated Teleprompter</title>
     <meta name="description"
-        content="Free voice-activated teleprompter app with speech recognition and mirroring. Works offline on iOS, Android, and Desktop. Auto-scrolling, privacy-focused, and completely free.">
-    <meta name="keywords"
-        content="teleprompter, voice activated teleprompter, free teleprompter, speech recognition teleprompter, auto scroll teleprompter, online teleprompter, voiceprompter, free teleprompter app with speech recognition, free voice activated teleprompter app, free teleprompter app, free teleprompter app with mirroring, free mobile teleprompter app, free teleprompter for ios, free teleprompter for android">
+        content="A voice-activated teleprompter that follows your voice. Choose the free web app or the pro Mac app.">
+    <link rel="canonical" href="https://voiceprompter.xyz/">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://voiceprompter.xyz/">
-
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://voiceprompter.xyz/">
-    <meta property="og:title" content="VoicePrompter - Free Voice Activated Teleprompter">
+    <meta property="og:title" content="VoicePrompter — Free Voice-Activated Teleprompter">
     <meta property="og:description"
-        content="Free voice-activated teleprompter app with speech recognition and mirroring. Works offline on iOS, Android, and Desktop. Auto-scrolling, privacy-focused, and completely free.">
+        content="A voice-activated teleprompter that follows your voice. Choose the free web app or the pro Mac app.">
     <meta property="og:image" content="https://voiceprompter.xyz/og-image.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://voiceprompter.xyz/">
+    <meta property="twitter:title" content="VoicePrompter — Free Voice-Activated Teleprompter">
+    <meta property="twitter:description"
+        content="A voice-activated teleprompter that follows your voice. Choose the free web app or the pro Mac app.">
+    <meta property="twitter:image" content="https://voiceprompter.xyz/og-image.png">
 
-    <!-- JSON-LD Structured Data -->
+    <!-- JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -41,492 +41,471 @@
         "priceCurrency": "USD"
       },
       "description": "Free voice-activated teleprompter app that scrolls automatically as you speak. Works offline, secure, and requires no download.",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "ratingCount": "120"
-      },
       "featureList": "Voice recognition scrolling, Mirror mode, Offline capable, Cross-platform, Customizable font and speed"
     }
     </script>
-    <meta property="twitter:title" content="VoicePrompter - Free Voice Activated Teleprompter">
-    <meta property="twitter:description"
-        content="Free voice-activated teleprompter app with speech recognition and mirroring. Works offline on iOS, Android, and Desktop. Auto-scrolling, privacy-focused, and completely free.">
-    <meta property="twitter:image" content="https://voiceprompter.xyz/pwa-512x512.png">
 
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display&display=swap"
+        rel="stylesheet">
 
     <!-- Umami Analytics -->
     <script defer src="https://reactive-analytics.up.railway.app/script.js"
         data-website-id="eee38a2c-9b72-4937-9ee4-37827bae546c"></script>
-  <script type="module" crossorigin src="/assets/main-B99cGvvi.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
-  <link rel="stylesheet" crossorigin href="/assets/style-D4DpZLeR.css">
+
+    <style>
+        /* ───────────────────────── Reset & Tokens ───────────────────────── */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0F0F0F;
+            --surface: #1A1A1A;
+            --surface-border: rgba(255, 255, 255, 0.06);
+            --text: #E8E4DF;
+            --text-light: #9A948D;
+            --accent: #F5F0EB;
+            --pop: #E07A5F;
+            --pop-hover: #c9664c;
+            --shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+            --radius: 18px;
+            --pill: 100px;
+            --font-serif: 'DM Serif Display', Georgia, serif;
+            --font-sans: 'DM Sans', 'Segoe UI', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-sans);
+            font-size: 17px;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Grain overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 180px 180px;
+        }
+
+        img,
+        svg {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* ───────────────────────── Layout ───────────────────────── */
+        .container {
+            max-width: 1060px;
+            margin: 0 auto;
+            padding: 0 32px;
+            width: 100%;
+        }
+
+        .page-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 0 40px;
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ───────────────────────── Nav ───────────────────────── */
+        .nav {
+            padding: 28px 32px;
+            max-width: 1060px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .nav-logo {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            color: var(--accent);
+            letter-spacing: -0.02em;
+        }
+
+        /* ───────────────────────── Hero ───────────────────────── */
+        .hero {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .eyebrow {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--pop);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 56px;
+            line-height: 1.12;
+            color: var(--accent);
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-sub {
+            font-size: 19px;
+            color: var(--text-light);
+            max-width: 480px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* ───────────────────────── Fork ───────────────────────── */
+        .fork-label {
+            text-align: center;
+            margin-bottom: 32px;
+            font-size: 14px;
+            color: var(--text-light);
+            letter-spacing: 0.08em;
+        }
+
+        .fork-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .fork-card {
+            background: var(--surface);
+            border: 1px solid var(--surface-border);
+            border-radius: var(--radius);
+            padding: 40px 32px 36px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .fork-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-tag {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--pop);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            padding: 4px 12px;
+            background: rgba(224, 122, 95, 0.1);
+            border-radius: var(--pill);
+            align-self: flex-start;
+        }
+
+        .card-title {
+            font-family: var(--font-serif);
+            font-size: 30px;
+            color: var(--accent);
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .card-body {
+            font-size: 16px;
+            color: var(--text-light);
+            line-height: 1.65;
+            margin-bottom: 24px;
+        }
+
+        .card-perks {
+            list-style: none;
+            margin-bottom: 32px;
+            flex: 1;
+        }
+
+        .card-perks li {
+            font-size: 14px;
+            color: var(--text-light);
+            padding: 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-perks li::before {
+            content: '—';
+            color: var(--pop);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .card-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background: var(--pop);
+            color: #fff;
+            font-family: var(--font-sans);
+            font-size: 15px;
+            font-weight: 500;
+            padding: 13px 28px;
+            border-radius: var(--pill);
+            transition: background 0.25s, transform 0.2s;
+            align-self: flex-start;
+        }
+
+        .card-cta:hover {
+            background: var(--pop-hover);
+            transform: translateY(-1px);
+        }
+
+        .card-flavor {
+            margin-top: 12px;
+            font-size: 13px;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* Mac card — slightly different accent */
+        .fork-card.mac .card-tag {
+            color: var(--accent);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .fork-card.mac .card-cta {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        .fork-card.mac .card-cta:hover {
+            background: #ddd8d2;
+        }
+
+        /* ───────────────────────── Escape Hatch ───────────────────────── */
+        .escape {
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        .escape p {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+
+        .escape a {
+            font-size: 15px;
+            color: var(--pop);
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .escape a:hover {
+            opacity: 0.8;
+        }
+
+        /* ───────────────────────── Footer ───────────────────────── */
+        .footer {
+            padding: 32px 0;
+            text-align: center;
+            border-top: 1px solid var(--surface-border);
+        }
+
+        .footer p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .footer a {
+            color: var(--text-light);
+            transition: color 0.2s;
+        }
+
+        .footer a:hover {
+            color: var(--pop);
+        }
+
+        .footer-sep {
+            margin: 0 6px;
+            opacity: 0.4;
+        }
+
+        /* ═══════════════════════ Responsive ═══════════════════════ */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero-sub {
+                font-size: 17px;
+            }
+
+            .fork-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .card-title {
+                font-size: 26px;
+            }
+
+            .page-wrapper {
+                padding: 32px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .nav {
+                padding: 20px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .fork-card {
+                padding: 28px 24px 28px;
+            }
+        }
+    </style>
 <link rel="manifest" href="/manifest.webmanifest"></head>
 
-<body id="appBody" class="bg-black text-white font-mono selection:bg-blue-500 selection:text-white">
+<body>
 
-    <!-- Browser Warning -->
-    <div id="browserWarning"
-        class="hidden fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center p-4">
-        <div class="bg-neutral-900 border border-red-500 rounded-lg p-6 max-w-md text-center">
-            <h2 class="text-xl font-bold text-red-500 mb-2">Browser Not Supported</h2>
-            <p class="text-neutral-300 mb-4">Your browser does not support Speech Recognition. Please use Google Chrome
-                or
-                Safari.</p>
-            <button id="dismissWarningBtn"
-                class="px-4 py-2 bg-neutral-800 hover:bg-neutral-700 rounded text-sm text-white transition-colors">
-                Dismiss & Continue Anyway
-            </button>
+    <!-- ═══════════════════════ Nav ═══════════════════════ -->
+    <nav class="nav" role="navigation">
+        <a href="/" class="nav-logo">VoicePrompter</a>
+    </nav>
+
+    <!-- ═══════════════════════ Page ═══════════════════════ -->
+    <div class="page-wrapper">
+        <div class="container">
+
+            <!-- Hero -->
+            <div class="hero fade-up">
+                <p class="eyebrow">Every great story needs a voice</p>
+                <h1>Two paths.<br>One destination.</h1>
+                <p class="hero-sub">Your script. Your confidence. Choose the tool made for your journey.</p>
+            </div>
+
+            <!-- Fork Label -->
+            <p class="fork-label fade-up">— The road divides here —</p>
+
+            <!-- Fork Cards -->
+            <div class="fork-grid fade-up">
+
+                <!-- Web App Card -->
+                <div class="fork-card web">
+                    <span class="card-tag">Free · Open Source · Any Device</span>
+                    <h2 class="card-title">The Open Road</h2>
+                    <p class="card-body">No gates. No fees. No installation required.<br>Works in your browser, lives
+                        on your device, follows your voice.</p>
+                    <ul class="card-perks">
+                        <li>Voice-activated scrolling</li>
+                        <li>Works offline as an app</li>
+                        <li>Mirror mode for teleprompter glass</li>
+                        <li>20+ languages, auto-detected</li>
+                        <li>Your scripts never leave your device</li>
+                    </ul>
+                    <a href="/app/" class="card-cta">Take this path →</a>
+                    <p class="card-flavor">Free as in freedom</p>
+                </div>
+
+                <!-- Mac App Card -->
+                <div class="fork-card mac">
+                    <span class="card-tag">Mac Only · $3.99/mo · Free to try</span>
+                    <h2 class="card-title">The Professional's Route</h2>
+                    <p class="card-body">Hidden from Zoom. On top of your slides.<br>In sync with every word you speak.
+                    </p>
+                    <ul class="card-perks">
+                        <li>Invisible on screen shares & recordings</li>
+                        <li>Stays on top of every app, even full-screen</li>
+                        <li>60+ languages via Apple speech recognition</li>
+                        <li>Lives in your menu bar, always ready</li>
+                        <li>Launches from clipboard in one click</li>
+                    </ul>
+                    <a href="/mac" class="card-cta">Take this path →</a>
+                    <p class="card-flavor">Free to try · 3 scripts included</p>
+                </div>
+
+            </div>
+
+            <!-- Escape Hatch -->
+            <div class="escape fade-up">
+                <p>Already know what you want?</p>
+                <a href="/app/">→ Just open the web app</a>
+            </div>
+
         </div>
     </div>
 
-    <!-- Setup Screen -->
-    <div id="setupScreen" class="flex flex-col max-w-4xl mx-auto p-4 md:p-8 landscape:p-2">
-        <header class="mb-8 landscape:mb-3 text-center relative">
-            <h1
-                class="text-3xl landscape:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500 mb-2 landscape:mb-1">
-                VoicePrompter</h1>
-            <p class="text-neutral-400 landscape:text-sm landscape:hidden sm:landscape:block mb-2">
-                100% Free & Open Source. Paste your script and let your voice control the scroll.
-            </p>
-            <p class="text-xs text-neutral-500 landscape:hidden sm:landscape:block">
-                If you find this useful, please <a href="https://github.com/kosuvorov/Teleprompter" target="_blank"
-                    class="text-blue-400 hover:underline" onclick="window.umami?.track('github-star-text')">give us a
-                    star on GitHub</a>! ⭐
-            </p>
-        </header>
+    <!-- ═══════════════════════ Footer ═══════════════════════ -->
+    <footer class="footer">
+        <p>Made by Konstantin Suvorov<span class="footer-sep">·</span><a
+                href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">GitHub</a><span
+                class="footer-sep">·</span><a href="https://youtube.com/@nicekid1" target="_blank"
+                rel="noopener">YouTube</a></p>
+    </footer>
 
-        <main class="flex flex-col gap-6 landscape:gap-3">
-            <div class="w-full">
-                <textarea id="inputScript"
-                    class="w-full bg-neutral-900 border border-neutral-800 rounded-lg p-4 landscape:p-2 text-lg landscape:text-base focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none resize-y transition-all placeholder-neutral-600 h-[300px] md:h-[450px] lg:h-[450px]"
-                    placeholder="Paste your script here..."></textarea>
-
-                <!-- Quick Action Buttons -->
-                <div class="flex gap-2 landscape:gap-1 mt-2 landscape:mt-1 justify-end flex-wrap">
-                    <button id="copyScriptBtn"
-                        class="px-3 py-1.5 landscape:px-2 landscape:py-1 bg-neutral-800 hover:bg-neutral-700 border border-neutral-700 rounded text-xs landscape:text-[10px] text-neutral-300 transition-all flex items-center gap-1.5 landscape:gap-1"
-                        title="Copy to clipboard">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 landscape:h-3 landscape:w-3"
-                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                        </svg>
-                        <span class="landscape:hidden sm:landscape:inline">Copy</span>
-                    </button>
-                    <button id="clearScriptBtn"
-                        class="px-3 py-1.5 landscape:px-2 landscape:py-1 bg-neutral-800 hover:bg-neutral-700 border border-neutral-700 rounded text-xs landscape:text-[10px] text-neutral-300 transition-all flex items-center gap-1.5 landscape:gap-1"
-                        title="Clear all text">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 landscape:h-3 landscape:w-3"
-                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                        </svg>
-                        <span class="landscape:hidden sm:landscape:inline">Clear All</span>
-                    </button>
-                    <button id="pasteScriptBtn"
-                        class="px-3 py-1.5 landscape:px-2 landscape:py-1 bg-neutral-800 hover:bg-neutral-700 border border-neutral-700 rounded text-xs landscape:text-[10px] text-neutral-300 transition-all flex items-center gap-1.5 landscape:gap-1"
-                        title="Paste from clipboard">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 landscape:h-3 landscape:w-3"
-                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                        </svg>
-                        <span class="landscape:hidden sm:landscape:inline">Paste to Replace</span>
-                    </button>
-                </div>
-            </div>
-
-            <div class="flex justify-center landscape:mt-2">
-                <button id="loadScriptBtn"
-                    class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 md:px-8 md:py-3 landscape:px-6 landscape:py-2 rounded-full font-bold text-base md:text-lg landscape:text-base shadow-lg shadow-blue-900/20 transition-all transform hover:scale-105 active:scale-95">
-                    Start Teleprompter
-                </button>
-            </div>
-
-            <!-- Language Selector -->
-            <div class="mt-4 landscape:mt-2 flex items-center justify-center gap-2 landscape:gap-1 flex-wrap">
-                <select id="languageSelect"
-                    class="bg-neutral-800 border border-neutral-700 rounded px-3 py-1 landscape:px-2 landscape:py-0.5 text-sm landscape:text-xs text-neutral-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
-                    <option value="en-US">English (US)</option>
-                    <option value="es-ES">Spanish</option>
-                    <option value="fr-FR">French</option>
-                    <option value="de-DE">German</option>
-                    <option value="it-IT">Italian</option>
-                    <option value="pt-PT">Portuguese</option>
-                    <option value="ru-RU">Russian</option>
-                    <option value="ja-JP">Japanese</option>
-                    <option value="zh-CN">Chinese</option>
-                    <option value="ko-KR">Korean</option>
-                    <option value="ar-SA">Arabic</option>
-                    <option value="nl-NL">Dutch</option>
-                    <option value="pl-PL">Polish</option>
-                    <option value="uk-UA">Ukrainian</option>
-                    <option value="hi-IN">Hindi</option>
-                    <option value="tr-TR">Turkish</option>
-                    <option value="sv-SE">Swedish</option>
-                    <option value="da-DK">Danish</option>
-                    <option value="fi-FI">Finnish</option>
-                    <option value="no-NO">Norwegian</option>
-                </select>
-            </div>
-
-            <!-- History Section -->
-            <div id="historySection" class="mt-4 landscape:mt-2 border-t border-neutral-800 pt-6 landscape:pt-3">
-                <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-neutral-400 font-medium text-sm">Recent scripts</h3>
-                    <button id="clearHistoryBtn"
-                        class="text-xs text-red-400 hover:text-red-300 transition-colors hidden">Clear History</button>
-                </div>
-                <div id="historyList"
-                    class="flex overflow-x-auto gap-3 pb-2 md:grid md:grid-cols-2 md:gap-3 md:max-h-48 md:overflow-y-auto md:pb-0 no-scrollbar snap-x">
-                    <!-- History items will be injected here -->
-                </div>
-            </div>
-        </main>
-
-        <footer
-            class="mt-8 landscape:mt-4 text-center text-neutral-500 text-sm pb-4 landscape:pb-2 border-t border-neutral-800 pt-8">
-            <p class="mb-3">Made with ❤️ by <a href="https://github.com/kosuvorov" target="_blank"
-                    class="hover:text-neutral-300 transition-colors">Konstantin Suvorov</a></p>
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-6 mt-4 sm:mt-8 text-sm">
-                <a href="https://buymeacoffee.com/kosuvorov" target="_blank" rel="noopener noreferrer"
-                    class="text-neutral-500 hover:text-[#FFDD00] transition-colors flex items-center gap-1"
-                    onclick="window.umami?.track('buy-coffee')">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M20.216 6.415l-.132-.666c-.119-.596-.387-1.142-.791-1.602-.404-.461-.917-.819-1.508-1.055C16.58 2.65 14.96 2.5 13.216 2.5c-1.744 0-3.364.15-4.569.592-.591.236-1.104.594-1.508 1.055-.404.46-.672 1.006-.791 1.602l-.132.666C4.216 6.53 2.5 8.05 2.5 10c0 1.95 1.716 3.47 3.716 3.585l.132.666c.119.596.387 1.142.791 1.602.404.461.917.819 1.508 1.055 1.185.435 2.765.592 4.569.592 1.804 0 3.384-.157 4.569-.592.591-.236 1.104-.594 1.508-1.055.404-.46.672-1.006.791-1.602l.132-.666C21.784 13.47 23.5 11.95 23.5 10c0-1.95-1.716-3.47-3.284-3.585zM5.5 10c0-1.103.897-2 2-2 .55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1zm13 0c-1.103 0-2-.897-2-2 0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1z" />
-                    </svg>
-                    Buy me a coffee
-                </a>
-
-                <a href="/about.html"
-                    class="text-neutral-500 hover:text-neutral-300 transition-colors flex items-center gap-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    About / Instructions
-                </a>
-                <a href="https://github.com/kosuvorov/VoicePrompter/issues" target="_blank" rel="noopener noreferrer"
-                    class="text-neutral-500 hover:text-neutral-300 transition-colors flex items-center gap-1"
-                    onclick="window.umami?.track('report-issue')">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                    </svg>
-                    Report Bug / Request Feature
-                </a>
-            </div>
-        </footer>
-    </div>
-
-    <!-- Prompter Container -->
-    <div id="prompterContainer" class="hidden fixed inset-0 z-50 bg-black h-full w-full">
-
-        <!-- Scroll Container -->
-        <div id="scrollContainer" class="h-full w-full overflow-y-auto no-scrollbar relative scroll-smooth">
-            <div id="topSpacer" class="h-[45vh]"></div>
-            <div id="scriptContent" class="max-w-5xl mx-auto px-8 pb-[50vh] text-center outline-none"
-                style="font-size: 40px; line-height: 1.5;">
-                <!-- Script content injected here -->
-            </div>
-        </div>
-
-        <!-- Controls Overlay -->
-        <div class="absolute bottom-8 left-0 right-0 flex justify-center items-center gap-6 z-20 pointer-events-none">
-
-            <!-- Reset App -->
-            <button id="resetAppBtn"
-                class="pointer-events-auto p-3 rounded-full bg-neutral-800/80 backdrop-blur text-neutral-400 hover:text-white hover:bg-neutral-700 transition-all"
-                title="Back to Editor">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M11 17l-5-5m0 0l5-5m-5 5h12" />
-                </svg>
-            </button>
-
-            <!-- Mic Button -->
-            <button id="micButton"
-                class="pointer-events-auto h-16 w-16 rounded-full bg-neutral-800 border-2 border-neutral-600 flex items-center justify-center transition-all shadow-xl hover:scale-105 active:scale-95 group">
-                <svg id="micIcon" xmlns="http://www.w3.org/2000/svg"
-                    class="h-8 w-8 text-white group-hover:text-blue-400 transition-colors" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                </svg>
-                <div id="statusIndicator"
-                    class="hidden absolute -top-1 -right-1 h-4 w-4 bg-green-500 rounded-full border-2 border-black">
-                </div>
-            </button>
-
-            <!-- Restart Script -->
-            <button id="restartScriptBtn"
-                class="pointer-events-auto p-3 rounded-full bg-neutral-800/80 backdrop-blur text-neutral-400 hover:text-white hover:bg-neutral-700 transition-all"
-                title="Restart Script">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                </svg>
-            </button>
-
-            <!-- Settings Toggle -->
-            <button id="toggleSettingsBtn"
-                class="pointer-events-auto p-3 rounded-full bg-neutral-800/80 backdrop-blur text-neutral-400 hover:text-white hover:bg-neutral-700 transition-all"
-                title="Settings">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-            </button>
-        </div>
-
-        <!-- Settings Panel -->
-        <div id="settingsPanel"
-            class="hidden absolute top-4 right-4 z-30 w-80 max-h-[85vh] overflow-y-auto bg-neutral-900/95 backdrop-blur border border-neutral-800 rounded-xl shadow-2xl p-4 transition-all duration-200 origin-top-right no-scrollbar">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-sm font-bold text-neutral-400 uppercase tracking-wider">Display Settings</h3>
-                <button id="closeSettingsBtn"
-                    class="text-neutral-400 hover:text-white transition-colors p-1 rounded hover:bg-neutral-800"
-                    title="Close Settings">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-
-
-            <!-- Alignment -->
-            <div class="mb-4">
-                <label class="block text-xs text-neutral-400 mb-2">Alignment</label>
-                <div class="flex bg-neutral-800 rounded-lg p-1 border border-neutral-700">
-                    <button id="alignLeftBtn" class="flex-1 py-1 rounded hover:bg-neutral-700 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mx-auto" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h10M4 18h16" />
-                        </svg>
-                    </button>
-                    <button id="alignCenterBtn" class="flex-1 py-1 rounded hover:bg-neutral-700 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mx-auto" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                    <button id="alignRightBtn" class="flex-1 py-1 rounded hover:bg-neutral-700 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mx-auto" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M10 12h10M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Toggles -->
-            <div class="space-y-3 mb-6 pb-6 border-b border-neutral-800">
-                <div class="flex items-center justify-between">
-                    <span class="text-sm text-neutral-300">Mirror Mode</span>
-                    <label class="relative inline-flex items-center cursor-pointer">
-                        <input id="mirrorToggle" type="checkbox" class="sr-only peer">
-                        <div
-                            class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600">
-                        </div>
-                    </label>
-                </div>
-
-                <div class="flex items-center justify-between">
-                    <span class="text-sm text-neutral-300">Show Stop Signs</span>
-                    <label class="relative inline-flex items-center cursor-pointer">
-                        <input id="stopSignToggle" type="checkbox" class="sr-only peer">
-                        <div
-                            class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600">
-                        </div>
-                    </label>
-                </div>
-
-                <div class="flex items-center justify-between">
-                    <div class="flex flex-col">
-                        <span class="text-sm text-neutral-300">Voice Commands</span>
-                        <span class="text-xs text-neutral-500">Say "prompter restart" to reset</span>
-                    </div>
-                    <label class="relative inline-flex items-center cursor-pointer">
-                        <input id="voiceCommandToggle" type="checkbox" checked class="sr-only peer">
-                        <div
-                            class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600">
-                        </div>
-                    </label>
-                </div>
-                <div class="flex items-center justify-between">
-                    <div class="flex flex-col">
-                        <span class="text-sm text-neutral-300">Rotate Screen</span>
-                        <span class="text-xs text-neutral-500">90° clockwise for iOS</span>
-                    </div>
-                    <label class="relative inline-flex items-center cursor-pointer">
-                        <input id="screenRotationToggle" type="checkbox" class="sr-only peer">
-                        <div
-                            class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600">
-                        </div>
-                    </label>
-                </div>
-                <div class="flex items-center justify-between">
-                    <span class="text-sm text-neutral-300">Preserve Formatting</span>
-                    <label class="relative inline-flex items-center cursor-pointer">
-                        <input id="preserveFormattingToggle" type="checkbox" checked class="sr-only peer">
-                        <div
-                            class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600">
-                        </div>
-                    </label>
-                </div>
-                <div class="flex items-center justify-between">
-                    <div class="flex flex-col">
-                        <span class="text-sm text-neutral-300">Smooth Animations</span>
-                        <span class="text-xs text-neutral-500">Smoother scroll & highlighting</span>
-                    </div>
-                    <label class="relative inline-flex items-center cursor-pointer">
-                        <input id="smoothAnimationsToggle" type="checkbox" class="sr-only peer">
-                        <div
-                            class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600">
-                        </div>
-                    </label>
-                </div>
-                <div class="flex items-center justify-between">
-                    <div class="flex flex-col">
-                        <span class="text-sm text-neutral-300">Highlight Active Word</span>
-                        <span class="text-xs text-neutral-500">Orange underline on current word</span>
-                    </div>
-                    <label class="relative inline-flex items-center cursor-pointer">
-                        <input id="highlightActiveWordToggle" type="checkbox" class="sr-only peer">
-                        <div
-                            class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600">
-                        </div>
-                    </label>
-                </div>
-            </div>
-
-            <!-- Font Size -->
-            <div class="mb-4">
-                <div class="flex justify-between text-sm mb-1">
-                    <span class="text-neutral-300">Font Size</span>
-                    <span id="fontSizeVal" class="text-blue-400 font-mono">40px</span>
-                </div>
-                <input id="fontSizeInput" type="range" min="20" max="100" value="40"
-                    class="w-full h-2 bg-neutral-700 rounded-lg appearance-none cursor-pointer">
-            </div>
-
-            <!-- Line Height -->
-            <div class="mb-4">
-                <div class="flex justify-between text-sm mb-1">
-                    <span class="text-neutral-300">Line Spacing</span>
-                    <span id="lineHeightVal" class="text-blue-400 font-mono">1.0x</span>
-                </div>
-                <input id="lineHeightInput" type="range" min="0.6" max="1.4" step="0.1" value="1.0"
-                    class="w-full h-2 bg-neutral-700 rounded-lg appearance-none cursor-pointer">
-            </div>
-
-            <!-- Paragraph Spacing -->
-            <div class="mb-4">
-                <div class="flex justify-between text-sm mb-1">
-                    <span class="text-neutral-300">Paragraph Spacing</span>
-                    <span id="paragraphSpacingVal" class="text-blue-400 font-mono">0.5em</span>
-                </div>
-                <input id="paragraphSpacingInput" type="range" min="0" max="1" step="0.1" value="0.5"
-                    class="w-full h-2 bg-neutral-700 rounded-lg appearance-none cursor-pointer">
-            </div>
-
-            <!-- Margins -->
-            <div class="mb-4">
-                <div class="flex justify-between text-sm mb-1">
-                    <span class="text-neutral-300">Side Margins</span>
-                    <span id="marginVal" class="text-blue-400 font-mono">0px</span>
-                </div>
-                <input id="marginInput" type="range" min="0" max="200" step="10" value="0"
-                    class="w-full h-2 bg-neutral-700 rounded-lg appearance-none cursor-pointer">
-            </div>
-
-            <!-- Active Line Position -->
-            <div class="mb-4">
-                <div class="flex justify-between text-sm mb-1">
-                    <span class="text-neutral-300">Active Line Position</span>
-                    <span id="activeLinePositionVal" class="text-blue-400 font-mono">35%</span>
-                </div>
-                <input id="activeLinePositionInput" type="range" min="10" max="90" step="5" value="35"
-                    class="w-full h-2 bg-neutral-700 rounded-lg appearance-none cursor-pointer">
-            </div>
-
-            <!-- Lookahead Words -->
-            <div class="mb-4">
-                <div class="flex justify-between text-sm mb-1">
-                    <span class="text-neutral-300">Lookahead Words</span>
-                    <span id="lookaheadWordsVal" class="text-blue-400 font-mono">5</span>
-                </div>
-                <input id="lookaheadWordsInput" type="range" min="1" max="10" step="1" value="5"
-                    class="w-full h-2 bg-neutral-700 rounded-lg appearance-none cursor-pointer">
-            </div>
-
-            <!-- Theme Presets -->
-            <div class="mt-6 pt-4 border-t border-neutral-800">
-                <div class="grid grid-cols-2 gap-2">
-                    <button id="themeDarkBtn"
-                        class="px-3 py-2 bg-neutral-800 hover:bg-neutral-700 rounded text-xs text-neutral-300 border border-neutral-700">Dark
-                        Theme</button>
-                    <button id="themeLightBtn"
-                        class="px-3 py-2 bg-white hover:bg-gray-100 rounded text-xs text-black border border-gray-200">Light
-                        Theme</button>
-                </div>
-            </div>
-
-            <!-- Colors -->
-            <div class="grid grid-cols-2 gap-4 mt-4">
-                <div>
-                    <label class="block text-xs text-neutral-400 mb-1">Text Color</label>
-                    <div class="flex items-center bg-neutral-800 rounded p-1 border border-neutral-700">
-                        <input id="textColorInput" type="color" value="#ffffff"
-                            class="w-8 h-8 rounded cursor-pointer bg-transparent border-none p-0 mr-2">
-                        <span class="text-xs text-neutral-300 font-mono">#ffffff</span>
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-xs text-neutral-400 mb-1">Background</label>
-                    <div class="flex items-center bg-neutral-800 rounded p-1 border border-neutral-700">
-                        <input id="bgColorInput" type="color" value="#000000"
-                            class="w-8 h-8 rounded cursor-pointer bg-transparent border-none p-0 mr-2">
-                        <span class="text-xs text-neutral-300 font-mono">#000000</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Feedback Link in Settings -->
-        <div class="mt-6 pt-4 border-t border-neutral-800 text-center text-xs flex items-center justify-center gap-2">
-            <a href="/about.html" class="text-neutral-500 hover:text-white transition-colors">About</a>
-            <span class="text-neutral-700">•</span>
-            <a href="/blog/" class="text-neutral-500 hover:text-white transition-colors">Blog</a>
-            <span class="text-neutral-700">•</span>
-            <a href="https://github.com/kosuvorov/VoicePrompter/issues" target="_blank" rel="noopener noreferrer"
-                class="text-neutral-500 hover:text-blue-400 transition-colors flex items-center justify-center gap-1"
-                onclick="window.umami?.track('report-issue-settings')">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-                </svg>
-                Missing a feature? Request it here
-            </a>
-        </div>
-    </div>
-    </div>
+    <!-- Scroll Reveal -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+            document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+        });
+    </script>
 
 </body>
 

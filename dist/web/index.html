@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoicePrompter — Free voice-controlled teleprompter in your browser</title>
+    <meta name="description"
+        content="A free, private, offline teleprompter that follows your voice. Works in your browser on any device. No account, no app, no cost.">
+    <link rel="canonical" href="https://voiceprompter.xyz/web">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://voiceprompter.xyz/web">
+    <meta property="og:title" content="VoicePrompter — Free voice-controlled teleprompter in your browser">
+    <meta property="og:description"
+        content="A free, private, offline teleprompter that follows your voice. Works on any device. No account, no cost.">
+
+    <!-- Fonts (same as Mac page) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display&display=swap"
+        rel="stylesheet">
+
+    <!-- Umami Analytics -->
+    <script defer src="https://reactive-analytics.up.railway.app/script.js"
+        data-website-id="eee38a2c-9b72-4937-9ee4-37827bae546c"></script>
+
+    <style>
+        /* ───────────────────────── Reset & Tokens ───────────────────────── */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0F0F0F;
+            --surface: #1A1A1A;
+            --surface-border: rgba(255, 255, 255, 0.06);
+            --text: #E8E4DF;
+            --text-light: #9A948D;
+            --accent: #F5F0EB;
+            --pop: #E07A5F;
+            --shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+            --radius: 18px;
+            --pill: 100px;
+            --font-serif: 'DM Serif Display', Georgia, serif;
+            --font-sans: 'DM Sans', 'Segoe UI', sans-serif;
+            --section-pad: 120px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-sans);
+            font-size: 17px;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            position: relative;
+        }
+
+        /* Subtle grain overlay (same as Mac, lower opacity for dark) */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 180px 180px;
+        }
+
+        img,
+        svg {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* ───────────────────────── Utilities ───────────────────────── */
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ───────────────────────── Nav ───────────────────────── */
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 28px 32px;
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            color: var(--accent);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-link {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-light);
+            transition: color 0.25s;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        /* ───────────────────────── Hero ───────────────────────── */
+        .hero {
+            padding: var(--section-pad) 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 58px;
+            line-height: 1.14;
+            color: var(--accent);
+            max-width: 740px;
+            margin: 0 auto 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--pop);
+        }
+
+        .hero-sub {
+            font-size: 19px;
+            color: var(--text-light);
+            max-width: 580px;
+            margin: 0 auto 40px;
+            line-height: 1.65;
+        }
+
+        .hero-ctas {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 0;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--pop);
+            color: #fff;
+            font-family: var(--font-sans);
+            font-size: 16px;
+            font-weight: 500;
+            padding: 14px 32px;
+            border-radius: var(--pill);
+            border: none;
+            cursor: pointer;
+            transition: background 0.25s, transform 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: #c9664c;
+            transform: translateY(-1px);
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: transparent;
+            color: var(--text);
+            font-family: var(--font-sans);
+            font-size: 16px;
+            font-weight: 500;
+            padding: 14px 28px;
+            border-radius: var(--pill);
+            border: 1.5px solid var(--text-light);
+            cursor: pointer;
+            transition: border-color 0.25s, color 0.25s, transform 0.2s;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--pop);
+            color: var(--pop);
+            transform: translateY(-1px);
+        }
+
+        /* Hero visual */
+        .hero-image {
+            margin: 64px auto 0;
+            max-width: 860px;
+            position: relative;
+        }
+
+        .hero-devices {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        .device-laptop {
+            width: 62%;
+            aspect-ratio: 16 / 10;
+            background: linear-gradient(135deg, #1E1E1E 0%, #2A2A2A 100%);
+            border-radius: 14px;
+            border: 1px solid var(--surface-border);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .device-laptop::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 14px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
+        }
+
+        .device-phone {
+            width: 18%;
+            aspect-ratio: 9 / 19;
+            background: linear-gradient(135deg, #1E1E1E 0%, #2A2A2A 100%);
+            border-radius: 24px;
+            border: 1px solid var(--surface-border);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .device-phone::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
+        }
+
+        /* Simulated script lines inside devices */
+        .device-lines {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 20%;
+            width: 100%;
+        }
+
+        .device-lines .line {
+            height: 3px;
+            border-radius: 2px;
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .device-lines .line.active {
+            background: var(--pop);
+            opacity: 0.7;
+        }
+
+        .device-lines .line:nth-child(1) {
+            width: 90%;
+        }
+
+        .device-lines .line:nth-child(2) {
+            width: 100%;
+        }
+
+        .device-lines .line:nth-child(3) {
+            width: 75%;
+        }
+
+        .device-lines .line:nth-child(4) {
+            width: 85%;
+        }
+
+        .device-lines .line:nth-child(5) {
+            width: 95%;
+        }
+
+        .device-lines .line:nth-child(6) {
+            width: 60%;
+        }
+
+        .device-lines .line:nth-child(7) {
+            width: 80%;
+        }
+
+        /* ───────────────────────── Audience ───────────────────────── */
+        .audience {
+            padding: var(--section-pad) 0;
+            text-align: center;
+        }
+
+        .audience p {
+            font-family: var(--font-serif);
+            font-size: 30px;
+            line-height: 1.5;
+            max-width: 740px;
+            margin: 0 auto;
+            color: var(--accent);
+        }
+
+        /* ───────────────────────── Features ───────────────────────── */
+        .features {
+            padding: 0 0 var(--section-pad);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--surface);
+            border: 1px solid var(--surface-border);
+            border-radius: var(--radius);
+            padding: 40px 32px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(224, 122, 95, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--pop);
+        }
+
+        .feature-card h3 {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+
+        .feature-card p {
+            font-size: 16px;
+            color: var(--text-light);
+            line-height: 1.65;
+        }
+
+        /* ───────────────────────── PWA Install ───────────────────────── */
+        .pwa-install {
+            padding: var(--section-pad) 0;
+        }
+
+        .pwa-install h2 {
+            font-family: var(--font-serif);
+            font-size: 38px;
+            color: var(--accent);
+            text-align: center;
+            margin-bottom: 56px;
+            letter-spacing: -0.01em;
+        }
+
+        .pwa-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .pwa-card {
+            background: var(--surface);
+            border: 1px solid var(--surface-border);
+            border-radius: var(--radius);
+            padding: 36px 28px;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .pwa-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .pwa-card-icon {
+            width: 52px;
+            height: 52px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--pop);
+        }
+
+        .pwa-card h3 {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .pwa-steps {
+            list-style: none;
+            text-align: left;
+        }
+
+        .pwa-steps li {
+            font-size: 15px;
+            color: var(--text-light);
+            padding: 10px 0;
+            border-bottom: 1px solid var(--surface-border);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            line-height: 1.5;
+        }
+
+        .pwa-steps li:last-child {
+            border-bottom: none;
+        }
+
+        .step-num {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: rgba(224, 122, 95, 0.15);
+            color: var(--pop);
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pwa-reassurance {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 15px;
+            color: var(--text-light);
+        }
+
+        /* ───────────────────────── Video ───────────────────────── */
+        .video-section {
+            padding: 0 0 var(--section-pad);
+            text-align: center;
+        }
+
+        .video-section h2 {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            color: var(--accent);
+            margin-bottom: 48px;
+        }
+
+        .video-wrapper {
+            max-width: 860px;
+            margin: 0 auto;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+            background: #000;
+            border: 1px solid var(--surface-border);
+        }
+
+        .video-wrapper .video-responsive {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+
+        .video-wrapper .video-responsive iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ───────────────────────── Footer CTA ───────────────────────── */
+        .footer-cta {
+            padding: var(--section-pad) 0;
+            text-align: center;
+        }
+
+        .footer-cta h2 {
+            font-family: var(--font-serif);
+            font-size: 44px;
+            color: var(--accent);
+            margin-bottom: 36px;
+        }
+
+        .footer-cta .btn-primary {
+            font-size: 17px;
+            padding: 16px 40px;
+        }
+
+        .trust-lines {
+            margin-top: 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .trust-lines a,
+        .trust-lines span {
+            font-size: 15px;
+            color: var(--text-light);
+            transition: color 0.25s;
+        }
+
+        .trust-lines a:hover {
+            color: var(--pop);
+        }
+
+        /* ───────────────────────── Footer ───────────────────────── */
+        .footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--surface-border);
+        }
+
+        .footer p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .footer a {
+            color: var(--pop);
+            transition: opacity 0.2s;
+        }
+
+        .footer a:hover {
+            opacity: 0.7;
+        }
+
+        /* ═══════════════════════ Responsive ═══════════════════════ */
+        @media (max-width: 768px) {
+            :root {
+                --section-pad: 72px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero-sub {
+                font-size: 17px;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .audience p {
+                font-size: 22px;
+            }
+
+            .pwa-install h2 {
+                font-size: 28px;
+            }
+
+            .pwa-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .video-section h2 {
+                font-size: 28px;
+            }
+
+            .footer-cta h2 {
+                font-size: 32px;
+            }
+
+            .hero-devices {
+                gap: 16px;
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .nav {
+                padding: 20px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .feature-card {
+                padding: 28px 24px;
+            }
+
+            .pwa-card {
+                padding: 28px 20px;
+            }
+        }
+    </style>
+<link rel="manifest" href="/manifest.webmanifest"></head>
+
+<body>
+
+    <!-- ═══════════════════════ Nav ═══════════════════════ -->
+    <nav class="nav" role="navigation">
+        <a href="/web" class="nav-logo">VoicePrompter</a>
+        <div class="nav-links">
+            <a href="/mac" class="nav-link">Mac Version</a>
+            <a href="https://app.voiceprompter.xyz" target="_blank" rel="noopener" class="nav-link">Open the App →</a>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════ Hero ═══════════════════════ -->
+    <section class="hero container fade-up" id="hero">
+        <h1>A teleprompter that's always <em>free</em>. Always private. Always ready.</h1>
+        <p class="hero-sub">Voice-controlled, works offline, runs entirely in your browser. No account, no app, no
+            cost.</p>
+
+        <div class="hero-ctas">
+            <a href="https://app.voiceprompter.xyz" target="_blank" rel="noopener" class="btn-primary">
+                Open the App →
+            </a>
+            <a href="#install" class="btn-ghost">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                Install on your phone or desktop
+            </a>
+        </div>
+
+        <div class="hero-image">
+            <div class="hero-devices">
+                <div class="device-laptop">
+                    <div class="device-lines">
+                        <div class="line"></div>
+                        <div class="line active"></div>
+                        <div class="line active"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
+                </div>
+                <div class="device-phone">
+                    <div class="device-lines">
+                        <div class="line"></div>
+                        <div class="line active"></div>
+                        <div class="line active"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════ Audience ═══════════════════════ -->
+    <section class="audience container fade-up">
+        <p>Built for YouTubers, TikTokers, podcasters, teachers, and anyone who records themselves. No subscription, no
+            server, no setup. Just paste your script and start talking.</p>
+    </section>
+
+    <!-- ═══════════════════════ Features ═══════════════════════ -->
+    <section class="features container fade-up">
+        <div class="features-grid">
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                        <line x1="12" y1="19" x2="12" y2="23" />
+                        <line x1="8" y1="23" x2="16" y2="23" />
+                    </svg>
+                </div>
+                <h3>Follows your voice</h3>
+                <p>Scrolls automatically as you speak. Pauses when you stop. No hands, no foot pedal, no remote.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18.36 6.64a9 9 0 1 1-12.73 0" />
+                        <line x1="12" y1="2" x2="12" y2="12" />
+                    </svg>
+                </div>
+                <h3>Works offline, forever</h3>
+                <p>Install it once as an app on your phone or desktop. No internet needed after that.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="23 4 23 10 17 10" />
+                        <polyline points="1 20 1 14 7 14" />
+                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
+                    </svg>
+                </div>
+                <h3>Mirror mode built in</h3>
+                <p>Running a physical teleprompter glass setup? One tap flips and rotates the text correctly.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="2" y1="12" x2="22" y2="12" />
+                        <path
+                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                    </svg>
+                </div>
+                <h3>20+ languages, auto-detected</h3>
+                <p>Paste text in any language and it figures it out. No configuration needed.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ═══════════════════════ PWA Install ═══════════════════════ -->
+    <section class="pwa-install container fade-up" id="install">
+        <h2>Install it like an app. Use it like one too.</h2>
+
+        <div class="pwa-grid">
+
+            <div class="pwa-card">
+                <div class="pwa-card-icon">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                    </svg>
+                </div>
+                <h3>iPhone & iPad</h3>
+                <ol class="pwa-steps">
+                    <li><span class="step-num">1</span> Open app.voiceprompter.xyz in Safari</li>
+                    <li><span class="step-num">2</span> Tap the Share button (square with arrow)</li>
+                    <li><span class="step-num">3</span> Tap "Add to Home Screen"</li>
+                </ol>
+            </div>
+
+            <div class="pwa-card">
+                <div class="pwa-card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1" />
+                        <polygon points="12 15 17 21 7 21 12 15" />
+                    </svg>
+                </div>
+                <h3>Android</h3>
+                <ol class="pwa-steps">
+                    <li><span class="step-num">1</span> Open app.voiceprompter.xyz in Chrome</li>
+                    <li><span class="step-num">2</span> Tap the three-dot menu at top right</li>
+                    <li><span class="step-num">3</span> Tap "Install app" or "Add to Home Screen"</li>
+                </ol>
+            </div>
+
+            <div class="pwa-card">
+                <div class="pwa-card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                        <line x1="8" y1="21" x2="16" y2="21" />
+                        <line x1="12" y1="17" x2="12" y2="21" />
+                    </svg>
+                </div>
+                <h3>Desktop</h3>
+                <ol class="pwa-steps">
+                    <li><span class="step-num">1</span> Open app.voiceprompter.xyz in Chrome or Edge</li>
+                    <li><span class="step-num">2</span> Click the install icon in the address bar</li>
+                    <li><span class="step-num">3</span> Click "Install"</li>
+                </ol>
+            </div>
+
+        </div>
+
+        <p class="pwa-reassurance">No App Store required. No permissions except your microphone.</p>
+    </section>
+
+    <!-- ═══════════════════════ Video ═══════════════════════ -->
+    <section class="video-section container fade-up" id="video">
+        <h2>See it in action</h2>
+        <div class="video-wrapper">
+            <div class="video-responsive">
+                <iframe src="https://www.youtube.com/embed/osxGbmB2_nY" title="VoicePrompter Demo"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════ Footer CTA ═══════════════════════ -->
+    <section class="footer-cta container fade-up">
+        <h2>Free as in freedom</h2>
+        <a href="https://app.voiceprompter.xyz" target="_blank" rel="noopener" class="btn-primary">
+            Open the App →
+        </a>
+        <div class="trust-lines">
+            <a href="https://github.com/nicekid1/Teleprompter" target="_blank" rel="noopener">Open source on GitHub
+                ↗</a>
+            <span>Your scripts never leave your device</span>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════ Footer ═══════════════════════ -->
+    <footer class="footer">
+        <p>© 2025 VoicePrompter · <a href="/">Web App</a> · <a href="/mac">Mac</a> · <a href="/about.html">About</a></p>
+    </footer>
+
+    <!-- ═══════════════════════ Scroll Reveal ═══════════════════════ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+        });
+    </script>
+
+</body>
+
+</html>

@@ -14,6 +14,8 @@ export default defineConfig({
                 theme_color: '#000000',
                 background_color: '#000000',
                 display: 'standalone',
+                start_url: '/app/',
+                scope: '/app/',
                 icons: [
                     {
                         src: 'pwa-192x192.png',
@@ -32,7 +34,8 @@ export default defineConfig({
     build: {
         rollupOptions: {
             input: {
-                main: 'index.html',
+                hub: 'index.html',
+                app: 'app/index.html',
                 about: 'about.html',
                 blog: 'blog/index.html',
                 blog_article1: 'blog/best-free-tools-2025.html',
