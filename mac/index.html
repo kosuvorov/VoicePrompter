@@ -527,6 +527,11 @@
                 --section-pad: 72px;
             }
 
+            .nav {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
             .hero h1 {
                 font-size: 36px;
             }
@@ -537,6 +542,10 @@
 
             .hero-image-placeholder {
                 transform: none;
+            }
+
+            .hero-meta {
+                font-size: 13px;
             }
 
             .features-grid {
@@ -569,6 +578,21 @@
                 flex-direction: column;
                 gap: 12px;
             }
+
+            .btn-primary,
+            .btn-ghost {
+                width: 100%;
+                justify-content: center;
+                padding: 14px 24px;
+            }
+
+            .footer-cta .btn-primary {
+                padding: 14px 32px;
+            }
+
+            .footer p {
+                font-size: 13px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -581,15 +605,43 @@
             }
 
             .hero h1 {
-                font-size: 30px;
+                font-size: 28px;
+            }
+
+            .hero-sub {
+                font-size: 16px;
             }
 
             .feature-card {
                 padding: 28px 24px;
             }
 
+            .feature-card h3 {
+                font-size: 20px;
+            }
+
+            .feature-card p {
+                font-size: 15px;
+            }
+
             .pricing-card {
                 padding: 32px 24px;
+            }
+
+            .pricing-card h3 {
+                font-size: 24px;
+            }
+
+            .pricing-features li {
+                font-size: 14px;
+            }
+
+            .footer-cta h2 {
+                font-size: 28px;
+            }
+
+            .hero-meta span {
+                margin: 0 4px;
             }
         }
     </style>
