@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoicePrompter for Mac — Your invisible teleprompter</title>
+    <meta name="description"
+        content="A floating teleprompter that follows your voice, stays invisible on screen share, and works on top of any app. $3.99/mo on the Mac App Store.">
+    <link rel="canonical" href="https://voiceprompter.xyz/mac">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://voiceprompter.xyz/mac">
+    <meta property="og:title" content="VoicePrompter for Mac — Your invisible teleprompter">
+    <meta property="og:description"
+        content="A floating teleprompter that follows your voice, stays invisible on screen share, and works on top of any app.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display&display=swap"
+        rel="stylesheet">
+
+    <!-- Umami Analytics -->
+    <script defer src="https://reactive-analytics.up.railway.app/script.js"
+        data-website-id="eee38a2c-9b72-4937-9ee4-37827bae546c"></script>
+
+    <style>
+        /* ───────────────────────── Reset & Tokens ───────────────────────── */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #F5F0EB;
+            --surface: #FFFFFF;
+            --text: #3D3530;
+            --text-light: #8A8078;
+            --accent: #1A1410;
+            --pop: #C4614A;
+            --shadow: 0 2px 20px rgba(0, 0, 0, 0.07);
+            --radius: 18px;
+            --pill: 100px;
+            --font-serif: 'DM Serif Display', Georgia, serif;
+            --font-sans: 'DM Sans', 'Segoe UI', sans-serif;
+            --section-pad: 120px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-sans);
+            font-size: 17px;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            position: relative;
+        }
+
+        /* Subtle film-grain overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.045;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 180px 180px;
+        }
+
+        img,
+        svg {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* ───────────────────────── Utilities ───────────────────────── */
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ───────────────────────── Nav ───────────────────────── */
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 28px 32px;
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            color: var(--accent);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-link {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-light);
+            transition: color 0.25s;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        /* ───────────────────────── Hero ───────────────────────── */
+        .hero {
+            padding: var(--section-pad) 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 60px;
+            line-height: 1.12;
+            color: var(--accent);
+            max-width: 680px;
+            margin: 0 auto 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-sub {
+            font-size: 19px;
+            color: var(--text-light);
+            max-width: 520px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent);
+            color: #fff;
+            font-family: var(--font-sans);
+            font-size: 16px;
+            font-weight: 500;
+            padding: 14px 32px;
+            border-radius: var(--pill);
+            border: none;
+            cursor: pointer;
+            transition: background 0.25s, transform 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: #302820;
+            transform: translateY(-1px);
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: transparent;
+            color: var(--text);
+            font-family: var(--font-sans);
+            font-size: 16px;
+            font-weight: 500;
+            padding: 14px 28px;
+            border-radius: var(--pill);
+            border: 1.5px solid var(--text-light);
+            cursor: pointer;
+            transition: border-color 0.25s, color 0.25s, transform 0.2s;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        .hero-meta {
+            font-size: 14px;
+            color: var(--text-light);
+            letter-spacing: 0.01em;
+        }
+
+        .hero-meta span {
+            margin: 0 6px;
+            opacity: 0.4;
+        }
+
+        /* Hero image */
+        .hero-image {
+            margin: 64px auto 0;
+            max-width: 780px;
+            position: relative;
+        }
+
+        .hero-image-placeholder {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            background: linear-gradient(135deg, #E8E0D8 0%, #D6CCC2 100%);
+            border-radius: 14px;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.12);
+            transform: perspective(1200px) rotateY(-2deg) rotateX(1deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+
+        /* ───────────────────────── Problem ───────────────────────── */
+        .problem {
+            padding: var(--section-pad) 0;
+            text-align: center;
+        }
+
+        .problem p {
+            font-family: var(--font-serif);
+            font-size: 32px;
+            line-height: 1.45;
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--accent);
+        }
+
+        /* ───────────────────────── Features ───────────────────────── */
+        .features {
+            padding: 0 0 var(--section-pad);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .feature-card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 40px 32px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--pop);
+        }
+
+        .feature-card h3 {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+
+        .feature-card p {
+            font-size: 16px;
+            color: var(--text-light);
+            line-height: 1.65;
+        }
+
+        /* ───────────────────────── Video ───────────────────────── */
+        .video-section {
+            padding: 0 0 var(--section-pad);
+            text-align: center;
+        }
+
+        .video-section h2 {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            color: var(--accent);
+            margin-bottom: 48px;
+        }
+
+        .video-wrapper {
+            max-width: 860px;
+            margin: 0 auto;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
+            background: #000;
+        }
+
+        .video-wrapper .video-responsive {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+
+        .video-wrapper .video-responsive iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ───────────────────────── Pricing ───────────────────────── */
+        .pricing {
+            padding: var(--section-pad) 0;
+        }
+
+        .pricing h2 {
+            font-family: var(--font-serif);
+            font-size: 42px;
+            text-align: center;
+            color: var(--accent);
+            margin-bottom: 56px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 44px 36px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-card.popular {
+            border: 2px solid var(--pop);
+        }
+
+        .pricing-card.popular::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -13px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--pop);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 16px;
+            border-radius: var(--pill);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .pricing-card h3 {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .pricing-price {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 24px;
+        }
+
+        .pricing-price strong {
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 0;
+        }
+
+        .pricing-features li {
+            font-size: 15px;
+            color: var(--text);
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-features li::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23C4614A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .pricing-trust {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 15px;
+            color: var(--text-light);
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ───────────────────────── Footer CTA ───────────────────────── */
+        .footer-cta {
+            padding: var(--section-pad) 0;
+            text-align: center;
+        }
+
+        .footer-cta h2 {
+            font-family: var(--font-serif);
+            font-size: 44px;
+            color: var(--accent);
+            margin-bottom: 36px;
+        }
+
+        .footer-cta .btn-primary {
+            font-size: 17px;
+            padding: 16px 40px;
+        }
+
+        .footer-badge {
+            margin-top: 24px;
+        }
+
+        .footer-badge-placeholder {
+            display: inline-block;
+            width: 160px;
+            height: 52px;
+            background: linear-gradient(135deg, #E8E0D8 0%, #D6CCC2 100%);
+            border-radius: 10px;
+            line-height: 52px;
+            font-size: 13px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* ───────────────────────── Footer ───────────────────────── */
+        .footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .footer p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .footer a {
+            color: var(--pop);
+            transition: opacity 0.2s;
+        }
+
+        .footer a:hover {
+            opacity: 0.7;
+        }
+
+        /* ═══════════════════════ Responsive ═══════════════════════ */
+        @media (max-width: 768px) {
+            :root {
+                --section-pad: 72px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero-sub {
+                font-size: 17px;
+            }
+
+            .hero-image-placeholder {
+                transform: none;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .pricing h2 {
+                font-size: 32px;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .problem p {
+                font-size: 24px;
+            }
+
+            .video-section h2 {
+                font-size: 28px;
+            }
+
+            .footer-cta h2 {
+                font-size: 32px;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .nav {
+                padding: 20px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .feature-card {
+                padding: 28px 24px;
+            }
+
+            .pricing-card {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══════════════════════ Nav ═══════════════════════ -->
+    <nav class="nav" role="navigation">
+        <a href="/mac" class="nav-logo">VoicePrompter</a>
+        <a href="https://apps.apple.com/pl/app/voiceprompter/id6758573080?pt=voiceprompter&ct=mac-landing&mt=12"
+            target="_blank" rel="noopener" class="nav-link">Mac App
+            Store →</a>
+    </nav>
+
+    <!-- ═══════════════════════ Hero ═══════════════════════ -->
+    <section class="hero container fade-up" id="hero">
+        <h1>Your script. Invisible to everyone but you.</h1>
+        <p class="hero-sub">A floating teleprompter that follows your voice and hides from screen share — so you
+            sound natural on every call.</p>
+
+        <div class="hero-ctas">
+            <a href="https://apps.apple.com/pl/app/voiceprompter/id6758573080?pt=voiceprompter&ct=mac-landing-hero&mt=12"
+                target="_blank" rel="noopener" class="btn-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                </svg>
+                Download on the App Store
+            </a>
+            <a href="#video" class="btn-ghost">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
+                Watch the video
+            </a>
+        </div>
+
+        <p class="hero-meta">
+            $3.99/mo<span>·</span>Free to try<span>·</span>Mac App Store<span>·</span>175 countries
+        </p>
+
+        <div class="hero-image">
+            <div class="hero-image-placeholder">
+                [ Mac screenshot — prompter overlay on Zoom call ]
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════ Problem ═══════════════════════ -->
+    <section class="problem container fade-up">
+        <p>Memorizing scripts kills your energy. Reading from notes kills your eye contact. There's a better way.</p>
+    </section>
+
+    <!-- ═══════════════════════ Features ═══════════════════════ -->
+    <section class="features container fade-up">
+        <div class="features-grid">
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                        <line x1="1" y1="1" x2="23" y2="23" />
+                    </svg>
+                </div>
+                <h3>Invisible on screen share</h3>
+                <p>Hidden from Zoom, Teams, and recordings. Only you see the script — your audience sees nothing.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                        <line x1="12" y1="19" x2="12" y2="23" />
+                        <line x1="8" y1="23" x2="16" y2="23" />
+                    </svg>
+                </div>
+                <h3>Follows your voice</h3>
+                <p>Scrolls when you speak, pauses when you stop. No foot pedal, no tapping, no clicker needed.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                        <line x1="8" y1="21" x2="16" y2="21" />
+                        <line x1="12" y1="17" x2="12" y2="21" />
+                    </svg>
+                </div>
+                <h3>Works everywhere</h3>
+                <p>Stays on top of full-screen slides, OBS, any app. Your prompter never gets buried behind
+                    windows.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ═══════════════════════ Video ═══════════════════════ -->
+    <section class="video-section container fade-up" id="video">
+        <h2>See it in action</h2>
+        <div class="video-wrapper">
+            <div class="video-responsive">
+                <iframe src="https://www.youtube.com/embed/2PYq2wI-HWk" title="VoicePrompter for Mac"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════ Pricing ═══════════════════════ -->
+    <section class="pricing container fade-up" id="pricing">
+        <h2>Simple pricing</h2>
+
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Free</h3>
+                <div class="pricing-price"><strong>$0</strong></div>
+                <ul class="pricing-features">
+                    <li>3 custom scripts</li>
+                    <li>Unlimited demo script</li>
+                    <li>Voice-activated scrolling</li>
+                    <li>Invisible on screen share</li>
+                </ul>
+            </div>
+
+            <div class="pricing-card popular">
+                <h3>Pro</h3>
+                <div class="pricing-price"><strong>$3.99</strong>/mo or $39.99/yr</div>
+                <ul class="pricing-features">
+                    <li>Unlimited scripts</li>
+                    <li>Voice-activated scrolling</li>
+                    <li>Invisible on screen share</li>
+                    <li>Priority support</li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="pricing-trust">No account required. Runs entirely on your Mac. Your text never leaves your device.
+        </p>
+    </section>
+
+    <!-- ═══════════════════════ Footer CTA ═══════════════════════ -->
+    <section class="footer-cta container fade-up">
+        <h2>Ready to stop memorizing?</h2>
+        <a href="https://apps.apple.com/pl/app/voiceprompter/id6758573080?pt=voiceprompter&ct=mac-landing-footer&mt=12"
+            target="_blank" rel="noopener" class="btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                    d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+            </svg>
+            Download Free on the App Store
+        </a>
+        <div class="footer-badge">
+            <div class="footer-badge-placeholder">[ App Store Badge ]</div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════ Footer ═══════════════════════ -->
+    <footer class="footer">
+        <p>© 2025 VoicePrompter · <a href="/">Web App</a> · <a href="/about.html">About</a></p>
+    </footer>
+
+    <!-- ═══════════════════════ Scroll Reveal ═══════════════════════ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+        });
+    </script>
+
+</body>
+
+</html>

@@ -37,7 +37,8 @@ export default defineConfig({
                 blog: 'blog/index.html',
                 blog_article1: 'blog/best-free-tools-2025.html',
                 blog_article2: 'blog/how-to-read-naturally.html',
-                blog_article3: 'blog/voice-scrolling-solo-creators.html'
+                blog_article3: 'blog/voice-scrolling-solo-creators.html',
+                mac: 'mac/index.html'
             }
         }
     }
