@@ -8,6 +8,9 @@
     <meta name="description"
         content="A floating teleprompter that follows your voice, stays invisible on screen share, and works on top of any app. $3.99/mo on the Mac App Store.">
     <link rel="canonical" href="https://voiceprompter.xyz/mac">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="/logo-icon-no-bg.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -38,13 +41,14 @@
         }
 
         :root {
-            --bg: #F5F0EB;
-            --surface: #FFFFFF;
-            --text: #3D3530;
-            --text-light: #8A8078;
-            --accent: #1A1410;
-            --pop: #C4614A;
-            --shadow: 0 2px 20px rgba(0, 0, 0, 0.07);
+            --bg: #0F0F0F;
+            --surface: #1A1A1A;
+            --surface-border: rgba(255, 255, 255, 0.06);
+            --text: #E8E4DF;
+            --text-light: #9A948D;
+            --accent: #F5F0EB;
+            --pop: #E07A5F;
+            --shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
             --radius: 18px;
             --pill: 100px;
             --font-serif: 'DM Serif Display', Georgia, serif;
@@ -73,7 +77,7 @@
             inset: 0;
             z-index: 9999;
             pointer-events: none;
-            opacity: 0.045;
+            opacity: 0.03;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
             background-repeat: repeat;
             background-size: 180px 180px;
@@ -172,7 +176,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--accent);
+            background: var(--pop);
             color: #fff;
             font-family: var(--font-sans);
             font-size: 16px;
@@ -185,7 +189,7 @@
         }
 
         .btn-primary:hover {
-            background: #302820;
+            background: #c9664c;
             transform: translateY(-1px);
         }
 
@@ -232,9 +236,9 @@
         .hero-image-placeholder {
             width: 100%;
             aspect-ratio: 16 / 10;
-            background: linear-gradient(135deg, #E8E0D8 0%, #D6CCC2 100%);
+            background: linear-gradient(135deg, #2A2520 0%, #1F1B18 100%);
             border-radius: 14px;
-            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
             transform: perspective(1200px) rotateY(-2deg) rotateX(1deg);
             display: flex;
             align-items: center;
@@ -273,22 +277,24 @@
 
         .feature-card {
             background: var(--surface);
+            border: 1px solid var(--surface-border);
             border-radius: var(--radius);
             padding: 40px 32px;
             box-shadow: var(--shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
         .feature-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         }
 
         .feature-icon {
             width: 48px;
             height: 48px;
             border-radius: 12px;
-            background: var(--bg);
+            background: rgba(224, 122, 95, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -369,17 +375,19 @@
 
         .pricing-card {
             background: var(--surface);
+            border: 1px solid var(--surface-border);
             border-radius: var(--radius);
             padding: 44px 36px;
             box-shadow: var(--shadow);
             text-align: center;
             position: relative;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
         .pricing-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         }
 
         .pricing-card.popular {
@@ -442,11 +450,11 @@
             height: 20px;
             flex-shrink: 0;
             border-radius: 50%;
-            background: var(--bg);
+            background: rgba(224, 122, 95, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23C4614A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23E07A5F' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: center;
         }
@@ -487,7 +495,7 @@
             display: inline-block;
             width: 160px;
             height: 52px;
-            background: linear-gradient(135deg, #E8E0D8 0%, #D6CCC2 100%);
+            background: linear-gradient(135deg, #2A2520 0%, #1F1B18 100%);
             border-radius: 10px;
             line-height: 52px;
             font-size: 13px;
@@ -499,7 +507,7 @@
         .footer {
             padding: 40px 0;
             text-align: center;
-            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            border-top: 1px solid var(--surface-border);
         }
 
         .footer p {
@@ -522,6 +530,11 @@
                 --section-pad: 72px;
             }
 
+            .nav {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
             .hero h1 {
                 font-size: 36px;
             }
@@ -532,6 +545,10 @@
 
             .hero-image-placeholder {
                 transform: none;
+            }
+
+            .hero-meta {
+                font-size: 13px;
             }
 
             .features-grid {
@@ -564,6 +581,21 @@
                 flex-direction: column;
                 gap: 12px;
             }
+
+            .btn-primary,
+            .btn-ghost {
+                width: 100%;
+                justify-content: center;
+                padding: 14px 24px;
+            }
+
+            .footer-cta .btn-primary {
+                padding: 14px 32px;
+            }
+
+            .footer p {
+                font-size: 13px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -576,15 +608,43 @@
             }
 
             .hero h1 {
-                font-size: 30px;
+                font-size: 28px;
+            }
+
+            .hero-sub {
+                font-size: 16px;
             }
 
             .feature-card {
                 padding: 28px 24px;
             }
 
+            .feature-card h3 {
+                font-size: 20px;
+            }
+
+            .feature-card p {
+                font-size: 15px;
+            }
+
             .pricing-card {
                 padding: 32px 24px;
+            }
+
+            .pricing-card h3 {
+                font-size: 24px;
+            }
+
+            .pricing-features li {
+                font-size: 14px;
+            }
+
+            .footer-cta h2 {
+                font-size: 28px;
+            }
+
+            .hero-meta span {
+                margin: 0 4px;
             }
         }
     </style>
@@ -594,7 +654,8 @@
 
     <!-- ═══════════════════════ Nav ═══════════════════════ -->
     <nav class="nav" role="navigation">
-        <a href="/mac" class="nav-logo">VoicePrompter</a>
+        <a href="/mac" class="nav-logo"><img src="/logo-icon-no-bg.svg" alt="" width="28" height="28"
+                style="display:inline-block;vertical-align:middle;margin-right:8px;">VoicePrompter</a>
         <a href="https://apps.apple.com/pl/app/voiceprompter/id6758573080?pt=voiceprompter&ct=mac-landing&mt=12"
             target="_blank" rel="noopener" class="nav-link">Mac App
             Store →</a>

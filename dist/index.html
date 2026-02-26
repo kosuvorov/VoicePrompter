@@ -9,6 +9,7 @@
         content="A voice-activated teleprompter that follows your voice. Choose the free web app or the pro Mac app.">
     <link rel="canonical" href="https://voiceprompter.xyz/">
     <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="/logo-icon-no-bg.svg">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
     <!-- Open Graph -->
@@ -381,6 +382,15 @@
                 font-size: 17px;
             }
 
+            .eyebrow {
+                font-size: 12px;
+            }
+
+            .fork-label {
+                font-size: 13px;
+                margin-bottom: 24px;
+            }
+
             .fork-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -390,8 +400,27 @@
                 font-size: 26px;
             }
 
+            .card-body {
+                font-size: 15px;
+            }
+
+            .card-cta {
+                font-size: 14px;
+                padding: 12px 24px;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero {
+                margin-bottom: 40px;
+            }
+
             .page-wrapper {
                 padding: 32px 0;
+            }
+
+            .footer p {
+                font-size: 13px;
             }
         }
 
@@ -405,11 +434,36 @@
             }
 
             .hero h1 {
-                font-size: 30px;
+                font-size: 28px;
+            }
+
+            .hero-sub {
+                font-size: 16px;
             }
 
             .fork-card {
-                padding: 28px 24px 28px;
+                padding: 28px 20px 24px;
+            }
+
+            .card-perks li {
+                font-size: 13px;
+                padding: 5px 0;
+            }
+
+            .card-tag {
+                font-size: 11px;
+            }
+
+            .card-flavor {
+                font-size: 12px;
+            }
+
+            .escape p {
+                font-size: 13px;
+            }
+
+            .escape a {
+                font-size: 14px;
             }
         }
     </style>
@@ -419,7 +473,8 @@
 
     <!-- ═══════════════════════ Nav ═══════════════════════ -->
     <nav class="nav" role="navigation">
-        <a href="/" class="nav-logo">VoicePrompter</a>
+        <a href="/" class="nav-logo"><img src="/logo-icon-no-bg.svg" alt="" width="28" height="28"
+                style="display:inline-block;vertical-align:middle;margin-right:8px;">VoicePrompter</a>
     </nav>
 
     <!-- ═══════════════════════ Page ═══════════════════════ -->
@@ -452,7 +507,7 @@
                         <li>20+ languages, auto-detected</li>
                         <li>Your scripts never leave your device</li>
                     </ul>
-                    <a href="/app/" class="card-cta">Take this path →</a>
+                    <a href="/web" class="card-cta">Take this path →</a>
                     <p class="card-flavor">Free as in freedom</p>
                 </div>
 

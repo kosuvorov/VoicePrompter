@@ -8,6 +8,9 @@
     <meta name="description"
         content="A free, private, offline teleprompter that follows your voice. Works in your browser on any device. No account, no app, no cost.">
     <link rel="canonical" href="https://voiceprompter.xyz/web">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="/logo-icon-no-bg.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -597,6 +600,15 @@
                 --section-pad: 72px;
             }
 
+            .nav {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+
             .hero h1 {
                 font-size: 34px;
             }
@@ -608,6 +620,17 @@
             .hero-ctas {
                 flex-direction: column;
                 gap: 12px;
+            }
+
+            .btn-primary,
+            .btn-ghost {
+                width: 100%;
+                justify-content: center;
+                padding: 14px 24px;
+            }
+
+            .footer-cta .btn-primary {
+                padding: 14px 32px;
             }
 
             .features-grid {
@@ -640,8 +663,8 @@
                 gap: 16px;
             }
 
-            .nav-links {
-                gap: 16px;
+            .footer p {
+                font-size: 13px;
             }
         }
 
@@ -654,16 +677,57 @@
                 padding: 20px;
             }
 
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-link {
+                font-size: 13px;
+            }
+
             .hero h1 {
-                font-size: 28px;
+                font-size: 26px;
+            }
+
+            .hero-sub {
+                font-size: 15px;
             }
 
             .feature-card {
                 padding: 28px 24px;
             }
 
+            .feature-card h3 {
+                font-size: 20px;
+            }
+
+            .feature-card p {
+                font-size: 15px;
+            }
+
             .pwa-card {
                 padding: 28px 20px;
+            }
+
+            .pwa-card h3 {
+                font-size: 20px;
+            }
+
+            .pwa-steps li {
+                font-size: 14px;
+            }
+
+            .audience p {
+                font-size: 20px;
+            }
+
+            .footer-cta h2 {
+                font-size: 28px;
+            }
+
+            .trust-lines a,
+            .trust-lines span {
+                font-size: 14px;
             }
         }
     </style>
@@ -673,10 +737,11 @@
 
     <!-- ═══════════════════════ Nav ═══════════════════════ -->
     <nav class="nav" role="navigation">
-        <a href="/web" class="nav-logo">VoicePrompter</a>
+        <a href="/web" class="nav-logo"><img src="/logo-icon-no-bg.svg" alt="" width="28" height="28"
+                style="display:inline-block;vertical-align:middle;margin-right:8px;">VoicePrompter</a>
         <div class="nav-links">
             <a href="/mac" class="nav-link">Mac Version</a>
-            <a href="https://app.voiceprompter.xyz" target="_blank" rel="noopener" class="nav-link">Open the App →</a>
+            <a href="https://voiceprompter.xyz/app/" target="_blank" rel="noopener" class="nav-link">Open the App →</a>
         </div>
     </nav>
 
@@ -687,7 +752,7 @@
             cost.</p>
 
         <div class="hero-ctas">
-            <a href="https://app.voiceprompter.xyz" target="_blank" rel="noopener" class="btn-primary">
+            <a href="https://voiceprompter.xyz/app/" target="_blank" rel="noopener" class="btn-primary">
                 Open the App →
             </a>
             <a href="#install" class="btn-ghost">
@@ -810,7 +875,7 @@
                 </div>
                 <h3>iPhone & iPad</h3>
                 <ol class="pwa-steps">
-                    <li><span class="step-num">1</span> Open app.voiceprompter.xyz in Safari</li>
+                    <li><span class="step-num">1</span> Open voiceprompter.xyz/app in Safari</li>
                     <li><span class="step-num">2</span> Tap the Share button (square with arrow)</li>
                     <li><span class="step-num">3</span> Tap "Add to Home Screen"</li>
                 </ol>
@@ -826,7 +891,7 @@
                 </div>
                 <h3>Android</h3>
                 <ol class="pwa-steps">
-                    <li><span class="step-num">1</span> Open app.voiceprompter.xyz in Chrome</li>
+                    <li><span class="step-num">1</span> Open voiceprompter.xyz/app in Chrome</li>
                     <li><span class="step-num">2</span> Tap the three-dot menu at top right</li>
                     <li><span class="step-num">3</span> Tap "Install app" or "Add to Home Screen"</li>
                 </ol>
@@ -843,7 +908,7 @@
                 </div>
                 <h3>Desktop</h3>
                 <ol class="pwa-steps">
-                    <li><span class="step-num">1</span> Open app.voiceprompter.xyz in Chrome or Edge</li>
+                    <li><span class="step-num">1</span> Open voiceprompter.xyz/app in Chrome or Edge</li>
                     <li><span class="step-num">2</span> Click the install icon in the address bar</li>
                     <li><span class="step-num">3</span> Click "Install"</li>
                 </ol>
@@ -869,11 +934,11 @@
     <!-- ═══════════════════════ Footer CTA ═══════════════════════ -->
     <section class="footer-cta container fade-up">
         <h2>Free as in freedom</h2>
-        <a href="https://app.voiceprompter.xyz" target="_blank" rel="noopener" class="btn-primary">
+        <a href="https://voiceprompter.xyz/app/" target="_blank" rel="noopener" class="btn-primary">
             Open the App →
         </a>
         <div class="trust-lines">
-            <a href="https://github.com/nicekid1/Teleprompter" target="_blank" rel="noopener">Open source on GitHub
+            <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">Open source on GitHub
                 ↗</a>
             <span>Your scripts never leave your device</span>
         </div>
@@ -881,7 +946,9 @@
 
     <!-- ═══════════════════════ Footer ═══════════════════════ -->
     <footer class="footer">
-        <p>© 2025 VoicePrompter · <a href="/">Web App</a> · <a href="/mac">Mac</a> · <a href="/about.html">About</a></p>
+        <p>© 2025 VoicePrompter · <a href="/">Web App</a> · <a href="/mac">Mac</a> · <a
+                href="https://buymeacoffee.com/kosuvorov" target="_blank" rel="noopener">Buy me a coffee ☕</a> · <a
+                href="/about.html">About</a></p>
     </footer>
 
     <!-- ═══════════════════════ Scroll Reveal ═══════════════════════ -->
