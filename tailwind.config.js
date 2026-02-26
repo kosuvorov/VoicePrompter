@@ -8,9 +8,9 @@ export default {
         extend: {
             colors: {
                 blue: {
-                    400: '#DAA000',
-                    500: '#DAA000',
-                    600: '#B8860B', // Darker shade for hover
+                    400: '#FFBB00',
+                    500: '#FFBB00',
+                    600: '#D9A000',
                 }
             }
         },

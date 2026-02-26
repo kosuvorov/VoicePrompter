@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
+    appType: 'mpa',
     // base: '/Teleprompter/', // Removed for custom domain
     plugins: [
         VitePWA({

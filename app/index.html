@@ -93,7 +93,7 @@
                 </svg>
                 voiceprompter.xyz
             </a>
-            <h1 class="text-3xl landscape:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#E07A5F] to-[#F4A683] mb-2 landscape:mb-1"
+            <h1 class="text-3xl landscape:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#FFBB00] to-[#FFD54F] mb-2 landscape:mb-1"
                 style="font-family: 'DM Sans', sans-serif;">
                 VoicePrompter</h1>
             <p class="text-neutral-400 landscape:text-sm landscape:hidden sm:landscape:block mb-2"
@@ -105,7 +105,7 @@
         <main class="flex flex-col gap-6 landscape:gap-3">
             <div class="w-full">
                 <textarea id="inputScript"
-                    class="w-full bg-neutral-900 border border-neutral-800 rounded-lg p-4 landscape:p-2 text-lg landscape:text-base focus:ring-2 focus:ring-[#E07A5F] focus:border-transparent outline-none resize-y transition-all placeholder-neutral-600 h-[300px] md:h-[450px] lg:h-[450px]"
+                    class="w-full bg-neutral-900 border border-neutral-800 rounded-lg p-4 landscape:p-2 text-lg landscape:text-base focus:ring-2 focus:ring-[#FFBB00] focus:border-transparent outline-none resize-y transition-all placeholder-neutral-600 h-[300px] md:h-[450px] lg:h-[450px]"
                     placeholder="Paste your script here..."></textarea>
 
                 <!-- Quick Action Buttons -->
@@ -145,7 +145,7 @@
 
             <div class="flex justify-center landscape:mt-2">
                 <button id="loadScriptBtn"
-                    class="bg-[#E07A5F] hover:bg-[#c9664c] text-white px-6 py-2 md:px-8 md:py-3 landscape:px-6 landscape:py-2 rounded-full font-bold text-base md:text-lg landscape:text-base shadow-lg shadow-[#E07A5F]/20 transition-all transform hover:scale-105 active:scale-95"
+                    class="bg-[#FFBB00] hover:bg-[#D9A000] text-neutral-900 px-6 py-2 md:px-8 md:py-3 landscape:px-6 landscape:py-2 rounded-full font-bold text-base md:text-lg landscape:text-base shadow-lg shadow-[#FFBB00]/20 transition-all transform hover:scale-105 active:scale-95"
                     style="font-family: 'DM Sans', sans-serif;">
                     Start Teleprompter
                 </button>
@@ -154,7 +154,7 @@
             <!-- Language Selector -->
             <div class="mt-4 landscape:mt-2 flex items-center justify-center gap-2 landscape:gap-1 flex-wrap">
                 <select id="languageSelect"
-                    class="bg-neutral-800 border border-neutral-700 rounded px-3 py-1 landscape:px-2 landscape:py-0.5 text-sm landscape:text-xs text-neutral-300 focus:ring-2 focus:ring-[#E07A5F] focus:border-transparent outline-none">
+                    class="bg-neutral-800 border border-neutral-700 rounded px-3 py-1 landscape:px-2 landscape:py-0.5 text-sm landscape:text-xs text-neutral-300 focus:ring-2 focus:ring-[#FFBB00] focus:border-transparent outline-none">
                     <option value="en-US">English (US)</option>
                     <option value="es-ES">Spanish</option>
                     <option value="fr-FR">French</option>
@@ -223,7 +223,7 @@
             <button id="micButton"
                 class="pointer-events-auto h-16 w-16 rounded-full bg-neutral-800 border-2 border-neutral-600 flex items-center justify-center transition-all shadow-xl hover:scale-105 active:scale-95 group">
                 <svg id="micIcon" xmlns="http://www.w3.org/2000/svg"
-                    class="h-8 w-8 text-white group-hover:text-[#E07A5F] transition-colors" fill="none"
+                    class="h-8 w-8 text-white group-hover:text-[#FFBB00] transition-colors" fill="none"
                     viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
@@ -310,7 +310,7 @@
                     <label class="relative inline-flex items-center cursor-pointer">
                         <input id="mirrorToggle" type="checkbox" class="sr-only peer">
                         <div
-                            class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#E07A5F]">
+                            class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#FFBB00]">
                         </div>
                     </label>
                 </div>
@@ -320,7 +320,7 @@
                     <label class="relative inline-flex items-center cursor-pointer">
                         <input id="stopSignToggle" type="checkbox" class="sr-only peer">
                         <div
-                            class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#E07A5F]">
+                            class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#FFBB00]">
                         </div>
                     </label>
                 </div>
@@ -333,7 +333,7 @@
                     <label class="relative inline-flex items-center cursor-pointer">
                         <input id="voiceCommandToggle" type="checkbox" checked class="sr-only peer">
                         <div
-                            class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#E07A5F]">
+                            class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#FFBB00]">
                         </div>
                     </label>
                 </div>
@@ -345,7 +345,7 @@
                     <label class="relative inline-flex items-center cursor-pointer">
                         <input id="screenRotationToggle" type="checkbox" class="sr-only peer">
                         <div
-                            class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#E07A5F]">
+                            class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#FFBB00]">
                         </div>
                     </label>
                 </div>
@@ -354,7 +354,7 @@
                     <label class="relative inline-flex items-center cursor-pointer">
                         <input id="preserveFormattingToggle" type="checkbox" checked class="sr-only peer">
                         <div
-                            class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#E07A5F]">
+                            class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#FFBB00]">
                         </div>
                     </label>
                 </div>
@@ -366,7 +366,7 @@
                     <label class="relative inline-flex items-center cursor-pointer">
                         <input id="smoothAnimationsToggle" type="checkbox" class="sr-only peer">
                         <div
-                            class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#E07A5F]">
+                            class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#FFBB00]">
                         </div>
                     </label>
                 </div>
@@ -378,7 +378,7 @@
                     <label class="relative inline-flex items-center cursor-pointer">
                         <input id="highlightActiveWordToggle" type="checkbox" class="sr-only peer">
                         <div
-                            class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#E07A5F]">
+                            class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#FFBB00]">
                         </div>
                     </label>
                 </div>
@@ -388,7 +388,7 @@
             <div class="mb-4">
                 <div class="flex justify-between text-sm mb-1">
                     <span class="text-neutral-300">Font Size</span>
-                    <span id="fontSizeVal" class="text-[#E07A5F] font-mono">40px</span>
+                    <span id="fontSizeVal" class="text-[#FFBB00] font-mono">40px</span>
                 </div>
                 <input id="fontSizeInput" type="range" min="20" max="100" value="40"
                     class="w-full h-2 bg-neutral-700 rounded-lg appearance-none cursor-pointer">
@@ -398,7 +398,7 @@
             <div class="mb-4">
                 <div class="flex justify-between text-sm mb-1">
                     <span class="text-neutral-300">Line Spacing</span>
-                    <span id="lineHeightVal" class="text-[#E07A5F] font-mono">1.0x</span>
+                    <span id="lineHeightVal" class="text-[#FFBB00] font-mono">1.0x</span>
                 </div>
                 <input id="lineHeightInput" type="range" min="0.6" max="1.4" step="0.1" value="1.0"
                     class="w-full h-2 bg-neutral-700 rounded-lg appearance-none cursor-pointer">
@@ -408,7 +408,7 @@
             <div class="mb-4">
                 <div class="flex justify-between text-sm mb-1">
                     <span class="text-neutral-300">Paragraph Spacing</span>
-                    <span id="paragraphSpacingVal" class="text-[#E07A5F] font-mono">0.5em</span>
+                    <span id="paragraphSpacingVal" class="text-[#FFBB00] font-mono">0.5em</span>
                 </div>
                 <input id="paragraphSpacingInput" type="range" min="0" max="1" step="0.1" value="0.5"
                     class="w-full h-2 bg-neutral-700 rounded-lg appearance-none cursor-pointer">
@@ -418,7 +418,7 @@
             <div class="mb-4">
                 <div class="flex justify-between text-sm mb-1">
                     <span class="text-neutral-300">Side Margins</span>
-                    <span id="marginVal" class="text-[#E07A5F] font-mono">0px</span>
+                    <span id="marginVal" class="text-[#FFBB00] font-mono">0px</span>
                 </div>
                 <input id="marginInput" type="range" min="0" max="200" step="10" value="0"
                     class="w-full h-2 bg-neutral-700 rounded-lg appearance-none cursor-pointer">
@@ -428,7 +428,7 @@
             <div class="mb-4">
                 <div class="flex justify-between text-sm mb-1">
                     <span class="text-neutral-300">Active Line Position</span>
-                    <span id="activeLinePositionVal" class="text-[#E07A5F] font-mono">35%</span>
+                    <span id="activeLinePositionVal" class="text-[#FFBB00] font-mono">35%</span>
                 </div>
                 <input id="activeLinePositionInput" type="range" min="10" max="90" step="5" value="35"
                     class="w-full h-2 bg-neutral-700 rounded-lg appearance-none cursor-pointer">
@@ -438,7 +438,7 @@
             <div class="mb-4">
                 <div class="flex justify-between text-sm mb-1">
                     <span class="text-neutral-300">Lookahead Words</span>
-                    <span id="lookaheadWordsVal" class="text-[#E07A5F] font-mono">5</span>
+                    <span id="lookaheadWordsVal" class="text-[#FFBB00] font-mono">5</span>
                 </div>
                 <input id="lookaheadWordsInput" type="range" min="1" max="10" step="1" value="5"
                     class="w-full h-2 bg-neutral-700 rounded-lg appearance-none cursor-pointer">
