@@ -7,6 +7,9 @@ export default defineConfig({
     plugins: [
         VitePWA({
             registerType: 'autoUpdate',
+            workbox: {
+                navigateFallbackDenylist: [/^\/mac/, /^\/web/, /^\/about/, /^\/blog/]
+            },
             includeAssets: ['favicon.ico', 'apple-touch-icon.png'],
             manifest: {
                 name: 'VoicePrompter',
