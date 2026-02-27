@@ -228,7 +228,7 @@
 
         /* Hero image */
         .hero-image {
-            margin: 64px auto 0;
+            margin: 64px auto 32px;
             max-width: 780px;
             position: relative;
         }
@@ -527,7 +527,7 @@
         /* ═══════════════════════ Responsive ═══════════════════════ */
         @media (max-width: 768px) {
             :root {
-                --section-pad: 72px;
+                --section-pad: 96px;
             }
 
             .nav {
@@ -543,17 +543,22 @@
                 font-size: 17px;
             }
 
+            .hero-image {
+                margin: 48px auto 40px;
+            }
+
             .hero-image-placeholder {
                 transform: none;
             }
 
             .hero-meta {
                 font-size: 13px;
+                margin-top: 24px;
             }
 
             .features-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 32px;
             }
 
             .pricing h2 {
@@ -562,7 +567,7 @@
 
             .pricing-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 32px;
             }
 
             .problem p {
@@ -579,7 +584,7 @@
 
             .hero-ctas {
                 flex-direction: column;
-                gap: 12px;
+                gap: 16px;
             }
 
             .btn-primary,
@@ -599,6 +604,10 @@
         }
 
         @media (max-width: 480px) {
+            :root {
+                --section-pad: 80px;
+            }
+
             .container {
                 padding: 0 20px;
             }
@@ -615,8 +624,12 @@
                 font-size: 16px;
             }
 
+            .hero-image {
+                margin: 40px auto 32px;
+            }
+
             .feature-card {
-                padding: 28px 24px;
+                padding: 32px 24px;
             }
 
             .feature-card h3 {
@@ -628,7 +641,7 @@
             }
 
             .pricing-card {
-                padding: 32px 24px;
+                padding: 40px 24px;
             }
 
             .pricing-card h3 {
@@ -637,6 +650,7 @@
 
             .pricing-features li {
                 font-size: 14px;
+                padding: 8px 0;
             }
 
             .footer-cta h2 {

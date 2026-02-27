@@ -229,7 +229,7 @@
 
         /* Hero visual */
         .hero-image {
-            margin: 64px auto 0;
+            margin: 64px auto 32px;
             max-width: 860px;
             position: relative;
         }
@@ -597,7 +597,7 @@
         /* ═══════════════════════ Responsive ═══════════════════════ */
         @media (max-width: 768px) {
             :root {
-                --section-pad: 72px;
+                --section-pad: 96px;
             }
 
             .nav {
@@ -617,9 +617,13 @@
                 font-size: 17px;
             }
 
+            .hero-image {
+                margin: 48px auto 40px;
+            }
+
             .hero-ctas {
                 flex-direction: column;
-                gap: 12px;
+                gap: 16px;
             }
 
             .btn-primary,
@@ -635,7 +639,7 @@
 
             .features-grid {
                 grid-template-columns: 1fr;
-                gap: 16px;
+                gap: 32px;
             }
 
             .audience p {
@@ -648,7 +652,7 @@
 
             .pwa-grid {
                 grid-template-columns: 1fr;
-                gap: 16px;
+                gap: 32px;
             }
 
             .video-section h2 {
@@ -669,6 +673,10 @@
         }
 
         @media (max-width: 480px) {
+            :root {
+                --section-pad: 80px;
+            }
+
             .container {
                 padding: 0 20px;
             }
@@ -678,7 +686,7 @@
             }
 
             .nav-links {
-                gap: 12px;
+                font-size: 14px;
             }
 
             .nav-link {
@@ -686,15 +694,19 @@
             }
 
             .hero h1 {
-                font-size: 26px;
+                font-size: 28px;
             }
 
             .hero-sub {
-                font-size: 15px;
+                font-size: 16px;
+            }
+
+            .hero-image {
+                margin: 40px auto 32px;
             }
 
             .feature-card {
-                padding: 28px 24px;
+                padding: 32px 24px;
             }
 
             .feature-card h3 {
