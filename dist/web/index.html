@@ -597,12 +597,17 @@
         /* ═══════════════════════ Responsive ═══════════════════════ */
         @media (max-width: 768px) {
             :root {
-                --section-pad: 80px;
+                --section-pad: 96px;
+            }
+
+            .container {
+                padding: 0 24px;
             }
 
             .nav {
                 flex-wrap: wrap;
                 gap: 8px;
+                padding: 24px;
             }
 
             .nav-links {
@@ -610,7 +615,7 @@
             }
 
             .hero {
-                padding-bottom: 56px;
+                padding-bottom: 64px;
             }
 
             .hero h1 {
@@ -623,6 +628,7 @@
 
             .hero-image {
                 margin: 48px auto 40px;
+                padding: 0 16px;
             }
 
             .hero-ctas {
@@ -642,16 +648,17 @@
             }
 
             .features {
-                padding: 32px 0 80px;
+                padding: 32px 0 96px;
             }
 
             .features-grid {
                 grid-template-columns: 1fr;
                 gap: 32px;
+                padding: 0 16px;
             }
 
             .audience {
-                padding: 0 0 80px;
+                padding: 0 0 96px;
             }
 
             .audience p {
@@ -659,7 +666,7 @@
             }
 
             .pwa-install {
-                padding: 0 0 80px;
+                padding: 0 0 96px;
             }
 
             .pwa-install h2 {
@@ -670,10 +677,11 @@
             .pwa-grid {
                 grid-template-columns: 1fr;
                 gap: 32px;
+                padding: 0 16px;
             }
 
             .video-section {
-                padding: 0 0 80px;
+                padding: 0 0 96px;
             }
 
             .video-section h2 {
@@ -682,7 +690,7 @@
             }
 
             .footer-cta {
-                padding: 64px 0 96px;
+                padding: 72px 0 112px;
             }
 
             .footer-cta h2 {
@@ -701,15 +709,15 @@
 
         @media (max-width: 480px) {
             :root {
-                --section-pad: 72px;
+                --section-pad: 80px;
             }
 
             .container {
-                padding: 0 20px;
+                padding: 0 24px;
             }
 
             .nav {
-                padding: 20px;
+                padding: 24px;
             }
 
             .nav-links {
@@ -721,7 +729,7 @@
             }
 
             .hero h1 {
-                font-size: 32px;
+                font-size: 34px;
             }
 
             .hero-sub {
@@ -730,10 +738,15 @@
 
             .hero-image {
                 margin: 40px auto 32px;
+                padding: 0;
             }
 
             .features {
-                padding: 24px 0 64px;
+                padding: 24px 0 80px;
+            }
+
+            .features-grid {
+                padding: 0;
             }
 
             .feature-card {
@@ -749,20 +762,24 @@
             }
 
             .audience {
-                padding: 0 0 64px;
+                padding: 0 0 80px;
             }
 
             .audience p {
-                font-size: 22px;
+                font-size: 24px;
             }
 
             .pwa-install {
-                padding: 0 0 64px;
+                padding: 0 0 80px;
             }
 
             .pwa-install h2 {
-                font-size: 28px;
+                font-size: 30px;
                 margin-bottom: 32px;
+            }
+
+            .pwa-grid {
+                padding: 0;
             }
 
             .pwa-card {
@@ -770,7 +787,7 @@
             }
 
             .pwa-card h3 {
-                font-size: 20px;
+                font-size: 24px;
             }
 
             .pwa-steps li {
@@ -778,20 +795,20 @@
             }
 
             .video-section {
-                padding: 0 0 64px;
+                padding: 0 0 80px;
             }
 
             .video-section h2 {
-                font-size: 28px;
+                font-size: 30px;
                 margin-bottom: 32px;
             }
 
             .footer-cta {
-                padding: 56px 0 80px;
+                padding: 64px 0 96px;
             }
 
             .footer-cta h2 {
-                font-size: 30px;
+                font-size: 32px;
                 margin-bottom: 28px;
             }
 
