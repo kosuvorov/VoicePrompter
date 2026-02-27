@@ -527,7 +527,7 @@
         /* ═══════════════════════ Responsive ═══════════════════════ */
         @media (max-width: 768px) {
             :root {
-                --section-pad: 96px;
+                --section-pad: 80px;
             }
 
             .nav {
@@ -535,8 +535,12 @@
                 gap: 8px;
             }
 
+            .hero {
+                padding-bottom: 56px;
+            }
+
             .hero h1 {
-                font-size: 36px;
+                font-size: 38px;
             }
 
             .hero-sub {
@@ -556,13 +560,39 @@
                 margin-top: 24px;
             }
 
+            .problem {
+                padding: 64px 0 32px;
+            }
+
+            .problem p {
+                font-size: 26px;
+            }
+
+            .features {
+                padding: 32px 0 80px;
+            }
+
             .features-grid {
                 grid-template-columns: 1fr;
                 gap: 32px;
             }
 
-            .pricing h2 {
+            .video-section {
+                padding: 0 0 80px;
+            }
+
+            .video-section h2 {
                 font-size: 32px;
+                margin-bottom: 32px;
+            }
+
+            .pricing {
+                padding: 0 0 80px;
+            }
+
+            .pricing h2 {
+                font-size: 34px;
+                margin-bottom: 40px;
             }
 
             .pricing-grid {
@@ -570,16 +600,13 @@
                 gap: 32px;
             }
 
-            .problem p {
-                font-size: 24px;
-            }
-
-            .video-section h2 {
-                font-size: 28px;
+            .footer-cta {
+                padding: 64px 0 96px;
             }
 
             .footer-cta h2 {
                 font-size: 32px;
+                margin-bottom: 32px;
             }
 
             .hero-ctas {
@@ -605,7 +632,7 @@
 
         @media (max-width: 480px) {
             :root {
-                --section-pad: 80px;
+                --section-pad: 72px;
             }
 
             .container {
@@ -617,15 +644,27 @@
             }
 
             .hero h1 {
-                font-size: 28px;
+                font-size: 32px;
             }
 
             .hero-sub {
-                font-size: 16px;
+                font-size: 17px;
             }
 
             .hero-image {
                 margin: 40px auto 32px;
+            }
+
+            .problem {
+                padding: 56px 0 24px;
+            }
+
+            .problem p {
+                font-size: 24px;
+            }
+
+            .features {
+                padding: 24px 0 64px;
             }
 
             .feature-card {
@@ -633,11 +672,29 @@
             }
 
             .feature-card h3 {
-                font-size: 20px;
+                font-size: 22px;
             }
 
             .feature-card p {
-                font-size: 15px;
+                font-size: 16px;
+            }
+
+            .video-section {
+                padding: 0 0 64px;
+            }
+
+            .video-section h2 {
+                font-size: 28px;
+                margin-bottom: 24px;
+            }
+
+            .pricing {
+                padding: 0 0 64px;
+            }
+
+            .pricing h2 {
+                font-size: 30px;
+                margin-bottom: 32px;
             }
 
             .pricing-card {
@@ -645,16 +702,21 @@
             }
 
             .pricing-card h3 {
-                font-size: 24px;
+                font-size: 26px;
             }
 
             .pricing-features li {
-                font-size: 14px;
-                padding: 8px 0;
+                font-size: 15px;
+                padding: 10px 0;
+            }
+
+            .footer-cta {
+                padding: 56px 0 80px;
             }
 
             .footer-cta h2 {
                 font-size: 28px;
+                margin-bottom: 28px;
             }
 
             .hero-meta span {
