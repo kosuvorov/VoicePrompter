@@ -9,7 +9,7 @@
 ## Step 2: Verify Ownership
 
 Choose **URL prefix** (easier):
-- Enter: `https://voiceprompter.xyz`
+- Enter: `https://voiceprompter.app`
 - Click **Continue**
 
 ### Verification Method: HTML File Upload
@@ -28,7 +28,7 @@ Choose **URL prefix** (easier):
 
 Once verified:
 1. Go to **Sitemaps** in the left sidebar
-2. Enter: `https://voiceprompter.xyz/sitemap.xml`
+2. Enter: `https://voiceprompter.app/sitemap.xml`
 3. Click **Submit**
 
 ✅ Your sitemap is auto-generated and includes:

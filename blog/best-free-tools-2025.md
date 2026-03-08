@@ -36,7 +36,7 @@ The iOS and Android app stores are flooded with teleprompter apps. They look pol
 
 In 2025, the best free option is a Progressive Web App (PWA) that leverages modern browser capabilities to run entirely on your device.
 
-Leading this charge is **[VoicePrompter](https://voiceprompter.xyz)**.
+Leading this charge is **[VoicePrompter](https://voiceprompter.app)**.
 
 ![A clean, dark-mode interface of software code on a screen.](https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80)
 

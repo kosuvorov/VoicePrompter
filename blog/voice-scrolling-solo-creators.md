@@ -44,6 +44,6 @@ When the teleprompter adapts to your pace, you make fewer mistakes. You don't ha
 
 Previously, reliable voice scrolling was locked behind expensive subscriptions.
 
-Fortunately, new open-source tools are changing this. **[VoicePrompter](https://voiceprompter.xyz)** is a free, private web application that uses your device's built-in speech recognition to provide seamless voice-activated scrolling. It works offline and handles multiple languages, making it the perfect companion for the solo creator looking to streamline their production workflow without spending a dime.
+Fortunately, new open-source tools are changing this. **[VoicePrompter](https://voiceprompter.app)** is a free, private web application that uses your device's built-in speech recognition to provide seamless voice-activated scrolling. It works offline and handles multiple languages, making it the perfect companion for the solo creator looking to streamline their production workflow without spending a dime.
 
 Stop fighting with scroll speeds and start speaking naturally.

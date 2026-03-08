@@ -42,7 +42,7 @@ Modern tools use speech recognition to listen to your voice and scroll the text 
 
 ![A close up microphone in a studio environment.](https://images.unsplash.com/photo-1526660399032-10a300bb391d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80)
 
-This technology used to be expensive, but now you can get it for free. Tools like [VoicePrompter](https://voiceprompter.xyz) use on-device speech recognition to ensure the script follows *your* lead, allowing for completely natural pacing without needing a second person to operate the scroll wheel.
+This technology used to be expensive, but now you can get it for free. Tools like [VoicePrompter](https://voiceprompter.app) use on-device speech recognition to ensure the script follows *your* lead, allowing for completely natural pacing without needing a second person to operate the scroll wheel.
 
 ### 4. Practice Active Body Language
 

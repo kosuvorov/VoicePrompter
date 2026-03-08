@@ -58,7 +58,7 @@ mdFiles.forEach(file => {
         .replace(/\{\{CONTENT\}\}/g, article.content)
         .replace(/\{\{KEYWORDS\}\}/g, article.keywords.join(', '))
         .replace(/\{\{SLUG\}\}/g, article.slug)
-        .replace(/\{\{IMAGE\}\}/g, article.image || 'https://voiceprompter.xyz/og-image.png');
+        .replace(/\{\{IMAGE\}\}/g, article.image || 'https://voiceprompter.app/og-image.png');
 
     // Write HTML file
     const outputPath = path.join(BLOG_DIR, `${slug}.html`);
@@ -84,25 +84,43 @@ console.log(`✓ Generated blog index with ${articles.length} articles`);
 const today = new Date().toISOString().split('T')[0];
 const sitemapEntries = [
     `  <url>
-    <loc>https://voiceprompter.xyz/</loc>
+    <loc>https://voiceprompter.app/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>`,
     `  <url>
-    <loc>https://voiceprompter.xyz/about.html</loc>
+    <loc>https://voiceprompter.app/app/</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>`,
+    `  <url>
+    <loc>https://voiceprompter.app/web/</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`,
+    `  <url>
+    <loc>https://voiceprompter.app/mac/</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`,
+    `  <url>
+    <loc>https://voiceprompter.app/about.html</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>`,
     `  <url>
-    <loc>https://voiceprompter.xyz/blog/</loc>
+    <loc>https://voiceprompter.app/blog/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>`,
     ...articles.map(article => `  <url>
-    <loc>https://voiceprompter.xyz/blog/${article.slug}.html</loc>
+    <loc>https://voiceprompter.app/blog/${article.slug}.html</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
