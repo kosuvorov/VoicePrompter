@@ -1,3 +1,5 @@
+export type VideoLayoutMode = 'split' | 'overlay';
+
 export interface ScriptWord {
     word: string;
     clean: string;
@@ -33,6 +35,13 @@ export interface AppState {
     isScreenRotated: boolean;
     selectedLanguage: string;
     config: AppConfig;
+    // Video recording state
+    isVideoMode: boolean;
+    videoLayoutMode: VideoLayoutMode;
+    isRecording: boolean;
+    mediaRecorder: MediaRecorder | null;
+    mediaStream: MediaStream | null;
+    recordedChunks: Blob[];
 }
 
 export interface HistoryItem {

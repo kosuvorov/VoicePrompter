@@ -56,6 +56,16 @@ export interface Elements {
     screenRotationToggle: HTMLInputElement;
     smoothAnimationsToggle: HTMLInputElement;
     highlightActiveWordToggle: HTMLInputElement;
+    // Video Recording
+    videoModeBtn: HTMLElement;
+    videoPreview: HTMLVideoElement;
+    videoContainer: HTMLElement;
+    videoLayoutToggleBtn: HTMLElement;
+    videoRecordBtn: HTMLElement;
+    videoStopBtn: HTMLElement;
+    videoExitBtn: HTMLElement;
+    videoControls: HTMLElement;
+    videoRecordingIndicator: HTMLElement;
 }
 
 export let els: Elements;
@@ -118,6 +128,16 @@ export function initElements(): void {
         voiceCommandToggle: document.getElementById('voiceCommandToggle') as HTMLInputElement,
         screenRotationToggle: document.getElementById('screenRotationToggle') as HTMLInputElement,
         smoothAnimationsToggle: document.getElementById('smoothAnimationsToggle') as HTMLInputElement,
-        highlightActiveWordToggle: document.getElementById('highlightActiveWordToggle') as HTMLInputElement
+        highlightActiveWordToggle: document.getElementById('highlightActiveWordToggle') as HTMLInputElement,
+        // Video Recording
+        videoModeBtn: document.getElementById('videoModeBtn')!,
+        videoPreview: document.getElementById('videoPreview') as HTMLVideoElement,
+        videoContainer: document.getElementById('videoContainer')!,
+        videoLayoutToggleBtn: document.getElementById('videoLayoutToggleBtn')!,
+        videoRecordBtn: document.getElementById('videoRecordBtn')!,
+        videoStopBtn: document.getElementById('videoStopBtn')!,
+        videoExitBtn: document.getElementById('videoExitBtn')!,
+        videoControls: document.getElementById('videoControls')!,
+        videoRecordingIndicator: document.getElementById('videoRecordingIndicator')!
     };
 }

@@ -23,5 +23,12 @@ export const state: AppState = {
         highlightActiveWord: true,
         activeLinePosition: 35, // Default to 35% from top
         lookaheadWords: 5 // Default lookahead
-    }
+    },
+    // Video recording state
+    isVideoMode: false,
+    videoLayoutMode: 'split',
+    isRecording: false,
+    mediaRecorder: null,
+    mediaStream: null,
+    recordedChunks: []
 };

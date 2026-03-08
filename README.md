@@ -12,6 +12,7 @@ A modern, privacy-focused voice-controlled teleprompter that works completely of
 - 🌐 **Multi-Language Support** - Auto-detect or manually select from 20+ languages
 - 🪞 **Mirror Mode** - Perfect for teleprompter glass setups (horizontal flip + 180° rotation)
 - 📱 **Screen Rotation** - 90° clockwise rotation for iOS devices in landscape mode
+- 🎥 **Built-in Video Recording** - Record yourself while reading with split-screen or overlay layouts
 - ⚙️ **Highly Customizable** - Font size, spacing, colors, themes, and more
 - 📜 **Script History** - Automatically saves your recent scripts locally
 - 🎨 **Modern UI** - Beautiful dark/light themes with smooth animations
@@ -63,6 +64,8 @@ The app listens to your speech and automatically scrolls as you read. Simply spe
 
 **Special Voice Commands:**
 - Say **"prompter restart"** - Jumps back to the beginning of your script
+- Say **"prompter back"** - Scrolls back 2 sentences
+- Say **"prompter forward"** - Skips forward 2 sentences
 
 ### Manual Navigation
 - **Click any word** - Jump to that position in the script
@@ -86,7 +89,14 @@ Enables horizontal flip + 180° rotation — perfect for use with teleprompter g
 Displays visual markers (dots) at punctuation marks (periods, exclamation points, question marks) to help you pace your reading.
 
 #### Voice Commands 🎤
-Enable/disable voice command recognition (e.g., "prompter restart").
+Enable/disable voice command recognition. Supported commands: "prompter restart", "prompter back" (go back 2 sentences), "prompter forward" (skip forward 2 sentences).
+
+#### Video Recording 🎥
+Record video and audio directly in the app while reading your script. Two layout modes:
+- **Split Screen** — Script on top, camera preview on bottom
+- **Overlay** — Full-screen camera with semi-transparent script overlay
+
+Recordings are saved as MP4 (H.264) or WebM depending on your browser.
 
 #### Rotate Screen 📱
 Rotates the entire app 90° clockwise — useful for iOS devices where screen orientation is locked to portrait but you want to use the teleprompter in landscape mode.
@@ -172,7 +182,7 @@ Your scripts are automatically saved to your browser's local storage:
 - **Framework:** Vite + TypeScript
 - **Styling:** Tailwind CSS
 - **PWA:** Workbox (service worker for offline support)
-- **APIs:** Web Speech API, Clipboard API, Local Storage
+- **APIs:** Web Speech API, MediaRecorder API, Clipboard API, Local Storage
 - **Language Detection:** franc-min library
 
 ## 📄 License

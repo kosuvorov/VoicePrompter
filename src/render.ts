@@ -138,6 +138,57 @@ export function restartScript(): void {
     els.scrollContainer.scrollTop = 0;
 }
 
+export function navigateSentences(direction: 'back' | 'forward', sentenceCount: number): void {
+    if (state.scriptWords.length === 0) return;
+
+    // Find all sentence boundary indices (words ending with . ! ?)
+    const sentenceEnds: number[] = [];
+    state.scriptWords.forEach((w, i) => {
+        if (!w.skip && /[.!?]$/.test(w.word)) {
+            sentenceEnds.push(i);
+        }
+    });
+
+    if (direction === 'back') {
+        // Find how many sentence boundaries are before currentIndex
+        let target = 0;
+        let boundariesBefore = 0;
+        for (let i = sentenceEnds.length - 1; i >= 0; i--) {
+            if (sentenceEnds[i] < state.currentIndex) {
+                boundariesBefore++;
+                if (boundariesBefore >= sentenceCount) {
+                    // Go to the word AFTER the previous sentence end (start of that sentence)
+                    // Find the sentence start: one past the previous boundary, or 0
+                    target = i > 0 ? sentenceEnds[i - 1] + 1 : 0;
+                    break;
+                }
+            }
+        }
+        if (boundariesBefore < sentenceCount) {
+            target = 0; // Go to the very beginning
+        }
+        state.currentIndex = target;
+    } else {
+        // Forward: skip ahead by sentenceCount sentence endings
+        let boundariesAfter = 0;
+        let target = state.scriptWords.length - 1;
+        for (let i = 0; i < sentenceEnds.length; i++) {
+            if (sentenceEnds[i] >= state.currentIndex) {
+                boundariesAfter++;
+                if (boundariesAfter >= sentenceCount) {
+                    target = sentenceEnds[i] + 1;
+                    break;
+                }
+            }
+        }
+        state.currentIndex = Math.min(target, state.scriptWords.length - 1);
+    }
+
+    advancePastSkipped();
+    updateHighlight();
+    scrollToCurrent();
+}
+
 export function applySettings(): void {
     els.appBody.style.backgroundColor = state.config.bgColor;
     els.appBody.style.color = state.config.textColor;

@@ -6,6 +6,7 @@ import { renderScript, updateHighlight, scrollToCurrent, applySettings, renderHi
 import { initSpeech, startListening, stopListening } from './speech';
 import { saveToHistory, getHistory, clearAllHistory } from './storage';
 import { ScriptWord } from './types';
+import { enterVideoMode, exitVideoMode, toggleVideoLayout, startRecording, stopRecording } from './video';
 
 // --- PWA Update Handling ---
 registerSW({ immediate: true });
@@ -358,6 +359,29 @@ els.clearHistoryBtn.addEventListener('click', clearHistory);
 els.dismissWarningBtn.addEventListener('click', () => {
     els.browserWarning.classList.add('hidden');
 });
+
+// --- Video Mode Event Listeners ---
+
+// Toggle Video Mode
+els.videoModeBtn.addEventListener('click', () => {
+    if (state.isVideoMode) {
+        exitVideoMode();
+    } else {
+        enterVideoMode();
+    }
+});
+
+// Toggle Video Layout
+els.videoLayoutToggleBtn.addEventListener('click', toggleVideoLayout);
+
+// Start Recording
+els.videoRecordBtn.addEventListener('click', startRecording);
+
+// Stop Recording
+els.videoStopBtn.addEventListener('click', stopRecording);
+
+// Exit Video Mode
+els.videoExitBtn.addEventListener('click', exitVideoMode);
 
 // --- Initialization ---
 function initializeUI(): void {
