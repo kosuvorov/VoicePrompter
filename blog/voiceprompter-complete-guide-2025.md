@@ -1,5 +1,10 @@
-# VoicePrompter Complete Guide: Everything You Need to Know
-
+---
+title: "Untitled"
+description: "Read the latest blog post from VoicePrompter."
+date: "Mar 22, 2026"
+image: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80"
+keywords: ["teleprompter", "video production"]
+---
 VoicePrompter is a voice-activated teleprompter available in two versions: a free open-source web app at [voiceprompter.app](https://voiceprompter.app), and a native macOS app on the [Mac App Store](https://apps.apple.com/pl/app/voiceprompter/id6758573080). This guide covers both.
 
 ## Why VoicePrompter Exists

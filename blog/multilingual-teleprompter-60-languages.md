@@ -1,5 +1,10 @@
-# Teleprompter in 60+ Languages: How VoicePrompter Handles Multilingual Creators
-
+---
+title: "Untitled"
+description: "Read the latest blog post from VoicePrompter."
+date: "Feb 24, 2026"
+image: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80"
+keywords: ["teleprompter", "video production"]
+---
 Let me tell you something that surprised me when I built this.
 
 I tested the language detection in [VoicePrompter for Mac](https://apps.apple.com/pl/app/voiceprompter/id6758573080) by pasting scripts in French and Spanish — languages I don't actually speak. And it worked. The app correctly identified the language, switched the speech recognition engine to match, and scrolled the French or Spanish text while I awkwardly read the phonetics out loud.

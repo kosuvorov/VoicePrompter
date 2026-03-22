@@ -1,5 +1,10 @@
-# Free Voice-Activated Teleprompter for Solo Creators
-
+---
+title: "Untitled"
+description: "Read the latest blog post from VoicePrompter."
+date: "Mar 14, 2026"
+image: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80"
+keywords: ["teleprompter", "video production"]
+---
 Here's a thing that should not be as hard as it is.
 
 You're a solo creator. You make YouTube videos, or TikToks, or Instagram Reels. You film yourself with your phone or a camera pointing at you. You write scripts because winging it leads to forty-minute rambles you then have to edit down to three minutes.

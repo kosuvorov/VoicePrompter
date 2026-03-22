@@ -4,111 +4,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Look Confident on Camera (Even When You're Not) — VoicePrompter</title>
-    <meta name="description" content="How to Look Confident on Camera (Even When You're Not)">
+    <title>Untitled - VoicePrompter</title>
+    <meta name="description" content="Read the latest blog post from VoicePrompter.">
+    <meta name="keywords" content="teleprompter, video production">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://voiceprompter.app/blog/how-to-look-confident-on-camera.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://voiceprompter.app/blog/how-to-look-confident-on-camera.html">
+    <meta property="og:title" content="Untitled">
+    <meta property="og:description" content="Read the latest blog post from VoicePrompter.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80">
+    <meta property="og:site_name" content="VoicePrompter">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://voiceprompter.app/blog/how-to-look-confident-on-camera.html">
+    <meta name="twitter:title" content="Untitled">
+    <meta name="twitter:description" content="Read the latest blog post from VoicePrompter.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80">
+
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg: #0F0F0F;
-            --surface: #1A1A1A;
-            --surface-border: #2A2A2A;
-            --text: #E8E8E8;
-            --text-light: #999;
-            --pop: #FFBB00;
-            --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
-            --font-serif: 'DM Serif Display', serif;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
-
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: var(--font-sans);
-            background: var(--bg);
-            color: var(--text);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #e5e5e5;
             line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
         }
 
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
-            pointer-events: none;
-            opacity: 0.03;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-            background-repeat: repeat;
-            background-size: 180px 180px;
-        }
-
-        a { text-decoration: none; }
-
-        /* ═══════════════════════ Nav ═══════════════════════ */
-        .nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 28px 32px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .nav-logo {
-            font-family: var(--font-sans);
-            font-weight: 700;
-            font-size: 16px;
-            color: var(--text);
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-link {
-            font-size: 14px;
-            color: var(--text-light);
-            transition: color 0.2s;
-        }
-
-        .nav-link:hover { color: var(--pop); }
-
-        /* ═══════════════════════ Article ═══════════════════════ */
         .article-container {
             max-width: 720px;
             margin: 0 auto;
-            padding: 0 32px 96px;
+            padding: 40px 20px 80px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            margin-bottom: 32px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #DAA000;
         }
 
         .article-header {
-            margin-bottom: 48px;
+            margin-bottom: 40px;
         }
 
         .article-header h1 {
-            font-family: var(--font-serif);
-            font-size: 40px;
-            font-weight: 400;
+            font-size: 2.5rem;
+            font-weight: 700;
             line-height: 1.2;
             margin-bottom: 16px;
             color: #fff;
         }
 
         .article-meta {
-            color: var(--text-light);
-            font-size: 14px;
+            color: #888;
+            font-size: 0.9375rem;
         }
 
         .article-content {
-            font-size: 17px;
+            font-size: 1.0625rem;
             color: #d0d0d0;
-            line-height: 1.8;
         }
 
         .article-content img {
             width: 100%;
             height: auto;
-            border-radius: 12px;
+            border-radius: 8px;
             margin: 32px 0;
         }
 
@@ -116,37 +99,59 @@
         .article-content h2,
         .article-content h3 {
             color: #fff;
-            font-family: var(--font-sans);
             font-weight: 600;
-            margin-top: 48px;
-            margin-bottom: 20px;
+            margin-top: 40px;
+            margin-bottom: 16px;
         }
 
-        .article-content h1 { font-size: 32px; }
-        .article-content h2 { font-size: 26px; }
-        .article-content h3 { font-size: 21px; }
+        .article-content h1 {
+            font-size: 2rem;
+        }
 
-        .article-content p { margin-bottom: 20px; }
+        .article-content h2 {
+            font-size: 1.75rem;
+        }
+
+        .article-content h3 {
+            font-size: 1.5rem;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+        }
 
         .article-content ul,
         .article-content ol {
             margin: 20px 0 20px 24px;
         }
 
-        .article-content li { margin-bottom: 8px; }
-        .article-content strong { color: #fff; font-weight: 600; }
+        .article-content li {
+            margin-bottom: 8px;
+        }
+
+        .article-content strong {
+            color: #fff;
+            font-weight: 600;
+        }
 
         .article-content a {
-            color: var(--pop);
+            color: #DAA000;
+            text-decoration: none;
             border-bottom: 1px solid transparent;
             transition: border-color 0.2s;
         }
 
-        .article-content a:hover { border-bottom-color: var(--pop); }
-        .article-content em { font-style: italic; color: #c0c0c0; }
+        .article-content a:hover {
+            border-bottom-color: #DAA000;
+        }
+
+        .article-content em {
+            font-style: italic;
+            color: #c0c0c0;
+        }
 
         .article-content code {
-            background: var(--surface);
+            background: #1a1a1a;
             padding: 2px 6px;
             border-radius: 4px;
             font-family: 'SF Mono', 'Monaco', monospace;
@@ -154,137 +159,78 @@
         }
 
         .article-content blockquote {
-            border-left: 4px solid var(--pop);
+            border-left: 4px solid #DAA000;
             padding-left: 20px;
             margin: 24px 0;
             color: #b0b0b0;
             font-style: italic;
         }
 
-        .article-content hr {
-            border: none;
-            border-top: 1px solid var(--surface-border);
-            margin: 48px 0;
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid #2a2a2a;
         }
 
-        /* ═══════════════════════ CTA ═══════════════════════ */
         .cta-box {
-            margin-top: 64px;
-            padding: 40px;
-            background: var(--surface);
-            border: 1px solid var(--surface-border);
-            border-radius: 16px;
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 32px;
             text-align: center;
         }
 
         .cta-box h3 {
-            font-family: var(--font-serif);
-            font-size: 24px;
-            font-weight: 400;
+            font-size: 1.5rem;
             margin-bottom: 12px;
             color: #fff;
         }
 
         .cta-box p {
-            color: var(--text-light);
+            color: #a0a0a0;
             margin-bottom: 24px;
-            font-size: 15px;
         }
 
         .cta-button {
             display: inline-block;
-            background: var(--pop);
+            background: #DAA000;
             color: #000;
-            padding: 14px 36px;
-            border-radius: 10px;
+            padding: 12px 32px;
+            border-radius: 8px;
+            text-decoration: none;
             font-weight: 600;
-            font-size: 15px;
             transition: background 0.2s;
         }
 
-        .cta-button:hover { background: #e0a800; }
-
-        /* ═══════════════════════ Footer ═══════════════════════ */
-        .footer {
-            padding: 64px 32px 40px;
-            border-top: 1px solid var(--surface-border);
-            max-width: 960px;
-            margin: 0 auto;
+        .cta-button:hover {
+            background: #c99000;
         }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            margin-bottom: 48px;
-        }
-
-        .footer-col h4 {
-            font-family: var(--font-sans);
-            font-size: 13px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-light);
-            margin-bottom: 16px;
-        }
-
-        .footer-col a {
-            display: block;
-            font-size: 14px;
-            color: var(--text);
-            padding: 4px 0;
-            transition: color 0.2s;
-        }
-
-        .footer-col a:hover { color: var(--pop); }
-
-        .footer-bottom {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-top: 24px;
-            border-top: 1px solid var(--surface-border);
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-
-        .footer-bottom p { font-size: 13px; color: var(--text-light); }
-        .footer-bottom a { color: var(--text-light); text-decoration: underline; text-underline-offset: 2px; }
-
-        .footer-social { display: flex; gap: 16px; align-items: center; }
-        .footer-social a { color: var(--text-light); transition: color 0.2s; }
-        .footer-social a:hover { color: var(--pop); }
-        .footer-social svg { width: 20px; height: 20px; }
 
         @media (max-width: 768px) {
-            .article-header h1 { font-size: 30px; }
-            .article-content { font-size: 16px; }
-            .footer-grid { grid-template-columns: repeat(4, 1fr); gap: 32px; }
-        }
+            .article-header h1 {
+                font-size: 2rem;
+            }
 
-        @media (max-width: 480px) {
-            .article-container { padding: 0 20px 64px; }
-            .nav { padding: 20px; }
-            .article-header h1 { font-size: 26px; }
-            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-            .footer-bottom { flex-direction: column; align-items: center; text-align: center; }
+            .article-content {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 
 <body>
-
-    <nav class="nav" role="navigation">
-        <a href="https://voiceprompter.app" class="nav-logo"><img src="/logo-icon-no-bg.svg" alt="" width="28"
-                height="28" style="display:inline-block;vertical-align:middle;margin-right:8px;">VoicePrompter</a>
-        <a href="/blog/" class="nav-link">← Back to Blog</a>
-    </nav>
-
     <div class="article-container">
+        <a href="/blog/" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+            Back to Blog
+        </a>
+
         <article>
             <div class="article-header">
-                <h1>How to Look Confident on Camera (Even When You're Not)</h1>
+                <h1>Untitled</h1>
                 <div class="article-meta">Mar 10, 2026</div>
             </div>
 
@@ -317,7 +263,7 @@
 <p>The clean solution: don&#39;t hold your script in your head. Use a teleprompter.</p>
 <p>A voice-activated teleprompter like <a href="https://voiceprompter.app">VoicePrompter</a> means the script is always in front of you, scrolling at your pace, giving you the next line exactly when you need it. The cognitive load of &quot;what do I say next&quot; is completely removed. You can put that energy into tone, eye contact, energy, and delivery.</p>
 <p>This is the reason I built the app in the first place. Not just to avoid retakes (though that too), but to free up mental bandwidth for the parts of presenting that actually require presence.</p>
-<p>Read more about this in <a href="/blog/how-to-read-script-without-looking-like-reading.html">how to read a script without looking like you&#39;re reading</a>.</p>
+<p>Read more about this in <a href="./how-to-read-script-without-looking-like-reading.md">how to read a script without looking like you&#39;re reading</a>.</p>
 <h2>What to Do With Your Face</h2>
 <p>Relax your jaw. Most people on camera hold their jaw slightly tight, which creates tension visible around the eyes and cheeks.</p>
 <p>A slight smile — not a big fixed grin, just a neutral-positive expression — makes an enormous difference. We&#39;re wired to interpret neutral faces slightly negatively on camera. A gentle upward turn at the corners reads as engaged and confident.</p>
@@ -325,67 +271,27 @@
 <h2>Before You Hit Record</h2>
 <p>Two minutes before recording or joining a call, stand up. Walk around. Shake out your hands. Take three slow, deep breaths. This sounds like wellness advice but it has a real physiological effect on your vocal tone and body language. Your shoulders drop, your voice opens up, you stop looking like you&#39;re bracing for something.</p>
 <p>If you&#39;re recording a video and you have a script, read through it one more time before starting — not to memorize it, just to prime the words. Familiarity with the script translates directly to fluency in the delivery.</p>
-<p>For specific context on video interviews, see <a href="/blog/video-interview-preparation-tips.html">video interview preparation tips</a>. For Zoom calls and presentations specifically, <a href="/blog/zoom-presentation-tips-sales-calls.html">zoom sales call tips</a> covers the additional elements that apply to live conversations.</p>
+<p>For specific context on video interviews, see <a href="./video-interview-preparation-tips.md">video interview preparation tips</a>. For Zoom calls and presentations specifically, <a href="./zoom-presentation-tips-sales-calls.md">zoom sales call tips</a> covers the additional elements that apply to live conversations.</p>
 <hr>
 <p><strong>Related articles:</strong></p>
 <ul>
-<li><a href="/blog/how-to-read-script-without-looking-like-reading.html">How to Read a Script Without Looking Like You&#39;re Reading</a></li>
-<li><a href="/blog/how-to-use-teleprompter-naturally.html">How to Use a Teleprompter Naturally</a></li>
-<li><a href="/blog/video-interview-preparation-tips.html">Video Interview Preparation Tips</a></li>
-<li><a href="/blog/zoom-presentation-tips-sales-calls.html">Zoom Sales Call Presentation Tips</a></li>
+<li><a href="./how-to-read-script-without-looking-like-reading.md">How to Read a Script Without Looking Like You&#39;re Reading</a></li>
+<li><a href="./how-to-use-teleprompter-naturally.md">How to Use a Teleprompter Naturally</a></li>
+<li><a href="./video-interview-preparation-tips.md">Video Interview Preparation Tips</a></li>
+<li><a href="./zoom-presentation-tips-sales-calls.md">Zoom Sales Call Presentation Tips</a></li>
 </ul>
 
             </div>
 
-            <div class="cta-box">
-                <h3>Ready to try it?</h3>
-                <p>Experience voice-activated scrolling for yourself.</p>
-                <a href="/" class="cta-button">Open VoicePrompter</a>
+            <div class="article-footer">
+                <div class="cta-box">
+                    <h3>Ready to try it?</h3>
+                    <p>Experience voice-activated scrolling for yourself.</p>
+                    <a href="/" class="cta-button">Open VoicePrompter</a>
+                </div>
             </div>
         </article>
     </div>
-
-    <footer class="footer">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Product</h4>
-                <a href="/web">Web App</a>
-                <a href="/mac">Mac App</a>
-            </div>
-            <div class="footer-col">
-                <h4>Resources</h4>
-                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">GitHub</a>
-                <a href="/blog">Blog</a>
-                <a href="https://www.youtube.com/@kosuvorov" target="_blank" rel="noopener">YouTube</a>
-            </div>
-            <div class="footer-col">
-                <h4>Help</h4>
-                <a href="mailto:konstantin@voiceprompter.app">Contact</a>
-                <a href="/terms">Terms of Service</a>
-                <a href="/privacy">Privacy Policy</a>
-            </div>
-            <div class="footer-col">
-                <h4>Support the project</h4>
-                <a href="https://buymeacoffee.com/kosuvorov" target="_blank" rel="noopener">Buy me a coffee ☕</a>
-                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">Give a star on GitHub ⭐</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>Made by <a href="https://instagram.com/kosuvorov" target="_blank" rel="noopener">Konstantin Suvorov</a> · © 2026 VoicePrompter</p>
-            <div class="footer-social">
-                <a href="https://www.instagram.com/voiceprompter" target="_blank" rel="noopener" aria-label="Instagram">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                </a>
-                <a href="https://www.tiktok.com/@voiceprompter" target="_blank" rel="noopener" aria-label="TikTok">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.18 8.18 0 0 0 4.76 1.52V6.84a4.83 4.83 0 0 1-1-.15z"/></svg>
-                </a>
-                <a href="https://www.youtube.com/@kosuvorov" target="_blank" rel="noopener" aria-label="YouTube">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                </a>
-            </div>
-        </div>
-    </footer>
-
 </body>
 
 </html>

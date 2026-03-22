@@ -1,5 +1,10 @@
-# How to Record Webinars and Podcasts That Don't Sound Like You Winged It
-
+---
+title: "Untitled"
+description: "Read the latest blog post from VoicePrompter."
+date: "Mar 4, 2026"
+image: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80"
+keywords: ["teleprompter", "video production"]
+---
 Here's the honest version of what most webinar recordings sound like: a smart person who knows a lot about a topic, talking in a loosely organized way, using filler words to bridge between half-formed thoughts, occasionally losing their train of thought, and sometimes spending four minutes on something that could have taken forty-five seconds.
 
 That's not an insult. That's just what happens when knowledgeable people record without preparation. And the frustrating part is that the knowledge is all there — the delivery just doesn't do it justice.

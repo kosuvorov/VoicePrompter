@@ -4,111 +4,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Why All Teleprompter Apps Are Terrible (And What I Did About It) — VoicePrompter</title>
-    <meta name="description" content="Why All Teleprompter Apps Are Terrible (And What I Did About It)">
+    <title>Untitled - VoicePrompter</title>
+    <meta name="description" content="Read the latest blog post from VoicePrompter.">
+    <meta name="keywords" content="teleprompter, video production">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://voiceprompter.app/blog/why-all-teleprompter-apps-suck.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://voiceprompter.app/blog/why-all-teleprompter-apps-suck.html">
+    <meta property="og:title" content="Untitled">
+    <meta property="og:description" content="Read the latest blog post from VoicePrompter.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80">
+    <meta property="og:site_name" content="VoicePrompter">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://voiceprompter.app/blog/why-all-teleprompter-apps-suck.html">
+    <meta name="twitter:title" content="Untitled">
+    <meta name="twitter:description" content="Read the latest blog post from VoicePrompter.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80">
+
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg: #0F0F0F;
-            --surface: #1A1A1A;
-            --surface-border: #2A2A2A;
-            --text: #E8E8E8;
-            --text-light: #999;
-            --pop: #FFBB00;
-            --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
-            --font-serif: 'DM Serif Display', serif;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
-
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: var(--font-sans);
-            background: var(--bg);
-            color: var(--text);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #e5e5e5;
             line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
         }
 
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
-            pointer-events: none;
-            opacity: 0.03;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-            background-repeat: repeat;
-            background-size: 180px 180px;
-        }
-
-        a { text-decoration: none; }
-
-        /* ═══════════════════════ Nav ═══════════════════════ */
-        .nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 28px 32px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .nav-logo {
-            font-family: var(--font-sans);
-            font-weight: 700;
-            font-size: 16px;
-            color: var(--text);
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-link {
-            font-size: 14px;
-            color: var(--text-light);
-            transition: color 0.2s;
-        }
-
-        .nav-link:hover { color: var(--pop); }
-
-        /* ═══════════════════════ Article ═══════════════════════ */
         .article-container {
             max-width: 720px;
             margin: 0 auto;
-            padding: 0 32px 96px;
+            padding: 40px 20px 80px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            margin-bottom: 32px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #DAA000;
         }
 
         .article-header {
-            margin-bottom: 48px;
+            margin-bottom: 40px;
         }
 
         .article-header h1 {
-            font-family: var(--font-serif);
-            font-size: 40px;
-            font-weight: 400;
+            font-size: 2.5rem;
+            font-weight: 700;
             line-height: 1.2;
             margin-bottom: 16px;
             color: #fff;
         }
 
         .article-meta {
-            color: var(--text-light);
-            font-size: 14px;
+            color: #888;
+            font-size: 0.9375rem;
         }
 
         .article-content {
-            font-size: 17px;
+            font-size: 1.0625rem;
             color: #d0d0d0;
-            line-height: 1.8;
         }
 
         .article-content img {
             width: 100%;
             height: auto;
-            border-radius: 12px;
+            border-radius: 8px;
             margin: 32px 0;
         }
 
@@ -116,37 +99,59 @@
         .article-content h2,
         .article-content h3 {
             color: #fff;
-            font-family: var(--font-sans);
             font-weight: 600;
-            margin-top: 48px;
-            margin-bottom: 20px;
+            margin-top: 40px;
+            margin-bottom: 16px;
         }
 
-        .article-content h1 { font-size: 32px; }
-        .article-content h2 { font-size: 26px; }
-        .article-content h3 { font-size: 21px; }
+        .article-content h1 {
+            font-size: 2rem;
+        }
 
-        .article-content p { margin-bottom: 20px; }
+        .article-content h2 {
+            font-size: 1.75rem;
+        }
+
+        .article-content h3 {
+            font-size: 1.5rem;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+        }
 
         .article-content ul,
         .article-content ol {
             margin: 20px 0 20px 24px;
         }
 
-        .article-content li { margin-bottom: 8px; }
-        .article-content strong { color: #fff; font-weight: 600; }
+        .article-content li {
+            margin-bottom: 8px;
+        }
+
+        .article-content strong {
+            color: #fff;
+            font-weight: 600;
+        }
 
         .article-content a {
-            color: var(--pop);
+            color: #DAA000;
+            text-decoration: none;
             border-bottom: 1px solid transparent;
             transition: border-color 0.2s;
         }
 
-        .article-content a:hover { border-bottom-color: var(--pop); }
-        .article-content em { font-style: italic; color: #c0c0c0; }
+        .article-content a:hover {
+            border-bottom-color: #DAA000;
+        }
+
+        .article-content em {
+            font-style: italic;
+            color: #c0c0c0;
+        }
 
         .article-content code {
-            background: var(--surface);
+            background: #1a1a1a;
             padding: 2px 6px;
             border-radius: 4px;
             font-family: 'SF Mono', 'Monaco', monospace;
@@ -154,137 +159,78 @@
         }
 
         .article-content blockquote {
-            border-left: 4px solid var(--pop);
+            border-left: 4px solid #DAA000;
             padding-left: 20px;
             margin: 24px 0;
             color: #b0b0b0;
             font-style: italic;
         }
 
-        .article-content hr {
-            border: none;
-            border-top: 1px solid var(--surface-border);
-            margin: 48px 0;
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid #2a2a2a;
         }
 
-        /* ═══════════════════════ CTA ═══════════════════════ */
         .cta-box {
-            margin-top: 64px;
-            padding: 40px;
-            background: var(--surface);
-            border: 1px solid var(--surface-border);
-            border-radius: 16px;
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 32px;
             text-align: center;
         }
 
         .cta-box h3 {
-            font-family: var(--font-serif);
-            font-size: 24px;
-            font-weight: 400;
+            font-size: 1.5rem;
             margin-bottom: 12px;
             color: #fff;
         }
 
         .cta-box p {
-            color: var(--text-light);
+            color: #a0a0a0;
             margin-bottom: 24px;
-            font-size: 15px;
         }
 
         .cta-button {
             display: inline-block;
-            background: var(--pop);
+            background: #DAA000;
             color: #000;
-            padding: 14px 36px;
-            border-radius: 10px;
+            padding: 12px 32px;
+            border-radius: 8px;
+            text-decoration: none;
             font-weight: 600;
-            font-size: 15px;
             transition: background 0.2s;
         }
 
-        .cta-button:hover { background: #e0a800; }
-
-        /* ═══════════════════════ Footer ═══════════════════════ */
-        .footer {
-            padding: 64px 32px 40px;
-            border-top: 1px solid var(--surface-border);
-            max-width: 960px;
-            margin: 0 auto;
+        .cta-button:hover {
+            background: #c99000;
         }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            margin-bottom: 48px;
-        }
-
-        .footer-col h4 {
-            font-family: var(--font-sans);
-            font-size: 13px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-light);
-            margin-bottom: 16px;
-        }
-
-        .footer-col a {
-            display: block;
-            font-size: 14px;
-            color: var(--text);
-            padding: 4px 0;
-            transition: color 0.2s;
-        }
-
-        .footer-col a:hover { color: var(--pop); }
-
-        .footer-bottom {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-top: 24px;
-            border-top: 1px solid var(--surface-border);
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-
-        .footer-bottom p { font-size: 13px; color: var(--text-light); }
-        .footer-bottom a { color: var(--text-light); text-decoration: underline; text-underline-offset: 2px; }
-
-        .footer-social { display: flex; gap: 16px; align-items: center; }
-        .footer-social a { color: var(--text-light); transition: color 0.2s; }
-        .footer-social a:hover { color: var(--pop); }
-        .footer-social svg { width: 20px; height: 20px; }
 
         @media (max-width: 768px) {
-            .article-header h1 { font-size: 30px; }
-            .article-content { font-size: 16px; }
-            .footer-grid { grid-template-columns: repeat(4, 1fr); gap: 32px; }
-        }
+            .article-header h1 {
+                font-size: 2rem;
+            }
 
-        @media (max-width: 480px) {
-            .article-container { padding: 0 20px 64px; }
-            .nav { padding: 20px; }
-            .article-header h1 { font-size: 26px; }
-            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-            .footer-bottom { flex-direction: column; align-items: center; text-align: center; }
+            .article-content {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 
 <body>
-
-    <nav class="nav" role="navigation">
-        <a href="https://voiceprompter.app" class="nav-logo"><img src="/logo-icon-no-bg.svg" alt="" width="28"
-                height="28" style="display:inline-block;vertical-align:middle;margin-right:8px;">VoicePrompter</a>
-        <a href="/blog/" class="nav-link">← Back to Blog</a>
-    </nav>
-
     <div class="article-container">
+        <a href="/blog/" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+            Back to Blog
+        </a>
+
         <article>
             <div class="article-header">
-                <h1>Why All Teleprompter Apps Are Terrible (And What I Did About It)</h1>
+                <h1>Untitled</h1>
                 <div class="article-meta">Mar 18, 2026</div>
             </div>
 
@@ -309,17 +255,17 @@
 <p><a href="https://voiceprompter.app">VoicePrompter</a> is a free, open-source web app that works as a progressive web app (PWA) — meaning you can install it on your phone or desktop and use it completely offline. It uses your device&#39;s built-in speech recognition, so no audio is sent to any server. Everything stays on your device.</p>
 <p>The voice scrolling actually works. And I say that having personally tested it in English, Polish, Ukrainian, Russian, French, and Spanish. It pauses when you stop talking and resumes when you start again — exactly the way it should.</p>
 <p>Beyond the core scrolling, there are things I added because I couldn&#39;t believe other apps didn&#39;t have them. Paragraph preservation, for instance. Mirror mode. A hands-free restart voice command (&quot;prompter restart&quot;). Visual stop signs that show you where to pause. Touch-to-jump so you can tap any word and the prompter snaps to that position instantly.</p>
-<p>You can read the full breakdown in my <a href="/blog/voiceprompter-complete-guide-2025.html">complete VoicePrompter guide</a>.</p>
+<p>You can read the full breakdown in my <a href="./voiceprompter-complete-guide-2025.md">complete VoicePrompter guide</a>.</p>
 <h2>Then I Made a Mac Version</h2>
 <p>After people started using the web app, I realized there was a different but equally painful problem for a different kind of user. Not solo creators filming on their phones — but professionals who record webinars, product demos, sales calls, tutorials, podcasts, and online presentations on their Macs.</p>
 <p>Their pain is slightly different. They don&#39;t need mirror mode. They need an app that stays visible to them while being completely invisible to everyone else on the call. They need something that works while they&#39;re sharing their screen in Zoom or Google Meet. And they need the scrolling to be reliable enough that they can trust it in a live sales call or recording session.</p>
 <p>That&#39;s <a href="https://apps.apple.com/pl/app/voiceprompter/id6758573080">VoicePrompter for Mac</a> — a native macOS app that lives in your menu bar and stays on top of everything, including full-screen apps and slides, while being completely hidden from screen recording and screen sharing software.</p>
 <p>It uses Apple&#39;s native speech recognition, which is why it works in 60+ languages and happens entirely on your device. The whole app is 2 megabytes. You can leave it running all day.</p>
-<p>If you&#39;re specifically looking for a Mac solution, take a look at <a href="/blog/best-teleprompter-app-for-mac.html">best teleprompter app for Mac</a> where I go deeper on what makes a Mac teleprompter actually worth using.</p>
+<p>If you&#39;re specifically looking for a Mac solution, take a look at <a href="./best-teleprompter-app-for-mac.md">best teleprompter app for Mac</a> where I go deeper on what makes a Mac teleprompter actually worth using.</p>
 <h2>Why This Matters for Your Workflow</h2>
 <p>If you record videos, you&#39;ve felt this pain. You hit record. You mess up a line. You start over. You mess up again. You do twelve takes of the same thirty-second intro. By take eight, you&#39;re stiff and you can hear it in your voice.</p>
 <p>A good teleprompter eliminates that. You write your script once, you read it, you&#39;re done. No memorizing. No retakes because you blanked on a word. Just one clean take — or close to it.</p>
-<p>I wrote more about this in <a href="/blog/stop-memorizing-your-script.html">how to stop memorizing your script</a> and <a href="/blog/record-tutorial-videos-faster.html">how to record tutorial videos faster</a> if that&#39;s the specific problem you&#39;re trying to solve.</p>
+<p>I wrote more about this in <a href="./stop-memorizing-your-script.md">how to stop memorizing your script</a> and <a href="./record-tutorial-videos-faster.md">how to record tutorial videos faster</a> if that&#39;s the specific problem you&#39;re trying to solve.</p>
 <h2>The Actual Test</h2>
 <p>You want to know if a teleprompter works? Use it in a real recording. Not a two-minute test, not a quiet room with no background noise. Use it in your actual setup. That&#39;s the only way to know.</p>
 <p>I&#39;ve been using VoicePrompter in my own recordings for a while now. This article was recorded using it. If it sounds natural, that&#39;s the point.</p>
@@ -327,63 +273,23 @@
 <hr>
 <p><strong>Related articles:</strong></p>
 <ul>
-<li><a href="/blog/how-to-read-script-without-looking-like-reading.html">How to Read a Script Without Looking Like You&#39;re Reading</a></li>
-<li><a href="/blog/best-teleprompter-app-for-mac.html">Best Teleprompter App for Mac</a></li>
-<li><a href="/blog/free-voice-activated-teleprompter.html">Free Voice-Activated Teleprompter for Solo Creators</a></li>
-<li><a href="/blog/how-to-use-teleprompter-naturally.html">How to Use a Teleprompter Naturally</a></li>
+<li><a href="./how-to-read-script-without-looking-like-reading.md">How to Read a Script Without Looking Like You&#39;re Reading</a></li>
+<li><a href="./best-teleprompter-app-for-mac.md">Best Teleprompter App for Mac</a></li>
+<li><a href="./free-voice-activated-teleprompter.md">Free Voice-Activated Teleprompter for Solo Creators</a></li>
+<li><a href="./how-to-use-teleprompter-naturally.md">How to Use a Teleprompter Naturally</a></li>
 </ul>
 
             </div>
 
-            <div class="cta-box">
-                <h3>Ready to try it?</h3>
-                <p>Experience voice-activated scrolling for yourself.</p>
-                <a href="/" class="cta-button">Open VoicePrompter</a>
+            <div class="article-footer">
+                <div class="cta-box">
+                    <h3>Ready to try it?</h3>
+                    <p>Experience voice-activated scrolling for yourself.</p>
+                    <a href="/" class="cta-button">Open VoicePrompter</a>
+                </div>
             </div>
         </article>
     </div>
-
-    <footer class="footer">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Product</h4>
-                <a href="/web">Web App</a>
-                <a href="/mac">Mac App</a>
-            </div>
-            <div class="footer-col">
-                <h4>Resources</h4>
-                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">GitHub</a>
-                <a href="/blog">Blog</a>
-                <a href="https://www.youtube.com/@kosuvorov" target="_blank" rel="noopener">YouTube</a>
-            </div>
-            <div class="footer-col">
-                <h4>Help</h4>
-                <a href="mailto:konstantin@voiceprompter.app">Contact</a>
-                <a href="/terms">Terms of Service</a>
-                <a href="/privacy">Privacy Policy</a>
-            </div>
-            <div class="footer-col">
-                <h4>Support the project</h4>
-                <a href="https://buymeacoffee.com/kosuvorov" target="_blank" rel="noopener">Buy me a coffee ☕</a>
-                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">Give a star on GitHub ⭐</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>Made by <a href="https://instagram.com/kosuvorov" target="_blank" rel="noopener">Konstantin Suvorov</a> · © 2026 VoicePrompter</p>
-            <div class="footer-social">
-                <a href="https://www.instagram.com/voiceprompter" target="_blank" rel="noopener" aria-label="Instagram">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                </a>
-                <a href="https://www.tiktok.com/@voiceprompter" target="_blank" rel="noopener" aria-label="TikTok">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.18 8.18 0 0 0 4.76 1.52V6.84a4.83 4.83 0 0 1-1-.15z"/></svg>
-                </a>
-                <a href="https://www.youtube.com/@kosuvorov" target="_blank" rel="noopener" aria-label="YouTube">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                </a>
-            </div>
-        </div>
-    </footer>
-
 </body>
 
 </html>

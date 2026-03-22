@@ -1,5 +1,10 @@
-# Stop Memorizing Your Script. Do This Instead.
-
+---
+title: "Untitled"
+description: "Read the latest blog post from VoicePrompter."
+date: "Feb 22, 2026"
+image: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80"
+keywords: ["teleprompter", "video production"]
+---
 Memorizing a script for a video is, with very few exceptions, a waste of your time.
 
 I'll explain why, and I'll tell you what actually works.
