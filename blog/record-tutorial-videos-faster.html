@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled - VoicePrompter</title>
+    <meta name="description" content="Read the latest blog post from VoicePrompter.">
+    <meta name="keywords" content="teleprompter, video production">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://voiceprompter.app/blog/record-tutorial-videos-faster.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://voiceprompter.app/blog/record-tutorial-videos-faster.html">
+    <meta property="og:title" content="Untitled">
+    <meta property="og:description" content="Read the latest blog post from VoicePrompter.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80">
+    <meta property="og:site_name" content="VoicePrompter">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://voiceprompter.app/blog/record-tutorial-videos-faster.html">
+    <meta name="twitter:title" content="Untitled">
+    <meta name="twitter:description" content="Read the latest blog post from VoicePrompter.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #e5e5e5;
+            line-height: 1.7;
+        }
+
+        .article-container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            margin-bottom: 32px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #DAA000;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            color: #fff;
+        }
+
+        .article-meta {
+            color: #888;
+            font-size: 0.9375rem;
+        }
+
+        .article-content {
+            font-size: 1.0625rem;
+            color: #d0d0d0;
+        }
+
+        .article-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 32px 0;
+        }
+
+        .article-content h1,
+        .article-content h2,
+        .article-content h3 {
+            color: #fff;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+
+        .article-content h1 {
+            font-size: 2rem;
+        }
+
+        .article-content h2 {
+            font-size: 1.75rem;
+        }
+
+        .article-content h3 {
+            font-size: 1.5rem;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 20px 0 20px 24px;
+        }
+
+        .article-content li {
+            margin-bottom: 8px;
+        }
+
+        .article-content strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .article-content a {
+            color: #DAA000;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .article-content a:hover {
+            border-bottom-color: #DAA000;
+        }
+
+        .article-content em {
+            font-style: italic;
+            color: #c0c0c0;
+        }
+
+        .article-content code {
+            background: #1a1a1a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'SF Mono', 'Monaco', monospace;
+            font-size: 0.9em;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid #DAA000;
+            padding-left: 20px;
+            margin: 24px 0;
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        .cta-box {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .cta-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .cta-box p {
+            color: #a0a0a0;
+            margin-bottom: 24px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #DAA000;
+            color: #000;
+            padding: 12px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .cta-button:hover {
+            background: #c99000;
+        }
+
+        @media (max-width: 768px) {
+            .article-header h1 {
+                font-size: 2rem;
+            }
+
+            .article-content {
+                font-size: 1rem;
+            }
+        }
+    </style>
+<link rel="manifest" href="/manifest.webmanifest"></head>
+
+<body>
+    <div class="article-container">
+        <a href="/blog/" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+            Back to Blog
+        </a>
+
+        <article>
+            <div class="article-header">
+                <h1>Untitled</h1>
+                <div class="article-meta">Feb 26, 2026</div>
+            </div>
+
+            <div class="article-content">
+                <p>At some point in the career of anyone who records tutorials, a sobering realization sets in: the actual recording is the easy part. The prep takes forever, the retakes take forever, and the editing takes forever.</p>
+<p>Most of that time is recoverable. Here&#39;s the workflow I&#39;ve settled on after recording a lot of these.</p>
+<h2>The Pre-Production Phase: Where Most Time Is Lost</h2>
+<p>The number one time drain in tutorial production is not recording — it&#39;s being underprepared before recording. This shows up as:</p>
+<ul>
+<li>Knowing roughly what you want to say but not exactly, leading to rambling takes</li>
+<li>Discovering during recording that you need a step you haven&#39;t prepared</li>
+<li>Re-recording sections because the structure didn&#39;t work on screen the way it did in your head</li>
+</ul>
+<p>The fix: before you record anything, do a full dry run of whatever you&#39;re about to demonstrate. Actually do the steps, in sequence, on your screen, while narrating out loud — but not recording. Note where it&#39;s awkward, where you need to add context, where you assumed knowledge the viewer doesn&#39;t have.</p>
+<p>Then write your script for those problem areas.</p>
+<p>This dry run takes maybe 20 minutes for a 10-minute tutorial. It saves you 90 minutes of re-recording.</p>
+<h2>Write a Script for the Hard Parts</h2>
+<p>You don&#39;t need to script every word. You do need to script the parts where precision matters:</p>
+<ul>
+<li>The opening (what this tutorial covers, who it&#39;s for, why they should watch it)</li>
+<li>Any section where you need to explain a concept (not just demonstrate it)</li>
+<li>The conclusion and the call to action</li>
+</ul>
+<p>For everything else — &quot;and now I&#39;ll click here,&quot; &quot;you can see that X happened,&quot; &quot;let&#39;s go back to&quot; — you can narrate on the fly while showing.</p>
+<p>The scripted sections are what separates a tutorial that teaches from a tutorial that just shows. They&#39;re also the sections that take the most takes to get right when improvised, because you&#39;re searching for the right framing in real time.</p>
+<h2>Use a Teleprompter for Your Scripted Sections</h2>
+<p>For the scripted parts, use a teleprompter. Full stop.</p>
+<p><a href="https://apps.apple.com/pl/app/voiceprompter/id6758573080">VoicePrompter for Mac</a> is what I use. It&#39;s an always-on-top transparent overlay — you can see it while screen recording, but it doesn&#39;t appear in the recording itself. So for a tutorial where you&#39;re sharing your screen, your teleprompter sits on top of your browser or application, readable to you, invisible to viewers.</p>
+<p>Voice-activated scrolling means it follows your pace. When you switch into live demonstration mode (&quot;now I&#39;ll click here...&quot;), you stop talking to the script and the scroll pauses. When you transition back to your scripted narration, it&#39;s right where you left off.</p>
+<p>For tutorials filmed at a camera (rather than screencasts), <a href="https://voiceprompter.app">voiceprompter.app</a> works on any device for free.</p>
+<h2>Recording in Segments</h2>
+<p>If your tutorial is longer than 5 minutes, record it in logical sections. Typical structure:</p>
+<ul>
+<li>Section 1: Introduction and context</li>
+<li>Section 2–4: Each major step or concept</li>
+<li>Section 5: Wrap-up and next steps</li>
+</ul>
+<p>Recording in sections means a stumble on the fourth step doesn&#39;t require re-recording the first three. You nail each section independently and assemble them in editing.</p>
+<p>Use a consistent format for each section so the editing is predictable. I give myself 3 seconds of silence at the start and end of each section — it gives me clean cut points without having to hunt for them.</p>
+<h2>The Biggest Time Saver in Editing: Better Recording Practices</h2>
+<p>The editing time for a tutorial is roughly proportional to the number of mistakes in the recording. Cut the mistakes, cut the editing time.</p>
+<p>Three things that reduce mistakes:</p>
+<p><strong>1. Keep recording when you make a mistake.</strong> Say &quot;let me take that again from X&quot; out loud, pause two seconds, then continue. Don&#39;t stop the recording. You&#39;ll cut the mistake in editing, and you don&#39;t lose the flow. Stopping the recording on every stumble doubles your session length.</p>
+<p><strong>2. Clap at the start of each section.</strong> A single hand clap creates a sharp audio spike that&#39;s easy to find in a waveform. Mark your section starts this way and you&#39;ll spend 10 minutes in editing instead of 40.</p>
+<p><strong>3. Do one pass before uploading, not ten.</strong> Watch the recording once, note timestamps of the cuts you need to make, make them in one editing session. Most tutorial creators re-watch their footage too many times during editing, which is time-consuming and leads to over-cutting.</p>
+<h2>Screen Recording Specifically</h2>
+<p>For tutorials where you&#39;re recording your screen:</p>
+<p>Run your recording software at native resolution. Don&#39;t record at a lower resolution and then upscale — it always looks worse than you expect.</p>
+<p>Hide your dock and desktop icons before recording. Clutter in your screen recording is distracting and gives viewers things to look at besides your content.</p>
+<p>Slow your mouse movements deliberately. On screen, fast mouse movement is hard to follow. The pace that feels natural when demonstrating something in real life is too fast on screen. Move slower than you think you need to.</p>
+<p>Zoom in on the specific area you&#39;re demonstrating. Many screen recording tools have a zoom feature. Use it. Viewers should not be squinting to read the text in your recording.</p>
+<h2>The Full Workflow in Sequence</h2>
+<ol>
+<li><strong>Plan.</strong> Outline the tutorial: what are the steps, what needs explanation vs. demonstration.</li>
+<li><strong>Dry run.</strong> Do the whole thing once without recording. Note the rough spots.</li>
+<li><strong>Script.</strong> Write your intro, outro, and any explanatory sections.</li>
+<li><strong>Set up.</strong> Close unnecessary apps, silence notifications, check audio, load teleprompter.</li>
+<li><strong>Record.</strong> In sections. Keep rolling through mistakes.</li>
+<li><strong>Edit.</strong> One pass. Cut mistakes, normalize audio, add captions if needed.</li>
+<li><strong>Export and publish.</strong></li>
+</ol>
+<p>Followed consistently, this takes most 10-minute tutorials from a 4-hour day to a 2-hour morning. The dry run and the teleprompter are the biggest time savers.</p>
+<p>For the webinar variant of this workflow, see <a href="./how-to-record-webinars-and-podcasts.md">how to record webinars and podcasts</a>. For the product-demo-specific version, <a href="./how-to-record-product-demo-video.md">how to record a product demo video</a>.</p>
+<hr>
+<p><strong>Related articles:</strong></p>
+<ul>
+<li><a href="./how-to-record-product-demo-video.md">How to Record a Product Demo Video Without 50 Takes</a></li>
+<li><a href="./best-teleprompter-app-for-mac.md">Best Teleprompter App for Mac</a></li>
+<li><a href="./stop-memorizing-your-script.md">Stop Memorizing Your Script — Do This Instead</a></li>
+<li><a href="./how-to-record-webinars-and-podcasts.md">How to Record Webinars and Podcasts</a></li>
+</ul>
+
+            </div>
+
+            <div class="article-footer">
+                <div class="cta-box">
+                    <h3>Ready to try it?</h3>
+                    <p>Experience voice-activated scrolling for yourself.</p>
+                    <a href="/" class="cta-button">Open VoicePrompter</a>
+                </div>
+            </div>
+        </article>
+    </div>
+</body>
+
+</html>

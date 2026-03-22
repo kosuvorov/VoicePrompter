@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled - VoicePrompter</title>
+    <meta name="description" content="Read the latest blog post from VoicePrompter.">
+    <meta name="keywords" content="teleprompter, video production">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://voiceprompter.app/blog/how-to-record-product-demo-video.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://voiceprompter.app/blog/how-to-record-product-demo-video.html">
+    <meta property="og:title" content="Untitled">
+    <meta property="og:description" content="Read the latest blog post from VoicePrompter.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80">
+    <meta property="og:site_name" content="VoicePrompter">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://voiceprompter.app/blog/how-to-record-product-demo-video.html">
+    <meta name="twitter:title" content="Untitled">
+    <meta name="twitter:description" content="Read the latest blog post from VoicePrompter.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #e5e5e5;
+            line-height: 1.7;
+        }
+
+        .article-container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            margin-bottom: 32px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #DAA000;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            color: #fff;
+        }
+
+        .article-meta {
+            color: #888;
+            font-size: 0.9375rem;
+        }
+
+        .article-content {
+            font-size: 1.0625rem;
+            color: #d0d0d0;
+        }
+
+        .article-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 32px 0;
+        }
+
+        .article-content h1,
+        .article-content h2,
+        .article-content h3 {
+            color: #fff;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+
+        .article-content h1 {
+            font-size: 2rem;
+        }
+
+        .article-content h2 {
+            font-size: 1.75rem;
+        }
+
+        .article-content h3 {
+            font-size: 1.5rem;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 20px 0 20px 24px;
+        }
+
+        .article-content li {
+            margin-bottom: 8px;
+        }
+
+        .article-content strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .article-content a {
+            color: #DAA000;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .article-content a:hover {
+            border-bottom-color: #DAA000;
+        }
+
+        .article-content em {
+            font-style: italic;
+            color: #c0c0c0;
+        }
+
+        .article-content code {
+            background: #1a1a1a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'SF Mono', 'Monaco', monospace;
+            font-size: 0.9em;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid #DAA000;
+            padding-left: 20px;
+            margin: 24px 0;
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        .cta-box {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .cta-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .cta-box p {
+            color: #a0a0a0;
+            margin-bottom: 24px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #DAA000;
+            color: #000;
+            padding: 12px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .cta-button:hover {
+            background: #c99000;
+        }
+
+        @media (max-width: 768px) {
+            .article-header h1 {
+                font-size: 2rem;
+            }
+
+            .article-content {
+                font-size: 1rem;
+            }
+        }
+    </style>
+<link rel="manifest" href="/manifest.webmanifest"></head>
+
+<body>
+    <div class="article-container">
+        <a href="/blog/" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+            Back to Blog
+        </a>
+
+        <article>
+            <div class="article-header">
+                <h1>Untitled</h1>
+                <div class="article-meta">Mar 6, 2026</div>
+            </div>
+
+            <div class="article-content">
+                <p>You hit record. You get through the intro. You mess up a line. You start over. You get through the intro again, nail the first section, then stumble on the pricing slide. Start over again. By take six, your voice sounds stiff and mechanical. By take twelve, you&#39;re questioning every decision you&#39;ve ever made.</p>
+<p>Sound familiar? Because this was my exact workflow for a long time.</p>
+<p>Here&#39;s the thing: most of the people recording product demos are not professional presenters. They&#39;re founders, product managers, engineers, marketers — people who know their product inside out but have never had media training. And the advice you&#39;ll find online (&quot;just practice more,&quot; &quot;be more relaxed&quot;) is not particularly useful when you&#39;re on take nineteen and the deadline is tomorrow.</p>
+<p>So here&#39;s what actually works.</p>
+<h2>Start With a Real Script, Not Bullets</h2>
+<p>The most common mistake I see is going into a recording with bullet points instead of a script. The idea is that bullets will force you to speak naturally, like you&#39;re explaining something rather than reading.</p>
+<p>In theory: correct. In practice: you end up saying &quot;um&quot; forty times, repeating yourself, losing track of where you are in the demo, and recording twenty takes instead of five.</p>
+<p>Write the full script. Every word. At least for your first draft. Once you have the words on paper, you can start making deliberate choices about where to be more spontaneous versus where you need to stay precise (feature explanations, pricing, calls to action).</p>
+<p>A full script also means you can use a teleprompter. More on that in a moment.</p>
+<h2>Structure Your Demo Like This</h2>
+<p>The structure that works for product demos:</p>
+<ol>
+<li><p><strong>The pain, in one sentence.</strong> What problem does this solve? Make it specific and recognizable. &quot;If you record demos, tutorials, or product videos, you know the drill — hit record, mess up a line, start over.&quot;</p>
+</li>
+<li><p><strong>The solution, in one sentence.</strong> Don&#39;t explain how it works yet. Just name the outcome. &quot;I built a tool that lets you read your script while looking directly into the camera — invisible to your screen share.&quot;</p>
+</li>
+<li><p><strong>Show it in action.</strong> Screencast, screen recording, live demo — whatever applies. Walk through the core workflow, not every feature. One complete use case is better than fifteen half-explained features.</p>
+</li>
+<li><p><strong>The specific details.</strong> Pricing, availability, requirements. Keep it short.</p>
+</li>
+<li><p><strong>The single next step.</strong> One CTA. Not &quot;visit our website, follow us on LinkedIn, sign up for the newsletter, book a demo, watch our other videos.&quot; Just one thing.</p>
+</li>
+</ol>
+<h2>Use a Teleprompter — But Use It Correctly</h2>
+<p>A teleprompter doesn&#39;t just reduce takes. It changes the quality of your delivery.</p>
+<p>When you know your script is there and reliable, you stop trying to hold everything in your head. That cognitive load — &quot;what was the next point, did I forget to mention the integration, how do I say this precisely?&quot; — disappears. You can focus entirely on delivery: pace, tone, energy, eye contact.</p>
+<p>The key is using a teleprompter that works correctly. <a href="https://apps.apple.com/pl/app/voiceprompter/id6758573080">VoicePrompter for Mac</a> is what I use. It&#39;s an always-on-top, transparent overlay that follows your speech automatically using Apple&#39;s on-device voice recognition. You talk, it scrolls. You pause, it waits.</p>
+<p>Crucially: it&#39;s completely invisible in screen recordings and screen shares. If you&#39;re recording a demo where you&#39;re also sharing your screen or your Mac display, your teleprompter doesn&#39;t appear in the recording. Your screen shows the product. Your face shows you. Nobody sees the script.</p>
+<p>You can position the window right below your camera so the angle between your eyes and the lens is minimal. When done well, the viewer can&#39;t tell you&#39;re reading at all. For the technique side, read <a href="./how-to-read-script-without-looking-like-reading.md">how to read a script without looking like you&#39;re reading</a>.</p>
+<h2>Record in Sections, Not All at Once</h2>
+<p>If your demo is longer than two or three minutes, don&#39;t try to record it in a single uninterrupted take. Break it into logical sections:</p>
+<ul>
+<li>Introduction (30 seconds)</li>
+<li>Core feature 1 (60–90 seconds)</li>
+<li>Core feature 2 (60–90 seconds)</li>
+<li>Pricing and CTA (30–45 seconds)</li>
+</ul>
+<p>Record each section separately. If you nail the intro on take two and stumble on the pricing section, you only re-record the pricing section — not the whole thing. Your editing time collapses dramatically.</p>
+<p>Use a slate (clap your hands or snap your fingers) at the start of each section to make the edit points easy to find in your editing software.</p>
+<h2>The Single Best Technical Tip</h2>
+<p>Record more than you think you need.</p>
+<p>Don&#39;t cut the recording the second you finish your last sentence. Let it run for five extra seconds of silence. Similarly, don&#39;t start talking the instant you hit record — give yourself three seconds first.</p>
+<p>This sounds trivial but it eliminates a huge amount of editing frustration. The extra silence at the start and end gives you clean cut points, prevents your first and last words from being clipped, and removes the pressure of getting the exact start and stop timing right.</p>
+<h2>When You Make a Mistake Mid-Take</h2>
+<p>Don&#39;t stop recording. Ever.</p>
+<p>Just pause. Take a breath. Say &quot;let me restart from the last paragraph&quot; out loud (you&#39;ll cut this in editing). Then continue from a clean point.</p>
+<p>If you stop the recording on every mistake, you end up with twenty short files that are hard to navigate, and you lose the flow you&#39;d built up before the mistake. If you keep recording and just mark the restart, you&#39;ll have fewer files and easier edit points.</p>
+<p>With a voice-activated teleprompter, you can even tap the screen to jump back to any word in your script and re-record from there without stopping the recording at all.</p>
+<h2>What a Good Demo Actually Looks Like</h2>
+<p>The best product demos I&#39;ve seen share a few qualities:</p>
+<p>They&#39;re short. Two minutes, maybe three. Every sentence has a purpose.</p>
+<p>They show real usage. Not a clean demo environment with no data — actual usage that looks like something the viewer might do.</p>
+<p>The presenter sounds like they care. Not like they&#39;re reading a brochure, not like they&#39;re on call #47 of the day. Like they&#39;re showing you something that actually solves a problem.</p>
+<p>That last quality is the hardest to manufacture and the easiest to lose when you&#39;re on take fifteen. Get your setup right, reduce the takes, and the genuine energy takes care of itself.</p>
+<p>For more on the full production workflow, see <a href="./record-tutorial-videos-faster.md">how to record tutorial videos faster</a>.</p>
+<hr>
+<p><strong>Related articles:</strong></p>
+<ul>
+<li><a href="./why-all-teleprompter-apps-suck.md">Why All Teleprompter Apps Are Terrible (And What I Did About It)</a></li>
+<li><a href="./teleprompter-for-zoom-invisible.md">Teleprompter for Zoom — Completely Invisible</a></li>
+<li><a href="./best-teleprompter-app-for-mac.md">Best Teleprompter App for Mac</a></li>
+<li><a href="./record-tutorial-videos-faster.md">How to Record Tutorial Videos Faster</a></li>
+</ul>
+
+            </div>
+
+            <div class="article-footer">
+                <div class="cta-box">
+                    <h3>Ready to try it?</h3>
+                    <p>Experience voice-activated scrolling for yourself.</p>
+                    <a href="/" class="cta-button">Open VoicePrompter</a>
+                </div>
+            </div>
+        </article>
+    </div>
+</body>
+
+</html>

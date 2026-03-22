@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled - VoicePrompter</title>
+    <meta name="description" content="Read the latest blog post from VoicePrompter.">
+    <meta name="keywords" content="teleprompter, video production">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://voiceprompter.app/blog/free-voice-activated-teleprompter.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://voiceprompter.app/blog/free-voice-activated-teleprompter.html">
+    <meta property="og:title" content="Untitled">
+    <meta property="og:description" content="Read the latest blog post from VoicePrompter.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80">
+    <meta property="og:site_name" content="VoicePrompter">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://voiceprompter.app/blog/free-voice-activated-teleprompter.html">
+    <meta name="twitter:title" content="Untitled">
+    <meta name="twitter:description" content="Read the latest blog post from VoicePrompter.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #e5e5e5;
+            line-height: 1.7;
+        }
+
+        .article-container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            margin-bottom: 32px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #DAA000;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            color: #fff;
+        }
+
+        .article-meta {
+            color: #888;
+            font-size: 0.9375rem;
+        }
+
+        .article-content {
+            font-size: 1.0625rem;
+            color: #d0d0d0;
+        }
+
+        .article-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 32px 0;
+        }
+
+        .article-content h1,
+        .article-content h2,
+        .article-content h3 {
+            color: #fff;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+
+        .article-content h1 {
+            font-size: 2rem;
+        }
+
+        .article-content h2 {
+            font-size: 1.75rem;
+        }
+
+        .article-content h3 {
+            font-size: 1.5rem;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 20px 0 20px 24px;
+        }
+
+        .article-content li {
+            margin-bottom: 8px;
+        }
+
+        .article-content strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .article-content a {
+            color: #DAA000;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .article-content a:hover {
+            border-bottom-color: #DAA000;
+        }
+
+        .article-content em {
+            font-style: italic;
+            color: #c0c0c0;
+        }
+
+        .article-content code {
+            background: #1a1a1a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'SF Mono', 'Monaco', monospace;
+            font-size: 0.9em;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid #DAA000;
+            padding-left: 20px;
+            margin: 24px 0;
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        .cta-box {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .cta-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .cta-box p {
+            color: #a0a0a0;
+            margin-bottom: 24px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #DAA000;
+            color: #000;
+            padding: 12px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .cta-button:hover {
+            background: #c99000;
+        }
+
+        @media (max-width: 768px) {
+            .article-header h1 {
+                font-size: 2rem;
+            }
+
+            .article-content {
+                font-size: 1rem;
+            }
+        }
+    </style>
+<link rel="manifest" href="/manifest.webmanifest"></head>
+
+<body>
+    <div class="article-container">
+        <a href="/blog/" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+            Back to Blog
+        </a>
+
+        <article>
+            <div class="article-header">
+                <h1>Untitled</h1>
+                <div class="article-meta">Mar 14, 2026</div>
+            </div>
+
+            <div class="article-content">
+                <p>Here&#39;s a thing that should not be as hard as it is.</p>
+<p>You&#39;re a solo creator. You make YouTube videos, or TikToks, or Instagram Reels. You film yourself with your phone or a camera pointing at you. You write scripts because winging it leads to forty-minute rambles you then have to edit down to three minutes.</p>
+<p>You need a teleprompter. But you&#39;re not filming on a broadcast news set. You have no crew. Nobody to scroll for you. And you&#39;re probably not looking to spend money on hardware or expensive software before you even know if it&#39;ll actually help.</p>
+<p>What you need is a voice-activated teleprompter that works on your phone, is free, doesn&#39;t require you to set up an account, and actually works. And finding that has been, for a very long time, genuinely annoying.</p>
+<h2>What Voice-Activated Actually Means (And Why It Matters)</h2>
+<p>A lot of apps advertise &quot;automatic scrolling.&quot; What they mean is: you set a speed, and the text scrolls at that speed constantly. That&#39;s not voice-activated. That&#39;s just auto-scroll.</p>
+<p>Real voice activation means: you speak, the text follows what you&#39;re saying. When you pause, the scroll pauses. When you resume, it resumes. The scroll position is matched to your actual speech, not to a timer.</p>
+<p>This matters enormously in practice. With auto-scroll, if you speed up slightly or slow down slightly, you fall out of sync with the text. If you pause to take a breath, the text keeps scrolling and you&#39;ve lost your place. If you take a sip of water, the text has moved two paragraphs while you weren&#39;t talking.</p>
+<p>With real voice scrolling, the text is always on the right line because it&#39;s tracking your actual words. You can pace yourself naturally. You can pause for emphasis. You can improvise a line and then come back to the script.</p>
+<h2>VoicePrompter Web App: What It Is and Why It&#39;s Free</h2>
+<p><a href="https://voiceprompter.app">VoicePrompter</a> is a free, open-source web app I built because I couldn&#39;t find anything like it that actually worked.</p>
+<p>The reason it&#39;s free and open source is straightforward: I built it to solve my own problem, and it seemed wrong to charge for it when the solution is a web app that costs basically nothing to host. The code is on <a href="https://github.com/kosuvorov/VoicePrompter">GitHub</a> if you want to look at it.</p>
+<p>Here&#39;s what it does:</p>
+<p><strong>Voice-activated scrolling using your device&#39;s built-in speech recognition.</strong> It works via your browser&#39;s native speech API, which means the recognition happens on your device — no audio ever leaves your phone or laptop. It supports 20+ languages and doesn&#39;t require you to select a language manually (though you can).</p>
+<p><strong>Works completely offline.</strong> Once you&#39;ve opened the app, you can turn off your WiFi and it keeps working. This is useful if you&#39;re filming somewhere with spotty internet, or if you just don&#39;t want to depend on a connection.</p>
+<p><strong>Installable as a PWA.</strong> On iPhone or Android, you can add VoicePrompter to your home screen and it works like a native app. On a Mac or Windows, you can install it as a progressive web app through Chrome. No App Store, no Play Store, no download required.</p>
+<p><strong>Mirror mode.</strong> If you use an actual teleprompter glass (the half-mirror hardware that goes in front of your camera lens), the mirror mode flips the text horizontally so it reads correctly in the reflected display.</p>
+<p><strong>Landscape lock on iOS.</strong> iOS doesn&#39;t normally let web apps force landscape orientation. VoicePrompter handles this, which matters a lot if you&#39;re filming in landscape and want your teleprompter in landscape too.</p>
+<p><strong>Visual stop signs and active word highlighting.</strong> You can add pause indicators to your script and see the currently-read word highlighted as you go.</p>
+<p><strong>Touch to jump.</strong> Tap any word in the script and the prompter instantly snaps to that position. Useful when you want to re-record a section without scrolling back manually.</p>
+<p><strong>&quot;Prompter restart&quot; voice command.</strong> Say &quot;prompter restart&quot; and the script resets to the beginning, hands-free. Especially useful when filming alone.</p>
+<h2>What It Doesn&#39;t Do (And Why That&#39;s Fine)</h2>
+<p>The web app doesn&#39;t support quite as many languages as the Mac version (20+ vs 60+), and the voice recognition algorithm isn&#39;t as advanced as what I built into the native Mac app. For recording professional demos, webinars, or presentations on a Mac, the <a href="https://apps.apple.com/pl/app/voiceprompter/id6758573080">Mac version</a> is significantly better.</p>
+<p>But for solo creators filming on a phone? The web app is plenty. The recognition is solid. The interface is built for speed — paste a script, go.</p>
+<h2>How to Get Started in Under Two Minutes</h2>
+<ol>
+<li>Open <a href="https://voiceprompter.app">voiceprompter.app</a> on your phone or browser.</li>
+<li>Paste your script using the &quot;Paste to Replace&quot; button.</li>
+<li>Adjust font size and spacing until the text is comfortable to read at your filming distance.</li>
+<li>Turn on speech recognition (the microphone button).</li>
+<li>Start talking.</li>
+</ol>
+<p>That&#39;s it. No account. No sign-up. No tutorial you have to sit through.</p>
+<p>If you want to use mirror mode for a teleprompter glass, there&#39;s a toggle for that. If you want to lock landscape orientation, toggle that too. The interface is minimal by design — the whole point is to get out of the way and let you record.</p>
+<h2>Customizing It for Your Setup</h2>
+<p>A few settings that make a real difference:</p>
+<p><strong>Font size:</strong> Bigger than you think you need. If you&#39;re filming from three feet away, you want to be able to read comfortably without squinting. On a phone screen, I use a font size of at least 40.</p>
+<p><strong>Line spacing:</strong> Generous spacing between lines makes it easier to scan quickly without losing your place. I use 1.5–2x.</p>
+<p><strong>Scroll position:</strong> There&#39;s a &quot;look-ahead&quot; setting that controls how far above center the active line appears. Adjusting this lets you tune how much upcoming text you can see before you get there.</p>
+<p><strong>Dark mode:</strong> If you&#39;re filming against a light background and you don&#39;t want the phone screen to create a visible light source, dark mode significantly reduces the glow.</p>
+<h2>For Mac Users: The Native Version</h2>
+<p>If you&#39;re a creator who uses a Mac for recording — whether you&#39;re recording screencasts, demos, podcasts, or video content — you&#39;ll want the <a href="https://apps.apple.com/pl/app/voiceprompter/id6758573080">native Mac app</a> instead.</p>
+<p>It has more advanced voice recognition, 60+ language support, the invisible overlay mode for screen sharing, and the always-on-top functionality. I cover all of that in the <a href="./best-teleprompter-app-for-mac.md">best teleprompter app for Mac</a> article.</p>
+<p>For everything else — phone recordings, desktop web use, PWA installs — the web app at <a href="https://voiceprompter.app">voiceprompter.app</a> is what you want.</p>
+<hr>
+<p><strong>Related articles:</strong></p>
+<ul>
+<li><a href="./why-all-teleprompter-apps-suck.md">Why All Teleprompter Apps Are Terrible (And What I Did About It)</a></li>
+<li><a href="./best-teleprompter-app-for-mac.md">Best Teleprompter App for Mac</a></li>
+<li><a href="./how-to-use-teleprompter-naturally.md">How to Use a Teleprompter Naturally</a></li>
+<li><a href="./multilingual-teleprompter-60-languages.md">Teleprompter in 60+ Languages — Auto Language Detection</a></li>
+</ul>
+
+            </div>
+
+            <div class="article-footer">
+                <div class="cta-box">
+                    <h3>Ready to try it?</h3>
+                    <p>Experience voice-activated scrolling for yourself.</p>
+                    <a href="/" class="cta-button">Open VoicePrompter</a>
+                </div>
+            </div>
+        </article>
+    </div>
+</body>
+
+</html>

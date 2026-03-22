@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled - VoicePrompter</title>
+    <meta name="description" content="Read the latest blog post from VoicePrompter.">
+    <meta name="keywords" content="teleprompter, video production">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://voiceprompter.app/blog/zoom-presentation-tips-sales-calls.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://voiceprompter.app/blog/zoom-presentation-tips-sales-calls.html">
+    <meta property="og:title" content="Untitled">
+    <meta property="og:description" content="Read the latest blog post from VoicePrompter.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80">
+    <meta property="og:site_name" content="VoicePrompter">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://voiceprompter.app/blog/zoom-presentation-tips-sales-calls.html">
+    <meta name="twitter:title" content="Untitled">
+    <meta name="twitter:description" content="Read the latest blog post from VoicePrompter.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #e5e5e5;
+            line-height: 1.7;
+        }
+
+        .article-container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            margin-bottom: 32px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #DAA000;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            color: #fff;
+        }
+
+        .article-meta {
+            color: #888;
+            font-size: 0.9375rem;
+        }
+
+        .article-content {
+            font-size: 1.0625rem;
+            color: #d0d0d0;
+        }
+
+        .article-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 32px 0;
+        }
+
+        .article-content h1,
+        .article-content h2,
+        .article-content h3 {
+            color: #fff;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+
+        .article-content h1 {
+            font-size: 2rem;
+        }
+
+        .article-content h2 {
+            font-size: 1.75rem;
+        }
+
+        .article-content h3 {
+            font-size: 1.5rem;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 20px 0 20px 24px;
+        }
+
+        .article-content li {
+            margin-bottom: 8px;
+        }
+
+        .article-content strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .article-content a {
+            color: #DAA000;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .article-content a:hover {
+            border-bottom-color: #DAA000;
+        }
+
+        .article-content em {
+            font-style: italic;
+            color: #c0c0c0;
+        }
+
+        .article-content code {
+            background: #1a1a1a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'SF Mono', 'Monaco', monospace;
+            font-size: 0.9em;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid #DAA000;
+            padding-left: 20px;
+            margin: 24px 0;
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        .cta-box {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .cta-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .cta-box p {
+            color: #a0a0a0;
+            margin-bottom: 24px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #DAA000;
+            color: #000;
+            padding: 12px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .cta-button:hover {
+            background: #c99000;
+        }
+
+        @media (max-width: 768px) {
+            .article-header h1 {
+                font-size: 2rem;
+            }
+
+            .article-content {
+                font-size: 1rem;
+            }
+        }
+    </style>
+<link rel="manifest" href="/manifest.webmanifest"></head>
+
+<body>
+    <div class="article-container">
+        <a href="/blog/" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+            Back to Blog
+        </a>
+
+        <article>
+            <div class="article-header">
+                <h1>Untitled</h1>
+                <div class="article-meta">Mar 2, 2026</div>
+            </div>
+
+            <div class="article-content">
+                <p>A sales call over Zoom is a strange performance.</p>
+<p>You&#39;re trying to seem natural and conversational while also delivering a specific sequence of information in a specific order. You&#39;re trying to maintain eye contact — into a laptop camera — while also watching for the prospect&#39;s reactions. You&#39;re probably screen-sharing a presentation while also keeping an eye on your notes.</p>
+<p>Most people handle this by either over-scripting (sounds robotic) or under-preparing (sounds scattered). There&#39;s a third way.</p>
+<h2>The Preparation That Actually Matters</h2>
+<p>Write down exactly what you want to say in the first ninety seconds. The opening is the highest-leverage part of any call. It sets the frame for the entire conversation. If you start with &quot;so, um, yeah, thanks for joining, I just wanted to kind of walk you through...&quot; — you&#39;ve already made it harder.</p>
+<p>A good opening script covers: who you are in one sentence, what you&#39;re going to show them and why it matters to them specifically, and how long it&#39;ll take. That&#39;s it. Three sentences. Write them, read them aloud, make them tight.</p>
+<p>Everything after that can be more conversational. But have your talking points for each section of the demo written out too — not memorized, but available if you blank.</p>
+<h2>The Note Access Problem</h2>
+<p>Here&#39;s the issue everyone has but nobody talks about in Zoom tip articles: where do your notes live during the call?</p>
+<p>Options and why each is suboptimal:</p>
+<p><strong>Paper notes on your desk.</strong> You have to physically look down. The camera sees this clearly. You look unprepared or distracted.</p>
+<p><strong>Second monitor with notes.</strong> Your eyes go off to the side. The prospect can tell you&#39;re not looking at the camera. It reads as not paying attention.</p>
+<p><strong>Notes in a browser tab.</strong> You have to alt-tab, which means you lose your screen share or switch windows visibly.</p>
+<p><strong>Trying to remember everything.</strong> You forget key points, go off-track, or deliver the pricing wrong.</p>
+<p>The actual solution: a teleprompter overlay that sits on top of your screen, visible only to you, and doesn&#39;t appear in your screen share.</p>
+<h2>Using VoicePrompter for Sales Calls</h2>
+<p><a href="https://apps.apple.com/pl/app/voiceprompter/id6758573080">VoicePrompter for Mac</a> is a transparent, always-on-top window. You put it right next to the Zoom video grid — or directly under your camera — and it shows your script, following your voice as you speak.</p>
+<p>Here&#39;s why this works especially well for sales calls:</p>
+<p>It&#39;s invisible in Zoom. The window is excluded from macOS screen capture APIs. When you share your screen, your prospect sees your presentation. When they see your video, they see you. Nobody sees the script window.</p>
+<p>It stays on top of everything. If you switch to full-screen slides in Keynote or put Zoom in full-screen mode, the teleprompter window stays. It doesn&#39;t disappear behind whatever app is in focus.</p>
+<p>It follows your voice. You don&#39;t have to control the scroll manually. As you talk through your pitch, the script scrolls. When you pause to answer a question, it pauses. When you get back to your script, it&#39;s waiting on the right line.</p>
+<p>The voice recognition is on-device (Apple&#39;s native speech recognition), so nothing is processed on a server. On a confidential sales call, that matters.</p>
+<h2>How to Structure a Demo Call Script</h2>
+<p>A typical 30-minute demo call has roughly this structure:</p>
+<p><strong>Open — 3 minutes.</strong> Rapport, quick agenda, confirm what they want to see. Scripted opening, then conversational.</p>
+<p><strong>Discovery questions — 5 minutes.</strong> Two or three specific questions that connect their pain to your solution. Have these written. &quot;How are you currently handling X?&quot; &quot;What does that cost you in time per week?&quot;</p>
+<p><strong>Demo — 15 minutes.</strong> Walk through your core workflow. Lead with the outcome, not the features. &quot;Here&#39;s what it looks like when X is solved — let me show you how we get there.&quot;</p>
+<p><strong>Pricing and next steps — 5 minutes.</strong> Be direct and specific. Have the numbers written so you say them correctly under pressure.</p>
+<p><strong>Q&amp;A — 5 minutes.</strong> Unscripted. But have written answers to the five most common objections you hear.</p>
+<p>Loading all of this into a teleprompter and using it as a guide (not a rigid script) is significantly better than trying to hold it all in your head.</p>
+<h2>Eye Contact on Zoom</h2>
+<p>On Zoom, eye contact means looking at your camera — not at the prospect&#39;s face on the screen, not at your own thumbnail. At the lens.</p>
+<p>The disconnect between where you&#39;re actually looking and where the lens is creates a subtle but real disengagement effect. If you&#39;re looking at the prospect&#39;s face while they&#39;re speaking, you&#39;re making eye contact from their perspective. When you&#39;re speaking, look at the lens.</p>
+<p>Positioning your teleprompter close to the camera helps with this. If your notes are near the lens, your eyes drift only slightly when you reference them.</p>
+<p>For more on this specifically, <a href="./how-to-look-confident-on-camera.md">how to look confident on camera</a> covers the full technique.</p>
+<h2>Technical Setup</h2>
+<p><strong>Use headphones or an external mic.</strong> Built-in laptop speakers can cause audio feedback. Headphones eliminate this. A dedicated USB microphone improves your voice quality significantly — people trust a clear voice more than a tinny one.</p>
+<p><strong>Turn off notifications.</strong> Before every call. Slack ping in the middle of your pricing reveal is not a great look.</p>
+<p><strong>Test your screen share before the call.</strong> Connect a few minutes early and confirm that your slides appear correctly and your teleprompter doesn&#39;t appear in the share. With VoicePrompter, this is guaranteed by design, but it&#39;s still worth confirming.</p>
+<p><strong>Position your camera at eye level.</strong> Laptop cameras typically sit below eye level, making you look slightly downward into the lens. Books, a stand, whatever it takes — get that camera level with your eyes.</p>
+<h2>The Mental Game</h2>
+<p>Last thought: a Zoom sales call is a conversation, not a performance. Your job is to understand what the person needs and show them how you can help. The structure and the script serve that goal. They&#39;re not a cage.</p>
+<p>Use your notes as a safety net. Stay in the conversation. If the prospect takes you somewhere unexpected — a question that derails your prepared flow — that&#39;s fine. Follow it. Good discovery questions are worth more than a perfectly-delivered pitch.</p>
+<p>The script is there so you can be present. Not so you can recite.</p>
+<hr>
+<p><strong>Related articles:</strong></p>
+<ul>
+<li><a href="./teleprompter-for-zoom-invisible.md">Teleprompter for Zoom — Completely Invisible</a></li>
+<li><a href="./how-to-look-confident-on-camera.md">How to Look Confident on Camera</a></li>
+<li><a href="./video-interview-preparation-tips.md">Video Interview Preparation Tips</a></li>
+<li><a href="./best-teleprompter-app-for-mac.md">Best Teleprompter App for Mac</a></li>
+</ul>
+
+            </div>
+
+            <div class="article-footer">
+                <div class="cta-box">
+                    <h3>Ready to try it?</h3>
+                    <p>Experience voice-activated scrolling for yourself.</p>
+                    <a href="/" class="cta-button">Open VoicePrompter</a>
+                </div>
+            </div>
+        </article>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled - VoicePrompter</title>
+    <meta name="description" content="Read the latest blog post from VoicePrompter.">
+    <meta name="keywords" content="teleprompter, video production">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://voiceprompter.app/blog/teleprompter-for-zoom-invisible.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://voiceprompter.app/blog/teleprompter-for-zoom-invisible.html">
+    <meta property="og:title" content="Untitled">
+    <meta property="og:description" content="Read the latest blog post from VoicePrompter.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80">
+    <meta property="og:site_name" content="VoicePrompter">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://voiceprompter.app/blog/teleprompter-for-zoom-invisible.html">
+    <meta name="twitter:title" content="Untitled">
+    <meta name="twitter:description" content="Read the latest blog post from VoicePrompter.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #e5e5e5;
+            line-height: 1.7;
+        }
+
+        .article-container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            margin-bottom: 32px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #DAA000;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            color: #fff;
+        }
+
+        .article-meta {
+            color: #888;
+            font-size: 0.9375rem;
+        }
+
+        .article-content {
+            font-size: 1.0625rem;
+            color: #d0d0d0;
+        }
+
+        .article-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 32px 0;
+        }
+
+        .article-content h1,
+        .article-content h2,
+        .article-content h3 {
+            color: #fff;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+
+        .article-content h1 {
+            font-size: 2rem;
+        }
+
+        .article-content h2 {
+            font-size: 1.75rem;
+        }
+
+        .article-content h3 {
+            font-size: 1.5rem;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 20px 0 20px 24px;
+        }
+
+        .article-content li {
+            margin-bottom: 8px;
+        }
+
+        .article-content strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .article-content a {
+            color: #DAA000;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .article-content a:hover {
+            border-bottom-color: #DAA000;
+        }
+
+        .article-content em {
+            font-style: italic;
+            color: #c0c0c0;
+        }
+
+        .article-content code {
+            background: #1a1a1a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'SF Mono', 'Monaco', monospace;
+            font-size: 0.9em;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid #DAA000;
+            padding-left: 20px;
+            margin: 24px 0;
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        .cta-box {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .cta-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .cta-box p {
+            color: #a0a0a0;
+            margin-bottom: 24px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #DAA000;
+            color: #000;
+            padding: 12px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .cta-button:hover {
+            background: #c99000;
+        }
+
+        @media (max-width: 768px) {
+            .article-header h1 {
+                font-size: 2rem;
+            }
+
+            .article-content {
+                font-size: 1rem;
+            }
+        }
+    </style>
+<link rel="manifest" href="/manifest.webmanifest"></head>
+
+<body>
+    <div class="article-container">
+        <a href="/blog/" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+            Back to Blog
+        </a>
+
+        <article>
+            <div class="article-header">
+                <h1>Untitled</h1>
+                <div class="article-meta">Mar 16, 2026</div>
+            </div>
+
+            <div class="article-content">
+                <p>Here&#39;s a situation I&#39;ve been in more times than I&#39;d like to admit.</p>
+<p>You have a sales call in thirty minutes. You&#39;ve written out exactly what you want to say — the opening, the demo flow, the pricing reveal, all of it. The script is good. You practiced it last night. But the moment you hit &quot;Join Meeting,&quot; it all evaporates. You open a second window to glance at your notes, your eyes drift off-camera, and the person on the other end can tell immediately that you&#39;re not actually talking to them.</p>
+<p>The obvious solution is a teleprompter. The obvious problem with that solution, until recently, is that teleprompter apps showed up in your screen share.</p>
+<p>Here&#39;s what I mean. Most teleprompter software runs as a regular window on your desktop. When you share your screen in Zoom or Google Meet, that window is visible to everyone — either as an awkward floating text box in the corner of your video, or as a full overlay in your screenshare. Neither option is acceptable in a professional context.</p>
+<h2>What &quot;Invisible&quot; Actually Means</h2>
+<p><a href="https://apps.apple.com/pl/app/voiceprompter/id6758573080">VoicePrompter for Mac</a> solves this with a specific macOS capability: the app window is excluded from screen capture entirely.</p>
+<p>What that means in practice: the overlay is visible to you — it&#39;s sitting right there on your screen, floating over your Zoom window, your slides, everything. But from the perspective of your camera, your screen recording, and your Zoom participants, it simply doesn&#39;t exist. The screen share shows your slides or desktop. The video shows you looking directly ahead. Nobody sees the script.</p>
+<p>This is different from just &quot;having a small window&quot; or &quot;positioning it off-screen.&quot; The window is literally not captured by macOS&#39;s screen recording APIs. Zoom, Teams, OBS, QuickTime — none of them pick it up.</p>
+<h2>Always-on-Top: The Other Half of the Problem</h2>
+<p>Invisibility is only useful if the teleprompter is actually visible to you while you&#39;re presenting. And this is where a lot of overlay tools fall apart.</p>
+<p>If your teleprompter window can&#39;t stay on top of a full-screen Zoom meeting or a full-screen presentation, it disappears behind whatever app is in focus. You switch to Keynote to present your slides — your teleprompter is gone. You go full-screen in Zoom — your teleprompter is gone.</p>
+<p>VoicePrompter for Mac stays on top of everything. Full-screen apps, multiple desktops, full-screen presentations. You can drag it wherever makes sense for your setup — right next to your camera, directly below it, off to the side if you&#39;re using a second monitor.</p>
+<h2>How to Position It for Natural Eye Contact</h2>
+<p>Where you put the window matters a lot for how natural you look on camera.</p>
+<p>If you&#39;re on a laptop, the camera is in the top bezel. Put the teleprompter window directly below the camera, as close to the top of your screen as it can sit while still being readable. This minimizes the angle between your eyes and the lens.</p>
+<p>If you&#39;re on a desktop with an external monitor and a separate webcam, position the teleprompter window on the same monitor as the webcam. Even better, position it directly adjacent to the webcam itself.</p>
+<p>I&#39;ve found the sweet spot is: script window immediately below the camera, font large enough to read comfortably without squinting, scroll speed matched to a pace slightly slower than I&#39;d naturally speak. Voice-activated scrolling handles the rest.</p>
+<p>You can read more about positioning and delivery technique in <a href="./how-to-read-script-without-looking-like-reading.md">how to read a script without looking like you&#39;re reading</a>.</p>
+<h2>Voice-Activated Scrolling in a Zoom Meeting</h2>
+<p>The voice scrolling on the Mac app uses Apple&#39;s native on-device speech recognition. This is important for a couple of reasons.</p>
+<p>First, it&#39;s private — nothing is sent to a server. In a sales call or business meeting, that matters. Your script stays on your device.</p>
+<p>Second, it works offline. If your internet drops for thirty seconds in the middle of a call (it happens), the teleprompter keeps working. Your voice recognition is not dependent on your connection quality.</p>
+<p>Third, the recognition is fast. The Mac version uses the same underlying engine that Apple uses across the OS, which has had a lot of investment behind it. It handles natural speech patterns, doesn&#39;t require you to enunciate like a robot, and doesn&#39;t fall apart when you pause for emphasis.</p>
+<p>If you speak English in a meeting but sometimes code-switch into another language, VoicePrompter supports 60+ languages and detects the language of your script automatically. More on that in <a href="./multilingual-teleprompter-60-languages.md">teleprompter with 60+ languages</a>.</p>
+<h2>Who This Is For</h2>
+<p>The use cases I see most often:</p>
+<p><strong>Sales calls.</strong> You&#39;ve written a tight pitch. You want to deliver it confidently without forgetting the key points, without visibly glancing at notes, without losing your train of thought when the prospect interrupts with a question.</p>
+<p><strong>Webinars and online presentations.</strong> You&#39;re presenting to a large group. You want to seem polished and prepared. You need the script to not appear in your screen share.</p>
+<p><strong>Product demos.</strong> You&#39;re walking someone through your product while narrating. The teleprompter sits alongside your demo, guiding your script while your screen share shows the product.</p>
+<p><strong>Podcasts recorded over video call.</strong> You have notes, talking points, or a full script. You want to be able to reference them without looking like you&#39;re reading from a teleprompter.</p>
+<p>I wrote more specifically about each of these in <a href="./how-to-record-product-demo-video.md">how to record product demos</a> and <a href="./zoom-presentation-tips-sales-calls.md">zoom sales call tips</a>.</p>
+<h2>Getting Started</h2>
+<p>The app is on the Mac App Store: <a href="https://apps.apple.com/pl/app/voiceprompter/id6758573080">VoicePrompter for Mac</a>. It&#39;s $3.99/month or $39.99/year, with a free tier that includes unlimited use of the demo script and up to 3 custom scripts. If you want to test before committing, that&#39;s more than enough to run it through a real call.</p>
+<p>The setup is minimal. Install, open, paste your script from clipboard, resize and position the window, start the voice recognition. That&#39;s it. The app lives in your menu bar so you can access it anytime without cluttering your dock.</p>
+<hr>
+<p><strong>Related articles:</strong></p>
+<ul>
+<li><a href="./why-all-teleprompter-apps-suck.md">Why All Teleprompter Apps Are Terrible (And What I Did About It)</a></li>
+<li><a href="./best-teleprompter-app-for-mac.md">Best Teleprompter App for Mac</a></li>
+<li><a href="./zoom-presentation-tips-sales-calls.md">Zoom Sales Call Presentation Tips</a></li>
+<li><a href="./how-to-look-confident-on-camera.md">How to Look Confident on Camera</a></li>
+</ul>
+
+            </div>
+
+            <div class="article-footer">
+                <div class="cta-box">
+                    <h3>Ready to try it?</h3>
+                    <p>Experience voice-activated scrolling for yourself.</p>
+                    <a href="/" class="cta-button">Open VoicePrompter</a>
+                </div>
+            </div>
+        </article>
+    </div>
+</body>
+
+</html>
