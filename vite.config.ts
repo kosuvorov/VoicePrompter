@@ -53,6 +53,8 @@ export default defineConfig({
                 hub: 'index.html',
                 app: 'app/index.html',
                 about: 'about.html',
+                privacy: 'privacy.html',
+                terms: 'terms.html',
                 blog: 'blog/index.html',
                 mac: 'mac/index.html',
                 web: 'web/index.html',
