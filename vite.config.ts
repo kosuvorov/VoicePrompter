@@ -1,5 +1,17 @@
 import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
+import fs from 'fs'
+import path from 'path'
+
+// Dynamically gather all generated blog HTML files
+const blogDir = path.resolve(__dirname, 'blog');
+const blogInputs: Record<string, string> = {};
+if (fs.existsSync(blogDir)) {
+    const blogFiles = fs.readdirSync(blogDir).filter(f => f.endsWith('.html') && f !== 'index.html');
+    blogFiles.forEach((file, index) => {
+        blogInputs[`blog_article${index + 1}`] = `blog/${file}`;
+    });
+}
 
 export default defineConfig({
     appType: 'mpa',
@@ -42,26 +54,9 @@ export default defineConfig({
                 app: 'app/index.html',
                 about: 'about.html',
                 blog: 'blog/index.html',
-                blog_article1: 'blog/best-free-tools-2025.html',
-                blog_article2: 'blog/best-teleprompter-app-for-mac.html',
-                blog_article3: 'blog/free-voice-activated-teleprompter.html',
-                blog_article4: 'blog/how-to-look-confident-on-camera.html',
-                blog_article5: 'blog/how-to-read-naturally.html',
-                blog_article6: 'blog/how-to-read-script-without-looking-like-reading.html',
-                blog_article7: 'blog/how-to-record-product-demo-video.html',
-                blog_article8: 'blog/how-to-record-webinars-and-podcasts.html',
-                blog_article9: 'blog/how-to-use-teleprompter-naturally.html',
-                blog_article10: 'blog/multilingual-teleprompter-60-languages.html',
-                blog_article11: 'blog/record-tutorial-videos-faster.html',
-                blog_article12: 'blog/stop-memorizing-your-script.html',
-                blog_article13: 'blog/teleprompter-for-zoom-invisible.html',
-                blog_article14: 'blog/video-interview-preparation-tips.html',
-                blog_article15: 'blog/voice-scrolling-solo-creators.html',
-                blog_article16: 'blog/voiceprompter-complete-guide-2025.html',
-                blog_article17: 'blog/why-all-teleprompter-apps-suck.html',
-                blog_article18: 'blog/zoom-presentation-tips-sales-calls.html',
                 mac: 'mac/index.html',
-                web: 'web/index.html'
+                web: 'web/index.html',
+                ...blogInputs
             }
         }
     }
