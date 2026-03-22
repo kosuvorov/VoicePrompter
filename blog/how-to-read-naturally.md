@@ -1,9 +1,9 @@
 ---
 title: "How to Read a Teleprompter Naturally (And Stop Looking Like a Robot)"
-description: "Learn the secrets to reading from a teleprompter without sounding robotic. Discover script writing tips, proper setup, and how free voice-activated tools can transform your on-camera presence."
-keywords: ["how to read a teleprompter naturally", "teleprompter tips", "improve on-camera presence", "avoiding robotic speech", "teleprompter practice techniques", "voice activated teleprompter"]
+description: "Script writing tips, proper setup, and how free voice-activated tools can transform your on-camera presence."
 date: "Nov 24, 2025"
-image: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+image: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80"
+keywords: ["teleprompter", "video production"]
 ---
 
 # How to Read a Teleprompter Naturally (And Stop Looking Like a Robot)

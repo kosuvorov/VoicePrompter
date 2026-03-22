@@ -4,82 +4,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VoicePrompter Blog - Teleprompter Tips & Guides</title>
+    <title>VoicePrompter Blog — Teleprompter Tips & Guides</title>
     <meta name="description"
         content="Learn how to use teleprompters effectively. Expert tips on voice-activated scrolling, natural delivery, and video production workflow.">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://voiceprompter.app/blog/">
+    <meta property="og:title" content="VoicePrompter Blog — Teleprompter Tips & Guides">
+    <meta property="og:description" content="Expert tips on voice-activated scrolling, natural delivery, and video production workflow.">
+    <meta property="og:site_name" content="VoicePrompter">
+
     <style>
+        :root {
+            --bg: #0F0F0F;
+            --surface: #1A1A1A;
+            --surface-border: #2A2A2A;
+            --text: #E8E8E8;
+            --text-light: #999;
+            --pop: #FFBB00;
+            --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+            --font-serif: 'DM Serif Display', serif;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #0a0a0a;
-            color: #e5e5e5;
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .blog-container {
-            max-width: 1200px;
+        /* ═══════════════════════ Grain ═══════════════════════ */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 180px 180px;
+        }
+
+        a { text-decoration: none; }
+
+        .container {
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 0 32px;
         }
 
+        /* ═══════════════════════ Nav ═══════════════════════ */
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 28px 32px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 14px;
+            color: var(--text-light);
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover { color: var(--pop); }
+
+        /* ═══════════════════════ Blog Header ═══════════════════════ */
         .blog-header {
             text-align: center;
-            margin-bottom: 60px;
+            padding: 64px 0 56px;
         }
 
         .blog-header h1 {
-            font-size: 3rem;
-            font-weight: 700;
+            font-family: var(--font-serif);
+            font-size: 48px;
+            font-weight: 400;
+            line-height: 1.15;
             margin-bottom: 16px;
-            background: linear-gradient(135deg, #DAA000 0%, #d4af37 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .blog-header p {
-            font-size: 1.25rem;
-            color: #a0a0a0;
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 560px;
+            margin: 0 auto;
         }
 
+        /* ═══════════════════════ Article Grid ═══════════════════════ */
         .article-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 32px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            padding-bottom: 96px;
         }
 
         .article-card {
-            background: #1a1a1a;
-            border: 1px solid #2a2a2a;
-            border-radius: 12px;
+            background: var(--surface);
+            border: 1px solid var(--surface-border);
+            border-radius: 14px;
             overflow: hidden;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
+            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
             display: flex;
             flex-direction: column;
+            color: inherit;
         }
 
         .article-card:hover {
-            border-color: #DAA000;
+            border-color: var(--pop);
             transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(218, 160, 0, 0.1);
+            box-shadow: 0 12px 32px rgba(255, 187, 0, 0.08);
         }
 
-        .article-image {
+        .article-thumb {
             width: 100%;
-            height: 200px;
+            height: 180px;
             -o-object-fit: cover;
                object-fit: cover;
-            background: #2a2a2a;
+            background: var(--surface-border);
         }
 
-        .article-content {
+        .article-body {
             padding: 24px;
             flex: 1;
             display: flex;
@@ -87,84 +152,494 @@
         }
 
         .article-date {
-            font-size: 0.875rem;
-            color: #888;
+            font-size: 13px;
+            color: var(--text-light);
             margin-bottom: 8px;
         }
 
         .article-title {
-            font-size: 1.5rem;
+            font-family: var(--font-sans);
+            font-size: 18px;
             font-weight: 600;
+            line-height: 1.35;
             margin-bottom: 12px;
             color: #fff;
-            line-height: 1.3;
         }
 
-        .article-description {
-            color: #b0b0b0;
-            margin-bottom: 16px;
+        .article-desc {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.6;
             flex: 1;
+            margin-bottom: 16px;
         }
 
         .article-cta {
-            color: #DAA000;
+            font-size: 14px;
             font-weight: 500;
-            font-size: 0.9375rem;
+            color: var(--pop);
         }
 
-        .article-card:hover .article-cta {
-            text-decoration: underline;
+        .article-card:hover .article-cta { text-decoration: underline; }
+
+        /* ═══════════════════════ Fade-up ═══════════════════════ */
+        .fade-up { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        /* ═══════════════════════ Footer ═══════════════════════ */
+        .footer {
+            padding: 64px 32px 40px;
+            border-top: 1px solid var(--surface-border);
+            max-width: 960px;
+            margin: 0 auto;
         }
 
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: #a0a0a0;
-            text-decoration: none;
-            font-size: 0.9375rem;
-            margin-bottom: 32px;
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-sans);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-light);
+            margin-bottom: 16px;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 14px;
+            color: var(--text);
+            padding: 4px 0;
             transition: color 0.2s;
         }
 
-        .back-link:hover {
-            color: #DAA000;
+        .footer-col a:hover { color: var(--pop); }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 24px;
+            border-top: 1px solid var(--surface-border);
+            flex-wrap: wrap;
+            gap: 16px;
         }
 
-        @media (max-width: 768px) {
-            .blog-header h1 {
-                font-size: 2rem;
-            }
+        .footer-bottom p {
+            font-size: 13px;
+            color: var(--text-light);
+        }
 
-            .article-grid {
-                grid-template-columns: 1fr;
-            }
+        .footer-bottom a { color: var(--text-light); text-decoration: underline; text-underline-offset: 2px; }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .footer-social a {
+            color: var(--text-light);
+            transition: color 0.2s;
+        }
+
+        .footer-social a:hover { color: var(--pop); }
+        .footer-social svg { width: 20px; height: 20px; }
+
+        /* ═══════════════════════ Responsive ═══════════════════════ */
+        @media (max-width: 768px) {
+            .blog-header h1 { font-size: 36px; }
+            .blog-header p { font-size: 16px; }
+            .article-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .footer-grid { grid-template-columns: repeat(4, 1fr); gap: 32px; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 20px; }
+            .nav { padding: 20px; }
+            .blog-header { padding: 40px 0 36px; }
+            .blog-header h1 { font-size: 30px; }
+            .article-grid { grid-template-columns: 1fr; gap: 20px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .footer-bottom { flex-direction: column; align-items: center; text-align: center; }
         }
     </style>
-  <script type="module" crossorigin src="/assets/blog-BEzy6Pu6.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
 <link rel="manifest" href="/manifest.webmanifest"></head>
 
 <body>
-    <div class="blog-container">
-        <a href="/" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-            </svg>
-            Back to App
-        </a>
 
-        <div class="blog-header">
-            <h1>VoicePrompter Blog</h1>
-            <p>Master the art of teleprompter delivery and improve your video production workflow</p>
+    <!-- ═══════════════════════ Nav ═══════════════════════ -->
+    <nav class="nav" role="navigation">
+        <a href="https://voiceprompter.app" class="nav-logo"><img src="/logo-icon-no-bg.svg" alt="" width="28"
+                height="28" style="display:inline-block;vertical-align:middle;margin-right:8px;">VoicePrompter</a>
+        <a href="/" class="nav-link">← Back to App</a>
+    </nav>
+
+    <!-- ═══════════════════════ Blog Header ═══════════════════════ -->
+    <div class="container">
+        <div class="blog-header fade-up">
+            <h1>Blog</h1>
+            <p>Tips on teleprompter delivery, video production workflow, and building confidence on camera.</p>
         </div>
 
-        <div class="article-grid" id="articles">
-            <!-- Articles loaded dynamically -->
+        <div class="article-grid fade-up" id="articles">
+            <!-- Populated by JS -->
         </div>
     </div>
 
+    <!-- ═══════════════════════ Footer ═══════════════════════ -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Product</h4>
+                <a href="/app/">Web App</a>
+                <a href="/mac">Mac App</a>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">GitHub</a>
+                <a href="/blog">Blog</a>
+                <a href="https://www.youtube.com/@kosuvorov" target="_blank" rel="noopener">YouTube</a>
+            </div>
+            <div class="footer-col">
+                <h4>Help</h4>
+                <a href="mailto:konstantin@voiceprompter.app">Contact</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="/privacy">Privacy Policy</a>
+            </div>
+            <div class="footer-col">
+                <h4>Support the project</h4>
+                <a href="https://buymeacoffee.com/kosuvorov" target="_blank" rel="noopener">Buy me a coffee ☕</a>
+                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">Give a star on GitHub ⭐</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Made by <a href="https://instagram.com/kosuvorov" target="_blank" rel="noopener">Konstantin Suvorov</a> · © 2026 VoicePrompter</p>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/voiceprompter" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+                <a href="https://www.tiktok.com/@voiceprompter" target="_blank" rel="noopener" aria-label="TikTok">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.18 8.18 0 0 0 4.76 1.52V6.84a4.83 4.83 0 0 1-1-.15z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@kosuvorov" target="_blank" rel="noopener" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const articles = [
+            {
+                slug: 'voiceprompter-complete-guide-2025',
+                title: 'VoicePrompter Complete Guide: Everything You Need to Know',
+                description: 'The definitive guide to VoicePrompter — covering both the free web app and the native Mac app, setup, voice scrolling, mirror mode, and advanced features.',
+                date: 'Mar 22, 2026',
+                image: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=800&q=80'
+            },
+            {
+                slug: 'best-teleprompter-app-for-mac',
+                title: 'Best Teleprompter App for Mac in 2025: An Honest Look',
+                description: 'An honest comparison of Mac teleprompter apps — what actually matters, what\'s missing, and where VoicePrompter fits in the landscape.',
+                date: 'Mar 20, 2026',
+                image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80'
+            },
+            {
+                slug: 'why-all-teleprompter-apps-suck',
+                title: 'Why All Teleprompter Apps Are Terrible (And What I Did About It)',
+                description: 'A frustrated developer\'s deep dive into why every teleprompter app fails at the basics, and the journey to building one that actually works.',
+                date: 'Mar 18, 2026',
+                image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80'
+            },
+            {
+                slug: 'teleprompter-for-zoom-invisible',
+                title: 'Teleprompter for Zoom That\'s Completely Invisible',
+                description: 'How to use an invisible teleprompter overlay during Zoom calls, sales demos, and webinars — so your notes never show up in screen share.',
+                date: 'Mar 16, 2026',
+                image: 'https://images.unsplash.com/photo-1587825140708-dfaf18c7f4f0?auto=format&fit=crop&w=800&q=80'
+            },
+            {
+                slug: 'free-voice-activated-teleprompter',
+                title: 'Free Voice-Activated Teleprompter for Solo Creators',
+                description: 'Why voice-activated scrolling is a game-changer for solo content creators, and how to get started with a free tool that works offline.',
+                date: 'Mar 14, 2026',
+                image: 'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80'
+            },
+            {
+                slug: 'how-to-use-teleprompter-naturally',
+                title: 'How to Use a Teleprompter Naturally (So Nobody Knows)',
+                description: 'The techniques that separate natural-sounding teleprompter users from the ones who look like they\'re reading. Practical, actionable advice.',
+                date: 'Mar 12, 2026',
+                image: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=800&q=80'
+            },
+            {
+                slug: 'how-to-look-confident-on-camera',
+                title: 'How to Look Confident on Camera (Even When You\'re Not)',
+                description: 'Practical camera confidence techniques — from eye contact tricks to script preparation methods that make you look and sound like a pro.',
+                date: 'Mar 10, 2026',
+                image: 'https://images.unsplash.com/photo-1609234656388-0ff363383899?auto=format&fit=crop&w=800&q=80'
+            },
+            {
+                slug: 'how-to-read-script-without-looking-like-reading',
+                title: 'How to Read a Script Without Looking Like You\'re Reading',
+                description: 'The gap between reading and performing. Learn how to deliver scripted content that sounds spontaneous and genuine.',
+                date: 'Mar 8, 2026',
+                image: 'https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?auto=format&fit=crop&w=800&q=80'
+            },
+            {
+                slug: 'how-to-record-product-demo-video',
+                title: 'How to Record a Product Demo Video Without 50 Takes',
+                description: 'Stop re-recording your demos. A practical workflow for founders, PMs, and marketers who need to ship demo videos without the stress.',
+                date: 'Mar 6, 2026',
+                image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80'
+            },
+            {
+                slug: 'how-to-record-webinars-and-podcasts',
+                title: 'How to Record Webinars and Podcasts That Don\'t Sound Winged',
+                description: 'Most webinars sound like a smart person rambling. Here\'s how to deliver structured, tight content without sounding robotic.',
+                date: 'Mar 4, 2026',
+                image: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80'
+            },
+            {
+                slug: 'zoom-presentation-tips-sales-calls',
+                title: 'Zoom Presentation Tips for Sales Calls: Run a Clean Pitch',
+                description: 'How to deliver a tight, professional sales pitch over Zoom — balancing natural conversation with structured messaging.',
+                date: 'Mar 2, 2026',
+                image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80'
+            },
+            {
+                slug: 'video-interview-preparation-tips',
+                title: 'Video Interview Prep Tips: How to Actually Be Ready',
+                description: 'Pre-recorded video interviews are tricky. Here\'s how to prepare properly so you sound confident, concise, and professional.',
+                date: 'Feb 28, 2026',
+                image: 'https://images.unsplash.com/photo-1573497019418-b400bb3ab074?auto=format&fit=crop&w=800&q=80'
+            },
+            {
+                slug: 'record-tutorial-videos-faster',
+                title: 'How to Record Tutorial Videos Faster (Without Sacrificing Quality)',
+                description: 'The prep takes forever, the retakes take forever, the editing takes forever. Here\'s a workflow to cut all three in half.',
+                date: 'Feb 26, 2026',
+                image: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=800&q=80'
+            },
+            {
+                slug: 'multilingual-teleprompter-60-languages',
+                title: 'Teleprompter in 60+ Languages: How VoicePrompter Handles It',
+                description: 'How VoicePrompter\'s automatic language detection works across 60+ languages — tested personally in English, Polish, Ukrainian, Russian, French, and Spanish.',
+                date: 'Feb 24, 2026',
+                image: 'https://images.unsplash.com/photo-1451226428352-cf66bf8a0317?auto=format&fit=crop&w=800&q=80'
+            },
+            {
+                slug: 'stop-memorizing-your-script',
+                title: 'Stop Memorizing Your Script. Do This Instead.',
+                description: 'Memorizing a video script is almost always a waste of time. Here\'s why, and what actually works for delivering polished content.',
+                date: 'Feb 22, 2026',
+                image: 'https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=800&q=80'
+            },
+            {
+                slug: 'best-free-tools-2025',
+                title: 'Best Free Teleprompter Tools for 2025',
+                description: 'Compare browser-based tools, freemium apps, and modern PWAs with advanced features like voice scrolling and mirror mode.',
+                date: 'Nov 22, 2025',
+                image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80'
+            },
+            {
+                slug: 'how-to-read-naturally',
+                title: 'How to Read a Teleprompter Naturally (And Stop Looking Like a Robot)',
+                description: 'Script writing tips, proper setup, and how free voice-activated tools can transform your on-camera presence.',
+                date: 'Nov 24, 2025',
+                image: 'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80'
+            },
+            {
+                slug: 'voice-scrolling-solo-creators',
+                title: 'Why Voice Scrolling is Essential for Solo Creators',
+                description: 'Hands-free operation, natural pausing, and reduced editing time — why voice-activated teleprompters are a solo creator\'s best friend.',
+                date: 'Nov 20, 2025',
+                image: 'https://images.unsplash.com/photo-1622546773566-935303d3d119?auto=format&fit=crop&w=800&q=80'
+            }
+        ];
+
+        const grid = document.getElementById('articles');
+
+        articles.forEach(a => {
+            const card = document.createElement('a');
+            card.href = `/blog/${a.slug}.html`;
+            card.className = 'article-card';
+            card.innerHTML = `
+                <img src="${a.image}" alt="${a.title}" class="article-thumb" loading="lazy">
+                <div class="article-body">
+                    <div class="article-date">${a.date}</div>
+                    <h2 class="article-title">${a.title}</h2>
+                    <p class="article-desc">${a.description}</p>
+                    <span class="article-cta">Read article →</span>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+
+        // Scroll reveal
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+            document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+        });
+    </script>
+
 </body>
 
-</html>
+</html>\n            
+    {
+        slug: 'best-free-tools-2025',
+        title: 'Best Free Teleprompter Tools for 2025: Stop Paying for Basic Features',
+        description: 'Discover the top free teleprompter software of 2025. Compare browser-based tools, freemium apps, and new private PWAs with advanced features like voice scrolling and mirror mode.',
+        date: 'Nov 22, 2025',
+        image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'
+    },
+
+    {
+        slug: 'best-teleprompter-app-for-mac',
+        title: 'Untitled',
+        description: 'Read the latest blog post from VoicePrompter.',
+        date: 'Mar 20, 2026',
+        image: 'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80'
+    },
+
+    {
+        slug: 'free-voice-activated-teleprompter',
+        title: 'Untitled',
+        description: 'Read the latest blog post from VoicePrompter.',
+        date: 'Mar 14, 2026',
+        image: 'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80'
+    },
+
+    {
+        slug: 'how-to-look-confident-on-camera',
+        title: 'Untitled',
+        description: 'Read the latest blog post from VoicePrompter.',
+        date: 'Mar 10, 2026',
+        image: 'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80'
+    },
+
+    {
+        slug: 'how-to-read-naturally',
+        title: 'How to Read a Teleprompter Naturally (And Stop Looking Like a Robot)',
+        description: 'Learn the secrets to reading from a teleprompter without sounding robotic. Discover script writing tips, proper setup, and how free voice-activated tools can transform your on-camera presence.',
+        date: 'Nov 24, 2025',
+        image: 'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'
+    },
+
+    {
+        slug: 'how-to-read-script-without-looking-like-reading',
+        title: 'Untitled',
+        description: 'Read the latest blog post from VoicePrompter.',
+        date: 'Mar 8, 2026',
+        image: 'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80'
+    },
+
+    {
+        slug: 'how-to-record-product-demo-video',
+        title: 'Untitled',
+        description: 'Read the latest blog post from VoicePrompter.',
+        date: 'Mar 6, 2026',
+        image: 'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80'
+    },
+
+    {
+        slug: 'how-to-record-webinars-and-podcasts',
+        title: 'Untitled',
+        description: 'Read the latest blog post from VoicePrompter.',
+        date: 'Mar 4, 2026',
+        image: 'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80'
+    },
+
+    {
+        slug: 'how-to-use-teleprompter-naturally',
+        title: 'Untitled',
+        description: 'Read the latest blog post from VoicePrompter.',
+        date: 'Mar 12, 2026',
+        image: 'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80'
+    },
+
+    {
+        slug: 'multilingual-teleprompter-60-languages',
+        title: 'Untitled',
+        description: 'Read the latest blog post from VoicePrompter.',
+        date: 'Feb 24, 2026',
+        image: 'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80'
+    },
+
+    {
+        slug: 'record-tutorial-videos-faster',
+        title: 'Untitled',
+        description: 'Read the latest blog post from VoicePrompter.',
+        date: 'Feb 26, 2026',
+        image: 'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80'
+    },
+
+    {
+        slug: 'stop-memorizing-your-script',
+        title: 'Untitled',
+        description: 'Read the latest blog post from VoicePrompter.',
+        date: 'Feb 22, 2026',
+        image: 'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80'
+    },
+
+    {
+        slug: 'teleprompter-for-zoom-invisible',
+        title: 'Untitled',
+        description: 'Read the latest blog post from VoicePrompter.',
+        date: 'Mar 16, 2026',
+        image: 'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80'
+    },
+
+    {
+        slug: 'video-interview-preparation-tips',
+        title: 'Untitled',
+        description: 'Read the latest blog post from VoicePrompter.',
+        date: 'Feb 28, 2026',
+        image: 'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80'
+    },
+
+    {
+        slug: 'voice-scrolling-solo-creators',
+        title: 'Why Voice Scrolling is Essential for Solo Creators',
+        description: 'Find out how voice-activated teleprompters streamline the workflow for solo content creators. Learn about hands-free operation, natural pausing, and reduced editing time.',
+        date: 'Nov 20, 2025',
+        image: 'https://images.unsplash.com/photo-1622546773566-935303d3d119?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'
+    },
+
+    {
+        slug: 'voiceprompter-complete-guide-2025',
+        title: 'Untitled',
+        description: 'Read the latest blog post from VoicePrompter.',
+        date: 'Mar 22, 2026',
+        image: 'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80'
+    },
+
+    {
+        slug: 'why-all-teleprompter-apps-suck',
+        title: 'Untitled',
+        description: 'Read the latest blog post from VoicePrompter.',
+        date: 'Mar 18, 2026',
+        image: 'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80'
+    },
+
+    {
+        slug: 'zoom-presentation-tips-sales-calls',
+        title: 'Untitled',
+        description: 'Read the latest blog post from VoicePrompter.',
+        date: 'Mar 2, 2026',
+        image: 'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80'
+    }

@@ -1,10 +1,11 @@
 ---
-title: "Untitled"
-description: "Read the latest blog post from VoicePrompter."
+title: "Zoom Presentation Tips for Sales Calls: Run a Clean Pitch"
+description: "How to deliver a tight, professional sales pitch over Zoom — balancing natural conversation with structured messaging."
 date: "Mar 2, 2026"
-image: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80"
+image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
 ---
+
 A sales call over Zoom is a strange performance.
 
 You're trying to seem natural and conversational while also delivering a specific sequence of information in a specific order. You're trying to maintain eye contact — into a laptop camera — while also watching for the prospect's reactions. You're probably screen-sharing a presentation while also keeping an eye on your notes.

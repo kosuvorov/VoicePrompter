@@ -1,9 +1,9 @@
 ---
 title: "Best Free Teleprompter Tools for 2025: Stop Paying for Basic Features"
-description: "Discover the top free teleprompter software of 2025. Compare browser-based tools, freemium apps, and new private PWAs with advanced features like voice scrolling and mirror mode."
-keywords: ["best free teleprompter software 2025", "free teleprompter app", "voice activated teleprompter free", "offline teleprompter", "teleprompter mirror mode free", "private teleprompter"]
+description: "Compare browser-based tools, freemium apps, and modern PWAs with advanced features like voice scrolling and mirror mode."
 date: "Nov 22, 2025"
-image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80"
+keywords: ["teleprompter", "video production"]
 ---
 
 # Best Free Teleprompter Tools for 2025: Stop Paying for Basic Features

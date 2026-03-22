@@ -1,10 +1,11 @@
 ---
-title: "Untitled"
-description: "Read the latest blog post from VoicePrompter."
+title: "Video Interview Prep Tips: How to Actually Be Ready"
+description: "Pre-recorded video interviews are tricky. Here's how to prepare properly so you sound confident, concise, and professional."
 date: "Feb 28, 2026"
-image: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80"
+image: "https://images.unsplash.com/photo-1573497019418-b400bb3ab074?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
 ---
+
 Pre-recorded video interviews have become standard for a lot of hiring processes. You get a link, a set of questions, a time limit per response, and one or two attempts to get it right. No interviewer. No back-and-forth. Just you, a camera, and a clock.
 
 And yet most people treat these exactly like a spoken interview — they think through what they want to say, hit record, and improvise. That works if you're an unusually smooth extemporaneous speaker. For the rest of us, it produces a recording that sounds hesitant, verbose, and full of "um" and "so."

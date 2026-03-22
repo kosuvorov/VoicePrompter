@@ -66,19 +66,21 @@ mdFiles.forEach(file => {
     console.log(`✓ Generated ${slug}.html`);
 });
 
-// Generate blog index
+// Generate blog index HTML for SEO
 const articleCards = articles.map(article => `
-    {
-        slug: '${article.slug}',
-        title: '${article.title.replace(/'/g, "\\'")}',
-        description: '${article.description.replace(/'/g, "\\'")}',
-        date: '${article.date}',
-        image: '${article.image}'
-    }`).join(',\n');
+            <a href="/blog/${article.slug}.html" class="article-card">
+                <img src="${article.image || 'https://voiceprompter.app/og-image.png'}" alt="${article.title.replace(/"/g, '&quot;')}" class="article-thumb" loading="lazy">
+                <div class="article-body">
+                    <div class="article-date">${article.date}</div>
+                    <h2 class="article-title">${article.title}</h2>
+                    <p class="article-desc">${article.description}</p>
+                    <span class="article-cta">Read article →</span>
+                </div>
+            </a>`).join('\n');
 
-const indexHtml = indexTemplate.replace('/*ARTICLES_DATA*/', articleCards);
+const indexHtml = indexTemplate.replace('/*ARTICLES_HTML*/', articleCards);
 fs.writeFileSync(path.join(BLOG_DIR, 'index.html'), indexHtml);
-console.log(`✓ Generated blog index with ${articles.length} articles`);
+console.log(`✓ Generated static blog index with ${articles.length} articles`);
 
 // Generate sitemap.xml
 const today = new Date().toISOString().split('T')[0];

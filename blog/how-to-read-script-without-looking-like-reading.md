@@ -1,10 +1,11 @@
 ---
-title: "Untitled"
-description: "Read the latest blog post from VoicePrompter."
+title: "How to Read a Script Without Looking Like You're Reading"
+description: "The gap between reading and performing. Learn how to deliver scripted content that sounds spontaneous and genuine."
 date: "Mar 8, 2026"
-image: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80"
+image: "https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
 ---
+
 Let me guess: you've watched a video where the person is clearly reading something off-screen, and you couldn't concentrate on what they were saying because their eyes were doing that thing — that slow, mechanical, left-to-right drift. It's distracting. It breaks trust. The viewer stops believing you know what you're talking about, even if you do.
 
 The good news is this is entirely fixable. And no, the solution is not "just memorize everything." That's terrible advice that I'll address directly in [stop memorizing your script](./stop-memorizing-your-script.md).

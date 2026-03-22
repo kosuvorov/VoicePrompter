@@ -1,10 +1,11 @@
 ---
-title: "Untitled"
-description: "Read the latest blog post from VoicePrompter."
+title: "Teleprompter for Zoom That's Completely Invisible"
+description: "How to use an invisible teleprompter overlay during Zoom calls, sales demos, and webinars — so your notes never show up in screen share."
 date: "Mar 16, 2026"
-image: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80"
+image: "https://images.unsplash.com/photo-1587825140708-dfaf18c7f4f0?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
 ---
+
 Here's a situation I've been in more times than I'd like to admit.
 
 You have a sales call in thirty minutes. You've written out exactly what you want to say — the opening, the demo flow, the pricing reveal, all of it. The script is good. You practiced it last night. But the moment you hit "Join Meeting," it all evaporates. You open a second window to glance at your notes, your eyes drift off-camera, and the person on the other end can tell immediately that you're not actually talking to them.

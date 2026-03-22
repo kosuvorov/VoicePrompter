@@ -1,9 +1,9 @@
 ---
 title: "Why Voice Scrolling is Essential for Solo Creators"
-description: "Find out how voice-activated teleprompters streamline the workflow for solo content creators. Learn about hands-free operation, natural pausing, and reduced editing time."
-keywords: ["voice scrolling teleprompter", "voice activated teleprompter benefits", "solo content creator workflow", "hands-free teleprompter", "improve video production speed", "teleprompter for youtube"]
+description: "Hands-free operation, natural pausing, and reduced editing time — why voice-activated teleprompters are a solo creator's best friend."
 date: "Nov 20, 2025"
-image: "https://images.unsplash.com/photo-1622546773566-935303d3d119?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+image: "https://images.unsplash.com/photo-1622546773566-935303d3d119?auto=format&fit=crop&w=800&q=80"
+keywords: ["teleprompter", "video production"]
 ---
 
 # Why Voice Scrolling is Essential for Solo Creators

@@ -61,9 +61,9 @@
     <!-- Umami Analytics -->
     <script defer src="https://reactive-analytics.up.railway.app/script.js"
         data-website-id="eee38a2c-9b72-4937-9ee4-37827bae546c"></script>
-  <script type="module" crossorigin src="/assets/app-XVIVz6RS.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
-  <link rel="stylesheet" crossorigin href="/assets/style-CwZ0rg5L.css">
+  <script type="module" crossorigin src="/assets/app-DEt5Hne2.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/style-Gx7rhf_i.js">
+  <link rel="stylesheet" crossorigin href="/assets/style-Dx1I31Y7.css">
 <link rel="manifest" href="/manifest.webmanifest"></head>
 
 <body id="appBody" class="bg-black text-white font-mono selection:bg-blue-500 selection:text-white">
@@ -208,6 +208,11 @@
             </div>
         </div>
 
+        <!-- Video Container (hidden by default) -->
+        <div id="videoContainer" class="hidden">
+            <video id="videoPreview" class="video-preview" playsinline muted></video>
+        </div>
+
         <!-- Controls Overlay -->
         <div class="absolute bottom-8 left-0 right-0 flex justify-center items-center gap-6 z-20 pointer-events-none">
 
@@ -247,6 +252,17 @@
                 </svg>
             </button>
 
+            <!-- Video Mode Toggle -->
+            <button id="videoModeBtn"
+                class="pointer-events-auto p-3 rounded-full bg-neutral-800/80 backdrop-blur text-neutral-400 hover:text-white hover:bg-neutral-700 transition-all"
+                title="Video Mode">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+            </button>
+
             <!-- Settings Toggle -->
             <button id="toggleSettingsBtn"
                 class="pointer-events-auto p-3 rounded-full bg-neutral-800/80 backdrop-blur text-neutral-400 hover:text-white hover:bg-neutral-700 transition-all"
@@ -258,6 +274,47 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
+            </button>
+        </div>
+
+        <!-- Video Controls (hidden by default) -->
+        <div id="videoControls"
+            class="hidden absolute top-4 left-0 right-0 flex justify-center items-center gap-3 z-30 pointer-events-none">
+
+            <!-- Layout Toggle -->
+            <button id="videoLayoutToggleBtn"
+                class="pointer-events-auto px-4 py-2 rounded-full bg-neutral-800/90 backdrop-blur text-neutral-300 hover:text-white hover:bg-neutral-700 transition-all text-sm font-medium"
+                title="Switch layout">
+                ⬜ Overlay
+            </button>
+
+            <!-- Record Button -->
+            <button id="videoRecordBtn"
+                class="pointer-events-auto px-4 py-2 rounded-full bg-red-600/90 backdrop-blur text-white hover:bg-red-700 transition-all text-sm font-medium flex items-center gap-2"
+                title="Start Recording">
+                <span class="w-3 h-3 bg-white rounded-full"></span>
+                Record
+            </button>
+
+            <!-- Stop Recording Button -->
+            <button id="videoStopBtn"
+                class="hidden pointer-events-auto px-4 py-2 rounded-full bg-red-600/90 backdrop-blur text-white hover:bg-red-700 transition-all text-sm font-medium flex items-center gap-2 video-recording-active"
+                title="Stop Recording">
+                <span class="w-3 h-3 bg-white rounded-sm"></span>
+                Stop
+            </button>
+
+            <!-- Recording Indicator -->
+            <div id="videoRecordingIndicator" class="hidden pointer-events-none flex items-center gap-2">
+                <span class="w-2.5 h-2.5 bg-red-500 rounded-full recording-pulse"></span>
+                <span class="text-red-400 text-xs font-medium">REC</span>
+            </div>
+
+            <!-- Exit Video Mode -->
+            <button id="videoExitBtn"
+                class="pointer-events-auto px-4 py-2 rounded-full bg-neutral-800/90 backdrop-blur text-neutral-300 hover:text-white hover:bg-neutral-700 transition-all text-sm font-medium"
+                title="Exit video mode">
+                ✕ Exit
             </button>
         </div>
 
@@ -331,7 +388,7 @@
                 <div class="flex items-center justify-between">
                     <div class="flex flex-col">
                         <span class="text-sm text-neutral-300">Voice Commands</span>
-                        <span class="text-xs text-neutral-500">Say "prompter restart" to reset</span>
+                        <span class="text-xs text-neutral-500">Say "prompter restart / back / forward"</span>
                     </div>
                     <label class="relative inline-flex items-center cursor-pointer">
                         <input id="voiceCommandToggle" type="checkbox" checked class="sr-only peer">

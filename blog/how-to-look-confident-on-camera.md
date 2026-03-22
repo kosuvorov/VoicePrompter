@@ -1,10 +1,11 @@
 ---
-title: "Untitled"
-description: "Read the latest blog post from VoicePrompter."
+title: "How to Look Confident on Camera (Even When You're Not)"
+description: "Practical camera confidence techniques — from eye contact tricks to script preparation methods that make you look and sound like a pro."
 date: "Mar 10, 2026"
-image: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80"
+image: "https://images.unsplash.com/photo-1609234656388-0ff363383899?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
 ---
+
 Here's something nobody tells you: the people who look the most confident on camera are usually not the most confident in real life. They just know the specific technical things that make confidence readable through a lens.
 
 Camera confidence is a skill, not a personality trait. And like most skills, it has a very short list of fundamentals that account for 80% of the result.

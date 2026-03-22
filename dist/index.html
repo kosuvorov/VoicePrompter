@@ -189,6 +189,16 @@
             letter-spacing: -0.02em;
         }
 
+        .startup-fame-badge {
+            display: inline-block;
+            margin-top: 24px;
+            transition: opacity 0.2s ease;
+        }
+
+        .startup-fame-badge:hover {
+            opacity: 0.8;
+        }
+
         .hero-sub {
             font-size: 19px;
             color: var(--text-light);
@@ -349,28 +359,75 @@
 
         /* ───────────────────────── Footer ───────────────────────── */
         .footer {
-            padding: 32px 0;
-            text-align: center;
+            padding: 64px 32px 40px;
             border-top: 1px solid var(--surface-border);
+            max-width: 960px;
+            margin: 0 auto;
         }
 
-        .footer p {
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-sans);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-light);
+            margin-bottom: 16px;
+        }
+
+        .footer-col a {
+            display: block;
             font-size: 14px;
+            color: var(--text);
+            text-decoration: none;
+            padding: 4px 0;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: var(--pop);
+        }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 24px;
+            border-top: 1px solid var(--surface-border);
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-bottom p {
+            font-size: 13px;
             color: var(--text-light);
         }
 
-        .footer a {
+        .footer-social {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .footer-social a {
             color: var(--text-light);
             transition: color 0.2s;
         }
 
-        .footer a:hover {
+        .footer-social a:hover {
             color: var(--pop);
         }
 
-        .footer-sep {
-            margin: 0 6px;
-            opacity: 0.4;
+        .footer-social svg {
+            width: 20px;
+            height: 20px;
         }
 
         /* ═══════════════════════ Responsive ═══════════════════════ */
@@ -423,6 +480,11 @@
             .footer p {
                 font-size: 13px;
             }
+
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 32px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -471,6 +533,32 @@
                 font-size: 14px;
             }
         }
+
+        /* ═══════════════════════ Live Stat ═══════════════════════ */
+        .live-stat {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 24px;
+            font-size: 14px;
+            color: var(--text-light);
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .live-stat.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .live-stat .stat-number {
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--pop);
+            font-variant-numeric: tabular-nums;
+        }
     </style>
 <link rel="manifest" href="/manifest.webmanifest"></head>
 
@@ -491,6 +579,13 @@
                 <p class="eyebrow">Every great story needs a voice</p>
                 <h1>Two paths.<br>One destination.</h1>
                 <p class="hero-sub">Your script. Your confidence. Choose the tool made for your journey.</p>
+                <a href="https://startupfa.me/s/voiceprompter?utm_source=voiceprompter.app" target="_blank"
+                    rel="noopener" class="startup-fame-badge" data-umami-event="home-hero-startup-fame"><img
+                        src="https://startupfa.me/badges/featured/dark.webp"
+                        alt="VoicePrompter - Featured on Startup Fame" width="171" height="54" /></a>
+                <div class="live-stat" id="live-stat">
+                    <span>Trusted by <span class="stat-number" id="stat-creators">—</span> creators and counting</span>
+                </div>
             </div>
 
             <!-- Fork Label -->
@@ -503,16 +598,18 @@
                 <div class="fork-card web">
                     <span class="card-tag">Web App · 100% Free · Open Source</span>
                     <h2 class="card-title">The Open Road</h2>
-                    <p class="card-body">No gates. No fees. No installation required.<br>Works in your browser, lives
-                        on your device, follows your voice.</p>
+                    <p class="card-body">No gates. No fees. No installation required.<br>Works on any device and follows
+                        your voice.</p>
                     <ul class="card-perks">
                         <li>Voice-activated scrolling</li>
-                        <li>Works offline as an app</li>
+                        <li>Works offline as a PWA app</li>
                         <li>Mirror mode for teleprompter glass</li>
                         <li>20+ languages, auto-detected</li>
+                        <li>Voice commands: back, forward, restart</li>
+                        <li>Built-in video recording</li>
                         <li>Your scripts never leave your device</li>
                     </ul>
-                    <a href="/web" class="card-cta">Take this path →</a>
+                    <a href="/web" class="card-cta" data-umami-event="home-cta-web-app">Take this path →</a>
                     <p class="card-flavor">Free as in freedom</p>
                 </div>
 
@@ -524,13 +621,15 @@
                         speak.
                     </p>
                     <ul class="card-perks">
+                        <li>Voice-activated scrolling</li>
                         <li>Invisible on screen shares & recordings</li>
                         <li>Stays on top of every app, even full-screen</li>
                         <li>60+ languages via Apple speech recognition</li>
                         <li>Lives in your menu bar, always ready</li>
                         <li>Launches from clipboard in one click</li>
+                        <li>Private - everything on your device</li>
                     </ul>
-                    <a href="/mac" class="card-cta">Take this path →</a>
+                    <a href="/mac" class="card-cta" data-umami-event="home-cta-mac-app">Take this path →</a>
                     <p class="card-flavor">Free to try · 3 scripts included</p>
                 </div>
 
@@ -539,7 +638,7 @@
             <!-- Escape Hatch -->
             <div class="escape fade-up">
                 <p>Already know what you want?</p>
-                <a href="/app/">→ Just open the web app</a>
+                <a href="/app/" data-umami-event="home-escape-open-app">→ Just open the web app</a>
             </div>
 
         </div>
@@ -547,13 +646,86 @@
 
     <!-- ═══════════════════════ Footer ═══════════════════════ -->
     <footer class="footer">
-        <p>Made by <a href="https://www.instagram.com/kosuvorov/" target="_blank" rel="noopener">Konstantin
-                Suvorov</a><span class="footer-sep">·</span><a href="https://github.com/kosuvorov/VoicePrompter"
-                target="_blank" rel="noopener">GitHub</a><span class="footer-sep">·</span><a
-                href="https://www.youtube.com/@kosuvorov" target="_blank" rel="noopener">YouTube</a><span
-                class="footer-sep">·</span><a href="https://buymeacoffee.com/kosuvorov" target="_blank"
-                rel="noopener">Buy me a coffee ☕</a></p>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Product</h4>
+                <a href="/web">Web App</a>
+                <a href="/mac">Mac App</a>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">GitHub</a>
+                <a href="/blog">Blog</a>
+                <a href="https://www.youtube.com/@kosuvorov" target="_blank" rel="noopener">YouTube</a>
+            </div>
+            <div class="footer-col">
+                <h4>Help</h4>
+                <a href="mailto:konstantin@voiceprompter.app">Contact</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="/privacy">Privacy Policy</a>
+            </div>
+            <div class="footer-col">
+                <h4>Support the project</h4>
+                <a href="https://buymeacoffee.com/kosuvorov" target="_blank" rel="noopener">Buy me a coffee ☕</a>
+                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">Give a star on GitHub ⭐</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Made by <a href="https://instagram.com/kosuvorov" target="_blank" rel="noopener" style="color:var(--text-light);text-decoration:underline;text-underline-offset:2px;">Konstantin Suvorov</a> · © 2026 VoicePrompter</p>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/voiceprompter" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+                <a href="https://www.tiktok.com/@voiceprompter" target="_blank" rel="noopener" aria-label="TikTok">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.18 8.18 0 0 0 4.76 1.52V6.84a4.83 4.83 0 0 1-1-.15z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@kosuvorov" target="_blank" rel="noopener" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+            </div>
+        </div>
     </footer>
+
+    <!-- ═══════════════════════ Live Stats ═══════════════════════ -->
+    <script>
+        (function() {
+            const el = document.getElementById('stat-creators');
+            const container = document.getElementById('live-stat');
+            let currentValue = 0;
+            let animId = null;
+
+            function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+
+            function animateTo(from, to, duration) {
+                if (animId) cancelAnimationFrame(animId);
+                const startTime = performance.now();
+                function step(now) {
+                    const elapsed = now - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    currentValue = Math.round(from + (to - from) * easeOutCubic(progress));
+                    el.textContent = currentValue.toLocaleString() + '+';
+                    if (progress < 1) { animId = requestAnimationFrame(step); }
+                }
+                animId = requestAnimationFrame(step);
+            }
+
+            // Start with fallback immediately
+            container.classList.add('visible');
+            animateTo(0, 1000, 1800);
+
+            // Fetch real data and continue from wherever we are
+            fetch('https://umami-proxy.kosuvorov.workers.dev/')
+                .then(r => r.json())
+                .then(data => {
+                    let real = data.allTime && data.allTime.visitors;
+                    if (real) {
+                        real = Math.max(1000, Math.floor(real / 100) * 100);
+                        setTimeout(() => animateTo(currentValue, real, 1000), 200);
+                    }
+                })
+                .catch(() => {});
+        })();
+    </script>
 
     <!-- Scroll Reveal -->
     <script>

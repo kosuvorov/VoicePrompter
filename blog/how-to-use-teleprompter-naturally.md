@@ -1,10 +1,11 @@
 ---
-title: "Untitled"
-description: "Read the latest blog post from VoicePrompter."
+title: "How to Use a Teleprompter Naturally (So Nobody Knows)"
+description: "The techniques that separate natural-sounding teleprompter users from the ones who look like they're reading. Practical, actionable advice."
 date: "Mar 12, 2026"
-image: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80"
+image: "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
 ---
+
 The dead giveaway that someone is using a teleprompter: their eyes move in a steady, rhythmic horizontal sweep, like a slow windshield wiper. It's the look of someone reading line by line, processing each word as they go.
 
 Most first-time teleprompter users produce exactly this. They fire up the app, start reading, and realize immediately that they look like a robot.
