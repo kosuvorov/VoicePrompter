@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Best Free Teleprompter Tools for 2025: Stop Paying for Basic Features - VoicePrompter</title>
-    <meta name="description" content="Discover the top free teleprompter software of 2025. Compare browser-based tools, freemium apps, and new private PWAs with advanced features like voice scrolling and mirror mode.">
-    <meta name="keywords" content="best free teleprompter software 2025, free teleprompter app, voice activated teleprompter free, offline teleprompter, teleprompter mirror mode free, private teleprompter">
+    <meta name="description" content="Compare browser-based tools, freemium apps, and modern PWAs with advanced features like voice scrolling and mirror mode.">
+    <meta name="keywords" content="teleprompter, video production">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://voiceprompter.app/blog/best-free-tools-2025.html">
@@ -15,16 +15,16 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://voiceprompter.app/blog/best-free-tools-2025.html">
     <meta property="og:title" content="Best Free Teleprompter Tools for 2025: Stop Paying for Basic Features">
-    <meta property="og:description" content="Discover the top free teleprompter software of 2025. Compare browser-based tools, freemium apps, and new private PWAs with advanced features like voice scrolling and mirror mode.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80">
+    <meta property="og:description" content="Compare browser-based tools, freemium apps, and modern PWAs with advanced features like voice scrolling and mirror mode.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80">
     <meta property="og:site_name" content="VoicePrompter">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://voiceprompter.app/blog/best-free-tools-2025.html">
     <meta name="twitter:title" content="Best Free Teleprompter Tools for 2025: Stop Paying for Basic Features">
-    <meta name="twitter:description" content="Discover the top free teleprompter software of 2025. Compare browser-based tools, freemium apps, and new private PWAs with advanced features like voice scrolling and mirror mode.">
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80">
+    <meta name="twitter:description" content="Compare browser-based tools, freemium apps, and modern PWAs with advanced features like voice scrolling and mirror mode.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80">
 
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -38,11 +38,34 @@
             padding: 0;
         }
 
+        :root {
+            --bg: #0F0F0F;
+            --surface: #1A1A1A;
+            --surface-border: rgba(255, 255, 255, 0.08);
+            --text: #F2EBE3;
+            --text-light: #A39C93;
+            --accent: #F5EFEB;
+            --pop: #FFBB00;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #0a0a0a;
-            color: #e5e5e5;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .grain-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
         .article-container {
@@ -215,10 +238,99 @@
                 font-size: 1rem;
             }
         }
+
+        /* -------------------------- Footer -------------------------- */
+        .footer {
+            border-top: 1px solid var(--surface-border);
+            padding: 80px 24px 40px;
+            background: var(--bg);
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 48px;
+            margin-bottom: 64px;
+        }
+
+        .footer-col h4 {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text);
+            margin-bottom: 24px;
+        }
+
+        .footer-col a {
+            display: block;
+            color: var(--text-light);
+            text-decoration: none;
+            margin-bottom: 16px;
+            font-size: 15px;
+            transition: color 0.2s;
+            border-bottom: none;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent);
+            border-bottom: none;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 32px;
+            border-top: 1px solid var(--surface-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-bottom p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .footer-social {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            color: var(--text-light);
+            transition: color 0.2s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--surface);
+            border: 1px solid var(--surface-border);
+        }
+
+        .footer-social a:hover {
+            color: var(--accent);
+            border-color: var(--pop);
+            transform: translateY(-2px);
+        }
+
+        .footer-social svg {
+            width: 18px;
+            height: 18px;
+        }
     </style>
 <link rel="manifest" href="/manifest.webmanifest"></head>
 
 <body>
+    <div class="grain-bg"></div>
     <div class="article-container">
         <a href="/blog/" class="back-link">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -279,6 +391,47 @@
             </div>
         </article>
     </div>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Product</h4>
+                <a href="/web">Web App</a>
+                <a href="/mac">Mac App</a>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">GitHub</a>
+                <a href="/blog">Blog</a>
+                <a href="https://www.youtube.com/@kosuvorov" target="_blank" rel="noopener">YouTube</a>
+            </div>
+            <div class="footer-col">
+                <h4>Help</h4>
+                <a href="mailto:konstantin@voiceprompter.app">Contact</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="/privacy">Privacy Policy</a>
+            </div>
+            <div class="footer-col">
+                <h4>Support the project</h4>
+                <a href="https://buymeacoffee.com/kosuvorov" target="_blank" rel="noopener">Buy me a coffee ☕</a>
+                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">Give a star on GitHub ⭐</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Made by <a href="https://instagram.com/kosuvorov" target="_blank" rel="noopener" style="color:var(--text-light);text-decoration:underline;text-underline-offset:2px;">Konstantin Suvorov</a> · © 2026 VoicePrompter</p>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/voiceprompter" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+                <a href="https://www.tiktok.com/@voiceprompter" target="_blank" rel="noopener" aria-label="TikTok">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.18 8.18 0 0 0 4.76 1.52V6.84a4.83 4.83 0 0 1-1-.15z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@kosuvorov" target="_blank" rel="noopener" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>

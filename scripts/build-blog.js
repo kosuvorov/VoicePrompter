@@ -32,7 +32,10 @@ mdFiles.forEach(file => {
     const { data: frontmatter, content } = matter(fileContent);
 
     // Convert markdown to HTML
-    const htmlContent = marked(content);
+    let htmlContent = marked(content);
+    
+    // Convert internal markdown links (.md) to HTML links (.html)
+    htmlContent = htmlContent.replace(/href="(\.[^"]*)\.md"/g, 'href="$1.html"');
 
     // Generate slug from filename
     const slug = file.replace('.md', '');

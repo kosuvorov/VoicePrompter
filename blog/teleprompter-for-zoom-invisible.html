@@ -38,11 +38,34 @@
             padding: 0;
         }
 
+        :root {
+            --bg: #0F0F0F;
+            --surface: #1A1A1A;
+            --surface-border: rgba(255, 255, 255, 0.08);
+            --text: #F2EBE3;
+            --text-light: #A39C93;
+            --accent: #F5EFEB;
+            --pop: #FFBB00;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #0a0a0a;
-            color: #e5e5e5;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .grain-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
         .article-container {
@@ -215,10 +238,99 @@
                 font-size: 1rem;
             }
         }
+
+        /* -------------------------- Footer -------------------------- */
+        .footer {
+            border-top: 1px solid var(--surface-border);
+            padding: 80px 24px 40px;
+            background: var(--bg);
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 48px;
+            margin-bottom: 64px;
+        }
+
+        .footer-col h4 {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text);
+            margin-bottom: 24px;
+        }
+
+        .footer-col a {
+            display: block;
+            color: var(--text-light);
+            text-decoration: none;
+            margin-bottom: 16px;
+            font-size: 15px;
+            transition: color 0.2s;
+            border-bottom: none;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent);
+            border-bottom: none;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 32px;
+            border-top: 1px solid var(--surface-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-bottom p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .footer-social {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            color: var(--text-light);
+            transition: color 0.2s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--surface);
+            border: 1px solid var(--surface-border);
+        }
+
+        .footer-social a:hover {
+            color: var(--accent);
+            border-color: var(--pop);
+            transform: translateY(-2px);
+        }
+
+        .footer-social svg {
+            width: 18px;
+            height: 18px;
+        }
     </style>
 </head>
 
 <body>
+    <div class="grain-bg"></div>
     <div class="article-container">
         <a href="/blog/" class="back-link">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -252,30 +364,30 @@
 <p>If you&#39;re on a laptop, the camera is in the top bezel. Put the teleprompter window directly below the camera, as close to the top of your screen as it can sit while still being readable. This minimizes the angle between your eyes and the lens.</p>
 <p>If you&#39;re on a desktop with an external monitor and a separate webcam, position the teleprompter window on the same monitor as the webcam. Even better, position it directly adjacent to the webcam itself.</p>
 <p>I&#39;ve found the sweet spot is: script window immediately below the camera, font large enough to read comfortably without squinting, scroll speed matched to a pace slightly slower than I&#39;d naturally speak. Voice-activated scrolling handles the rest.</p>
-<p>You can read more about positioning and delivery technique in <a href="./how-to-read-script-without-looking-like-reading.md">how to read a script without looking like you&#39;re reading</a>.</p>
+<p>You can read more about positioning and delivery technique in <a href="./how-to-read-script-without-looking-like-reading.html">how to read a script without looking like you&#39;re reading</a>.</p>
 <h2>Voice-Activated Scrolling in a Zoom Meeting</h2>
 <p>The voice scrolling on the Mac app uses Apple&#39;s native on-device speech recognition. This is important for a couple of reasons.</p>
 <p>First, it&#39;s private — nothing is sent to a server. In a sales call or business meeting, that matters. Your script stays on your device.</p>
 <p>Second, it works offline. If your internet drops for thirty seconds in the middle of a call (it happens), the teleprompter keeps working. Your voice recognition is not dependent on your connection quality.</p>
 <p>Third, the recognition is fast. The Mac version uses the same underlying engine that Apple uses across the OS, which has had a lot of investment behind it. It handles natural speech patterns, doesn&#39;t require you to enunciate like a robot, and doesn&#39;t fall apart when you pause for emphasis.</p>
-<p>If you speak English in a meeting but sometimes code-switch into another language, VoicePrompter supports 60+ languages and detects the language of your script automatically. More on that in <a href="./multilingual-teleprompter-60-languages.md">teleprompter with 60+ languages</a>.</p>
+<p>If you speak English in a meeting but sometimes code-switch into another language, VoicePrompter supports 60+ languages and detects the language of your script automatically. More on that in <a href="./multilingual-teleprompter-60-languages.html">teleprompter with 60+ languages</a>.</p>
 <h2>Who This Is For</h2>
 <p>The use cases I see most often:</p>
 <p><strong>Sales calls.</strong> You&#39;ve written a tight pitch. You want to deliver it confidently without forgetting the key points, without visibly glancing at notes, without losing your train of thought when the prospect interrupts with a question.</p>
 <p><strong>Webinars and online presentations.</strong> You&#39;re presenting to a large group. You want to seem polished and prepared. You need the script to not appear in your screen share.</p>
 <p><strong>Product demos.</strong> You&#39;re walking someone through your product while narrating. The teleprompter sits alongside your demo, guiding your script while your screen share shows the product.</p>
 <p><strong>Podcasts recorded over video call.</strong> You have notes, talking points, or a full script. You want to be able to reference them without looking like you&#39;re reading from a teleprompter.</p>
-<p>I wrote more specifically about each of these in <a href="./how-to-record-product-demo-video.md">how to record product demos</a> and <a href="./zoom-presentation-tips-sales-calls.md">zoom sales call tips</a>.</p>
+<p>I wrote more specifically about each of these in <a href="./how-to-record-product-demo-video.html">how to record product demos</a> and <a href="./zoom-presentation-tips-sales-calls.html">zoom sales call tips</a>.</p>
 <h2>Getting Started</h2>
 <p>The app is on the Mac App Store: <a href="https://apps.apple.com/pl/app/voiceprompter/id6758573080">VoicePrompter for Mac</a>. It&#39;s $3.99/month or $39.99/year, with a free tier that includes unlimited use of the demo script and up to 3 custom scripts. If you want to test before committing, that&#39;s more than enough to run it through a real call.</p>
 <p>The setup is minimal. Install, open, paste your script from clipboard, resize and position the window, start the voice recognition. That&#39;s it. The app lives in your menu bar so you can access it anytime without cluttering your dock.</p>
 <hr>
 <p><strong>Related articles:</strong></p>
 <ul>
-<li><a href="./why-all-teleprompter-apps-suck.md">Why All Teleprompter Apps Are Terrible (And What I Did About It)</a></li>
-<li><a href="./best-teleprompter-app-for-mac.md">Best Teleprompter App for Mac</a></li>
-<li><a href="./zoom-presentation-tips-sales-calls.md">Zoom Sales Call Presentation Tips</a></li>
-<li><a href="./how-to-look-confident-on-camera.md">How to Look Confident on Camera</a></li>
+<li><a href="./why-all-teleprompter-apps-suck.html">Why All Teleprompter Apps Are Terrible (And What I Did About It)</a></li>
+<li><a href="./best-teleprompter-app-for-mac.html">Best Teleprompter App for Mac</a></li>
+<li><a href="./zoom-presentation-tips-sales-calls.html">Zoom Sales Call Presentation Tips</a></li>
+<li><a href="./how-to-look-confident-on-camera.html">How to Look Confident on Camera</a></li>
 </ul>
 
             </div>
@@ -289,6 +401,47 @@
             </div>
         </article>
     </div>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Product</h4>
+                <a href="/web">Web App</a>
+                <a href="/mac">Mac App</a>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">GitHub</a>
+                <a href="/blog">Blog</a>
+                <a href="https://www.youtube.com/@kosuvorov" target="_blank" rel="noopener">YouTube</a>
+            </div>
+            <div class="footer-col">
+                <h4>Help</h4>
+                <a href="mailto:konstantin@voiceprompter.app">Contact</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="/privacy">Privacy Policy</a>
+            </div>
+            <div class="footer-col">
+                <h4>Support the project</h4>
+                <a href="https://buymeacoffee.com/kosuvorov" target="_blank" rel="noopener">Buy me a coffee ☕</a>
+                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">Give a star on GitHub ⭐</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Made by <a href="https://instagram.com/kosuvorov" target="_blank" rel="noopener" style="color:var(--text-light);text-decoration:underline;text-underline-offset:2px;">Konstantin Suvorov</a> · © 2026 VoicePrompter</p>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/voiceprompter" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+                <a href="https://www.tiktok.com/@voiceprompter" target="_blank" rel="noopener" aria-label="TikTok">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.18 8.18 0 0 0 4.76 1.52V6.84a4.83 4.83 0 0 1-1-.15z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@kosuvorov" target="_blank" rel="noopener" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
