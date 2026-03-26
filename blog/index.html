@@ -11,13 +11,16 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap"
+        rel="stylesheet">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://voiceprompter.app/blog/">
     <meta property="og:title" content="VoicePrompter Blog — Teleprompter Tips & Guides">
-    <meta property="og:description" content="Expert tips on voice-activated scrolling, natural delivery, and video production workflow.">
+    <meta property="og:description"
+        content="Expert tips on voice-activated scrolling, natural delivery, and video production workflow.">
     <meta property="og:site_name" content="VoicePrompter">
 
     <style>
@@ -32,7 +35,13 @@
             --font-serif: 'DM Serif Display', serif;
         }
 
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         body {
             font-family: var(--font-sans);
@@ -55,7 +64,9 @@
             background-size: 180px 180px;
         }
 
-        a { text-decoration: none; }
+        a {
+            text-decoration: none;
+        }
 
         .container {
             max-width: 1100px;
@@ -88,7 +99,9 @@
             transition: color 0.2s;
         }
 
-        .nav-link:hover { color: var(--pop); }
+        .nav-link:hover {
+            color: var(--pop);
+        }
 
         /* ═══════════════════════ Blog Header ═══════════════════════ */
         .blog-header {
@@ -179,11 +192,21 @@
             color: var(--pop);
         }
 
-        .article-card:hover .article-cta { text-decoration: underline; }
+        .article-card:hover .article-cta {
+            text-decoration: underline;
+        }
 
         /* ═══════════════════════ Fade-up ═══════════════════════ */
-        .fade-up { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
-        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        .fade-up {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         /* ═══════════════════════ Footer ═══════════════════════ */
         .footer {
@@ -218,7 +241,9 @@
             transition: color 0.2s;
         }
 
-        .footer-col a:hover { color: var(--pop); }
+        .footer-col a:hover {
+            color: var(--pop);
+        }
 
         .footer-bottom {
             display: flex;
@@ -235,7 +260,11 @@
             color: var(--text-light);
         }
 
-        .footer-bottom a { color: var(--text-light); text-decoration: underline; text-underline-offset: 2px; }
+        .footer-bottom a {
+            color: var(--text-light);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
 
         .footer-social {
             display: flex;
@@ -248,25 +277,68 @@
             transition: color 0.2s;
         }
 
-        .footer-social a:hover { color: var(--pop); }
-        .footer-social svg { width: 20px; height: 20px; }
+        .footer-social a:hover {
+            color: var(--pop);
+        }
+
+        .footer-social svg {
+            width: 20px;
+            height: 20px;
+        }
 
         /* ═══════════════════════ Responsive ═══════════════════════ */
         @media (max-width: 768px) {
-            .blog-header h1 { font-size: 36px; }
-            .blog-header p { font-size: 16px; }
-            .article-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-            .footer-grid { grid-template-columns: repeat(4, 1fr); gap: 32px; }
+            .blog-header h1 {
+                font-size: 36px;
+            }
+
+            .blog-header p {
+                font-size: 16px;
+            }
+
+            .article-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 32px;
+            }
         }
 
         @media (max-width: 480px) {
-            .container { padding: 0 20px; }
-            .nav { padding: 20px; }
-            .blog-header { padding: 40px 0 36px; }
-            .blog-header h1 { font-size: 30px; }
-            .article-grid { grid-template-columns: 1fr; gap: 20px; }
-            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-            .footer-bottom { flex-direction: column; align-items: center; text-align: center; }
+            .container {
+                padding: 0 20px;
+            }
+
+            .nav {
+                padding: 20px;
+            }
+
+            .blog-header {
+                padding: 40px 0 36px;
+            }
+
+            .blog-header h1 {
+                font-size: 30px;
+            }
+
+            .article-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -288,183 +360,227 @@
         </div>
 
         <div class="article-grid fade-up" id="articles">
-            
+
             <a href="/blog/best-free-tools-2025.html" class="article-card">
-                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Best Free Teleprompter Tools for 2025: Stop Paying for Basic Features" class="article-thumb" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80"
+                    alt="Best Free Teleprompter Tools for 2025: Stop Paying for Basic Features" class="article-thumb"
+                    loading="lazy">
                 <div class="article-body">
                     <div class="article-date">Nov 22, 2025</div>
                     <h2 class="article-title">Best Free Teleprompter Tools for 2025: Stop Paying for Basic Features</h2>
-                    <p class="article-desc">Compare browser-based tools, freemium apps, and modern PWAs with advanced features like voice scrolling and mirror mode.</p>
+                    <p class="article-desc">Compare browser-based tools, freemium apps, and modern PWAs with advanced
+                        features like voice scrolling and mirror mode.</p>
                     <span class="article-cta">Read article →</span>
                 </div>
             </a>
 
             <a href="/blog/best-teleprompter-app-for-mac.html" class="article-card">
-                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80" alt="Best Teleprompter App for Mac in 2025: An Honest Look" class="article-thumb" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80"
+                    alt="Best Teleprompter App for Mac in 2025: An Honest Look" class="article-thumb" loading="lazy">
                 <div class="article-body">
                     <div class="article-date">Mar 20, 2026</div>
                     <h2 class="article-title">Best Teleprompter App for Mac in 2025: An Honest Look</h2>
-                    <p class="article-desc">An honest comparison of Mac teleprompter apps — what actually matters, what's missing, and where VoicePrompter fits in the landscape.</p>
+                    <p class="article-desc">An honest comparison of Mac teleprompter apps — what actually matters,
+                        what's missing, and where VoicePrompter fits in the landscape.</p>
                     <span class="article-cta">Read article →</span>
                 </div>
             </a>
 
             <a href="/blog/free-voice-activated-teleprompter.html" class="article-card">
-                <img src="https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80" alt="Free Voice-Activated Teleprompter for Solo Creators" class="article-thumb" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80"
+                    alt="Free Voice-Activated Teleprompter for Solo Creators" class="article-thumb" loading="lazy">
                 <div class="article-body">
                     <div class="article-date">Mar 14, 2026</div>
                     <h2 class="article-title">Free Voice-Activated Teleprompter for Solo Creators</h2>
-                    <p class="article-desc">Why voice-activated scrolling is a game-changer for solo content creators, and how to get started with a free tool that works offline.</p>
+                    <p class="article-desc">Why voice-activated scrolling is a game-changer for solo content creators,
+                        and how to get started with a free tool that works offline.</p>
                     <span class="article-cta">Read article →</span>
                 </div>
             </a>
 
             <a href="/blog/how-to-look-confident-on-camera.html" class="article-card">
-                <img src="https://images.unsplash.com/photo-1609234656388-0ff363383899?auto=format&fit=crop&w=800&q=80" alt="How to Look Confident on Camera (Even When You're Not)" class="article-thumb" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1609234656388-0ff363383899?auto=format&fit=crop&w=800&q=80"
+                    alt="How to Look Confident on Camera (Even When You're Not)" class="article-thumb" loading="lazy">
                 <div class="article-body">
                     <div class="article-date">Mar 10, 2026</div>
                     <h2 class="article-title">How to Look Confident on Camera (Even When You're Not)</h2>
-                    <p class="article-desc">Practical camera confidence techniques — from eye contact tricks to script preparation methods that make you look and sound like a pro.</p>
+                    <p class="article-desc">Practical camera confidence techniques — from eye contact tricks to script
+                        preparation methods that make you look and sound like a pro.</p>
                     <span class="article-cta">Read article →</span>
                 </div>
             </a>
 
             <a href="/blog/how-to-read-naturally.html" class="article-card">
-                <img src="https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80" alt="How to Read a Teleprompter Naturally (And Stop Looking Like a Robot)" class="article-thumb" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80"
+                    alt="How to Read a Teleprompter Naturally (And Stop Looking Like a Robot)" class="article-thumb"
+                    loading="lazy">
                 <div class="article-body">
                     <div class="article-date">Nov 24, 2025</div>
                     <h2 class="article-title">How to Read a Teleprompter Naturally (And Stop Looking Like a Robot)</h2>
-                    <p class="article-desc">Script writing tips, proper setup, and how free voice-activated tools can transform your on-camera presence.</p>
+                    <p class="article-desc">Script writing tips, proper setup, and how free voice-activated tools can
+                        transform your on-camera presence.</p>
                     <span class="article-cta">Read article →</span>
                 </div>
             </a>
 
             <a href="/blog/how-to-read-script-without-looking-like-reading.html" class="article-card">
-                <img src="https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?auto=format&fit=crop&w=800&q=80" alt="How to Read a Script Without Looking Like You're Reading" class="article-thumb" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?auto=format&fit=crop&w=800&q=80"
+                    alt="How to Read a Script Without Looking Like You're Reading" class="article-thumb" loading="lazy">
                 <div class="article-body">
                     <div class="article-date">Mar 8, 2026</div>
                     <h2 class="article-title">How to Read a Script Without Looking Like You're Reading</h2>
-                    <p class="article-desc">The gap between reading and performing. Learn how to deliver scripted content that sounds spontaneous and genuine.</p>
+                    <p class="article-desc">The gap between reading and performing. Learn how to deliver scripted
+                        content that sounds spontaneous and genuine.</p>
                     <span class="article-cta">Read article →</span>
                 </div>
             </a>
 
             <a href="/blog/how-to-record-product-demo-video.html" class="article-card">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="How to Record a Product Demo Video Without 50 Takes" class="article-thumb" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+                    alt="How to Record a Product Demo Video Without 50 Takes" class="article-thumb" loading="lazy">
                 <div class="article-body">
                     <div class="article-date">Mar 6, 2026</div>
                     <h2 class="article-title">How to Record a Product Demo Video Without 50 Takes</h2>
-                    <p class="article-desc">Stop re-recording your demos. A practical workflow for founders, PMs, and marketers who need to ship demo videos without the stress.</p>
+                    <p class="article-desc">Stop re-recording your demos. A practical workflow for founders, PMs, and
+                        marketers who need to ship demo videos without the stress.</p>
                     <span class="article-cta">Read article →</span>
                 </div>
             </a>
 
             <a href="/blog/how-to-record-webinars-and-podcasts.html" class="article-card">
-                <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80" alt="How to Record Webinars and Podcasts That Don't Sound Winged" class="article-thumb" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80"
+                    alt="How to Record Webinars and Podcasts That Don't Sound Winged" class="article-thumb"
+                    loading="lazy">
                 <div class="article-body">
                     <div class="article-date">Mar 4, 2026</div>
                     <h2 class="article-title">How to Record Webinars and Podcasts That Don't Sound Winged</h2>
-                    <p class="article-desc">Most webinars sound like a smart person rambling. Here's how to deliver structured, tight content without sounding robotic.</p>
+                    <p class="article-desc">Most webinars sound like a smart person rambling. Here's how to deliver
+                        structured, tight content without sounding robotic.</p>
                     <span class="article-cta">Read article →</span>
                 </div>
             </a>
 
             <a href="/blog/how-to-use-teleprompter-naturally.html" class="article-card">
-                <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=800&q=80" alt="How to Use a Teleprompter Naturally (So Nobody Knows)" class="article-thumb" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=800&q=80"
+                    alt="How to Use a Teleprompter Naturally (So Nobody Knows)" class="article-thumb" loading="lazy">
                 <div class="article-body">
                     <div class="article-date">Mar 12, 2026</div>
                     <h2 class="article-title">How to Use a Teleprompter Naturally (So Nobody Knows)</h2>
-                    <p class="article-desc">The techniques that separate natural-sounding teleprompter users from the ones who look like they're reading. Practical, actionable advice.</p>
+                    <p class="article-desc">The techniques that separate natural-sounding teleprompter users from the
+                        ones who look like they're reading. Practical, actionable advice.</p>
                     <span class="article-cta">Read article →</span>
                 </div>
             </a>
 
             <a href="/blog/multilingual-teleprompter-60-languages.html" class="article-card">
-                <img src="https://images.unsplash.com/photo-1451226428352-cf66bf8a0317?auto=format&fit=crop&w=800&q=80" alt="Teleprompter in 60+ Languages: How VoicePrompter Handles It" class="article-thumb" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1451226428352-cf66bf8a0317?auto=format&fit=crop&w=800&q=80"
+                    alt="Teleprompter in 60+ Languages: How VoicePrompter Handles It" class="article-thumb"
+                    loading="lazy">
                 <div class="article-body">
                     <div class="article-date">Feb 24, 2026</div>
                     <h2 class="article-title">Teleprompter in 60+ Languages: How VoicePrompter Handles It</h2>
-                    <p class="article-desc">How VoicePrompter's automatic language detection works across 60+ languages — tested personally in English, Polish, Ukrainian, Russian, French, and Spanish.</p>
+                    <p class="article-desc">How VoicePrompter's automatic language detection works across 60+ languages
+                        — tested personally in English, Polish, Ukrainian, Russian, French, and Spanish.</p>
                     <span class="article-cta">Read article →</span>
                 </div>
             </a>
 
             <a href="/blog/record-tutorial-videos-faster.html" class="article-card">
-                <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=800&q=80" alt="How to Record Tutorial Videos Faster (Without Sacrificing Quality)" class="article-thumb" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=800&q=80"
+                    alt="How to Record Tutorial Videos Faster (Without Sacrificing Quality)" class="article-thumb"
+                    loading="lazy">
                 <div class="article-body">
                     <div class="article-date">Feb 26, 2026</div>
                     <h2 class="article-title">How to Record Tutorial Videos Faster (Without Sacrificing Quality)</h2>
-                    <p class="article-desc">The prep takes forever, the retakes take forever, the editing takes forever. Here's a workflow to cut all three in half.</p>
+                    <p class="article-desc">The prep takes forever, the retakes take forever, the editing takes forever.
+                        Here's a workflow to cut all three in half.</p>
                     <span class="article-cta">Read article →</span>
                 </div>
             </a>
 
             <a href="/blog/stop-memorizing-your-script.html" class="article-card">
-                <img src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=800&q=80" alt="Stop Memorizing Your Script. Do This Instead." class="article-thumb" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=800&q=80"
+                    alt="Stop Memorizing Your Script. Do This Instead." class="article-thumb" loading="lazy">
                 <div class="article-body">
                     <div class="article-date">Feb 22, 2026</div>
                     <h2 class="article-title">Stop Memorizing Your Script. Do This Instead.</h2>
-                    <p class="article-desc">Memorizing a video script is almost always a waste of time. Here's why, and what actually works for delivering polished content.</p>
+                    <p class="article-desc">Memorizing a video script is almost always a waste of time. Here's why, and
+                        what actually works for delivering polished content.</p>
                     <span class="article-cta">Read article →</span>
                 </div>
             </a>
 
             <a href="/blog/teleprompter-for-zoom-invisible.html" class="article-card">
-                <img src="https://images.unsplash.com/photo-1587825140708-dfaf18c7f4f0?auto=format&fit=crop&w=800&q=80" alt="Teleprompter for Zoom That's Completely Invisible" class="article-thumb" loading="lazy">
+                <img src="https://images.pexels.com/photos/3205403/pexels-photo-3205403.jpeg?auto=format&fit=crop&w=800&q=80"
+                    alt="Teleprompter for Zoom That's Completely Invisible" class="article-thumb" loading="lazy">
                 <div class="article-body">
                     <div class="article-date">Mar 16, 2026</div>
                     <h2 class="article-title">Teleprompter for Zoom That's Completely Invisible</h2>
-                    <p class="article-desc">How to use an invisible teleprompter overlay during Zoom calls, sales demos, and webinars — so your notes never show up in screen share.</p>
+                    <p class="article-desc">How to use an invisible teleprompter overlay during Zoom calls, sales demos,
+                        and webinars — so your notes never show up in screen share.</p>
                     <span class="article-cta">Read article →</span>
                 </div>
             </a>
 
             <a href="/blog/video-interview-preparation-tips.html" class="article-card">
-                <img src="https://images.unsplash.com/photo-1573497019418-b400bb3ab074?auto=format&fit=crop&w=800&q=80" alt="Video Interview Prep Tips: How to Actually Be Ready" class="article-thumb" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1573497019418-b400bb3ab074?auto=format&fit=crop&w=800&q=80"
+                    alt="Video Interview Prep Tips: How to Actually Be Ready" class="article-thumb" loading="lazy">
                 <div class="article-body">
                     <div class="article-date">Feb 28, 2026</div>
                     <h2 class="article-title">Video Interview Prep Tips: How to Actually Be Ready</h2>
-                    <p class="article-desc">Pre-recorded video interviews are tricky. Here's how to prepare properly so you sound confident, concise, and professional.</p>
+                    <p class="article-desc">Pre-recorded video interviews are tricky. Here's how to prepare properly so
+                        you sound confident, concise, and professional.</p>
                     <span class="article-cta">Read article →</span>
                 </div>
             </a>
 
             <a href="/blog/voice-scrolling-solo-creators.html" class="article-card">
-                <img src="https://images.unsplash.com/photo-1622546773566-935303d3d119?auto=format&fit=crop&w=800&q=80" alt="Why Voice Scrolling is Essential for Solo Creators" class="article-thumb" loading="lazy">
+                <img src="https://images.pexels.com/photos/7230911/pexels-photo-7230911.jpeg?auto=format&fit=crop&w=800&q=80"
+                    alt="Why Voice Scrolling is Essential for Solo Creators" class="article-thumb" loading="lazy">
                 <div class="article-body">
                     <div class="article-date">Nov 20, 2025</div>
                     <h2 class="article-title">Why Voice Scrolling is Essential for Solo Creators</h2>
-                    <p class="article-desc">Hands-free operation, natural pausing, and reduced editing time — why voice-activated teleprompters are a solo creator's best friend.</p>
+                    <p class="article-desc">Hands-free operation, natural pausing, and reduced editing time — why
+                        voice-activated teleprompters are a solo creator's best friend.</p>
                     <span class="article-cta">Read article →</span>
                 </div>
             </a>
 
             <a href="/blog/voiceprompter-complete-guide-2025.html" class="article-card">
-                <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=800&q=80" alt="VoicePrompter Complete Guide: Everything You Need to Know" class="article-thumb" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=800&q=80"
+                    alt="VoicePrompter Complete Guide: Everything You Need to Know" class="article-thumb"
+                    loading="lazy">
                 <div class="article-body">
                     <div class="article-date">Mar 22, 2026</div>
                     <h2 class="article-title">VoicePrompter Complete Guide: Everything You Need to Know</h2>
-                    <p class="article-desc">The definitive guide to VoicePrompter — covering both the free web app and the native Mac app, setup, voice scrolling, mirror mode, and advanced features.</p>
+                    <p class="article-desc">The definitive guide to VoicePrompter — covering both the free web app and
+                        the native Mac app, setup, voice scrolling, mirror mode, and advanced features.</p>
                     <span class="article-cta">Read article →</span>
                 </div>
             </a>
 
             <a href="/blog/why-all-teleprompter-apps-suck.html" class="article-card">
-                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="Why All Teleprompter Apps Are Terrible (And What I Did About It)" class="article-thumb" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
+                    alt="Why All Teleprompter Apps Are Terrible (And What I Did About It)" class="article-thumb"
+                    loading="lazy">
                 <div class="article-body">
                     <div class="article-date">Mar 18, 2026</div>
                     <h2 class="article-title">Why All Teleprompter Apps Are Terrible (And What I Did About It)</h2>
-                    <p class="article-desc">A frustrated developer's deep dive into why every teleprompter app fails at the basics, and the journey to building one that actually works.</p>
+                    <p class="article-desc">A frustrated developer's deep dive into why every teleprompter app fails at
+                        the basics, and the journey to building one that actually works.</p>
                     <span class="article-cta">Read article →</span>
                 </div>
             </a>
 
             <a href="/blog/zoom-presentation-tips-sales-calls.html" class="article-card">
-                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="Zoom Presentation Tips for Sales Calls: Run a Clean Pitch" class="article-thumb" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80"
+                    alt="Zoom Presentation Tips for Sales Calls: Run a Clean Pitch" class="article-thumb"
+                    loading="lazy">
                 <div class="article-body">
                     <div class="article-date">Mar 2, 2026</div>
                     <h2 class="article-title">Zoom Presentation Tips for Sales Calls: Run a Clean Pitch</h2>
-                    <p class="article-desc">How to deliver a tight, professional sales pitch over Zoom — balancing natural conversation with structured messaging.</p>
+                    <p class="article-desc">How to deliver a tight, professional sales pitch over Zoom — balancing
+                        natural conversation with structured messaging.</p>
                     <span class="article-cta">Read article →</span>
                 </div>
             </a>
@@ -494,20 +610,34 @@
             <div class="footer-col">
                 <h4>Support the project</h4>
                 <a href="https://buymeacoffee.com/kosuvorov" target="_blank" rel="noopener">Buy me a coffee ☕</a>
-                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">Give a star on GitHub ⭐</a>
+                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">Give a star on
+                    GitHub ⭐</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>Made by <a href="https://instagram.com/kosuvorov" target="_blank" rel="noopener" style="color:var(--text-light);text-decoration:underline;text-underline-offset:2px;">Konstantin Suvorov</a> · © 2026 VoicePrompter</p>
+            <p>Made by <a href="https://instagram.com/kosuvorov" target="_blank" rel="noopener"
+                    style="color:var(--text-light);text-decoration:underline;text-underline-offset:2px;">Konstantin
+                    Suvorov</a> · © 2026 VoicePrompter</p>
             <div class="footer-social">
                 <a href="https://www.instagram.com/voiceprompter" target="_blank" rel="noopener" aria-label="Instagram">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
                 </a>
                 <a href="https://www.tiktok.com/@voiceprompter" target="_blank" rel="noopener" aria-label="TikTok">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.18 8.18 0 0 0 4.76 1.52V6.84a4.83 4.83 0 0 1-1-.15z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.18 8.18 0 0 0 4.76 1.52V6.84a4.83 4.83 0 0 1-1-.15z" />
+                    </svg>
                 </a>
                 <a href="https://www.youtube.com/@kosuvorov" target="_blank" rel="noopener" aria-label="YouTube">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                    </svg>
                 </a>
             </div>
         </div>
