@@ -7,6 +7,47 @@ import { initSpeech, startListening, stopListening } from './speech';
 import { saveToHistory, getHistory, clearAllHistory } from './storage';
 import { ScriptWord } from './types';
 import { enterVideoMode, exitVideoMode, toggleVideoLayout, startRecording, stopRecording } from './video';
+import { detect } from 'tinyld/light';
+
+const LANG_MAP: Record<string, string> = {
+    'en': 'en-US',
+    'es': 'es-ES',
+    'fr': 'fr-FR',
+    'de': 'de-DE',
+    'it': 'it-IT',
+    'pt': 'pt-PT',
+    'ru': 'ru-RU',
+    'ja': 'ja-JP',
+    'zh': 'zh-CN',
+    'ko': 'ko-KR',
+    'ar': 'ar-SA',
+    'nl': 'nl-NL',
+    'pl': 'pl-PL',
+    'uk': 'uk-UA',
+    'hi': 'hi-IN',
+    'tr': 'tr-TR',
+    'sv': 'sv-SE',
+    'da': 'da-DK',
+    'fi': 'fi-FI',
+    'no': 'no-NO'
+};
+
+function updateAutoDetectText(detectedVal: string | null) {
+    let text = 'Auto-detect';
+    if (detectedVal) {
+        const option = Array.from(els.languageSelect.options).find(o => o.value === detectedVal && o.value !== 'auto');
+        if (option) {
+            const cleanName = option.textContent?.replace(/\s*\([^)]*\)\s*/g, '').trim() || detectedVal;
+            text = `Automatic (${cleanName})`;
+        }
+    }
+    
+    // Update both select dropdowns
+    const autoOpt1 = els.languageSelect.querySelector('option[value="auto"]');
+    if (autoOpt1) autoOpt1.textContent = text;
+    const autoOpt2 = els.languageSelectSettings.querySelector('option[value="auto"]');
+    if (autoOpt2) autoOpt2.textContent = text;
+}
 
 // --- PWA Update Handling ---
 registerSW({ immediate: true });
@@ -26,14 +67,23 @@ function loadScript(text: string): void {
     saveToHistory(scriptText);
 
     // Detect language and update Speech Recognition
-    // If auto-detect was NOT explicitly requested (i.e. just loading script),
-    // use the manually selected language from dropdown.
-    // If user clicked "Auto-detect", that button's handler will update the dropdown,
-    // and then call loadScript, so we just trust the dropdown.
-    const selectedLang = els.languageSelect.value;
-    state.selectedLanguage = selectedLang;
+    state.languageSetting = els.languageSelect.value;
+    let targetLang = state.languageSetting;
+
+    if (targetLang === 'auto') {
+        const detection = detect(scriptText);
+        let mappedLang = LANG_MAP[detection] || 'en-US';
+        state.detectedLanguage = mappedLang;
+        targetLang = mappedLang;
+        updateAutoDetectText(mappedLang);
+    } else {
+        state.detectedLanguage = null;
+        updateAutoDetectText(null);
+    }
+
+    state.selectedLanguage = targetLang;
     if (state.recognition) {
-        state.recognition.lang = selectedLang;
+        state.recognition.lang = targetLang;
     }
 
 
@@ -291,15 +341,43 @@ els.stopSignToggle.addEventListener('change', (e) => {
     }
 });
 
-// Language Selector
-els.languageSelect.addEventListener('change', (e) => {
-    const lang = (e.target as HTMLSelectElement).value;
+function handleLanguageChange(lang: string) {
     (window as any).umami?.track('language-select', { language: lang });
-    state.selectedLanguage = lang;
-    if (state.recognition) {
-        state.recognition.lang = lang;
+    state.languageSetting = lang;
+    
+    // Sync both selects
+    els.languageSelect.value = lang;
+    els.languageSelectSettings.value = lang;
+
+    // if auto, re-detect if there is a script
+    if (lang === 'auto') {
+        if (els.inputScript.value.trim()) {
+            const detection = detect(els.inputScript.value.trim());
+            const mappedLang = LANG_MAP[detection] || 'en-US';
+            state.detectedLanguage = mappedLang;
+            state.selectedLanguage = mappedLang;
+            updateAutoDetectText(mappedLang);
+        } else {
+            state.selectedLanguage = 'en-US'; // fallback empty script
+            updateAutoDetectText(null);
+        }
+    } else {
+        state.selectedLanguage = lang;
+        state.detectedLanguage = null;
+        updateAutoDetectText(null);
     }
 
+    if (state.recognition) {
+        state.recognition.lang = state.selectedLanguage;
+    }
+}
+
+// Language Selector
+els.languageSelect.addEventListener('change', (e) => {
+    handleLanguageChange((e.target as HTMLSelectElement).value);
+});
+els.languageSelectSettings.addEventListener('change', (e) => {
+    handleLanguageChange((e.target as HTMLSelectElement).value);
 });
 
 // Preserve Formatting Toggle
@@ -412,6 +490,9 @@ function initializeUI(): void {
 
     // Render history
     renderHistoryList(getHistory(), loadScript);
+
+    els.languageSelect.value = state.languageSetting;
+    els.languageSelectSettings.value = state.languageSetting;
 
     // Apply all settings to DOM
     applySettings();

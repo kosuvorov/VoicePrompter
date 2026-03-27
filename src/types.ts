@@ -34,6 +34,8 @@ export interface AppState {
     isMirrored: boolean;
     isScreenRotated: boolean;
     selectedLanguage: string;
+    languageSetting: string;
+    detectedLanguage: string | null;
     config: AppConfig;
     // Video recording state
     isVideoMode: boolean;

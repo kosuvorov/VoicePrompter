@@ -155,6 +155,7 @@
             <div class="mt-4 landscape:mt-2 flex items-center justify-center gap-2 landscape:gap-1 flex-wrap">
                 <select id="languageSelect"
                     class="bg-neutral-800 border border-neutral-700 rounded px-3 py-1 landscape:px-2 landscape:py-0.5 text-sm landscape:text-xs text-neutral-300 focus:ring-2 focus:ring-[#FFBB00] focus:border-transparent outline-none">
+                    <option value="auto">Auto-detect</option>
                     <option value="en-US">English (US)</option>
                     <option value="es-ES">Spanish</option>
                     <option value="fr-FR">French</option>
@@ -211,7 +212,7 @@
         </div>
 
         <!-- Controls Overlay -->
-        <div class="absolute bottom-8 left-0 right-0 flex justify-center items-center gap-6 z-20 pointer-events-none">
+        <div class="fixed bottom-8 left-0 right-0 flex justify-center items-center gap-6 z-[9999] isolate pointer-events-none">
 
             <!-- Reset App -->
             <button id="resetAppBtn"
@@ -276,7 +277,7 @@
 
         <!-- Video Controls (hidden by default) -->
         <div id="videoControls"
-            class="hidden absolute top-4 left-0 right-0 flex justify-center items-center gap-3 z-30 pointer-events-none">
+            class="hidden fixed top-4 left-0 right-0 flex justify-center items-center gap-3 z-[9999] isolate pointer-events-none">
 
             <!-- Layout Toggle -->
             <button id="videoLayoutToggleBtn"
@@ -317,7 +318,7 @@
 
         <!-- Settings Panel -->
         <div id="settingsPanel"
-            class="hidden absolute top-4 right-4 z-30 w-80 max-h-[85vh] overflow-y-auto bg-neutral-900/95 backdrop-blur border border-neutral-800 rounded-xl shadow-2xl p-4 transition-all duration-200 origin-top-right no-scrollbar">
+            class="hidden fixed top-4 right-4 z-[9999] isolate w-80 max-h-[85vh] overflow-y-auto bg-neutral-900/95 backdrop-blur border border-neutral-800 rounded-xl shadow-2xl p-4 transition-all duration-200 origin-top-right no-scrollbar">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-sm font-bold text-neutral-400 uppercase tracking-wider">Display Settings</h3>
                 <button id="closeSettingsBtn"
@@ -329,6 +330,35 @@
                             d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
+            </div>
+
+            <!-- Speech Language -->
+            <div class="mb-4 pb-4 border-b border-neutral-800">
+                <label class="block text-xs text-neutral-400 mb-2">Dictation Language</label>
+                <select id="languageSelectSettings"
+                    class="w-full bg-neutral-800 border border-neutral-700 rounded px-3 py-2 text-sm text-neutral-300 focus:ring-2 focus:ring-[#FFBB00] focus:border-transparent outline-none">
+                    <option value="auto">Auto-detect</option>
+                    <option value="en-US">English (US)</option>
+                    <option value="es-ES">Spanish</option>
+                    <option value="fr-FR">French</option>
+                    <option value="de-DE">German</option>
+                    <option value="it-IT">Italian</option>
+                    <option value="pt-PT">Portuguese</option>
+                    <option value="ru-RU">Russian</option>
+                    <option value="ja-JP">Japanese</option>
+                    <option value="zh-CN">Chinese</option>
+                    <option value="ko-KR">Korean</option>
+                    <option value="ar-SA">Arabic</option>
+                    <option value="nl-NL">Dutch</option>
+                    <option value="pl-PL">Polish</option>
+                    <option value="uk-UA">Ukrainian</option>
+                    <option value="hi-IN">Hindi</option>
+                    <option value="tr-TR">Turkish</option>
+                    <option value="sv-SE">Swedish</option>
+                    <option value="da-DK">Danish</option>
+                    <option value="fi-FI">Finnish</option>
+                    <option value="no-NO">Norwegian</option>
+                </select>
             </div>
 
 

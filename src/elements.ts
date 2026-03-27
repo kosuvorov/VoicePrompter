@@ -50,6 +50,7 @@ export interface Elements {
     pasteScriptBtn: HTMLElement;
     // Language Selection
     languageSelect: HTMLSelectElement;
+    languageSelectSettings: HTMLSelectElement;
     // Toggles
     preserveFormattingToggle: HTMLInputElement;
     voiceCommandToggle: HTMLInputElement;
@@ -123,6 +124,7 @@ export function initElements(): void {
         pasteScriptBtn: document.getElementById('pasteScriptBtn')!,
         // Language Selection
         languageSelect: document.getElementById('languageSelect') as HTMLSelectElement,
+        languageSelectSettings: document.getElementById('languageSelectSettings') as HTMLSelectElement,
         // Toggles
         preserveFormattingToggle: document.getElementById('preserveFormattingToggle') as HTMLInputElement,
         voiceCommandToggle: document.getElementById('voiceCommandToggle') as HTMLInputElement,
