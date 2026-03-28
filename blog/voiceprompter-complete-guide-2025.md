@@ -26,7 +26,7 @@ Solo creators filming on a phone or tablet, or anyone who needs a free, privacy-
 
 ### Key Features
 
-**Voice-activated scrolling.** The app uses your device's built-in speech recognition to scroll the text as you speak. No manual control needed. It pauses when you stop, resumes when you start. Supports 34+ languages.
+**Voice-activated scrolling.** The app uses your device's built-in speech recognition to scroll the text as you speak. No manual control needed. It pauses when you stop, resumes when you start. Supports 34 languages.
 
 **Works 100% offline.** Once loaded in a browser or installed as a PWA, the app works without internet. Speech recognition happens on your device — nothing is sent to a server.
 

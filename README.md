@@ -9,7 +9,7 @@ A modern, privacy-focused voice-controlled teleprompter that works completely of
 - 🎙️ **Voice-Controlled Scrolling** - Navigate your script hands-free using voice commands
 - 🔒 **100% Private** - All processing happens on your device using native browser APIs
 - 📱 **Works Offline** - Install as a PWA (Progressive Web App) for offline access
-- 🌐 **Multi-Language Support** - Auto-detect or manually select from 34+ languages
+- 🌐 **Multi-Language Support** - Auto-detect or manually select from 34 languages
 - 🪞 **Mirror Mode** - Perfect for teleprompter glass setups (horizontal flip + 180° rotation)
 - 📱 **Screen Rotation** - 90° clockwise rotation for iOS devices in landscape mode
 - 🎥 **Built-in Video Recording** - Record yourself while reading with split-screen or overlay layouts

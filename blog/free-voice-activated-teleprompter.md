@@ -32,7 +32,7 @@ The reason it's free and open source is straightforward: I built it to solve my 
 
 Here's what it does:
 
-**Voice-activated scrolling using your device's built-in speech recognition.** It works via your browser's native speech API, which means the recognition happens on your device — no audio ever leaves your phone or laptop. It supports 34+ languages and doesn't require you to select a language manually (though you can).
+**Voice-activated scrolling using your device's built-in speech recognition.** It works via your browser's native speech API, which means the recognition happens on your device — no audio ever leaves your phone or laptop. It supports 34 languages and doesn't require you to select a language manually (though you can).
 
 **Works completely offline.** Once you've opened the app, you can turn off your WiFi and it keeps working. This is useful if you're filming somewhere with spotty internet, or if you just don't want to depend on a connection.
 

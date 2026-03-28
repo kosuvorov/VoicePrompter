@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VoicePrompter Complete Guide: Everything You Need to Know - VoicePrompter</title>
-    <meta name="description" content="The definitive guide to VoicePrompter — covering both the free web app and the native Mac app, setup, voice scrolling, mirror mode, and advanced features.">
+    <meta name="description"
+        content="The definitive guide to VoicePrompter — covering both the free web app and the native Mac app, setup, voice scrolling, mirror mode, and advanced features.">
     <meta name="keywords" content="teleprompter, video production">
 
     <!-- Canonical URL -->
@@ -15,16 +16,20 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://voiceprompter.app/blog/voiceprompter-complete-guide-2025.html">
     <meta property="og:title" content="VoicePrompter Complete Guide: Everything You Need to Know">
-    <meta property="og:description" content="The definitive guide to VoicePrompter — covering both the free web app and the native Mac app, setup, voice scrolling, mirror mode, and advanced features.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=800&q=80">
+    <meta property="og:description"
+        content="The definitive guide to VoicePrompter — covering both the free web app and the native Mac app, setup, voice scrolling, mirror mode, and advanced features.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=800&q=80">
     <meta property="og:site_name" content="VoicePrompter">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://voiceprompter.app/blog/voiceprompter-complete-guide-2025.html">
     <meta name="twitter:title" content="VoicePrompter Complete Guide: Everything You Need to Know">
-    <meta name="twitter:description" content="The definitive guide to VoicePrompter — covering both the free web app and the native Mac app, setup, voice scrolling, mirror mode, and advanced features.">
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=800&q=80">
+    <meta name="twitter:description"
+        content="The definitive guide to VoicePrompter — covering both the free web app and the native Mac app, setup, voice scrolling, mirror mode, and advanced features.">
+    <meta name="twitter:image"
+        content="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=800&q=80">
 
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -347,147 +352,199 @@
             </div>
 
             <div class="article-content">
-                <p>VoicePrompter is a voice-activated teleprompter available in two versions: a free open-source web app at <a href="https://voiceprompter.app">voiceprompter.app</a>, and a native macOS app on the <a href="https://apps.apple.com/pl/app/voiceprompter/id6758573080">Mac App Store</a>. This guide covers both.</p>
-<h2>Why VoicePrompter Exists</h2>
-<p>I spent five years looking for a teleprompter app that actually worked for my use cases — recording videos, demos, presentations — and couldn&#39;t find one. The apps were either manual scroll (useless solo), had unreliable voice recognition, didn&#39;t support the languages I needed, or had some deal-breaker missing feature like no mirror mode or no mobile design.</p>
-<p>So I built one. The web app is free and open source because the core functionality — voice-activated scrolling, offline capability, mirror mode — shouldn&#39;t cost anything. The Mac app is paid because building a native macOS app with custom voice recognition algorithms, an invisible overlay mode, and proper system integration is a different level of engineering.</p>
-<p>You can see the web app source code on <a href="https://github.com/kosuvorov/VoicePrompter">GitHub</a>.</p>
-<hr>
-<h2>Part 1: VoicePrompter Web App (Free)</h2>
-<h3>Who It&#39;s For</h3>
-<p>Solo creators filming on a phone or tablet, or anyone who needs a free, privacy-first, offline teleprompter on any device.</p>
-<h3>Key Features</h3>
-<p><strong>Voice-activated scrolling.</strong> The app uses your device&#39;s built-in speech recognition to scroll the text as you speak. No manual control needed. It pauses when you stop, resumes when you start. Supports 20+ languages.</p>
-<p><strong>Works 100% offline.</strong> Once loaded in a browser or installed as a PWA, the app works without internet. Speech recognition happens on your device — nothing is sent to a server.</p>
-<p><strong>Installable as a PWA.</strong> On iOS, tap Share → Add to Home Screen. On Android, tap the browser menu → Install App. On desktop Chrome, click the install icon in the address bar. It works and launches like a native app.</p>
-<p><strong>Mirror mode.</strong> Flips the text horizontally for use with teleprompter glass hardware.</p>
-<p><strong>Forced landscape on iOS.</strong> Locks the app to landscape orientation even though iOS normally prevents web apps from doing this.</p>
-<p><strong>Active word highlighting.</strong> The currently-recognized word is highlighted as you speak.</p>
-<p><strong>Touch-to-jump.</strong> Tap any word in the script and the prompter snaps to that position.</p>
-<p><strong>&quot;Prompter restart&quot; voice command.</strong> Say &quot;prompter restart&quot; to reset the script to the beginning, hands-free.</p>
-<p><strong>Visual stop signs.</strong> Add pause indicators to your script that show as visual markers during playback.</p>
-<p><strong>Bracket handling.</strong> Text in brackets like <code>[pause]</code> or <code>[smile]</code> is displayed for you but skipped by the voice recognition engine — so you can write stage directions into your script.</p>
-<p><strong>Script history.</strong> Recent scripts are saved in local storage on your device. No account, no cloud, just private local storage.</p>
-<p><strong>Quick copy/paste/clear.</strong> One-tap paste from clipboard, one-tap copy to clipboard, one-tap clear.</p>
-<p><strong>Deep appearance customization.</strong> Font size, line spacing, paragraph spacing, margins, alignment, dark/light/custom themes.</p>
-<h3>How to Get Started</h3>
-<ol>
-<li>Go to <a href="https://voiceprompter.app">voiceprompter.app</a> on your phone or browser.</li>
-<li>Tap &quot;Paste to Replace&quot; and paste your script.</li>
-<li>Adjust font size until the text is comfortably readable at your filming distance.</li>
-<li>Select your language in settings if it&#39;s not English.</li>
-<li>Tap the microphone button to start voice recognition.</li>
-<li>Start talking. The text follows.</li>
-</ol>
-<p>No sign-up. No account. No payment.</p>
-<hr>
-<h2>Part 2: VoicePrompter for Mac (Paid)</h2>
-<h3>Who It&#39;s For</h3>
-<p>Professionals who record demos, webinars, tutorials, podcasts, product videos, or do live video calls (sales, presentations, online meetings) on a Mac.</p>
-<h3>Key Features</h3>
-<p><strong>Invisible overlay mode.</strong> The app window is a transparent overlay that floats on your screen. Through macOS screen capture exclusion APIs, it is completely hidden from Zoom, Teams, Google Meet, OBS, QuickTime screen recordings, and all screen sharing. You see it; your audience doesn&#39;t.</p>
-<p><strong>Always-on-top.</strong> Stays above all other apps and windows, including full-screen applications and full-screen presentations. You never lose the teleprompter by switching to a different app.</p>
-<p><strong>60+ languages with auto-detection.</strong> Uses Apple&#39;s native on-device speech recognition (same engine as Siri and macOS dictation). Language is automatically detected from your pasted text using <code>NLLanguageRecognizer</code> — no manual selection needed.</p>
-<p><strong>Elite voice recognition algorithm.</strong> Custom-built word matching algorithm specifically designed for teleprompter use. More reliable than most third-party solutions for handling natural speech patterns, pauses, mispronunciations, and partial words.</p>
-<p><strong>In-window script editing.</strong> Edit your script directly in the teleprompter window without closing the overlay. No need to paste from external editors for minor changes.</p>
-<p><strong>Menu bar integration.</strong> Lives in your menu bar. Launch scripts from clipboard, access recent scripts, adjust settings — all without a separate app window cluttering your workspace.</p>
-<p><strong>macOS Services integration.</strong> Launch your script directly from any text editor via macOS Services — right-click a selected text and send it to VoicePrompter instantly.</p>
-<p><strong>Bracket handling.</strong> Same as the web app — stage directions in brackets are shown to you but not matched by voice recognition.</p>
-<p><strong>Script history (up to 100 scripts).</strong> Recent scripts stored locally.</p>
-<p><strong>Privacy-first.</strong> All recognition is on-device. No internet required for voice recognition.</p>
-<p><strong>Tiny.</strong> The whole app is 2 megabytes. Launches instantly.</p>
-<h3>Pricing</h3>
-<ul>
-<li>$3.99/month or $39.99/year</li>
-<li>Free tier: 3 custom scripts + unlimited demo script</li>
-<li>Available in 175 countries via the <a href="https://apps.apple.com/pl/app/voiceprompter/id6758573080">Mac App Store</a></li>
-</ul>
-<h3>How to Get Started</h3>
-<ol>
-<li>Install from the <a href="https://apps.apple.com/pl/app/voiceprompter/id6758573080">Mac App Store</a>.</li>
-<li>The app appears in your menu bar on first launch.</li>
-<li>Copy a script to your clipboard.</li>
-<li>Click the menu bar icon → &quot;Paste from Clipboard.&quot;</li>
-<li>Resize and reposition the overlay window — place it below your camera.</li>
-<li>Click the microphone button to start voice recognition.</li>
-<li>Start talking.</li>
-</ol>
-<hr>
-<h2>Choosing Between the Two</h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Web App</th>
-<th>Mac App</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Price</td>
-<td>Free</td>
-<td>$3.99/mo</td>
-</tr>
-<tr>
-<td>Platform</td>
-<td>Any device, any browser</td>
-<td>macOS only</td>
-</tr>
-<tr>
-<td>Languages</td>
-<td>20+</td>
-<td>60+</td>
-</tr>
-<tr>
-<td>Auto language detection</td>
-<td>No</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Invisible in screen share</td>
-<td>No</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Always-on-top</td>
-<td>No</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Offline</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>On-device recognition</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Mirror mode</td>
-<td>Yes</td>
-<td>No (not needed)</td>
-</tr>
-</tbody></table>
-<p>If you&#39;re filming on a phone or need a free tool: web app.</p>
-<p>If you&#39;re on a Mac and record professionally, do demos, webinars, presentations, or sales calls: Mac app.</p>
-<hr>
-<h2>More Resources</h2>
-<ul>
-<li><a href="./why-all-teleprompter-apps-suck.html">Why All Teleprompter Apps Are Terrible (And What I Did About It)</a></li>
-<li><a href="./how-to-use-teleprompter-naturally.html">How to Use a Teleprompter Naturally</a></li>
-<li><a href="./how-to-read-script-without-looking-like-reading.html">How to Read a Script Without Looking Like You&#39;re Reading</a></li>
-<li><a href="./teleprompter-for-zoom-invisible.html">Teleprompter for Zoom — Completely Invisible</a></li>
-<li><a href="./multilingual-teleprompter-60-languages.html">Teleprompter in 60+ Languages</a></li>
-<li><a href="./free-voice-activated-teleprompter.html">Free Voice-Activated Teleprompter for Solo Creators</a></li>
-</ul>
-<hr>
-<p><strong>Related articles:</strong></p>
-<ul>
-<li><a href="./best-teleprompter-app-for-mac.html">Best Teleprompter App for Mac</a></li>
-<li><a href="./free-voice-activated-teleprompter.html">Free Voice-Activated Teleprompter for Solo Creators</a></li>
-<li><a href="./how-to-use-teleprompter-naturally.html">How to Use a Teleprompter Naturally</a></li>
-<li><a href="./multilingual-teleprompter-60-languages.html">Teleprompter in 60+ Languages</a></li>
-</ul>
+                <p>VoicePrompter is a voice-activated teleprompter available in two versions: a free open-source web app
+                    at <a href="https://voiceprompter.app">voiceprompter.app</a>, and a native macOS app on the <a
+                        href="https://apps.apple.com/pl/app/voiceprompter/id6758573080">Mac App Store</a>. This guide
+                    covers both.</p>
+                <h2>Why VoicePrompter Exists</h2>
+                <p>I spent five years looking for a teleprompter app that actually worked for my use cases — recording
+                    videos, demos, presentations — and couldn&#39;t find one. The apps were either manual scroll
+                    (useless solo), had unreliable voice recognition, didn&#39;t support the languages I needed, or had
+                    some deal-breaker missing feature like no mirror mode or no mobile design.</p>
+                <p>So I built one. The web app is free and open source because the core functionality — voice-activated
+                    scrolling, offline capability, mirror mode — shouldn&#39;t cost anything. The Mac app is paid
+                    because building a native macOS app with custom voice recognition algorithms, an invisible overlay
+                    mode, and proper system integration is a different level of engineering.</p>
+                <p>You can see the web app source code on <a
+                        href="https://github.com/kosuvorov/VoicePrompter">GitHub</a>.</p>
+                <hr>
+                <h2>Part 1: VoicePrompter Web App (Free)</h2>
+                <h3>Who It&#39;s For</h3>
+                <p>Solo creators filming on a phone or tablet, or anyone who needs a free, privacy-first, offline
+                    teleprompter on any device.</p>
+                <h3>Key Features</h3>
+                <p><strong>Voice-activated scrolling.</strong> The app uses your device&#39;s built-in speech
+                    recognition to scroll the text as you speak. No manual control needed. It pauses when you stop,
+                    resumes when you start. Supports 34 languages.</p>
+                <p><strong>Works 100% offline.</strong> Once loaded in a browser or installed as a PWA, the app works
+                    without internet. Speech recognition happens on your device — nothing is sent to a server.</p>
+                <p><strong>Installable as a PWA.</strong> On iOS, tap Share → Add to Home Screen. On Android, tap the
+                    browser menu → Install App. On desktop Chrome, click the install icon in the address bar. It works
+                    and launches like a native app.</p>
+                <p><strong>Mirror mode.</strong> Flips the text horizontally for use with teleprompter glass hardware.
+                </p>
+                <p><strong>Forced landscape on iOS.</strong> Locks the app to landscape orientation even though iOS
+                    normally prevents web apps from doing this.</p>
+                <p><strong>Active word highlighting.</strong> The currently-recognized word is highlighted as you speak.
+                </p>
+                <p><strong>Touch-to-jump.</strong> Tap any word in the script and the prompter snaps to that position.
+                </p>
+                <p><strong>&quot;Prompter restart&quot; voice command.</strong> Say &quot;prompter restart&quot; to
+                    reset the script to the beginning, hands-free.</p>
+                <p><strong>Visual stop signs.</strong> Add pause indicators to your script that show as visual markers
+                    during playback.</p>
+                <p><strong>Bracket handling.</strong> Text in brackets like <code>[pause]</code> or <code>[smile]</code>
+                    is displayed for you but skipped by the voice recognition engine — so you can write stage directions
+                    into your script.</p>
+                <p><strong>Script history.</strong> Recent scripts are saved in local storage on your device. No
+                    account, no cloud, just private local storage.</p>
+                <p><strong>Quick copy/paste/clear.</strong> One-tap paste from clipboard, one-tap copy to clipboard,
+                    one-tap clear.</p>
+                <p><strong>Deep appearance customization.</strong> Font size, line spacing, paragraph spacing, margins,
+                    alignment, dark/light/custom themes.</p>
+                <h3>How to Get Started</h3>
+                <ol>
+                    <li>Go to <a href="https://voiceprompter.app">voiceprompter.app</a> on your phone or browser.</li>
+                    <li>Tap &quot;Paste to Replace&quot; and paste your script.</li>
+                    <li>Adjust font size until the text is comfortably readable at your filming distance.</li>
+                    <li>Select your language in settings if it&#39;s not English.</li>
+                    <li>Tap the microphone button to start voice recognition.</li>
+                    <li>Start talking. The text follows.</li>
+                </ol>
+                <p>No sign-up. No account. No payment.</p>
+                <hr>
+                <h2>Part 2: VoicePrompter for Mac (Paid)</h2>
+                <h3>Who It&#39;s For</h3>
+                <p>Professionals who record demos, webinars, tutorials, podcasts, product videos, or do live video calls
+                    (sales, presentations, online meetings) on a Mac.</p>
+                <h3>Key Features</h3>
+                <p><strong>Invisible overlay mode.</strong> The app window is a transparent overlay that floats on your
+                    screen. Through macOS screen capture exclusion APIs, it is completely hidden from Zoom, Teams,
+                    Google Meet, OBS, QuickTime screen recordings, and all screen sharing. You see it; your audience
+                    doesn&#39;t.</p>
+                <p><strong>Always-on-top.</strong> Stays above all other apps and windows, including full-screen
+                    applications and full-screen presentations. You never lose the teleprompter by switching to a
+                    different app.</p>
+                <p><strong>60+ languages with auto-detection.</strong> Uses Apple&#39;s native on-device speech
+                    recognition (same engine as Siri and macOS dictation). Language is automatically detected from your
+                    pasted text using <code>NLLanguageRecognizer</code> — no manual selection needed.</p>
+                <p><strong>Elite voice recognition algorithm.</strong> Custom-built word matching algorithm specifically
+                    designed for teleprompter use. More reliable than most third-party solutions for handling natural
+                    speech patterns, pauses, mispronunciations, and partial words.</p>
+                <p><strong>In-window script editing.</strong> Edit your script directly in the teleprompter window
+                    without closing the overlay. No need to paste from external editors for minor changes.</p>
+                <p><strong>Menu bar integration.</strong> Lives in your menu bar. Launch scripts from clipboard, access
+                    recent scripts, adjust settings — all without a separate app window cluttering your workspace.</p>
+                <p><strong>macOS Services integration.</strong> Launch your script directly from any text editor via
+                    macOS Services — right-click a selected text and send it to VoicePrompter instantly.</p>
+                <p><strong>Bracket handling.</strong> Same as the web app — stage directions in brackets are shown to
+                    you but not matched by voice recognition.</p>
+                <p><strong>Script history (up to 100 scripts).</strong> Recent scripts stored locally.</p>
+                <p><strong>Privacy-first.</strong> All recognition is on-device. No internet required for voice
+                    recognition.</p>
+                <p><strong>Tiny.</strong> The whole app is 2 megabytes. Launches instantly.</p>
+                <h3>Pricing</h3>
+                <ul>
+                    <li>$3.99/month or $39.99/year</li>
+                    <li>Free tier: 3 custom scripts + unlimited demo script</li>
+                    <li>Available in 175 countries via the <a
+                            href="https://apps.apple.com/pl/app/voiceprompter/id6758573080">Mac App Store</a></li>
+                </ul>
+                <h3>How to Get Started</h3>
+                <ol>
+                    <li>Install from the <a href="https://apps.apple.com/pl/app/voiceprompter/id6758573080">Mac App
+                            Store</a>.</li>
+                    <li>The app appears in your menu bar on first launch.</li>
+                    <li>Copy a script to your clipboard.</li>
+                    <li>Click the menu bar icon → &quot;Paste from Clipboard.&quot;</li>
+                    <li>Resize and reposition the overlay window — place it below your camera.</li>
+                    <li>Click the microphone button to start voice recognition.</li>
+                    <li>Start talking.</li>
+                </ol>
+                <hr>
+                <h2>Choosing Between the Two</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Web App</th>
+                            <th>Mac App</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Price</td>
+                            <td>Free</td>
+                            <td>$3.99/mo</td>
+                        </tr>
+                        <tr>
+                            <td>Platform</td>
+                            <td>Any device, any browser</td>
+                            <td>macOS only</td>
+                        </tr>
+                        <tr>
+                            <td>Languages</td>
+                            <td>34</td>
+                            <td>60+</td>
+                        </tr>
+                        <tr>
+                            <td>Auto language detection</td>
+                            <td>No</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Invisible in screen share</td>
+                            <td>No</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Always-on-top</td>
+                            <td>No</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Offline</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>On-device recognition</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Mirror mode</td>
+                            <td>Yes</td>
+                            <td>No (not needed)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>If you&#39;re filming on a phone or need a free tool: web app.</p>
+                <p>If you&#39;re on a Mac and record professionally, do demos, webinars, presentations, or sales calls:
+                    Mac app.</p>
+                <hr>
+                <h2>More Resources</h2>
+                <ul>
+                    <li><a href="./why-all-teleprompter-apps-suck.html">Why All Teleprompter Apps Are Terrible (And What
+                            I Did About It)</a></li>
+                    <li><a href="./how-to-use-teleprompter-naturally.html">How to Use a Teleprompter Naturally</a></li>
+                    <li><a href="./how-to-read-script-without-looking-like-reading.html">How to Read a Script Without
+                            Looking Like You&#39;re Reading</a></li>
+                    <li><a href="./teleprompter-for-zoom-invisible.html">Teleprompter for Zoom — Completely
+                            Invisible</a></li>
+                    <li><a href="./multilingual-teleprompter-60-languages.html">Teleprompter in 60+ Languages</a></li>
+                    <li><a href="./free-voice-activated-teleprompter.html">Free Voice-Activated Teleprompter for Solo
+                            Creators</a></li>
+                </ul>
+                <hr>
+                <p><strong>Related articles:</strong></p>
+                <ul>
+                    <li><a href="./best-teleprompter-app-for-mac.html">Best Teleprompter App for Mac</a></li>
+                    <li><a href="./free-voice-activated-teleprompter.html">Free Voice-Activated Teleprompter for Solo
+                            Creators</a></li>
+                    <li><a href="./how-to-use-teleprompter-naturally.html">How to Use a Teleprompter Naturally</a></li>
+                    <li><a href="./multilingual-teleprompter-60-languages.html">Teleprompter in 60+ Languages</a></li>
+                </ul>
 
             </div>
 
@@ -523,20 +580,34 @@
             <div class="footer-col">
                 <h4>Support the project</h4>
                 <a href="https://buymeacoffee.com/kosuvorov" target="_blank" rel="noopener">Buy me a coffee ☕</a>
-                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">Give a star on GitHub ⭐</a>
+                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">Give a star on
+                    GitHub ⭐</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>Made by <a href="https://instagram.com/kosuvorov" target="_blank" rel="noopener" style="color:var(--text-light);text-decoration:underline;text-underline-offset:2px;">Konstantin Suvorov</a> · © 2026 VoicePrompter</p>
+            <p>Made by <a href="https://instagram.com/kosuvorov" target="_blank" rel="noopener"
+                    style="color:var(--text-light);text-decoration:underline;text-underline-offset:2px;">Konstantin
+                    Suvorov</a> · © 2026 VoicePrompter</p>
             <div class="footer-social">
                 <a href="https://www.instagram.com/voiceprompter" target="_blank" rel="noopener" aria-label="Instagram">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
                 </a>
                 <a href="https://www.tiktok.com/@voiceprompter" target="_blank" rel="noopener" aria-label="TikTok">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.18 8.18 0 0 0 4.76 1.52V6.84a4.83 4.83 0 0 1-1-.15z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.18 8.18 0 0 0 4.76 1.52V6.84a4.83 4.83 0 0 1-1-.15z" />
+                    </svg>
                 </a>
                 <a href="https://www.youtube.com/@kosuvorov" target="_blank" rel="noopener" aria-label="YouTube">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                    </svg>
                 </a>
             </div>
         </div>

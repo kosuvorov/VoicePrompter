@@ -38,9 +38,9 @@ This sounds like a small quality-of-life feature. In a real recording workflow, 
 
 **Language learners creating content.** This is an unusual but real use case. If you're learning a language and want to create content in it, a teleprompter that correctly handles the phonetics of that language is significantly more useful than one that's guessing.
 
-## The Web App: 34+ Languages
+## The Web App: 34 Languages
 
-The free [VoicePrompter web app](https://voiceprompter.app) at voiceprompter.app supports 34+ languages via the browser's native Web Speech API. This covers all major world languages, and the web app also includes automatic language detection — just paste your script and it detects the language for you. You can also select manually from the settings.
+The free [VoicePrompter web app](https://voiceprompter.app) at voiceprompter.app supports 34 languages via the browser's native Web Speech API. This covers all major world languages, and the web app also includes automatic language detection — just paste your script and it detects the language for you. You can also select manually from the settings.
 
 For the full 60+ language support and automatic detection, you need [VoicePrompter for Mac](https://apps.apple.com/pl/app/voiceprompter/id6758573080).
 
