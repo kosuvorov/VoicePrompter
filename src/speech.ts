@@ -10,87 +10,127 @@ let lastMatchedWord = '';
 let lastProcessedResultIndex = -1;
 let speechBlocked = false;
 
+// Arc / silent-fail detection
+let isFirstStart = true;
+let gotResultOnFirstStart = false;
+
+function showBrowserWarning() {
+    els.browserWarning.classList.remove('hidden');
+}
+
 export function initSpeech(): void {
     const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
 
     if (!SpeechRecognition) {
-        els.browserWarning.classList.remove('hidden');
-    } else {
-        state.recognition = new SpeechRecognition();
-        state.recognition.continuous = true;
-        state.recognition.interimResults = true;
-        state.recognition.lang = state.selectedLanguage;
+        // No API at all — Firefox, older browsers
+        showBrowserWarning();
+        return;
+    }
 
-        state.recognition.onresult = (event: any) => {
-            // --- Voice Commands: only on FINALIZED results ---
-            // This ensures each command fires exactly once per utterance
-            if (state.config.voiceCommandsEnabled) {
-                for (let i = event.resultIndex; i < event.results.length; i++) {
-                    if (event.results[i].isFinal && i > lastProcessedResultIndex) {
-                        lastProcessedResultIndex = i;
-                        const finalText = event.results[i][0].transcript.trim().toLowerCase();
-                        if (finalText.includes('prompter restart')) {
-                            restartScript();
-                            lastMatchedWord = '';
-                            return;
-                        }
-                        if (finalText.includes('prompter back')) {
-                            navigateSentences('back', 2);
-                            lastMatchedWord = '';
-                            return;
-                        }
-                        if (finalText.includes('prompter forward')) {
-                            navigateSentences('forward', 2);
-                            lastMatchedWord = '';
-                            return;
-                        }
+    state.recognition = new SpeechRecognition();
+    state.recognition.continuous = true;
+    state.recognition.interimResults = true;
+    state.recognition.lang = state.selectedLanguage;
+
+    state.recognition.onresult = (event: any) => {
+        // Mark that we got real results on first start (rules out Arc silent fail)
+        if (isFirstStart) {
+            gotResultOnFirstStart = true;
+        }
+
+        // --- Voice Commands: only on FINALIZED results ---
+        // This ensures each command fires exactly once per utterance
+        if (state.config.voiceCommandsEnabled) {
+            for (let i = event.resultIndex; i < event.results.length; i++) {
+                if (event.results[i].isFinal && i > lastProcessedResultIndex) {
+                    lastProcessedResultIndex = i;
+                    const finalText = event.results[i][0].transcript.trim().toLowerCase();
+                    if (finalText.includes('prompter restart')) {
+                        restartScript();
+                        lastMatchedWord = '';
+                        return;
+                    }
+                    if (finalText.includes('prompter back')) {
+                        navigateSentences('back', 2);
+                        lastMatchedWord = '';
+                        return;
+                    }
+                    if (finalText.includes('prompter forward')) {
+                        navigateSentences('forward', 2);
+                        lastMatchedWord = '';
+                        return;
                     }
                 }
             }
+        }
 
-            // --- Word matching: uses all results (interim + final) for responsiveness ---
-            let transcript = '';
-            for (let i = event.resultIndex; i < event.results.length; i++) {
-                transcript += event.results[i][0].transcript;
-            }
-            const spokenWords = transcript.trim().toLowerCase().split(/\s+/);
-            matchWords(spokenWords.slice(-5));
-        };
+        // --- Word matching: uses all results (interim + final) for responsiveness ---
+        let transcript = '';
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+            transcript += event.results[i][0].transcript;
+        }
+        const spokenWords = transcript.trim().toLowerCase().split(/\s+/);
+        matchWords(spokenWords.slice(-5));
+    };
 
-        state.recognition.onerror = (e: any) => {
-            console.log('error:', e.error, e.message);
-            if (e.error === 'aborted') {
-                speechBlocked = true;
-                
-                // Modern iPad detection
-                const isIPad = navigator.userAgent.includes('iPad') || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 2);
-                const isPWA = (window.navigator as any).standalone === true || window.matchMedia('(display-mode: standalone)').matches;
+    state.recognition.onerror = (e: any) => {
+        console.log('error:', e.error, e.message);
 
-                if (isIPad && isPWA) {
-                    els.ipadPwaWarning.classList.remove('hidden');
-                }
-
-                state.isListening = false;
-                updateMicUI(false);
-                return;
-            }
-        };
-
-        state.recognition.onend = () => {
-            console.log('ended');
-            if (speechBlocked) return;
-            if (state.isListening) {
-                lastProcessedResultIndex = -1; // Reset for new recognition session
-                try {
-                    state.recognition.start();
-                } catch (error) {
-                    console.error('Failed to restart speech recognition:', error);
-                }
+        // Arc / silent-fail detection: error fires immediately on first start with no results
+        if (isFirstStart && !gotResultOnFirstStart) {
+            isFirstStart = false;
+            if (e.error === 'not-allowed' || e.error === 'service-not-allowed' || e.error === 'audio-capture') {
+                // These are legitimate permission errors, not compatibility issues — don't show browser warning
             } else {
-                updateMicUI(false);
+                showBrowserWarning();
             }
-        };
-    }
+            state.isListening = false;
+            updateMicUI(false);
+            return;
+        }
+
+        if (e.error === 'aborted') {
+            speechBlocked = true;
+
+            // Modern iPad detection
+            const isIPad = navigator.userAgent.includes('iPad') || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 2);
+            const isPWA = (window.navigator as any).standalone === true || window.matchMedia('(display-mode: standalone)').matches;
+
+            if (isIPad && isPWA) {
+                els.ipadPwaWarning.classList.remove('hidden');
+            }
+
+            state.isListening = false;
+            updateMicUI(false);
+            return;
+        }
+    };
+
+    state.recognition.onend = () => {
+        console.log('ended');
+
+        // Arc / silent-fail detection: ended immediately on first start with no results and no error
+        if (isFirstStart && !gotResultOnFirstStart) {
+            isFirstStart = false;
+            showBrowserWarning();
+            state.isListening = false;
+            updateMicUI(false);
+            return;
+        }
+        isFirstStart = false;
+
+        if (speechBlocked) return;
+        if (state.isListening) {
+            lastProcessedResultIndex = -1; // Reset for new recognition session
+            try {
+                state.recognition.start();
+            } catch (error) {
+                console.error('Failed to restart speech recognition:', error);
+            }
+        } else {
+            updateMicUI(false);
+        }
+    };
 }
 
 export function startListening(): void {
