@@ -257,7 +257,10 @@ export function renderHistoryList(history: HistoryItem[], onLoad: (text: string)
         div.innerHTML = `
             <div class="flex flex-col text-left overflow-hidden mr-2">
                 <span class="text-gray-300 text-sm font-medium truncate font-mono">${item.preview}</span>
-                <span class="text-gray-500 text-xs">${item.date}</span>
+                <div class="flex items-center gap-2">
+                    <span class="text-gray-500 text-xs">${item.date}</span>
+                    ${item.tag ? `<span class="text-[9px] font-bold bg-[#FFBB00]/10 text-[#FFBB00] px-1.5 py-0.5 rounded-full uppercase tracking-wider">${item.tag}</span>` : ''}
+                </div>
             </div>
             <div class="flex-shrink-0">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-blue-500 opacity-0 group-hover:opacity-100 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>

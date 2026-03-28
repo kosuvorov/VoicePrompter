@@ -51,4 +51,5 @@ export interface HistoryItem {
     text: string;
     preview: string;
     date: string;
+    tag?: string;
 }

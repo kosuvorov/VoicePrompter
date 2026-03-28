@@ -26,7 +26,7 @@ Solo creators filming on a phone or tablet, or anyone who needs a free, privacy-
 
 ### Key Features
 
-**Voice-activated scrolling.** The app uses your device's built-in speech recognition to scroll the text as you speak. No manual control needed. It pauses when you stop, resumes when you start. Supports 20+ languages.
+**Voice-activated scrolling.** The app uses your device's built-in speech recognition to scroll the text as you speak. No manual control needed. It pauses when you stop, resumes when you start. Supports 34+ languages.
 
 **Works 100% offline.** Once loaded in a browser or installed as a PWA, the app works without internet. Speech recognition happens on your device — nothing is sent to a server.
 
@@ -119,8 +119,8 @@ Professionals who record demos, webinars, tutorials, podcasts, product videos, o
 |---|---|---|
 | Price | Free | $3.99/mo |
 | Platform | Any device, any browser | macOS only |
-| Languages | 20+ | 60+ |
-| Auto language detection | No | Yes |
+| Languages | 34+ | 60+ |
+| Auto language detection | Yes | Yes |
 | Invisible in screen share | No | Yes |
 | Always-on-top | No | Yes |
 | Offline | Yes | Yes |

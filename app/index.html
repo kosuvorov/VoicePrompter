@@ -97,6 +97,24 @@
         </div>
     </div>
 
+    <!-- Language Detection Warning Toast -->
+    <div id="langDetectionWarning"
+        class="hidden fixed inset-0 flex items-center justify-center z-[10001] pointer-events-none">
+        <div class="pointer-events-auto max-w-xs w-[calc(100%-2rem)] px-4 py-3 bg-neutral-900 border border-[#FFBB00]/40 rounded-xl shadow-2xl shadow-black/50 flex items-start gap-3 transition-all duration-300">
+            <svg class="flex-shrink-0 w-4 h-4 text-[#FFBB00] mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+            </svg>
+            <div class="flex-1">
+                <p class="text-sm text-neutral-200 leading-snug">Language couldn't be detected confidently. Please select it manually in the settings.</p>
+            </div>
+            <button id="dismissLangWarningBtn" class="flex-shrink-0 text-neutral-500 hover:text-neutral-200 transition-colors ml-1 -mt-0.5">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
     <!-- Setup Screen -->
     <div id="setupScreen" class="flex flex-col max-w-4xl mx-auto p-4 md:p-8 landscape:p-2">
         <header class="mb-8 landscape:mb-3 text-center relative">
@@ -169,31 +187,8 @@
             </div>
 
             <!-- Language Selector -->
-            <div class="mt-4 landscape:mt-2 flex items-center justify-center gap-2 landscape:gap-1 flex-wrap">
-                <select id="languageSelect"
-                    class="bg-neutral-800 border border-neutral-700 rounded px-3 py-1 landscape:px-2 landscape:py-0.5 text-sm landscape:text-xs text-neutral-300 focus:ring-2 focus:ring-[#FFBB00] focus:border-transparent outline-none">
-                    <option value="auto">Auto-detect</option>
-                    <option value="en-US">English (US)</option>
-                    <option value="es-ES">Spanish</option>
-                    <option value="fr-FR">French</option>
-                    <option value="de-DE">German</option>
-                    <option value="it-IT">Italian</option>
-                    <option value="pt-PT">Portuguese</option>
-                    <option value="ru-RU">Russian</option>
-                    <option value="ja-JP">Japanese</option>
-                    <option value="zh-CN">Chinese</option>
-                    <option value="ko-KR">Korean</option>
-                    <option value="ar-SA">Arabic</option>
-                    <option value="nl-NL">Dutch</option>
-                    <option value="pl-PL">Polish</option>
-                    <option value="uk-UA">Ukrainian</option>
-                    <option value="hi-IN">Hindi</option>
-                    <option value="tr-TR">Turkish</option>
-                    <option value="sv-SE">Swedish</option>
-                    <option value="da-DK">Danish</option>
-                    <option value="fi-FI">Finnish</option>
-                    <option value="no-NO">Norwegian</option>
-                </select>
+            <div class="mt-4 landscape:mt-2 flex items-center justify-center gap-2 landscape:gap-1 flex-wrap dropdown-container">
+                <div id="languageSelectContainer" class="relative"></div>
             </div>
 
             <!-- History Section -->
@@ -350,32 +345,9 @@
             </div>
 
             <!-- Speech Language -->
-            <div class="mb-4 pb-4 border-b border-neutral-800">
+            <div class="mb-4 pb-4 border-b border-neutral-800 dropdown-container">
                 <label class="block text-xs text-neutral-400 mb-2">Dictation Language</label>
-                <select id="languageSelectSettings"
-                    class="w-full bg-neutral-800 border border-neutral-700 rounded px-3 py-2 text-sm text-neutral-300 focus:ring-2 focus:ring-[#FFBB00] focus:border-transparent outline-none">
-                    <option value="auto">Auto-detect</option>
-                    <option value="en-US">English (US)</option>
-                    <option value="es-ES">Spanish</option>
-                    <option value="fr-FR">French</option>
-                    <option value="de-DE">German</option>
-                    <option value="it-IT">Italian</option>
-                    <option value="pt-PT">Portuguese</option>
-                    <option value="ru-RU">Russian</option>
-                    <option value="ja-JP">Japanese</option>
-                    <option value="zh-CN">Chinese</option>
-                    <option value="ko-KR">Korean</option>
-                    <option value="ar-SA">Arabic</option>
-                    <option value="nl-NL">Dutch</option>
-                    <option value="pl-PL">Polish</option>
-                    <option value="uk-UA">Ukrainian</option>
-                    <option value="hi-IN">Hindi</option>
-                    <option value="tr-TR">Turkish</option>
-                    <option value="sv-SE">Swedish</option>
-                    <option value="da-DK">Danish</option>
-                    <option value="fi-FI">Finnish</option>
-                    <option value="no-NO">Norwegian</option>
-                </select>
+                <div id="languageSelectSettingsContainer" class="relative"></div>
             </div>
 
 

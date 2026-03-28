@@ -29,6 +29,8 @@ export interface Elements {
     dismissWarningBtn: HTMLElement;
     ipadPwaWarning: HTMLElement;
     dismissIpadWarningBtn: HTMLElement;
+    langDetectionWarning: HTMLElement;
+    dismissLangWarningBtn: HTMLElement;
     historyList: HTMLElement;
     historySection: HTMLElement;
     stopSignToggle: HTMLInputElement;
@@ -51,8 +53,8 @@ export interface Elements {
     clearScriptBtn: HTMLElement;
     pasteScriptBtn: HTMLElement;
     // Language Selection
-    languageSelect: HTMLSelectElement;
-    languageSelectSettings: HTMLSelectElement;
+    languageSelectContainer: HTMLElement;
+    languageSelectSettingsContainer: HTMLElement;
     // Toggles
     preserveFormattingToggle: HTMLInputElement;
     voiceCommandToggle: HTMLInputElement;
@@ -105,6 +107,8 @@ export function initElements(): void {
         dismissWarningBtn: document.getElementById('dismissWarningBtn')!,
         ipadPwaWarning: document.getElementById('ipadPwaWarning')!,
         dismissIpadWarningBtn: document.getElementById('dismissIpadWarningBtn')!,
+        langDetectionWarning: document.getElementById('langDetectionWarning')!,
+        dismissLangWarningBtn: document.getElementById('dismissLangWarningBtn')!,
         historyList: document.getElementById('historyList')!,
         historySection: document.getElementById('historySection')!,
         stopSignToggle: document.getElementById('stopSignToggle') as HTMLInputElement,
@@ -127,8 +131,8 @@ export function initElements(): void {
         clearScriptBtn: document.getElementById('clearScriptBtn')!,
         pasteScriptBtn: document.getElementById('pasteScriptBtn')!,
         // Language Selection
-        languageSelect: document.getElementById('languageSelect') as HTMLSelectElement,
-        languageSelectSettings: document.getElementById('languageSelectSettings') as HTMLSelectElement,
+        languageSelectContainer: document.getElementById('languageSelectContainer')!,
+        languageSelectSettingsContainer: document.getElementById('languageSelectSettingsContainer')!,
         // Toggles
         preserveFormattingToggle: document.getElementById('preserveFormattingToggle') as HTMLInputElement,
         voiceCommandToggle: document.getElementById('voiceCommandToggle') as HTMLInputElement,
