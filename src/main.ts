@@ -438,6 +438,11 @@ els.dismissWarningBtn.addEventListener('click', () => {
     els.browserWarning.classList.add('hidden');
 });
 
+// Dismiss iPad PWA Warning
+els.dismissIpadWarningBtn.addEventListener('click', () => {
+    els.ipadPwaWarning.classList.add('hidden');
+});
+
 // --- Video Mode Event Listeners ---
 
 // Toggle Video Mode

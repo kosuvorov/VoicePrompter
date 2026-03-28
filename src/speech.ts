@@ -8,6 +8,7 @@ let lastMatchedWord = '';
 // Track which result indices we already processed for commands
 // to prevent re-firing when the recognition engine revisits finalized results
 let lastProcessedResultIndex = -1;
+let speechBlocked = false;
 
 export function initSpeech(): void {
     const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
@@ -56,10 +57,28 @@ export function initSpeech(): void {
             matchWords(spokenWords.slice(-5));
         };
 
-        state.recognition.onerror = (e: any) => console.log('error:', e.error, e.message);
+        state.recognition.onerror = (e: any) => {
+            console.log('error:', e.error, e.message);
+            if (e.error === 'aborted') {
+                speechBlocked = true;
+                
+                // Modern iPad detection
+                const isIPad = navigator.userAgent.includes('iPad') || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 2);
+                const isPWA = (window.navigator as any).standalone === true || window.matchMedia('(display-mode: standalone)').matches;
+
+                if (isIPad && isPWA) {
+                    els.ipadPwaWarning.classList.remove('hidden');
+                }
+
+                state.isListening = false;
+                updateMicUI(false);
+                return;
+            }
+        };
 
         state.recognition.onend = () => {
             console.log('ended');
+            if (speechBlocked) return;
             if (state.isListening) {
                 lastProcessedResultIndex = -1; // Reset for new recognition session
                 try {
@@ -79,6 +98,7 @@ export function startListening(): void {
     state.isListening = true;
     lastMatchedWord = '';
     lastProcessedResultIndex = -1;
+    speechBlocked = false;
     try {
         state.recognition.start();
         updateMicUI(true);

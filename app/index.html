@@ -80,6 +80,23 @@
         </div>
     </div>
 
+    <!-- iPad PWA Warning -->
+    <div id="ipadPwaWarning"
+        class="hidden fixed inset-0 z-[10000] bg-black bg-opacity-90 flex items-center justify-center p-4">
+        <div class="bg-neutral-900 border border-[#FFBB00] rounded-lg p-6 max-w-md text-center shadow-2xl shadow-[#FFBB00]/10">
+            <h2 class="text-xl font-bold text-[#FFBB00] mb-3">Feature Unavailable</h2>
+            <p class="text-neutral-300 mb-6 text-sm leading-relaxed">
+                App-level voice recognition is blocked by Apple when VoicePrompter is installed as a home screen app on iPad. 
+                <br><br>
+                Please open <strong>voiceprompter.app</strong> directly in <strong>Safari</strong> to use this feature.
+            </p>
+            <button id="dismissIpadWarningBtn"
+                class="w-full px-4 py-3 bg-neutral-800 hover:bg-neutral-700 rounded-lg font-medium text-white transition-colors border border-neutral-700">
+                Close
+            </button>
+        </div>
+    </div>
+
     <!-- Setup Screen -->
     <div id="setupScreen" class="flex flex-col max-w-4xl mx-auto p-4 md:p-8 landscape:p-2">
         <header class="mb-8 landscape:mb-3 text-center relative">

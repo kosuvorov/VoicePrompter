@@ -27,6 +27,8 @@ export interface Elements {
     mirrorToggle: HTMLInputElement;
     browserWarning: HTMLElement;
     dismissWarningBtn: HTMLElement;
+    ipadPwaWarning: HTMLElement;
+    dismissIpadWarningBtn: HTMLElement;
     historyList: HTMLElement;
     historySection: HTMLElement;
     stopSignToggle: HTMLInputElement;
@@ -101,6 +103,8 @@ export function initElements(): void {
         mirrorToggle: document.getElementById('mirrorToggle') as HTMLInputElement,
         browserWarning: document.getElementById('browserWarning')!,
         dismissWarningBtn: document.getElementById('dismissWarningBtn')!,
+        ipadPwaWarning: document.getElementById('ipadPwaWarning')!,
+        dismissIpadWarningBtn: document.getElementById('dismissIpadWarningBtn')!,
         historyList: document.getElementById('historyList')!,
         historySection: document.getElementById('historySection')!,
         stopSignToggle: document.getElementById('stopSignToggle') as HTMLInputElement,
