@@ -61,24 +61,27 @@
     <!-- Umami Analytics -->
     <script defer src="https://reactive-analytics.up.railway.app/script.js"
         data-website-id="eee38a2c-9b72-4937-9ee4-37827bae546c"></script>
-  <script type="module" crossorigin src="/assets/app-DoyeKOVJ.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/style-B-5tGg3V.js">
-  <link rel="stylesheet" crossorigin href="/assets/style-CTWIEyV6.css">
+  <script type="module" crossorigin src="/assets/app-D71Vtwoa.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/style-CtEPzfN5.js">
+  <link rel="stylesheet" crossorigin href="/assets/style-DAs5sxo-.css">
 <link rel="manifest" href="/manifest.webmanifest"></head>
 
 <body id="appBody" class="bg-black text-white font-mono selection:bg-blue-500 selection:text-white">
 
     <!-- Browser Warning -->
     <div id="browserWarning"
-        class="hidden fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center p-4">
-        <div class="bg-neutral-900 border border-red-500 rounded-lg p-6 max-w-md text-center">
-            <h2 class="text-xl font-bold text-red-500 mb-2">Browser Not Supported</h2>
-            <p class="text-neutral-300 mb-4">Your browser does not support Speech Recognition. Please use Google Chrome
-                or
-                Safari.</p>
+        class="hidden fixed inset-0 z-[10002] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-neutral-900 border border-neutral-700 rounded-xl p-6 max-w-sm w-full text-center shadow-2xl shadow-black/50">
+            <div class="w-12 h-12 rounded-full bg-red-500/10 flex items-center justify-center mx-auto mb-4">
+                <svg class="w-6 h-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                </svg>
+            </div>
+            <h2 class="text-lg font-bold text-white mb-2">Voice Recognition Not Available</h2>
+            <p class="text-neutral-400 text-sm leading-relaxed mb-6">Your browser doesn't support voice recognition. Try <strong class="text-neutral-200">Chrome</strong>, <strong class="text-neutral-200">Safari</strong> or <strong class="text-neutral-200">Edge</strong> for the full experience.</p>
             <button id="dismissWarningBtn"
-                class="px-4 py-2 bg-neutral-800 hover:bg-neutral-700 rounded text-sm text-white transition-colors">
-                Dismiss & Continue Anyway
+                class="w-full px-4 py-2.5 bg-neutral-800 hover:bg-neutral-700 rounded-lg text-sm text-white transition-colors border border-neutral-700">
+                Continue Anyway
             </button>
         </div>
     </div>
