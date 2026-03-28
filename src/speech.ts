@@ -56,7 +56,10 @@ export function initSpeech(): void {
             matchWords(spokenWords.slice(-5));
         };
 
+        state.recognition.onerror = (e: any) => console.log('error:', e.error, e.message);
+
         state.recognition.onend = () => {
+            console.log('ended');
             if (state.isListening) {
                 lastProcessedResultIndex = -1; // Reset for new recognition session
                 try {
