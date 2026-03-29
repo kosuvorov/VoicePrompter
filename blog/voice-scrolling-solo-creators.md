@@ -2,7 +2,7 @@
 title: "Why Voice Scrolling is Essential for Solo Creators"
 description: "Hands-free operation, natural pausing, and reduced editing time — why voice-activated teleprompters are a solo creator's best friend."
 date: "Nov 20, 2025"
-image: "https://images.unsplash.com/photo-1622546773566-935303d3d119?auto=format&fit=crop&w=800&q=80"
+image: "https://images.unsplash.com/photo-1600195558301-9197701f6758?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
 ---
 

@@ -69,6 +69,9 @@ mdFiles.forEach(file => {
     console.log(`✓ Generated ${slug}.html`);
 });
 
+// Sort articles by date (newest first)
+articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+
 // Generate blog index HTML for SEO
 const articleCards = articles.map(article => `
             <a href="/blog/${article.slug}.html" class="article-card">

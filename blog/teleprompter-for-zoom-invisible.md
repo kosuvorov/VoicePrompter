@@ -2,7 +2,7 @@
 title: "Teleprompter for Zoom That's Completely Invisible"
 description: "How to use an invisible teleprompter overlay during Zoom calls, sales demos, and webinars — so your notes never show up in screen share."
 date: "Mar 16, 2026"
-image: "https://images.unsplash.com/photo-1587825140708-dfaf18c7f4f0?auto=format&fit=crop&w=800&q=80"
+image: "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
 ---
 

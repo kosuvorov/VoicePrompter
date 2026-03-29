@@ -2,7 +2,7 @@
 title: "How to Read a Teleprompter Naturally (And Stop Looking Like a Robot)"
 description: "Script writing tips, proper setup, and how free voice-activated tools can transform your on-camera presence."
 date: "Nov 24, 2025"
-image: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80"
+image: "https://images.unsplash.com/photo-1663862612778-895aec0b8838?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
 ---
 
