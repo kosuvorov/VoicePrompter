@@ -57,13 +57,14 @@
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap"
         rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/opendyslexic" rel="stylesheet">
 
     <!-- Umami Analytics -->
     <script defer src="https://reactive-analytics.up.railway.app/script.js"
         data-website-id="eee38a2c-9b72-4937-9ee4-37827bae546c"></script>
-  <script type="module" crossorigin src="/assets/app-D71Vtwoa.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/style-CtEPzfN5.js">
-  <link rel="stylesheet" crossorigin href="/assets/style-DAs5sxo-.css">
+  <script type="module" crossorigin src="/assets/app-njkKwBIw.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/style-BCJlExBD.js">
+  <link rel="stylesheet" crossorigin href="/assets/style-qeNxwgID.css">
 <link rel="manifest" href="/manifest.webmanifest"></head>
 
 <body id="appBody" class="bg-black text-white font-mono selection:bg-blue-500 selection:text-white">
@@ -219,7 +220,7 @@
         <div id="scrollContainer" class="h-full w-full overflow-y-auto no-scrollbar relative scroll-smooth">
             <div id="topSpacer" class="h-[45vh]"></div>
             <div id="scriptContent" class="max-w-5xl mx-auto px-8 pb-[50vh] text-center outline-none"
-                style="font-size: 40px; line-height: 1.5;">
+                style="font-size: 40px;">
                 <!-- Script content injected here -->
             </div>
         </div>
@@ -230,7 +231,7 @@
         </div>
 
         <!-- Controls Overlay -->
-        <div class="fixed bottom-8 left-0 right-0 flex justify-center items-center gap-6 z-[9999] isolate pointer-events-none">
+        <div id="mainControlsDock" class="fixed bottom-8 left-0 right-0 flex justify-center items-center gap-6 z-[9999] isolate pointer-events-none transition-opacity duration-300">
 
             <!-- Reset App -->
             <button id="resetAppBtn"
@@ -337,18 +338,18 @@
         <!-- Settings Panel -->
         <div id="settingsPanel"
             class="hidden fixed top-4 right-4 z-[9999] isolate w-80 max-h-[85vh] overflow-y-auto bg-neutral-900/95 backdrop-blur border border-neutral-800 rounded-xl shadow-2xl p-4 transition-all duration-200 origin-top-right no-scrollbar">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-sm font-bold text-neutral-400 uppercase tracking-wider">Display Settings</h3>
+            <div class="sticky top-0 flex justify-end z-10 h-0 overflow-visible">
                 <button id="closeSettingsBtn"
-                    class="text-neutral-400 hover:text-white transition-colors p-1 rounded hover:bg-neutral-800"
+                    class="text-neutral-400 hover:text-white transition-colors flex items-center justify-center w-12 h-12 rounded-full hover:bg-neutral-800 bg-neutral-900/90 backdrop-blur-md border border-neutral-800 shadow-lg -mr-2 -mt-2"
                     title="Close Settings">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
+            <h3 class="text-sm font-bold text-neutral-400 uppercase tracking-wider mb-4">Settings</h3>
 
             <!-- Speech Language -->
             <div class="mb-4 pb-4 border-b border-neutral-800 dropdown-container">
@@ -500,9 +501,19 @@
             <div class="mb-4">
                 <div class="flex justify-between text-sm mb-1">
                     <span class="text-neutral-300">Side Margins</span>
-                    <span id="marginVal" class="text-[#FFBB00] font-mono">0px</span>
+                    <span id="marginVal" class="text-[#FFBB00] font-mono">0%</span>
                 </div>
-                <input id="marginInput" type="range" min="0" max="200" step="10" value="0"
+                <input id="marginInput" type="range" min="0" max="40" step="4" value="0"
+                    class="w-full h-2 bg-neutral-700 rounded-lg appearance-none cursor-pointer">
+            </div>
+
+            <!-- Dock Opacity While Recording -->
+            <div class="mb-4">
+                <div class="flex justify-between text-sm mb-1">
+                    <span class="text-neutral-300">Recording Dock Opacity</span>
+                    <span id="dockOpacityVal" class="text-[#FFBB00] font-mono">50%</span>
+                </div>
+                <input id="dockOpacityInput" type="range" min="30" max="100" step="5" value="50"
                     class="w-full h-2 bg-neutral-700 rounded-lg appearance-none cursor-pointer">
             </div>
 
@@ -555,6 +566,32 @@
                             class="w-8 h-8 rounded cursor-pointer bg-transparent border-none p-0 mr-2">
                         <span class="text-xs text-neutral-300 font-mono">#000000</span>
                     </div>
+                </div>
+            </div>
+
+            <!-- Font Family -->
+            <div class="mt-4 pt-4 border-t border-neutral-800">
+                <label class="block text-xs text-neutral-400 mb-2">Font Style</label>
+                <div class="grid grid-cols-2 gap-2">
+                    <button id="fontFamilyMonoBtn"
+                        class="px-3 py-2 bg-neutral-700 rounded text-xs text-white border border-[#FFBB00] font-mono"
+                        title="Monospace – default teleprompter feel">Mono</button>
+                    <button id="fontFamilySansBtn"
+                        class="px-3 py-2 bg-neutral-800 hover:bg-neutral-700 rounded text-xs text-neutral-300 border border-neutral-700"
+                        style="font-family: Arial, sans-serif;"
+                        title="Sans-serif – clean and modern">Sans</button>
+                    <button id="fontFamilySerifBtn"
+                        class="px-3 py-2 bg-neutral-800 hover:bg-neutral-700 rounded text-xs text-neutral-300 border border-neutral-700"
+                        style="font-family: Georgia, serif;"
+                        title="Serif – classic, easier to track lines">Serif</button>
+                    <button id="fontFamilyComicSansBtn"
+                        class="px-3 py-2 bg-neutral-800 hover:bg-neutral-700 rounded text-xs text-neutral-300 border border-neutral-700"
+                        style="font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;"
+                        title="Comic Sans">Comic Sans</button>
+                    <button id="fontFamilyOpenDyslexicBtn"
+                        class="px-3 py-2 bg-neutral-800 hover:bg-neutral-700 rounded text-xs text-neutral-300 border border-neutral-700 col-span-2"
+                        style="font-family: 'OpenDyslexic', cursive;"
+                        title="OpenDyslexic – purpose-built for dyslexia">OpenDyslexic</button>
                 </div>
             </div>
         </div>
