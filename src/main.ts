@@ -609,7 +609,7 @@ els.highlightActiveWordToggle.addEventListener('change', (e) => {
 });
 
 // Font Family Buttons
-(['mono', 'sans', 'serif', 'dyslexic'] as const).forEach(font => {
+(['mono', 'sans', 'serif', 'comicSans', 'openDyslexic'] as const).forEach(font => {
     els.fontFamilyBtns[font].addEventListener('click', () => {
         state.config.fontFamily = font;
         applySettings();
@@ -732,7 +732,7 @@ function updateAlignmentButtons(): void {
 }
 
 function updateFontFamilyButtons(): void {
-    (['mono', 'sans', 'serif', 'dyslexic'] as const).forEach(font => {
+    (['mono', 'sans', 'serif', 'comicSans', 'openDyslexic'] as const).forEach(font => {
         const btn = els.fontFamilyBtns[font];
         const isActive = state.config.fontFamily === font;
         btn.classList.toggle('bg-neutral-700', isActive);

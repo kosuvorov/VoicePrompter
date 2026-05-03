@@ -57,6 +57,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap"
         rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/opendyslexic" rel="stylesheet">
 
     <!-- Umami Analytics -->
     <script defer src="https://reactive-analytics.up.railway.app/script.js"
@@ -507,9 +508,9 @@
             <div class="mb-4">
                 <div class="flex justify-between text-sm mb-1">
                     <span class="text-neutral-300">Recording Dock Opacity</span>
-                    <span id="dockOpacityVal" class="text-[#FFBB00] font-mono">20%</span>
+                    <span id="dockOpacityVal" class="text-[#FFBB00] font-mono">50%</span>
                 </div>
-                <input id="dockOpacityInput" type="range" min="0" max="100" step="5" value="20"
+                <input id="dockOpacityInput" type="range" min="30" max="100" step="5" value="50"
                     class="w-full h-2 bg-neutral-700 rounded-lg appearance-none cursor-pointer">
             </div>
 
@@ -580,10 +581,14 @@
                         class="px-3 py-2 bg-neutral-800 hover:bg-neutral-700 rounded text-xs text-neutral-300 border border-neutral-700"
                         style="font-family: Georgia, serif;"
                         title="Serif – classic, easier to track lines">Serif</button>
-                    <button id="fontFamilyDyslexicBtn"
+                    <button id="fontFamilyComicSansBtn"
                         class="px-3 py-2 bg-neutral-800 hover:bg-neutral-700 rounded text-xs text-neutral-300 border border-neutral-700"
                         style="font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;"
-                        title="Dyslexic-friendly – spaced, rounded letters">Dyslexic</button>
+                        title="Comic Sans">Comic Sans</button>
+                    <button id="fontFamilyOpenDyslexicBtn"
+                        class="px-3 py-2 bg-neutral-800 hover:bg-neutral-700 rounded text-xs text-neutral-300 border border-neutral-700 col-span-2"
+                        style="font-family: 'OpenDyslexic', cursive;"
+                        title="OpenDyslexic – purpose-built for dyslexia">OpenDyslexic</button>
                 </div>
             </div>
         </div>

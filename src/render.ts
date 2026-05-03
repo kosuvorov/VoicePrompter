@@ -218,7 +218,8 @@ export function applySettings(): void {
         mono: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
         sans: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif',
         serif: 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
-        dyslexic: '"Comic Sans MS", "Chalkboard SE", "Trebuchet MS", cursive'
+        comicSans: '"Comic Sans MS", "Chalkboard SE", "Trebuchet MS", cursive',
+        openDyslexic: '"OpenDyslexic", cursive'
     };
     const fontStack = fontMap[state.config.fontFamily] ?? fontMap['mono'];
     els.scriptContent.style.fontFamily = fontStack;

@@ -68,7 +68,8 @@ export interface Elements {
         mono: HTMLElement;
         sans: HTMLElement;
         serif: HTMLElement;
-        dyslexic: HTMLElement;
+        comicSans: HTMLElement;
+        openDyslexic: HTMLElement;
     };
     // Video Recording
     videoModeBtn: HTMLElement;
@@ -155,7 +156,8 @@ export function initElements(): void {
             mono: document.getElementById('fontFamilyMonoBtn')!,
             sans: document.getElementById('fontFamilySansBtn')!,
             serif: document.getElementById('fontFamilySerifBtn')!,
-            dyslexic: document.getElementById('fontFamilyDyslexicBtn')!
+            comicSans: document.getElementById('fontFamilyComicSansBtn')!,
+            openDyslexic: document.getElementById('fontFamilyOpenDyslexicBtn')!
         },
         // Video Recording
         videoModeBtn: document.getElementById('videoModeBtn')!,
