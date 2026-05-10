@@ -735,6 +735,11 @@ els.dismissLangWarningBtn.addEventListener('click', () => {
     if (langWarningTimer) clearTimeout(langWarningTimer);
 });
 
+// Dismiss Android Video Warning
+els.dismissAndroidVideoWarningBtn.addEventListener('click', () => {
+    els.androidVideoWarning.classList.add('hidden');
+});
+
 // --- Video Mode Event Listeners ---
 
 // Toggle Video Mode

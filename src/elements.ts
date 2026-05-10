@@ -33,6 +33,8 @@ export interface Elements {
     dismissIpadWarningBtn: HTMLElement;
     langDetectionWarning: HTMLElement;
     dismissLangWarningBtn: HTMLElement;
+    androidVideoWarning: HTMLElement;
+    dismissAndroidVideoWarningBtn: HTMLElement;
     historyList: HTMLElement;
     historySection: HTMLElement;
     stopSignToggle: HTMLInputElement;
@@ -127,6 +129,8 @@ export function initElements(): void {
         dismissIpadWarningBtn: document.getElementById('dismissIpadWarningBtn')!,
         langDetectionWarning: document.getElementById('langDetectionWarning')!,
         dismissLangWarningBtn: document.getElementById('dismissLangWarningBtn')!,
+        androidVideoWarning: document.getElementById('androidVideoWarning')!,
+        dismissAndroidVideoWarningBtn: document.getElementById('dismissAndroidVideoWarningBtn')!,
         historyList: document.getElementById('historyList')!,
         historySection: document.getElementById('historySection')!,
         stopSignToggle: document.getElementById('stopSignToggle') as HTMLInputElement,

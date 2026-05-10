@@ -23,6 +23,10 @@ export async function enterVideoMode(): Promise<void> {
         // Apply split layout by default
         applyVideoLayout();
 
+        if (/Android/i.test(navigator.userAgent)) {
+            els.androidVideoWarning.classList.remove('hidden');
+        }
+
         (window as any).umami?.track('video-mode-enter');
     } catch (err) {
         console.error('Failed to access camera:', err);
