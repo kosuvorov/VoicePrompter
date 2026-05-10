@@ -65,8 +65,8 @@
     <script defer src="https://reactive-analytics.up.railway.app/recorder.js"
         data-website-id="eee38a2c-9b72-4937-9ee4-37827bae546c" data-sample-rate="0.3" data-mask-level="moderate"
         data-max-duration="300000" data-block-selector="#scriptContent, #historyList"></script>
-  <script type="module" crossorigin src="/assets/app-DNcklmAc.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/app-DDq0ppK7.css">
+  <script type="module" crossorigin src="/assets/app-48LAfvdr.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/app-CBzcOrLw.css">
 <link rel="manifest" href="/manifest.webmanifest"></head>
 
 <body id="appBody" class="bg-black text-white font-mono selection:bg-blue-500 selection:text-white">
@@ -392,26 +392,32 @@
             <!-- Mac Promo Card -->
             <div class="mb-4 pb-4 border-b border-neutral-800">
                 <button id="settings-mac-banner"
-                    class="w-full text-left bg-gradient-to-r from-neutral-800 to-neutral-800 hover:from-neutral-700 hover:to-neutral-700 border border-neutral-700 hover:border-neutral-600 rounded-lg p-3 transition-all group flex items-center justify-between">
-                    <div>
-                        <div
-                            class="text-sm font-bold text-white group-hover:text-[#FFBB00] transition-colors flex items-center gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
-                            Try VoicePrompter for Mac
+                    class="w-full text-left relative overflow-hidden rounded-lg p-[1px] group transition-all">
+                    <!-- Spinning border gradient -->
+                    <div class="absolute inset-[-200%] animate-[spin_12s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FFBB00_0%,#FFBB00_40%,transparent_70%,#FFBB00_100%)] opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    
+                    <!-- Inner content -->
+                    <div class="relative w-full h-full bg-neutral-800 group-hover:bg-neutral-700 rounded-[7px] p-3 transition-colors flex items-center justify-between">
+                        <div>
+                            <div
+                                class="text-sm font-bold text-white group-hover:text-[#FFBB00] transition-colors flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                                Try VoicePrompter for Mac
+                            </div>
+                            <div id="macPromoSubtitle"
+                                class="text-xs text-neutral-400 mt-1 flex flex-col justify-center min-h-[32px]">
+                            </div>
                         </div>
-                        <div id="macPromoSubtitle"
-                            class="text-xs text-neutral-400 mt-1 flex flex-col justify-center min-h-[32px]">
-                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="h-4 w-4 text-neutral-500 group-hover:text-white transition-colors" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
                     </div>
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                        class="h-4 w-4 text-neutral-500 group-hover:text-white transition-colors" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
                 </button>
             </div>
 
