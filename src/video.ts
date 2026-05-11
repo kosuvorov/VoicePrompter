@@ -98,10 +98,12 @@ function applyVideoLayout(): void {
         els.prompterContainer.classList.add('video-mode-split');
         els.videoLayoutToggleBtn.textContent = '⬜ Overlay';
         els.videoLayoutToggleBtn.title = 'Switch to overlay mode';
+        els.scrollContainer.style.backgroundColor = state.config.bgColor;
     } else {
         els.prompterContainer.classList.add('video-mode-overlay');
         els.videoLayoutToggleBtn.textContent = '⬜ Split';
         els.videoLayoutToggleBtn.title = 'Switch to split mode';
+        els.scrollContainer.style.backgroundColor = '';
     }
 }
 

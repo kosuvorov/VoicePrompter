@@ -199,7 +199,9 @@ export function applySettings(): void {
 
     // Apply background to prompter container for theme support
     els.prompterContainer.style.backgroundColor = state.config.bgColor;
-    els.scrollContainer.style.backgroundColor = state.config.bgColor;
+    if (!(state.isVideoMode && state.videoLayoutMode === 'overlay')) {
+        els.scrollContainer.style.backgroundColor = state.config.bgColor;
+    }
 
     els.scriptContent.style.setProperty('--paragraph-spacing', `${state.config.paragraphSpacing}em`);
     els.scriptContent.style.textAlign = state.config.textAlign;
