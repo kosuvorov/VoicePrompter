@@ -23,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display&family=Roboto+Flex:opsz,wght@8..144,400;8..144,500;8..144,600;8..144,700&display=swap"
         rel="stylesheet">
 
     <!-- Umami Analytics -->
@@ -123,10 +123,18 @@
         }
 
         .nav-logo {
-            font-family: var(--font-serif);
+            display: inline-flex;
+            align-items: center;
+            font-family: 'Google Sans Flex', 'Roboto Flex', 'DM Sans', system-ui, sans-serif;
             font-size: 22px;
+            font-weight: 500;
             color: var(--accent);
             letter-spacing: -0.02em;
+        }
+
+        .nav-logo img {
+            position: relative;
+            top: -1px;
         }
 
         .nav-links {

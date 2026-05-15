@@ -23,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display&family=Roboto+Flex:opsz,wght@8..144,400;8..144,500;8..144,600;8..144,700&display=swap"
         rel="stylesheet">
 
     <!-- Umami Analytics -->
@@ -49,11 +49,11 @@
             --accent: #F5F0EB;
             --pop: #FFBB00;
             --shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
-            --radius: 18px;
+            --radius: 12px;
             --pill: 100px;
             --font-serif: 'DM Serif Display', Georgia, serif;
             --font-sans: 'DM Sans', 'Segoe UI', sans-serif;
-            --section-pad: 120px;
+            --section-pad: 140px;
         }
 
         html {
@@ -98,18 +98,15 @@
         .container {
             max-width: 1120px;
             margin: 0 auto;
-            padding: 0 32px;
+            padding-left: 32px;
+            padding-right: 32px;
         }
 
-        .fade-up {
-            opacity: 0;
-            transform: translateY(28px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
+        .fade-up,
         .fade-up.visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: none;
+            transition: none;
         }
 
         /* ───────────────────────── Nav ───────────────────────── */
@@ -123,10 +120,18 @@
         }
 
         .nav-logo {
-            font-family: var(--font-serif);
+            display: inline-flex;
+            align-items: center;
+            font-family: 'Google Sans Flex', 'Roboto Flex', 'DM Sans', system-ui, sans-serif;
             font-size: 22px;
+            font-weight: 500;
             color: var(--accent);
             letter-spacing: -0.02em;
+        }
+
+        .nav-logo img {
+            position: relative;
+            top: -1px;
         }
 
         .nav-link {
@@ -140,9 +145,18 @@
             color: var(--accent);
         }
 
+        /* ───────────── Unified section spacing ─────────────
+           Every section gets the same gap from the previous one
+           via a sibling selector. No section sets its own top or
+           bottom padding for inter-section spacing. */
+        section + section,
+        section + footer {
+            padding-top: var(--section-pad);
+        }
+
         /* ───────────────────────── Hero ───────────────────────── */
         .hero {
-            padding: var(--section-pad) 0 80px;
+            padding: 60px 0 0;
             text-align: center;
         }
 
@@ -226,9 +240,22 @@
             opacity: 0.4;
         }
 
+        .hero-trust {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 12px;
+        }
+
+        .hero-trust .stat-number {
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--pop);
+            font-variant-numeric: tabular-nums;
+        }
+
         /* Hero image */
         .hero-image {
-            margin: 64px auto 32px;
+            margin: 64px auto 16px;
             max-width: 780px;
             position: relative;
         }
@@ -315,9 +342,181 @@
             line-height: 1.65;
         }
 
+        /* ───────────────────────── Feature Showcase Tiles ───────────────────────── */
+        .feature-showcase {
+        }
+
+        .feature-showcase h2 {
+            font-family: var(--font-serif);
+            font-size: 42px;
+            text-align: center;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
+
+        .showcase-sub {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 680px;
+            margin: 0 auto 56px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .showcase-sub a {
+            color: var(--pop);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .showcase-tile {
+            background: var(--surface);
+            border: 1px solid var(--surface-border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+        }
+
+        .showcase-tile:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 187, 0, 0.2);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .showcase-tile-media {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            position: relative;
+            background: #111;
+        }
+
+        .showcase-tile-media video,
+        .showcase-tile-media img {
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+               object-fit: cover;
+            display: block;
+            filter: brightness(0.7);
+            transition: filter 0.5s ease;
+        }
+
+        .showcase-tile:hover .showcase-tile-media video,
+        .showcase-tile:hover .showcase-tile-media img {
+            filter: brightness(1);
+        }
+
+        @media (max-width: 1024px) {
+            .showcase-tile.in-view .showcase-tile-media video,
+            .showcase-tile.in-view .showcase-tile-media img {
+                filter: brightness(1);
+            }
+        }
+
+        .showcase-tile-info {
+            padding: 20px 24px 24px;
+        }
+
+        .showcase-tile-info h3 {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            color: var(--accent);
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .showcase-tile-info p {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.55;
+        }
+
+        /* ───────────────────────── Audience ───────────────────────── */
+        .audience {
+            text-align: center;
+        }
+
+        .audience h2 {
+            font-family: var(--font-serif);
+            font-size: 42px;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
+
+        .audience-sub {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 680px;
+            margin: 0 auto 56px;
+            line-height: 1.6;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            text-align: left;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        .audience-item {
+            display: flex;
+            gap: 16px;
+            background: var(--surface);
+            padding: 24px;
+            border-radius: var(--radius);
+            border: 1px solid var(--surface-border);
+            transition: transform 0.3s ease;
+        }
+
+        .audience-item:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .audience-icon {
+            color: var(--pop);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .audience-item p {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .audience-item strong {
+            color: var(--accent);
+            display: block;
+            margin-bottom: 4px;
+            font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .audience-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .audience h2 {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 480px) {
+        }
+
         /* ───────────────────────── Video ───────────────────────── */
         .video-section {
-            padding: 0 0 var(--section-pad);
             text-align: center;
         }
 
@@ -354,7 +553,6 @@
 
         /* ───────────────────────── Pricing ───────────────────────── */
         .pricing {
-            padding: var(--section-pad) 0;
         }
 
         .pricing h2 {
@@ -469,11 +667,108 @@
             margin-right: auto;
         }
 
+        /* ───────────────────────── FAQ ───────────────────────── */
+        .faq {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq h2 {
+            font-family: var(--font-serif);
+            font-size: 42px;
+            text-align: center;
+            color: var(--accent);
+            margin-bottom: 56px;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            background: var(--surface);
+            border: 1px solid var(--surface-border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: background 0.3s ease;
+        }
+
+        .faq-item:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .faq-item summary {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--accent);
+            padding: 18px 24px;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: '+';
+            font-size: 20px;
+            font-weight: 300;
+            line-height: 1;
+            color: var(--text-light);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item[open] summary::after {
+            content: '−';
+        }
+
+        .faq-content {
+            padding: 0 24px 24px;
+            color: var(--text-light);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .faq-list:not(.expanded) .faq-item:nth-child(n+6) {
+            display: none;
+        }
+
+        .faq-more {
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .faq-more-btn {
+            font-family: var(--font-sans);
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-light);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px 16px;
+            transition: color 0.2s;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        .faq-more-btn:hover {
+            color: var(--accent);
+        }
+
         /* ───────────────────────── Footer CTA ───────────────────────── */
         .footer-cta {
-            padding: var(--section-pad) 0;
+            padding-bottom: var(--section-pad);
             text-align: center;
         }
+        /* footer-cta is the last section; keep its bottom pad
+           so there's breathing room before the dark footer. */
 
         .footer-cta h2 {
             font-family: var(--font-serif);
@@ -505,7 +800,6 @@
 
         /* ───────────────────────── Reviews ───────────────────────── */
         .reviews {
-            padding: calc(var(--section-pad) / 2) 0 var(--section-pad);
         }
 
         .reviews h2 {
@@ -676,11 +970,12 @@
         /* ═══════════════════════ Responsive ═══════════════════════ */
         @media (max-width: 768px) {
             :root {
-                --section-pad: 96px;
+                --section-pad: 110px;
             }
 
             .container {
-                padding: 0 24px;
+                padding-left: 24px;
+                padding-right: 24px;
             }
 
             .nav {
@@ -689,12 +984,8 @@
                 padding: 24px;
             }
 
-            .hero {
-                padding-bottom: 64px;
-            }
-
             .hero h1 {
-                font-size: 38px;
+                font-size: 40px;
             }
 
             .hero-sub {
@@ -702,8 +993,7 @@
             }
 
             .hero-image {
-                margin: 48px auto 40px;
-                padding: 0 16px;
+                margin: 48px auto 16px;
             }
 
             .hero-image-placeholder {
@@ -724,33 +1014,35 @@
                 font-size: 26px;
             }
 
-            .features {
-                padding-top: 32px;
-                padding-bottom: 96px;
-            }
-
             .features-grid {
                 grid-template-columns: 1fr;
                 gap: 32px;
             }
 
-            .video-section {
-                padding-top: 0;
-                padding-bottom: 96px;
+            .feature-showcase h2,
+            .audience h2 {
+                font-size: 28px;
+                margin-bottom: 8px;
             }
 
-            .video-section h2 {
-                font-size: 32px;
+            .audience-sub,
+            .showcase-sub {
+                font-size: 15px;
                 margin-bottom: 32px;
             }
 
-            .pricing {
-                padding-top: 0;
-                padding-bottom: 96px;
+            .showcase-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .video-section h2 {
+                font-size: 28px;
+                margin-bottom: 32px;
             }
 
             .pricing h2 {
-                font-size: 34px;
+                font-size: 28px;
                 margin-bottom: 40px;
             }
 
@@ -759,13 +1051,8 @@
                 gap: 24px;
             }
 
-            .reviews {
-                padding-top: 48px;
-                padding-bottom: 96px;
-            }
-
             .reviews h2 {
-                font-size: 34px;
+                font-size: 28px;
                 margin-bottom: 40px;
             }
 
@@ -774,13 +1061,23 @@
                 gap: 24px;
             }
 
-            .footer-cta {
-                padding-top: 72px;
-                padding-bottom: 112px;
+            .faq h2 {
+                font-size: 28px;
+                margin-bottom: 40px;
+            }
+
+            .faq-item summary {
+                font-size: 15px;
+                padding: 16px 20px;
+            }
+
+            .faq-content {
+                padding: 0 20px 20px;
+                font-size: 14px;
             }
 
             .footer-cta h2 {
-                font-size: 32px;
+                font-size: 28px;
                 margin-bottom: 32px;
             }
 
@@ -816,7 +1113,8 @@
             }
 
             .container {
-                padding: 0 24px;
+                padding-left: 24px;
+                padding-right: 24px;
             }
 
             .nav {
@@ -828,11 +1126,11 @@
             }
 
             .hero-sub {
-                font-size: 17px;
+                font-size: 16px;
             }
 
             .hero-image {
-                margin: 40px auto 32px;
+                margin: 40px auto 16px;
             }
 
             .problem {
@@ -861,9 +1159,16 @@
                 font-size: 16px;
             }
 
-            .video-section {
-                padding-top: 0;
-                padding-bottom: 80px;
+            .feature-showcase h2,
+            .audience h2 {
+                font-size: 26px;
+                margin-bottom: 8px;
+            }
+
+            .audience-sub,
+            .showcase-sub {
+                font-size: 14px;
+                margin-bottom: 28px;
             }
 
             .video-wrapper {
@@ -871,19 +1176,17 @@
             }
 
             .video-section h2 {
-                font-size: 30px;
+                font-size: 26px;
                 margin-bottom: 24px;
             }
 
-
-
             .pricing h2 {
-                font-size: 32px;
+                font-size: 26px;
                 margin-bottom: 32px;
             }
 
             .reviews h2 {
-                font-size: 32px;
+                font-size: 26px;
                 margin-bottom: 32px;
             }
 
@@ -904,13 +1207,13 @@
                 padding: 10px 0;
             }
 
-            .footer-cta {
-                padding-top: 64px;
-                padding-bottom: 96px;
+            .faq h2 {
+                font-size: 26px;
+                margin-bottom: 32px;
             }
 
             .footer-cta h2 {
-                font-size: 30px;
+                font-size: 26px;
                 margin-bottom: 28px;
             }
 
@@ -945,9 +1248,8 @@
 
     <!-- ═══════════════════════ Hero ═══════════════════════ -->
     <section class="hero container fade-up" id="hero">
-        <h1>Your script. Invisible to everyone but you.</h1>
-        <p class="hero-sub">A floating teleprompter that follows your voice and hides from screen share — so you
-            sound natural on every call.</p>
+        <h1>The most convenient teleprompter for Mac</h1>
+        <p class="hero-sub">A floating window that follows your voice, stays on top of every app, and disappears completely during screen sharing and recordings.</p>
 
         <div class="hero-ctas">
             <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=mac-landing-hero&mt=8"
@@ -955,86 +1257,226 @@
                 <img src="/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_wht_092917.svg"
                     alt="Download on the Mac App Store" style="height:48px;">
             </a>
-            <a href="#video" class="btn-ghost" data-umami-event="mac-hero-watch-video">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <polygon points="5 3 19 12 5 21 5 3" />
-                </svg>
-                Watch the video
-            </a>
         </div>
 
-        <p class="hero-meta">
-            $3.34/mo<span>·</span>Free to try<span>·</span>Mac App Store<span>·</span>175 countries
+        <p class="hero-trust">
+            Trusted by <span class="stat-number">220+</span> creators worldwide
         </p>
 
         <div class="hero-image">
-            <img src="/mac-screenshot.png" alt="VoicePrompter floating over a Zoom call"
-                style="width:100%;border-radius:14px;box-shadow:0 24px 64px rgba(0,0,0,0.4);">
+            <div class="video-wrapper" style="box-shadow: 0 24px 64px rgba(0,0,0,0.4); border-radius: 10px; overflow: hidden;">
+                <div class="video-responsive">
+                    <iframe src="https://www.youtube.com/embed/2PYq2wI-HWk" title="VoicePrompter for Mac"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════ Problem ═══════════════════════ -->
-    <section class="problem container fade-up">
-        <p>Memorizing scripts kills your energy. Reading from notes kills your eye contact. There's a better way.</p>
+    <!-- ═══════════════════════ Who is this for ═══════════════════════ -->
+    <section class="audience container fade-up">
+        <h2>Who is this for?</h2>
+        <p class="audience-sub">VoicePrompter is built for anyone on a Mac who speaks on camera or on calls and wants their script in front of them without anyone else knowing it's there.</p>
+        
+        <div class="audience-grid">
+            <div class="audience-item">
+                <div class="audience-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <p><strong>Sales reps</strong> who need talking points visible on calls without the client ever seeing them</p>
+            </div>
+            
+            <div class="audience-item">
+                <div class="audience-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                </div>
+                <p><strong>YouTubers and course creators</strong> who want to read a script while looking directly into the camera</p>
+            </div>
+            
+            <div class="audience-item">
+                <div class="audience-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                </div>
+                <p><strong>Webinar hosts</strong> who need to stay on track without losing their place</p>
+            </div>
+            
+            <div class="audience-item">
+                <div class="audience-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                </div>
+                <p><strong>Podcasters</strong> recording scripted intros, ad reads, or structured interviews</p>
+            </div>
+            
+            <div class="audience-item">
+                <div class="audience-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                </div>
+                <p><strong>Non-native speakers</strong> who want to present in another language with confidence</p>
+            </div>
+            
+            <div class="audience-item">
+                <div class="audience-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                </div>
+                <p><strong>Demo recorders</strong> who want to nail every take without starting over</p>
+            </div>
+        </div>
     </section>
 
-    <!-- ═══════════════════════ Features ═══════════════════════ -->
-    <section class="features container fade-up">
-        <div class="features-grid">
 
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                        <line x1="1" y1="1" x2="23" y2="23" />
-                    </svg>
+    <!-- ═══════════════════════ Feature Showcase ═══════════════════════ -->
+    <section class="feature-showcase container fade-up" id="showcase">
+        <h2>VoicePrompter's features in action</h2>
+        <p class="showcase-sub">The app has many more thoughtful features - and if something is still missing, request it <a href="https://docs.google.com/forms/d/e/1FAIpQLSd0K6qLz_vxvZf7jld3SNJ-MZUburp5cw8ts8d4azv1saRp0Q/viewform?usp=header" target="_blank" rel="noopener">here</a>.</p>
+
+        <div class="showcase-grid">
+
+            <!-- Tile 1 — Invisible -->
+            <div class="showcase-tile">
+                <div class="showcase-tile-media">
+                    <video autoplay loop muted playsinline>
+                        <source src="/videos/1-invisible.mp4" type="video/mp4">
+                    </video>
                 </div>
-                <h3>Invisible on screen share</h3>
-                <p>Hidden from Zoom, Teams, and recordings. Only you see the script — your audience sees nothing.</p>
+                <div class="showcase-tile-info">
+                    <h3>Invisible to others</h3>
+                    <p>Hidden from Zoom, Teams, Google meet and every recording app. Only you see the script.</p>
+                </div>
             </div>
 
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
-                        <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-                        <line x1="12" y1="19" x2="12" y2="23" />
-                        <line x1="8" y1="23" x2="16" y2="23" />
-                    </svg>
+            <!-- Tile 2 — Voice Scrolling -->
+            <div class="showcase-tile">
+                <div class="showcase-tile-media">
+                    <video autoplay loop muted playsinline>
+                        <source src="/videos/3-voice-scrolling.mp4" type="video/mp4">
+                    </video>
                 </div>
-                <h3>Follows your voice</h3>
-                <p>Scrolls when you speak, pauses when you stop. No foot pedal, no tapping, no clicker needed.</p>
+                <div class="showcase-tile-info">
+                    <h3>Voice scrolling</h3>
+                    <p>Reads along as you speak pauses when you pause. No clicker needed. Uses on-device speech recognition.</p>
+                </div>
             </div>
 
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-                        <line x1="8" y1="21" x2="16" y2="21" />
-                        <line x1="12" y1="17" x2="12" y2="21" />
-                    </svg>
+            <!-- Tile 3 — Always on Top -->
+            <div class="showcase-tile">
+                <div class="showcase-tile-media">
+                    <video autoplay loop muted playsinline>
+                        <source src="/videos/2-floating.mp4" type="video/mp4">
+                    </video>
                 </div>
-                <h3>Works everywhere</h3>
-                <p>Stays on top of full-screen slides, OBS, any app. Your prompter never gets buried behind
-                    windows.</p>
+                <div class="showcase-tile-info">
+                    <h3>Always on top</h3>
+                    <p>Floats above every window including full screen applications - so your script is always available at a glance.</p>
+                </div>
+            </div>
+
+            <!-- Tile 4 — Transparent Window -->
+            <div class="showcase-tile">
+                <div class="showcase-tile-media">
+                    <video autoplay loop muted playsinline>
+                        <source src="/videos/5-transparent.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="showcase-tile-info">
+                    <h3>Transparent window</h3>
+                    <p>Adjust opacity so text floats over your content without blocking the view.</p>
+                </div>
+            </div>
+
+            <!-- Tile 5 — Languages -->
+            <div class="showcase-tile">
+                <div class="showcase-tile-media">
+                    <video autoplay loop muted playsinline>
+                        <source src="/videos/7-languages.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="showcase-tile-info">
+                    <h3>Supports 60+ languages</h3>
+                    <p>Works in English, Spanish, French, German, and dozens more - out of the box.</p>
+                </div>
+            </div>
+
+            <!-- Tile 6 — Follows Your Cursor -->
+            <div class="showcase-tile">
+                <div class="showcase-tile-media">
+                    <video autoplay loop muted playsinline>
+                        <source src="/videos/4-cursor-following.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="showcase-tile-info">
+                    <h3>Follows your cursor</h3>
+                    <p>The prompter window can snap to your mouse so the script is always where you look.</p>
+                </div>
             </div>
 
         </div>
     </section>
 
-    <!-- ═══════════════════════ Video ═══════════════════════ -->
-    <section class="video-section container fade-up" id="video">
-        <h2>See it in action</h2>
-        <div class="video-wrapper">
-            <div class="video-responsive">
-                <iframe src="https://www.youtube.com/embed/2PYq2wI-HWk" title="VoicePrompter for Mac"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen loading="lazy"></iframe>
+
+
+    <!-- ═══════════════════════ Reviews ═══════════════════════ -->
+    <section class="reviews container fade-up">
+        <h2>What users are saying</h2>
+
+        <div class="reviews-grid">
+
+            <!-- Card 1 — App Store -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar" style="background: linear-gradient(135deg, #6366F1, #8B5CF6);">J</div>
+                    <span class="review-name">justlr.</span>
+                    <div class="review-platform">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"This app really helps me on my sales calls. Instead of having my talking points
+                    on a sticky note, I now have them on my screen and they stay visible only to me even when I share my
+                    screen."</p>
             </div>
+
+            <!-- Card 2 — Instagram DM -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar" style="background: linear-gradient(135deg, #E1306C, #F77737);">PB</div>
+                    <span class="review-name">Philipp Berezin</span>
+                    <div class="review-platform">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"The way everything functions feels clean and simple to use. And so far there
+                    isn't a proper alternative that delivers this kind of smooth experience. I'm about to start my own
+                    podcast... thank you for building something that actually solves a REAL problem."</p>
+            </div>
+
+            <!-- Card 3 — App Store -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar" style="background: linear-gradient(135deg, #10B981, #059669);">J</div>
+                    <span class="review-name">Junk .</span>
+                    <div class="review-platform">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"The app works great. I was surprised that it recognizes my English so well. I am
+                    not a native English speaker and do have an accent, but it still keeps up. I record a lot of product
+                    demos and it already saved me time :)"</p>
+            </div>
+
         </div>
     </section>
 
@@ -1078,67 +1520,93 @@
         </p>
     </section>
 
-    <!-- ═══════════════════════ Reviews ═══════════════════════ -->
-    <section class="reviews container fade-up">
-        <h2>What users are saying</h2>
 
-        <div class="reviews-grid">
 
-            <!-- Card 1 — App Store -->
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="review-avatar" style="background: linear-gradient(135deg, #6366F1, #8B5CF6);">J</div>
-                    <span class="review-name">justlr.</span>
-                    <div class="review-platform">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-                        </svg>
-                    </div>
+    <!-- ═══════════════════════ FAQ ═══════════════════════ -->
+    <section class="faq container fade-up" id="faq">
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+            <details class="faq-item">
+                <summary>How does voice scrolling work?</summary>
+                <div class="faq-content">
+                    VoicePrompter uses Apple's native speech recognition to listen to what you say and match it in real time against your script. Everything happens entirely on your device - no audio is ever sent to any server. It works offline and requires no internet connection after the initial app download.
                 </div>
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"This app really helps me on my sales calls. Instead of having my talking points
-                    on a sticky note, I now have them on my screen and they stay visible only to me even when I share my
-                    screen."</p>
-            </div>
-
-            <!-- Card 2 — Instagram DM -->
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="review-avatar" style="background: linear-gradient(135deg, #E1306C, #F77737);">PB</div>
-                    <span class="review-name">Philipp Berezin</span>
-                    <div class="review-platform">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                        </svg>
-                    </div>
+            </details>
+            <details class="faq-item">
+                <summary>Will the window show up during screen sharing or recordings?</summary>
+                <div class="faq-content">
+                    No - the window is invisible during screen sharing in Zoom, Google Meet, Microsoft Teams, FaceTime, and any other conferencing app. It's also invisible in screen recordings made with QuickTime, OBS, Loom, or any other recording tool. This is handled at the system level by macOS, not a software trick that could break.
                 </div>
-                <p class="review-text">"The way everything functions feels clean and simple to use. And so far there
-                    isn't a proper alternative that delivers this kind of smooth experience. I'm about to start my own
-                    podcast... thank you for building something that actually solves a REAL problem."</p>
-            </div>
-
-            <!-- Card 3 — App Store -->
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="review-avatar" style="background: linear-gradient(135deg, #10B981, #059669);">J</div>
-                    <span class="review-name">Junk .</span>
-                    <div class="review-platform">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-                        </svg>
-                    </div>
+            </details>
+            <details class="faq-item">
+                <summary>Which apps does it work with?</summary>
+                <div class="faq-content">
+                    VoicePrompter works simultaneously with any app on your Mac - conferencing apps, screen recorders, presentation tools, streaming software, anything. It's a system-level application that doesn't integrate with or depend on any specific app.
                 </div>
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"The app works great. I was surprised that it recognizes my English so well. I am
-                    not a native English speaker and do have an accent, but it still keeps up. I record a lot of product
-                    demos and it already saved me time :)"</p>
-            </div>
-
+            </details>
+            <details class="faq-item">
+                <summary>Where do I store my scripts?</summary>
+                <div class="faq-content">
+                    Wherever you already work - Google Docs, Apple Notes, Notion, Obsidian, or any other app. When you're ready, copy the text and click Load from Clipboard in the menu bar. The window opens instantly with your script loaded.
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>Are my scripts saved?</summary>
+                <div class="faq-content">
+                    VoicePrompter automatically saves up to 100 recent scripts locally on your device so you can reload them with one click. Nothing is uploaded or synced anywhere.
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>Can I add stage directions or notes I don't want to read out loud?</summary>
+                <div class="faq-content">
+                    Yes - put anything in square brackets and VoicePrompter will display it but skip it during voice scrolling. Useful for cues like [pause], [smile], or [check slide].
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>What if my script includes words in a different language?</summary>
+                <div class="faq-content">
+                    Put those words in square brackets and the speech recognition algorithm will skip over them, so you can keep speaking in your primary language without the sync breaking.
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>Can I jump to a specific part of my script?</summary>
+                <div class="faq-content">
+                    Yes - tap any word on screen and VoicePrompter starts listening from exactly that point. Useful if you skip a section, restart a segment, or want to jump ahead.
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>Will loud environments affect voice scrolling?</summary>
+                <div class="faq-content">
+                    Background noise can interfere with speech recognition in extreme cases, but VoicePrompter handles noisy environments well and has been tested reliably in louder settings. Normal office noise, keyboard sounds, or background conversation on a call won't cause issues.
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>Does it work across multiple screens?</summary>
+                <div class="faq-content">
+                    Yes - you can place the VoicePrompter window on any display. If you use an external monitor as a separate display, the window is visible only on whichever screen you place it on. If you mirror your screens, the window will appear on both - so for calls where you share your screen, use extend mode rather than mirror mode.
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>Is my data private?</summary>
+                <div class="faq-content">
+                    VoicePrompter does not collect, process, or transmit your scripts or any other personal data. Everything runs on your device. This is verified by Apple - the app passed Apple's review process for security and data privacy before being approved on the Mac App Store.
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>Which Mac models are supported?</summary>
+                <div class="faq-content">
+                    VoicePrompter works on every Mac running macOS 15 or later, including both Intel and Apple Silicon models.
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>Is the app free?</summary>
+                <div class="faq-content">
+                    VoicePrompter is free to use with up to 3 custom scripts, each with unlimited words and unlimited sessions. A demo script is also available for free with no limits. If you need more than 3 scripts, you can upgrade to Pro monthly, yearly, or with a one-time lifetime purchase.
+                </div>
+            </details>
+        </div>
+        <div class="faq-more">
+            <button class="faq-more-btn" onclick="(() => { const list = document.querySelector('.faq-list'); const expanded = list.classList.toggle('expanded'); this.textContent = expanded ? 'Show fewer FAQs' : 'Show more FAQs'; if (!expanded) document.getElementById('faq').scrollIntoView({ behavior: 'smooth', block: 'start' }); })()">Show more FAQs</button>
         </div>
     </section>
 
@@ -1197,16 +1665,33 @@
     <!-- ═══════════════════════ Scroll Reveal ═══════════════════════ -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const observer = new IntersectionObserver((entries) => {
+            // General scroll reveal
+            const revealObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
+                        revealObserver.unobserve(entry.target);
                     }
                 });
             }, { threshold: 0.12 });
 
-            document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+            document.querySelectorAll('.fade-up').forEach(el => revealObserver.observe(el));
+
+            // Video brightness toggle for mobile/viewport
+            const brightnessObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    } else {
+                        entry.target.classList.remove('in-view');
+                    }
+                });
+            }, { 
+                threshold: 0.6,
+                rootMargin: '-5% 0px -5% 0px' 
+            });
+
+            document.querySelectorAll('.showcase-tile').forEach(el => brightnessObserver.observe(el));
         });
     </script>
 

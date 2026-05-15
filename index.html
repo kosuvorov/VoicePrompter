@@ -50,7 +50,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display&family=Roboto+Flex:opsz,wght@8..144,400;8..144,500;8..144,600;8..144,700&display=swap"
         rel="stylesheet">
 
     <!-- Umami Analytics -->
@@ -158,12 +158,21 @@
             width: 100%;
         }
 
+        .nav-logo img {
+            position: relative;
+            top: -1px;
+        }
+
         .nav-logo {
-            font-family: var(--font-serif);
+            display: inline-flex;
+            align-items: center;
+            font-family: 'Google Sans Flex', 'Roboto Flex', 'DM Sans', system-ui, sans-serif;
             font-size: 22px;
+            font-weight: 500;
             color: var(--accent);
             letter-spacing: -0.02em;
         }
+
 
         /* ───────────────────────── Hero ───────────────────────── */
         .hero {
@@ -262,6 +271,17 @@
             letter-spacing: -0.01em;
         }
 
+        .card-subtitle {
+            display: block;
+            font-family: var(--font-sans);
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-light);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-top: 6px;
+        }
+
         .card-body {
             font-size: 16px;
             color: var(--text-light);
@@ -343,18 +363,46 @@
         .escape p {
             font-size: 14px;
             color: var(--text-light);
-            margin-bottom: 4px;
+            margin-bottom: 16px;
         }
 
-        .escape a {
+        .escape-btns {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .escape-btn-web {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--pop);
+            color: #1A1410;
+            font-family: var(--font-sans);
             font-size: 15px;
-            color: var(--pop);
             font-weight: 500;
-            transition: opacity 0.2s;
+            padding: 12px 28px;
+            border-radius: 100px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
         }
 
-        .escape a:hover {
-            opacity: 0.8;
+        .escape-btn-web:hover {
+            background: #D9A000;
+            transform: translateY(-1px);
+        }
+
+        .escape-btn-mac img {
+            height: 44px;
+            display: block;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+
+        .escape-btn-mac:hover img {
+            opacity: 0.85;
+            transform: translateY(-1px);
         }
 
         /* ───────────────────────── Footer ───────────────────────── */
@@ -576,9 +624,8 @@
 
             <!-- Hero -->
             <div class="hero fade-up">
-                <p class="eyebrow">Every great story needs a voice</p>
-                <h1>Two paths.<br>One destination.</h1>
-                <p class="hero-sub">Your script. Your confidence. Choose the tool made for your journey.</p>
+                <h1>The best teleprompter<br>for every use case</h1>
+                <p class="hero-sub">Effortless voice scrolling — in your browser or built right into your Mac.</p>
                 <a href="https://startupfa.me/s/voiceprompter?utm_source=voiceprompter.app" target="_blank"
                     rel="noopener" class="startup-fame-badge" data-umami-event="home-hero-startup-fame"><img
                         src="https://startupfa.me/badges/featured/dark.webp"
@@ -588,16 +635,13 @@
                 </div>
             </div>
 
-            <!-- Fork Label -->
-            <p class="fork-label fade-up">— The road divides here —</p>
-
             <!-- Fork Cards -->
             <div class="fork-grid fade-up">
 
                 <!-- Web App Card -->
                 <div class="fork-card web">
                     <span class="card-tag">Web App · 100% Free · Open Source</span>
-                    <h2 class="card-title">The Open Road</h2>
+                    <h2 class="card-title">The Open Road<br><span class="card-subtitle">Web application</span></h2>
                     <p class="card-body">No gates. No fees. No installation required.<br>Works on any device and follows
                         your voice.</p>
                     <ul class="card-perks">
@@ -616,7 +660,7 @@
                 <!-- Mac App Card -->
                 <div class="fork-card mac">
                     <span class="card-tag">Native MacOS · $3.34/mo · Free to try</span>
-                    <h2 class="card-title">The Native Route</h2>
+                    <h2 class="card-title">Native macOS application</h2>
                     <p class="card-body">Invisible to others. On top of your slides.<br>In sync with every word you
                         speak.
                     </p>
@@ -638,7 +682,13 @@
             <!-- Escape Hatch -->
             <div class="escape fade-up">
                 <p>Already know what you want?</p>
-                <a href="/app/" data-umami-event="home-escape-open-app">→ Just open the web app</a>
+                <div class="escape-btns">
+                    <a href="/app/" class="escape-btn-web" data-umami-event="home-escape-open-app">Open the web app</a>
+                    <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=home-escape&mt=8"
+                        target="_blank" rel="noopener" class="escape-btn-mac" data-umami-event="home-escape-download-mac">
+                        <img src="/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_wht_092917.svg" alt="Download on the Mac App Store">
+                    </a>
+                </div>
             </div>
 
         </div>
