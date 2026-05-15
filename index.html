@@ -200,20 +200,34 @@
 
         .startup-fame-badge {
             display: inline-block;
-            margin-top: 24px;
-            transition: opacity 0.2s ease;
+            margin-bottom: 24px;
+            opacity: 0.7;
+            transition: opacity 0.2s;
         }
 
         .startup-fame-badge:hover {
-            opacity: 0.8;
+            opacity: 1;
+        }
+
+        .startup-fame-badge img {
+            height: 32px;
+            width: auto;
         }
 
         .hero-sub {
             font-size: 19px;
             color: var(--text-light);
             max-width: 480px;
-            margin: 0 auto;
+            margin: 0 auto 32px;
             line-height: 1.6;
+        }
+
+        .hero-ctas {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 32px;
         }
 
         /* ───────────────────────── Fork ───────────────────────── */
@@ -378,19 +392,22 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--pop);
-            color: #1A1410;
+            background: var(--surface);
+            color: var(--accent);
+            border: 1px solid var(--surface-border);
             font-family: var(--font-sans);
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 500;
-            padding: 12px 28px;
-            border-radius: 100px;
+            padding: 0 12px;
+            height: 44px;
+            border-radius: 8px;
             text-decoration: none;
-            transition: background 0.2s, transform 0.2s;
+            transition: border-color 0.2s, transform 0.2s, background 0.2s;
         }
 
         .escape-btn-web:hover {
-            background: #D9A000;
+            border-color: rgba(255, 255, 255, 0.2);
+            background: #252525;
             transform: translateY(-1px);
         }
 
@@ -530,8 +547,20 @@
             }
 
             .footer-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 32px;
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-bottom-left {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
         }
 
@@ -550,6 +579,11 @@
 
             .hero-sub {
                 font-size: 17px;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                gap: 12px;
             }
 
             .fork-card {
@@ -626,10 +660,16 @@
             <div class="hero fade-up">
                 <h1>The best teleprompter<br>for every use case</h1>
                 <p class="hero-sub">Effortless voice scrolling — in your browser or built right into your Mac.</p>
-                <a href="https://startupfa.me/s/voiceprompter?utm_source=voiceprompter.app" target="_blank"
-                    rel="noopener" class="startup-fame-badge" data-umami-event="home-hero-startup-fame"><img
-                        src="https://startupfa.me/badges/featured/dark.webp"
-                        alt="VoicePrompter - Featured on Startup Fame" width="171" height="54" /></a>
+
+                <div class="hero-ctas">
+                    <a href="/app/" class="escape-btn-web" data-umami-event="home-hero-open-app">Open the web app</a>
+                    <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=home-hero&mt=8"
+                        target="_blank" rel="noopener" class="escape-btn-mac" data-umami-event="home-hero-download-mac">
+                        <img src="/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_wht_092917.svg"
+                            alt="Download on the Mac App Store">
+                    </a>
+                </div>
+
                 <div class="live-stat" id="live-stat">
                     <span>Trusted by <span class="stat-number" id="stat-creators">—</span> creators and counting</span>
                 </div>
@@ -641,7 +681,7 @@
                 <!-- Web App Card -->
                 <div class="fork-card web">
                     <span class="card-tag">Web App · 100% Free · Open Source</span>
-                    <h2 class="card-title">The Open Road<br><span class="card-subtitle">Web application</span></h2>
+                    <h2 class="card-title">Web application<br><span class="card-subtitle">Web application</span></h2>
                     <p class="card-body">No gates. No fees. No installation required.<br>Works on any device and follows
                         your voice.</p>
                     <ul class="card-perks">
@@ -653,7 +693,7 @@
                         <li>Built-in video recording</li>
                         <li>Your scripts never leave your device</li>
                     </ul>
-                    <a href="/web" class="card-cta" data-umami-event="home-cta-web-app">Take this path →</a>
+                    <a href="/web" class="card-cta" data-umami-event="home-cta-web-app">Learn more →</a>
                     <p class="card-flavor">Free as in freedom</p>
                 </div>
 
@@ -673,24 +713,11 @@
                         <li>Launches from clipboard in one click</li>
                         <li>Private - everything on your device</li>
                     </ul>
-                    <a href="/mac" class="card-cta" data-umami-event="home-cta-mac-app">Take this path →</a>
+                    <a href="/mac" class="card-cta" data-umami-event="home-cta-mac-app">Learn more →</a>
                     <p class="card-flavor">Free to try · 3 scripts included</p>
                 </div>
 
             </div>
-
-            <!-- Escape Hatch -->
-            <div class="escape fade-up">
-                <p>Already know what you want?</p>
-                <div class="escape-btns">
-                    <a href="/app/" class="escape-btn-web" data-umami-event="home-escape-open-app">Open the web app</a>
-                    <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=home-escape&mt=8"
-                        target="_blank" rel="noopener" class="escape-btn-mac" data-umami-event="home-escape-download-mac">
-                        <img src="/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_wht_092917.svg" alt="Download on the Mac App Store">
-                    </a>
-                </div>
-            </div>
-
         </div>
     </div>
 
@@ -722,9 +749,17 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>Made by <a href="https://instagram.com/kosuvorov" target="_blank" rel="noopener"
-                    style="color:var(--text-light);text-decoration:underline;text-underline-offset:2px;">Konstantin
-                    Suvorov</a> · © 2026 VoicePrompter</p>
+            <div class="footer-bottom-left">
+                <p>Made by <a href="https://instagram.com/kosuvorov" target="_blank" rel="noopener"
+                        style="color:var(--text-light);text-decoration:underline;text-underline-offset:2px;">Konstantin
+                        Suvorov</a> · © 2026 VoicePrompter</p>
+                <a href="https://startupfa.me/s/voiceprompter?utm_source=voiceprompter.app" target="_blank"
+                    rel="noopener" class="startup-fame-badge" data-umami-event="home-footer-startup-fame"
+                    style="margin-top:12px;">
+                    <img src="https://startupfa.me/badges/featured/dark.webp"
+                        alt="VoicePrompter - Featured on Startup Fame" width="171" height="54" />
+                </a>
+            </div>
             <div class="footer-social">
                 <a href="https://www.instagram.com/voiceprompter" target="_blank" rel="noopener" aria-label="Instagram">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
