@@ -438,6 +438,33 @@
             line-height: 1.55;
         }
 
+        .showcase-grid:not(.expanded) .showcase-tile:nth-child(n+7) {
+            display: none;
+        }
+
+        .showcase-more {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .showcase-more-btn {
+            font-family: var(--font-sans);
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-light);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px 16px;
+            transition: color 0.2s;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        .showcase-more-btn:hover {
+            color: var(--accent);
+        }
+
         /* ───────────────────────── Audience ───────────────────────── */
         .audience {
             text-align: center;
@@ -809,13 +836,31 @@
             margin-bottom: 56px;
         }
 
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+        /* Reviews Carousel Wrapper */
+        .reviews-carousel-wrapper {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 48px;
+        }
+
+        .reviews-carousel {
+            display: flex;
             gap: 24px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            scrollbar-width: none; /* Hide scrollbar Firefox */
+            padding: 10px 4px 20px; /* Spacing for card shadows */
+        }
+
+        .reviews-carousel::-webkit-scrollbar {
+            display: none; /* Hide scrollbar Chrome/Safari */
         }
 
         .review-card {
+            flex: 0 0 calc(33.333% - 16px);
+            scroll-snap-align: start;
             background: var(--surface);
             border: 1px solid var(--surface-border);
             border-radius: var(--radius);
@@ -824,12 +869,108 @@
             flex-direction: column;
             gap: 16px;
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            box-sizing: border-box;
         }
 
         .review-card:hover {
             transform: translateY(-4px);
             border-color: rgba(255, 255, 255, 0.1);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Responsive slide sizes */
+        @media (max-width: 968px) {
+            .review-card {
+                flex: 0 0 calc(50% - 12px);
+            }
+            .reviews-carousel-wrapper {
+                padding: 0 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .review-card {
+                flex: 0 0 100%;
+            }
+            .reviews-carousel-wrapper {
+                padding: 0 16px;
+            }
+        }
+
+        /* Carousel Navigation Buttons */
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 0;
+        }
+
+        .carousel-control:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel-control:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .carousel-control.prev {
+            left: -8px;
+        }
+
+        .carousel-control.next {
+            right: -8px;
+        }
+
+        .carousel-control svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Dots pagination indicators */
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .carousel-dot:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .carousel-dot.active {
+            background: var(--pop);
+            transform: scale(1.25);
+            box-shadow: 0 0 8px var(--pop);
         }
 
         .review-header {
@@ -1053,11 +1194,6 @@
             .reviews h2 {
                 font-size: 28px;
                 margin-bottom: 40px;
-            }
-
-            .reviews-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
             }
 
             .faq h2 {
@@ -1340,7 +1476,7 @@
                 </div>
                 <div class="showcase-tile-info">
                     <h3>Invisible to others</h3>
-                    <p>Hidden from Zoom, Teams, Google meet and every recording app. Only you see the script.</p>
+                    <p>Hidden from Zoom, Teams, Google Meet, and recording apps. Only you see the script.</p>
                 </div>
             </div>
 
@@ -1348,12 +1484,12 @@
             <div class="showcase-tile">
                 <div class="showcase-tile-media">
                     <video autoplay loop muted playsinline>
-                        <source src="/videos/3-voice-scrolling.mp4" type="video/mp4">
+                        <source src="/videos/2-scrolling.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="showcase-tile-info">
                     <h3>Voice scrolling</h3>
-                    <p>Reads along as you speak pauses when you pause. No clicker needed. Uses on-device speech recognition.</p>
+                    <p>Scrolls automatically as you speak, pausing when you pause. No manual controls or clickers needed.</p>
                 </div>
             </div>
 
@@ -1361,12 +1497,12 @@
             <div class="showcase-tile">
                 <div class="showcase-tile-media">
                     <video autoplay loop muted playsinline>
-                        <source src="/videos/2-floating.mp4" type="video/mp4">
+                        <source src="/videos/3-floating.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="showcase-tile-info">
                     <h3>Always on top</h3>
-                    <p>Floats above every window including full screen applications - so your script is always available at a glance.</p>
+                    <p>Floats above all other windows (including full-screen apps) so your script is always available at a glance.</p>
                 </div>
             </div>
 
@@ -1374,12 +1510,12 @@
             <div class="showcase-tile">
                 <div class="showcase-tile-media">
                     <video autoplay loop muted playsinline>
-                        <source src="/videos/5-transparent.mp4" type="video/mp4">
+                        <source src="/videos/4-transparent.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="showcase-tile-info">
                     <h3>Transparent window</h3>
-                    <p>Adjust opacity so text floats over your content without blocking the view.</p>
+                    <p>Adjust the opacity of the prompter window so you can read your script without blocking your view.</p>
                 </div>
             </div>
 
@@ -1387,28 +1523,115 @@
             <div class="showcase-tile">
                 <div class="showcase-tile-media">
                     <video autoplay loop muted playsinline>
-                        <source src="/videos/7-languages.mp4" type="video/mp4">
+                        <source src="/videos/5-languages.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="showcase-tile-info">
                     <h3>Supports 60+ languages</h3>
-                    <p>Works in English, Spanish, French, German, and dozens more - out of the box.</p>
+                    <p>Works flawlessly in English, Spanish, French, German, and dozens of other languages out of the box.</p>
                 </div>
             </div>
 
-            <!-- Tile 6 — Follows Your Cursor -->
+            <!-- Tile 6 — Scripts -->
             <div class="showcase-tile">
                 <div class="showcase-tile-media">
                     <video autoplay loop muted playsinline>
-                        <source src="/videos/4-cursor-following.mp4" type="video/mp4">
+                        <source src="/videos/6-scripts.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="showcase-tile-info">
+                    <h3>Save & manage scripts</h3>
+                    <p>Quickly save multiple scripts, organize them, and switch between your presentations with ease.</p>
+                </div>
+            </div>
+
+            <!-- Tile 7 — Presenter Notes -->
+            <div class="showcase-tile">
+                <div class="showcase-tile-media">
+                    <video autoplay loop muted playsinline>
+                        <source src="/videos/7-comments.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="showcase-tile-info">
+                    <h3>Presenter notes</h3>
+                    <p>Add cues or notes in square brackets <code>[like this]</code>. They are styled differently and automatically skipped by voice scrolling.</p>
+                </div>
+            </div>
+
+            <!-- Tile 8 — Follows Your Cursor -->
+            <div class="showcase-tile">
+                <div class="showcase-tile-media">
+                    <video autoplay loop muted playsinline>
+                        <source src="/videos/8-follow.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="showcase-tile-info">
                     <h3>Follows your cursor</h3>
-                    <p>The prompter window can snap to your mouse so the script is always where you look.</p>
+                    <p>Snaps the prompter window directly to your mouse cursor so the script is always exactly where you are looking.</p>
                 </div>
             </div>
 
+            <!-- Tile 9 — Menu Bar App -->
+            <div class="showcase-tile">
+                <div class="showcase-tile-media">
+                    <video autoplay loop muted playsinline>
+                        <source src="/videos/9-menu-bar.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="showcase-tile-info">
+                    <h3>Menu bar quick access</h3>
+                    <p>Access, open, or customize your prompter settings directly from your macOS menu bar.</p>
+                </div>
+            </div>
+
+            <!-- Tile 10 — Customizable Settings -->
+            <div class="showcase-tile">
+                <div class="showcase-tile-media">
+                    <video autoplay loop muted playsinline>
+                        <source src="/videos/10-settings.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="showcase-tile-info">
+                    <h3>Fully customizable</h3>
+                    <p>Fine-tune your presentation with adjustable font sizes, window opacity, margins, line spacing, and scrolling speeds.</p>
+                </div>
+            </div>
+
+            <!-- Tile 11 — Audio Input -->
+            <div class="showcase-tile">
+                <div class="showcase-tile-media">
+                    <video autoplay loop muted playsinline>
+                        <source src="/videos/11-audio.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="showcase-tile-info">
+                    <h3>Audio source selection</h3>
+                    <p>Choose your preferred microphone input source and monitor voice levels directly within the app.</p>
+                </div>
+            </div>
+
+            <!-- Tile 12 — Dark/Light Mode -->
+            <div class="showcase-tile">
+                <div class="showcase-tile-media">
+                    <video autoplay loop muted playsinline>
+                        <source src="/videos/12-dark-light.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="showcase-tile-info">
+                    <h3>Dark & light modes</h3>
+                    <p>Seamlessly switch between dark and light themes to optimize script readability in any environment.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="showcase-more">
+            <button class="showcase-more-btn" onclick="(() => {
+                const grid = document.querySelector('.showcase-grid');
+                const expanded = grid.classList.toggle('expanded');
+                this.textContent = expanded ? 'Show fewer features' : 'Show more features';
+                if (!expanded) document.getElementById('showcase').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            })()">Show more features</button>
         </div>
     </section>
 
@@ -1418,64 +1641,112 @@
     <section class="reviews container fade-up">
         <h2>What users are saying</h2>
 
-        <div class="reviews-grid">
+        <div class="reviews-carousel-wrapper">
+            <button class="carousel-control prev" aria-label="Previous review">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
 
-            <!-- Card 1 — App Store -->
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="review-avatar" style="background: linear-gradient(135deg, #6366F1, #8B5CF6);">J</div>
-                    <span class="review-name">justlr.</span>
-                    <div class="review-platform">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-                        </svg>
+            <div class="reviews-carousel" id="reviews-carousel">
+
+                <!-- Card 1 — App Store -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar" style="background: linear-gradient(135deg, #6366F1, #8B5CF6);">J</div>
+                        <span class="review-name">justlr.</span>
+                        <div class="review-platform">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                            </svg>
+                        </div>
                     </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"This app really helps me on my sales calls. Instead of having my talking points
+                        on a sticky note, I now have them on my screen and they stay visible only to me even when I share my
+                        screen."</p>
                 </div>
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"This app really helps me on my sales calls. Instead of having my talking points
-                    on a sticky note, I now have them on my screen and they stay visible only to me even when I share my
-                    screen."</p>
+
+                <!-- Card 2 — Instagram DM -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar" style="background: linear-gradient(135deg, #E1306C, #F77737);">PB</div>
+                        <span class="review-name">Philipp Berezin</span>
+                        <div class="review-platform">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"The way everything functions feels clean and simple to use. And so far there
+                        isn't a proper alternative that delivers this kind of smooth experience. I'm about to start my own
+                        podcast... thank you for building something that actually solves a REAL problem."</p>
+                </div>
+
+                <!-- Card 3 — App Store -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar" style="background: linear-gradient(135deg, #10B981, #059669);">J</div>
+                        <span class="review-name">Junk .</span>
+                        <div class="review-platform">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"The app works great. I was surprised that it recognizes my English so well. I am
+                        not a native English speaker and do have an accent, but it still keeps up. I record a lot of product
+                        demos and it already saved me time :)"</p>
+                </div>
+
+                <!-- Card 4 — YouTube -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar" style="background: linear-gradient(135deg, #FF4B2B, #FF416C);">H</div>
+                        <span class="review-name">@hellofayfay</span>
+                        <div class="review-platform">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Absolutely fantastic!"</p>
+                </div>
+
+                <!-- Card 5 — YouTube -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar" style="background: linear-gradient(135deg, #06B6D4, #0891B2);">T</div>
+                        <span class="review-name">@ThisIsE (Iskren Georgiev)</span>
+                        <div class="review-platform">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"I just gave the app a little run and I think it's amazing."</p>
+                </div>
+
             </div>
 
-            <!-- Card 2 — Instagram DM -->
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="review-avatar" style="background: linear-gradient(135deg, #E1306C, #F77737);">PB</div>
-                    <span class="review-name">Philipp Berezin</span>
-                    <div class="review-platform">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                        </svg>
-                    </div>
-                </div>
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"The way everything functions feels clean and simple to use. And so far there
-                    isn't a proper alternative that delivers this kind of smooth experience. I'm about to start my own
-                    podcast... thank you for building something that actually solves a REAL problem."</p>
-            </div>
+            <button class="carousel-control next" aria-label="Next review">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
 
-            <!-- Card 3 — App Store -->
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="review-avatar" style="background: linear-gradient(135deg, #10B981, #059669);">J</div>
-                    <span class="review-name">Junk .</span>
-                    <div class="review-platform">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-                        </svg>
-                    </div>
-                </div>
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"The app works great. I was surprised that it recognizes my English so well. I am
-                    not a native English speaker and do have an accent, but it still keeps up. I record a lot of product
-                    demos and it already saved me time :)"</p>
+            <div class="carousel-dots" id="carousel-dots">
+                <!-- Dots dynamically generated by JavaScript -->
             </div>
-
         </div>
     </section>
 
@@ -1691,6 +1962,179 @@
             });
 
             document.querySelectorAll('.showcase-tile').forEach(el => brightnessObserver.observe(el));
+
+            // Reviews Carousel Logic
+            const carousel = document.getElementById('reviews-carousel');
+            if (carousel) {
+                const originalCards = Array.from(carousel.querySelectorAll('.review-card'));
+                const M = originalCards.length;
+                const dotsContainer = document.getElementById('carousel-dots');
+                const prevBtn = document.querySelector('.carousel-control.prev');
+                const nextBtn = document.querySelector('.carousel-control.next');
+
+                let N = 0; // Number of cloned cards at each end
+                let scrollTimeout;
+
+                const setupCarousel = () => {
+                    if (M === 0) return;
+                    const cardWidth = originalCards[0].offsetWidth || 300;
+
+                    carousel.innerHTML = '';
+                    dotsContainer.innerHTML = '';
+
+                    const carouselWidth = carousel.clientWidth;
+                    N = Math.max(1, Math.round(carouselWidth / cardWidth));
+
+                    // Prepend clones of the last N cards
+                    for (let i = M - N; i < M; i++) {
+                        const clone = originalCards[i].cloneNode(true);
+                        clone.classList.add('clone');
+                        clone.setAttribute('aria-hidden', 'true');
+                        carousel.appendChild(clone);
+                    }
+
+                    // Append real cards
+                    originalCards.forEach((card) => {
+                        carousel.appendChild(card);
+                    });
+
+                    // Append clones of the first N cards
+                    for (let i = 0; i < N; i++) {
+                        const clone = originalCards[i].cloneNode(true);
+                        clone.classList.add('clone');
+                        clone.setAttribute('aria-hidden', 'true');
+                        carousel.appendChild(clone);
+                    }
+
+                    // Always display M dots representing each real card
+                    for (let i = 0; i < M; i++) {
+                        const dot = document.createElement('button');
+                        dot.className = 'carousel-dot';
+                        dot.setAttribute('aria-label', `Go to review ${i + 1}`);
+                        dot.addEventListener('click', () => {
+                            const currentCards = carousel.querySelectorAll('.review-card');
+                            const cardStep = currentCards[1] ? (currentCards[1].offsetLeft - currentCards[0].offsetLeft) : cardWidth;
+                            carousel.scrollTo({
+                                left: (N + i) * cardStep,
+                                behavior: 'smooth'
+                            });
+                        });
+                        dotsContainer.appendChild(dot);
+                    }
+
+                    // Position carousel at the first real card (index N)
+                    setTimeout(() => {
+                        const currentCards = carousel.querySelectorAll('.review-card');
+                        const cardStep = currentCards[1] ? (currentCards[1].offsetLeft - currentCards[0].offsetLeft) : cardWidth;
+                        carousel.scrollTo({
+                            left: N * cardStep,
+                            behavior: 'auto'
+                        });
+                        updateActiveDot();
+                    }, 50);
+                };
+
+                const updateActiveDot = () => {
+                    const currentCards = carousel.querySelectorAll('.review-card');
+                    if (currentCards.length === 0 || M === 0) return;
+
+                    const cardStep = currentCards[1] ? (currentCards[1].offsetLeft - currentCards[0].offsetLeft) : currentCards[0].offsetWidth;
+                    const dots = dotsContainer.querySelectorAll('.carousel-dot');
+                    
+                    const rawIndex = Math.round(carousel.scrollLeft / cardStep);
+                    const activeIndex = ((rawIndex - N) % M + M) % M;
+
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === activeIndex);
+                    });
+                };
+
+                const checkWrap = () => {
+                    const currentCards = carousel.querySelectorAll('.review-card');
+                    if (currentCards.length === 0 || M === 0) return;
+
+                    const cardStep = currentCards[1] ? (currentCards[1].offsetLeft - currentCards[0].offsetLeft) : currentCards[0].offsetWidth;
+                    const scrollLeft = carousel.scrollLeft;
+                    const currentIndex = Math.round(scrollLeft / cardStep);
+
+                    if (currentIndex < N) {
+                        // Jump to corresponding real card at the end
+                        carousel.scrollTo({
+                            left: (currentIndex + M) * cardStep,
+                            behavior: 'auto'
+                        });
+                    } else if (currentIndex >= N + M) {
+                        // Jump to corresponding real card at the start
+                        carousel.scrollTo({
+                            left: (currentIndex - M) * cardStep,
+                            behavior: 'auto'
+                        });
+                    }
+                };
+
+                // Scroll listener with animation frame throttling
+                let isScrolling = false;
+                carousel.addEventListener('scroll', () => {
+                    if (!isScrolling) {
+                        window.requestAnimationFrame(() => {
+                            updateActiveDot();
+                            isScrolling = false;
+                        });
+                        isScrolling = true;
+                    }
+                    
+                    // Wrap check fallback debounce for older browsers
+                    clearTimeout(scrollTimeout);
+                    scrollTimeout = setTimeout(checkWrap, 150);
+                });
+
+                // Modern scrollend event for instant wrap
+                carousel.addEventListener('scrollend', () => {
+                    clearTimeout(scrollTimeout);
+                    checkWrap();
+                });
+
+                // Resize listener (debounced)
+                let resizeTimeout;
+                window.addEventListener('resize', () => {
+                    clearTimeout(resizeTimeout);
+                    resizeTimeout = setTimeout(setupCarousel, 150);
+                });
+
+                // Prev/Next buttons
+                if (prevBtn) {
+                    prevBtn.disabled = false;
+                    prevBtn.style.opacity = '1';
+                    prevBtn.style.pointerEvents = 'auto';
+
+                    prevBtn.addEventListener('click', () => {
+                        const currentCards = carousel.querySelectorAll('.review-card');
+                        const cardStep = currentCards[1] ? (currentCards[1].offsetLeft - currentCards[0].offsetLeft) : currentCards[0].offsetWidth;
+                        carousel.scrollBy({
+                            left: -cardStep,
+                            behavior: 'smooth'
+                        });
+                    });
+                }
+
+                if (nextBtn) {
+                    nextBtn.disabled = false;
+                    nextBtn.style.opacity = '1';
+                    nextBtn.style.pointerEvents = 'auto';
+
+                    nextBtn.addEventListener('click', () => {
+                        const currentCards = carousel.querySelectorAll('.review-card');
+                        const cardStep = currentCards[1] ? (currentCards[1].offsetLeft - currentCards[0].offsetLeft) : currentCards[0].offsetWidth;
+                        carousel.scrollBy({
+                            left: cardStep,
+                            behavior: 'smooth'
+                        });
+                    });
+                }
+
+                // Initialize
+                setTimeout(setupCarousel, 100);
+            }
         });
     </script>
 
