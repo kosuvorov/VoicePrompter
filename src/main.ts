@@ -385,6 +385,18 @@ els.closeGoogleDocModalBtn.addEventListener('click', () => {
     els.googleDocModal.classList.add('hidden');
 });
 
+// Paste Google Doc Link Button
+els.pasteGoogleDocUrlBtn.addEventListener('click', async () => {
+    (window as any).umami?.track('paste-google-doc-url');
+    try {
+        const text = await navigator.clipboard.readText();
+        els.googleDocUrlInput.value = text.trim();
+        els.googleDocUrlInput.focus();
+    } catch (err) {
+        console.error('Failed to paste Google Doc URL!', err);
+    }
+});
+
 // Confirm Import from Google Doc
 els.confirmGoogleDocImportBtn.addEventListener('click', async () => {
     const url = els.googleDocUrlInput.value.trim();

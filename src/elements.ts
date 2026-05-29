@@ -95,6 +95,7 @@ export interface Elements {
     googleDocUrlInput: HTMLInputElement;
     confirmGoogleDocImportBtn: HTMLElement;
     closeGoogleDocModalBtn: HTMLElement;
+    pasteGoogleDocUrlBtn: HTMLElement;
     refreshGoogleDocBtn: HTMLElement;
     refreshGoogleDocContainer: HTMLElement;
     copyGoogleDocUrlBtn: HTMLElement;
@@ -202,6 +203,7 @@ export function initElements(): void {
         googleDocUrlInput: document.getElementById('googleDocUrlInput') as HTMLInputElement,
         confirmGoogleDocImportBtn: document.getElementById('confirmGoogleDocImportBtn')!,
         closeGoogleDocModalBtn: document.getElementById('closeGoogleDocModalBtn')!,
+        pasteGoogleDocUrlBtn: document.getElementById('pasteGoogleDocUrlBtn')!,
         refreshGoogleDocBtn: document.getElementById('refreshGoogleDocBtn')!,
         refreshGoogleDocContainer: document.getElementById('refreshGoogleDocContainer')!,
         copyGoogleDocUrlBtn: document.getElementById('copyGoogleDocUrlBtn')!,

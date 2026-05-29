@@ -136,19 +136,23 @@
     <div id="googleDocModal"
         class="hidden fixed inset-0 z-[10000] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
         <div
-            class="bg-neutral-900 border border-neutral-700 rounded-xl p-6 max-w-md w-full shadow-2xl shadow-black/50">
+            class="relative bg-neutral-900 border border-neutral-700 rounded-xl p-6 max-w-md w-full shadow-2xl shadow-black/50">
+            <button id="closeGoogleDocModalBtn"
+                class="absolute top-4 right-4 text-neutral-400 hover:text-white transition-colors"
+                title="Close Modal">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
             <h2 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
                 Import Google Doc
             </h2>
-            <div class="mb-4 text-sm text-neutral-300 space-y-2 leading-relaxed">
-                <p>To import your script directly from Google Docs, please make sure the document is shared:</p>
-                <div class="bg-blue-950/40 border border-blue-800/60 rounded-lg p-3 text-xs text-blue-200">
-                    <strong>Sharing Settings:</strong> Click <strong>Share</strong> in the top-right of your Google Doc, and under General Access change it to <strong>"Anyone with the link"</strong> as a <strong>Viewer</strong>.
-                </div>
-            </div>
+            <p class="mb-4 text-sm text-neutral-300 leading-relaxed">
+                Please make sure the sharing access to the Google Doc is set to <strong>"Anyone with the link"</strong> as a <strong>Viewer</strong>.
+            </p>
             <div class="mb-5">
                 <label class="block text-xs font-bold text-neutral-400 uppercase tracking-wider mb-2">Google Doc Link</label>
                 <input id="googleDocUrlInput" type="text"
@@ -156,9 +160,12 @@
                     placeholder="https://docs.google.com/document/d/.../edit">
             </div>
             <div class="flex gap-3">
-                <button id="closeGoogleDocModalBtn"
-                    class="flex-1 px-4 py-2.5 bg-neutral-800 hover:bg-neutral-700 rounded-lg text-sm font-medium text-white transition-colors border border-neutral-700">
-                    Cancel
+                <button id="pasteGoogleDocUrlBtn"
+                    class="flex-1 px-4 py-2.5 bg-neutral-800 hover:bg-neutral-700 rounded-lg text-sm font-medium text-white transition-colors border border-neutral-700 flex items-center justify-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                    </svg>
+                    Paste
                 </button>
                 <button id="confirmGoogleDocImportBtn"
                     class="flex-grow flex-1 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 rounded-lg text-sm font-semibold text-white transition-colors flex items-center justify-center gap-2">
