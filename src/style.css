@@ -203,6 +203,10 @@ input[type=range]::-moz-range-track {
     transform: scaleX(-1); /* Mirror for selfie cam */
 }
 
+#videoContainer {
+    touch-action: none;
+}
+
 /* ── Split Layout: script top, video bottom ── */
 .video-mode-split {
     display: flex !important;
