@@ -47,11 +47,11 @@ export async function fetchGoogleDocText(docUrl: string): Promise<string> {
     const exportUrl = `https://docs.google.com/document/d/${docId}/export?format=txt&cb=${Date.now()}`;
     
     // List of public CORS proxies to try, ordered by likelihood of production success.
-    // We put allorigins first as it has fewer origin restrictions on custom domains.
+    // We put codetabs first since it works instantly in production, followed by allorigins and corsproxy.io as fallbacks.
     const proxies = [
+        `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(exportUrl)}`,
         `https://api.allorigins.win/raw?url=${encodeURIComponent(exportUrl)}`,
-        `https://corsproxy.io/?${encodeURIComponent(exportUrl)}`,
-        `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(exportUrl)}`
+        `https://corsproxy.io/?${encodeURIComponent(exportUrl)}`
     ];
 
     let lastError: any = null;
