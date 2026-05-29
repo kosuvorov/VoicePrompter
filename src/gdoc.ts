@@ -16,6 +16,25 @@ export function extractDocId(url: string): string | null {
 }
 
 /**
+ * Fetches a URL with a strict timeout using AbortController.
+ */
+async function fetchWithTimeout(url: string, options: RequestInit = {}, timeout = 6000): Promise<Response> {
+    const controller = new AbortController();
+    const id = setTimeout(() => controller.abort(), timeout);
+    try {
+        const response = await fetch(url, {
+            ...options,
+            signal: controller.signal
+        });
+        clearTimeout(id);
+        return response;
+    } catch (err) {
+        clearTimeout(id);
+        throw err;
+    }
+}
+
+/**
  * Fetches the plain text of a Google Doc using a CORS proxy.
  * Google Doc must be shared publicly (Anyone with the link can view).
  */
@@ -27,17 +46,20 @@ export async function fetchGoogleDocText(docUrl: string): Promise<string> {
 
     const exportUrl = `https://docs.google.com/document/d/${docId}/export?format=txt&cb=${Date.now()}`;
     
-    // We try multiple public CORS proxies for redundancy (in case one is blocked or rate-limited on mobile)
+    // List of public CORS proxies to try, ordered by likelihood of production success.
+    // We put allorigins first as it has fewer origin restrictions on custom domains.
     const proxies = [
+        `https://api.allorigins.win/raw?url=${encodeURIComponent(exportUrl)}`,
         `https://corsproxy.io/?${encodeURIComponent(exportUrl)}`,
-        `https://api.allorigins.win/raw?url=${encodeURIComponent(exportUrl)}`
+        `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(exportUrl)}`
     ];
 
     let lastError: any = null;
 
     for (const proxyUrl of proxies) {
         try {
-            const response = await fetch(proxyUrl, { cache: 'no-store' });
+            // Fetch with a 6-second timeout per proxy to keep the experience responsive
+            const response = await fetchWithTimeout(proxyUrl, { cache: 'no-store' }, 6000);
             if (!response.ok) {
                 throw new Error(`Proxy returned status ${response.status}`);
             }
