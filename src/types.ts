@@ -25,6 +25,7 @@ export interface AppConfig {
     highlightActiveWord: boolean;
     activeLinePosition: number; // 0 to 100 (percentage from top)
     lookaheadWords: number; // 1-10 words to look ahead
+    matchGroupSize: number; // consecutive words required per match (bigrams=2, then 3, 4, ...)
     dockOpacity: number; // 0-100 opacity of dock while recording
     fontFamily: string; // Font family for the script
 }

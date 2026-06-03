@@ -26,6 +26,7 @@ export const state: AppState = {
         highlightActiveWord: true,
         activeLinePosition: 35, // Default to 35% from top
         lookaheadWords: 5, // Default lookahead
+        matchGroupSize: 2, // Match on consecutive word pairs by default
         dockOpacity: 50, // Default dock opacity (50%)
         fontFamily: 'mono' // Default font
     },
