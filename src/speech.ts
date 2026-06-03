@@ -233,7 +233,11 @@ function matchWords(spokenWords: string[]) {
         return false;
     };
 
-    // Look forward from the cursor for the nearest matching word group.
-    scan(state.currentIndex, 1);
+    // Look forward first (nearest upcoming words); if nothing matches, look back so a re-read
+    // passage jumps backward too. The recent-words window (see caller) is kept small and
+    // independent of LOOKAHEAD so just-read words clear quickly and don't block a backward jump.
+    if (!scan(state.currentIndex, 1) && state.config.lookBackEnabled) {
+        scan(state.currentIndex - 1, -1);
+    }
 }
 
