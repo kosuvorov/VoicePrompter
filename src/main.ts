@@ -687,6 +687,18 @@ els.lookaheadWordsInput.addEventListener('input', (e) => {
     els.lookaheadWordsVal.textContent = `${val}`;
 });
 
+// Words Per Match Slider (match group size)
+els.matchGroupSizeInput.addEventListener('input', (e) => {
+    const val = parseInt((e.target as HTMLInputElement).value);
+    state.config.matchGroupSize = val;
+    els.matchGroupSizeVal.textContent = `${val}`;
+});
+
+// Look-back Toggle
+els.lookBackToggle.addEventListener('change', (e) => {
+    state.config.lookBackEnabled = (e.target as HTMLInputElement).checked;
+});
+
 // Text Color Picker
 els.textColorInput.addEventListener('input', (e) => {
     state.config.textColor = (e.target as HTMLInputElement).value;
@@ -929,12 +941,16 @@ function initializeUI(): void {
     els.lookaheadWordsVal.textContent = `${state.config.lookaheadWords}`;
     els.lookaheadWordsInput.value = state.config.lookaheadWords.toString();
 
+    els.matchGroupSizeVal.textContent = `${state.config.matchGroupSize}`;
+    els.matchGroupSizeInput.value = state.config.matchGroupSize.toString();
+
     // Update alignment and direction buttons
     updateAlignmentButtons();
     updateDirectionButtons();
 
     els.smoothAnimationsToggle.checked = state.config.smoothAnimations;
     els.highlightActiveWordToggle.checked = state.config.highlightActiveWord;
+    els.lookBackToggle.checked = state.config.lookBackEnabled;
 
     // Seed demo script for first-time users
     const history = getHistory();
