@@ -25,7 +25,9 @@ export const state: AppState = {
         smoothAnimations: false,
         highlightActiveWord: true,
         activeLinePosition: 35, // Default to 35% from top
-        lookaheadWords: 5, // Default lookahead
+        lookaheadWords: 20, // Default lookahead
+        matchGroupSize: 3, // Match on consecutive word groups by default
+        lookBackEnabled: true, // Also scan backward to follow re-reads
         dockOpacity: 50, // Default dock opacity (50%)
         fontFamily: 'mono' // Default font
     },

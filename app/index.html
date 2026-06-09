@@ -688,10 +688,34 @@
             <div class="mb-4">
                 <div class="flex justify-between text-sm mb-1">
                     <span class="text-neutral-300">Lookahead Words</span>
-                    <span id="lookaheadWordsVal" class="text-[#FFBB00] font-mono">5</span>
+                    <span id="lookaheadWordsVal" class="text-[#FFBB00] font-mono">20</span>
                 </div>
-                <input id="lookaheadWordsInput" type="range" min="1" max="10" step="1" value="5"
+                <input id="lookaheadWordsInput" type="range" min="1" max="50" step="1" value="20"
                     class="w-full h-2 bg-neutral-700 rounded-lg appearance-none cursor-pointer">
+            </div>
+
+            <!-- Words Per Match -->
+            <div class="mb-4">
+                <div class="flex justify-between text-sm mb-1">
+                    <span class="text-neutral-300">Words Per Match</span>
+                    <span id="matchGroupSizeVal" class="text-[#FFBB00] font-mono">3</span>
+                </div>
+                <input id="matchGroupSizeInput" type="range" min="1" max="4" step="1" value="3"
+                    class="w-full h-2 bg-neutral-700 rounded-lg appearance-none cursor-pointer">
+            </div>
+
+            <!-- Look-back -->
+            <div class="mb-4 flex items-center justify-between">
+                <div class="flex flex-col">
+                    <span class="text-sm text-neutral-300">Look-back</span>
+                    <span class="text-xs text-neutral-500">Jump backward when you re-read earlier text</span>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input id="lookBackToggle" type="checkbox" checked class="sr-only peer">
+                    <div
+                        class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#FFBB00]">
+                    </div>
+                </label>
             </div>
 
             <!-- Devices Selection -->
