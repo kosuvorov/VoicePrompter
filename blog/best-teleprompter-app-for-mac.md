@@ -1,6 +1,6 @@
 ---
 title: "Best Teleprompter App for Mac in 2025: An Honest Look"
-description: "An honest comparison of Mac teleprompter apps — what actually matters, what's missing, and where VoicePrompter fits in the landscape."
+description: "An honest comparison of Mac teleprompter apps  -  what actually matters, what's missing, and where VoicePrompter fits in the landscape."
 date: "Mar 20, 2026"
 image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
@@ -14,11 +14,11 @@ This is not a sponsored roundup. I'm not going to pretend I use five different a
 
 Before comparing anything, let me be specific about what actually matters for a Mac-based workflow.
 
-**It needs to stay on top.** Not just on top of other apps — on top of full-screen apps. On top of Keynote in presentation mode. On top of full-screen Zoom. If the teleprompter disappears when you go full-screen in any app, it's unusable for the most common recording scenarios.
+**It needs to stay on top.** Not just on top of other apps  -  on top of full-screen apps. On top of Keynote in presentation mode. On top of full-screen Zoom. If the teleprompter disappears when you go full-screen in any app, it's unusable for the most common recording scenarios.
 
-**It should be invisible to screen recording.** If you're recording a demo, webinar, tutorial, or screen share and the teleprompter appears in the recording — that's a hard fail. The whole point is that it's for you, not your viewers.
+**It should be invisible to screen recording.** If you're recording a demo, webinar, tutorial, or screen share and the teleprompter appears in the recording  -  that's a hard fail. The whole point is that it's for you, not your viewers.
 
-**Voice scrolling should actually work.** Not auto-scroll, not manual scroll — voice activated, where the text tracks your speech, pauses when you pause, and resumes when you speak. This is harder to get right than it sounds, and most apps don't get it right.
+**Voice scrolling should actually work.** Not auto-scroll, not manual scroll  -  voice activated, where the text tracks your speech, pauses when you pause, and resumes when you speak. This is harder to get right than it sounds, and most apps don't get it right.
 
 **Language support should be realistic.** If you speak anything other than English, or if you work with multilingual teams, you need real multi-language support, not a dropdown of 5 languages where only English actually performs well.
 
@@ -26,7 +26,7 @@ Before comparing anything, let me be specific about what actually matters for a 
 
 ### VoicePrompter for Mac
 
-This is the one I built. I'm biased — obviously — but I can also tell you exactly what it does.
+This is the one I built. I'm biased  -  obviously  -  but I can also tell you exactly what it does.
 
 [VoicePrompter for Mac](https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8) is a native macOS app that runs as a menu bar app. The window is a transparent overlay that:
 
@@ -60,31 +60,31 @@ Uses voice recognition for scrolling. The recognition tech is decent for English
 
 [VoicePrompter web app](https://voiceprompter.app) also works on Mac via browser or as an installed PWA. It's free and open source. The voice scrolling works, mirror mode works, it's offline capable.
 
-The web app doesn't have the always-on-top functionality or the screen-capture-invisible feature — those require native OS integration. But if you don't need those features, the web app at [voiceprompter.app](https://voiceprompter.app) is the best free option and is perfectly functional for non-screen-share recording scenarios.
+The web app doesn't have the always-on-top functionality or the screen-capture-invisible feature  -  those require native OS integration. But if you don't need those features, the web app at [voiceprompter.app](https://voiceprompter.app) is the best free option and is perfectly functional for non-screen-share recording scenarios.
 
 ## Which One Should You Use
 
-If you record demos, webinars, tutorials, online presentations, podcasts, or do sales calls over video — and you do any of these on a Mac — you want [VoicePrompter for Mac](https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8). The combination of invisible overlay and always-on-top with reliable voice scrolling is the specific set of features that solves the actual problem.
+If you record demos, webinars, tutorials, online presentations, podcasts, or do sales calls over video  -  and you do any of these on a Mac  -  you want [VoicePrompter for Mac](https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8). The combination of invisible overlay and always-on-top with reliable voice scrolling is the specific set of features that solves the actual problem.
 
 If you only film yourself with a camera (not screen recording), and you want a completely free solution, the web app at [voiceprompter.app](https://voiceprompter.app) is excellent and costs nothing.
 
 If you specifically need iPad/iPhone sync as a primary feature, Teleprompter Pro is worth looking at.
 
-## The Screen Capture Invisible Feature — Why It Matters More Than You Think
+## The Screen Capture Invisible Feature  -  Why It Matters More Than You Think
 
 I want to spend a moment on this because it's the feature that gets underappreciated until the moment you need it.
 
-Imagine you're doing a sales call over Zoom. You have a tight script — opening, qualification questions, demo flow, pricing, close. You've rehearsed it. You want to reference it during the call without looking obviously at notes.
+Imagine you're doing a sales call over Zoom. You have a tight script  -  opening, qualification questions, demo flow, pricing, close. You've rehearsed it. You want to reference it during the call without looking obviously at notes.
 
 With a regular teleprompter window, you have two problems. First, if you share your screen at any point, the teleprompter text appears in the share. Second, even if you don't share your screen, the window is visually cluttered in your taskbar, notification area, etc., and you're always one accidental app switch away from losing it.
 
-With an invisible overlay that stays on top: the teleprompter is always there, always readable, visible only to you, and never appearing in recordings or screen shares. That's a qualitatively different experience. I explain the full setup for Zoom and similar tools in [teleprompter for Zoom — invisible overlay](./teleprompter-for-zoom-invisible.md).
+With an invisible overlay that stays on top: the teleprompter is always there, always readable, visible only to you, and never appearing in recordings or screen shares. That's a qualitatively different experience. I explain the full setup for Zoom and similar tools in [teleprompter for Zoom  -  invisible overlay](./teleprompter-for-zoom-invisible.md).
 
 ---
 
 **Related articles:**
 - [Why All Teleprompter Apps Are Terrible (And What I Did About It)](./why-all-teleprompter-apps-suck.md)
-- [Teleprompter for Zoom — Completely Invisible](./teleprompter-for-zoom-invisible.md)
+- [Teleprompter for Zoom  -  Completely Invisible](./teleprompter-for-zoom-invisible.md)
 - [Free Voice-Activated Teleprompter for Solo Creators](./free-voice-activated-teleprompter.md)
 - [How to Record a Product Demo Video](./how-to-record-product-demo-video.md)
 - [VoicePrompter Complete Guide](./voiceprompter-complete-guide-2025.md)

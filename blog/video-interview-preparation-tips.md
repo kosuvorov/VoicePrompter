@@ -8,7 +8,7 @@ keywords: ["teleprompter", "video production"]
 
 Pre-recorded video interviews have become standard for a lot of hiring processes. You get a link, a set of questions, a time limit per response, and one or two attempts to get it right. No interviewer. No back-and-forth. Just you, a camera, and a clock.
 
-And yet most people treat these exactly like a spoken interview — they think through what they want to say, hit record, and improvise. That works if you're an unusually smooth extemporaneous speaker. For the rest of us, it produces a recording that sounds hesitant, verbose, and full of "um" and "so."
+And yet most people treat these exactly like a spoken interview  -  they think through what they want to say, hit record, and improvise. That works if you're an unusually smooth extemporaneous speaker. For the rest of us, it produces a recording that sounds hesitant, verbose, and full of "um" and "so."
 
 Here's a better approach.
 
@@ -18,7 +18,7 @@ I know this sounds obvious. Most people skip it anyway because writing takes tim
 
 Here's the problem: natural spoken answers are longer, less structured, and less precise than written ones. A written answer forces you to think through what you actually want to say. It also gives you something to fall back on if you go blank.
 
-Write your answers to the expected questions in full. Not bullet points — full sentences, the way you want to say them. Then read them aloud several times until they don't sound like you're reading.
+Write your answers to the expected questions in full. Not bullet points  -  full sentences, the way you want to say them. Then read them aloud several times until they don't sound like you're reading.
 
 Yes, this is a lot of work. It's also the difference between sounding confident and sounding like you're figuring it out in real time.
 
@@ -26,7 +26,7 @@ Yes, this is a lot of work. It's also the difference between sounding confident 
 
 Here's where most interview advice gets timid. They say "use notes but don't read from notes." That's not advice, that's a contradiction.
 
-The right approach: use a teleprompter so that your notes are in front of you, follow your pace, and let you read them while looking at the camera — without the viewer being able to tell you're reading.
+The right approach: use a teleprompter so that your notes are in front of you, follow your pace, and let you read them while looking at the camera  -  without the viewer being able to tell you're reading.
 
 For a recorded video interview on a Mac, [VoicePrompter for Mac](https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8) is the cleanest setup. It's a transparent, always-on-top overlay. Position it right below your camera, set the font large enough to read comfortably, start the voice recognition, and deliver your answer.
 
@@ -38,9 +38,9 @@ For a phone or browser-based setup, [voiceprompter.app](https://voiceprompter.ap
 
 Put the teleprompter as close to your camera lens as physically possible. The smaller the angle between "where my eyes are pointing" and "where the lens is," the more natural your eye contact looks.
 
-Read in phrases, not word-by-word. Grab three or four words with a glance, then deliver them while looking at the lens. Then go back for the next chunk. This is how news anchors and politicians read from teleprompters — it looks like direct conversation, not reading.
+Read in phrases, not word-by-word. Grab three or four words with a glance, then deliver them while looking at the lens. Then go back for the next chunk. This is how news anchors and politicians read from teleprompters  -  it looks like direct conversation, not reading.
 
-Slow down. Under pressure, we all speed up. Deliberate slowing-down feels unnatural while recording and sounds natural on playback. Trust the feeling of "this is too slow" — it probably isn't.
+Slow down. Under pressure, we all speed up. Deliberate slowing-down feels unnatural while recording and sounds natural on playback. Trust the feeling of "this is too slow"  -  it probably isn't.
 
 For a full breakdown of the technique, read [how to read a script without looking like you're reading](./how-to-read-script-without-looking-like-reading.md).
 
@@ -52,7 +52,7 @@ These matter more for a recorded interview than for a live one, because the view
 
 **Light source in front of you.** Sit facing a window, or use a ring light. The light should be hitting your face, not your back. Backlighting makes you a silhouette.
 
-**Background should be clean.** Not necessarily professional-studio-level perfect, but clean and intentional. A bookshelf, a plain wall, a slightly blurred room — all fine. A pile of laundry and a visible unmade bed — not fine.
+**Background should be clean.** Not necessarily professional-studio-level perfect, but clean and intentional. A bookshelf, a plain wall, a slightly blurred room  -  all fine. A pile of laundry and a visible unmade bed  -  not fine.
 
 **Test your audio before anything else.** Do a thirty-second test recording and listen back with headphones. Most built-in laptop microphones are decent in a quiet room. If there's echo or ambient noise, an external USB microphone is a meaningful upgrade for under $50.
 
@@ -67,7 +67,7 @@ For a standard job interview, here are the questions you almost certainly need p
 - Where do you see yourself in five years
 - Do you have any questions for us (yes, always, and prepare them)
 
-That's six answers. Write all six. Read each one aloud three times. Then record yourself and watch it back — this step is painful but genuinely useful.
+That's six answers. Write all six. Read each one aloud three times. Then record yourself and watch it back  -  this step is painful but genuinely useful.
 
 ## The Practice Recording Step Most People Skip
 
@@ -75,11 +75,11 @@ Record yourself answering a question and watch it back. I know. It's uncomfortab
 
 Watch specifically for: eye drift (are you looking at the screen instead of the lens?), pace (are you rushing?), filler words (um, like, so, you know), and posture (are you slouching?).
 
-One round of this — record, watch, note the issues, re-record — will improve your delivery more than any amount of mental rehearsal. The camera shows you things about yourself that you genuinely cannot notice in real time.
+One round of this  -  record, watch, note the issues, re-record  -  will improve your delivery more than any amount of mental rehearsal. The camera shows you things about yourself that you genuinely cannot notice in real time.
 
 ## On the Day
 
-Run through your notes one more time. Not memorizing — just priming. Stand up, shake out your hands, take a few slow breaths. Warm up your voice (say a few sentences out loud so your voice isn't cold and tight when you start).
+Run through your notes one more time. Not memorizing  -  just priming. Stand up, shake out your hands, take a few slow breaths. Warm up your voice (say a few sentences out loud so your voice isn't cold and tight when you start).
 
 Have your teleprompter loaded with your answers before you start. When the question appears, take five seconds to read it, make sure it matches the answer you prepared, then start talking.
 
@@ -92,5 +92,5 @@ For general on-camera confidence technique, see [how to look confident on camera
 **Related articles:**
 - [How to Look Confident on Camera](./how-to-look-confident-on-camera.md)
 - [How to Read a Script Without Looking Like You're Reading](./how-to-read-script-without-looking-like-reading.md)
-- [Teleprompter for Zoom — Completely Invisible](./teleprompter-for-zoom-invisible.md)
+- [Teleprompter for Zoom  -  Completely Invisible](./teleprompter-for-zoom-invisible.md)
 - [Zoom Sales Call Presentation Tips](./zoom-presentation-tips-sales-calls.md)

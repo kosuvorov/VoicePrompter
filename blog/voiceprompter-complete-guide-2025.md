@@ -1,6 +1,6 @@
 ---
 title: "VoicePrompter Complete Guide: Everything You Need to Know"
-description: "The definitive guide to VoicePrompter — covering both the free web app and the native Mac app, setup, voice scrolling, mirror mode, and advanced features."
+description: "The definitive guide to VoicePrompter  -  covering both the free web app and the native Mac app, setup, voice scrolling, mirror mode, and advanced features."
 date: "Mar 22, 2026"
 image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
@@ -10,9 +10,9 @@ VoicePrompter is a voice-activated teleprompter available in two versions: a fre
 
 ## Why VoicePrompter Exists
 
-I spent five years looking for a teleprompter app that actually worked for my use cases — recording videos, demos, presentations — and couldn't find one. The apps were either manual scroll (useless solo), had unreliable voice recognition, didn't support the languages I needed, or had some deal-breaker missing feature like no mirror mode or no mobile design.
+I spent five years looking for a teleprompter app that actually worked for my use cases  -  recording videos, demos, presentations  -  and couldn't find one. The apps were either manual scroll (useless solo), had unreliable voice recognition, didn't support the languages I needed, or had some deal-breaker missing feature like no mirror mode or no mobile design.
 
-So I built one. The web app is free and open source because the core functionality — voice-activated scrolling, offline capability, mirror mode — shouldn't cost anything. The Mac app is paid because building a native macOS app with custom voice recognition algorithms, an invisible overlay mode, and proper system integration is a different level of engineering.
+So I built one. The web app is free and open source because the core functionality  -  voice-activated scrolling, offline capability, mirror mode  -  shouldn't cost anything. The Mac app is paid because building a native macOS app with custom voice recognition algorithms, an invisible overlay mode, and proper system integration is a different level of engineering.
 
 You can see the web app source code on [GitHub](https://github.com/kosuvorov/VoicePrompter).
 
@@ -28,7 +28,7 @@ Solo creators filming on a phone or tablet, or anyone who needs a free, privacy-
 
 **Voice-activated scrolling.** The app uses your device's built-in speech recognition to scroll the text as you speak. No manual control needed. It pauses when you stop, resumes when you start. Supports 34 languages.
 
-**Works 100% offline.** Once loaded in a browser or installed as a PWA, the app works without internet. Speech recognition happens on your device — nothing is sent to a server.
+**Works 100% offline.** Once loaded in a browser or installed as a PWA, the app works without internet. Speech recognition happens on your device  -  nothing is sent to a server.
 
 **Installable as a PWA.** On iOS, tap Share → Add to Home Screen. On Android, tap the browser menu → Install App. On desktop Chrome, click the install icon in the address bar. It works and launches like a native app.
 
@@ -44,7 +44,7 @@ Solo creators filming on a phone or tablet, or anyone who needs a free, privacy-
 
 **Visual stop signs.** Add pause indicators to your script that show as visual markers during playback.
 
-**Bracket handling.** Text in brackets like `[pause]` or `[smile]` is displayed for you but skipped by the voice recognition engine — so you can write stage directions into your script.
+**Bracket handling.** Text in brackets like `[pause]` or `[smile]` is displayed for you but skipped by the voice recognition engine  -  so you can write stage directions into your script.
 
 **Script history.** Recent scripts are saved in local storage on your device. No account, no cloud, just private local storage.
 
@@ -77,17 +77,17 @@ Professionals who record demos, webinars, tutorials, podcasts, product videos, o
 
 **Always-on-top.** Stays above all other apps and windows, including full-screen applications and full-screen presentations. You never lose the teleprompter by switching to a different app.
 
-**60+ languages with auto-detection.** Uses Apple's native on-device speech recognition (same engine as Siri and macOS dictation). Language is automatically detected from your pasted text using `NLLanguageRecognizer` — no manual selection needed.
+**60+ languages with auto-detection.** Uses Apple's native on-device speech recognition (same engine as Siri and macOS dictation). Language is automatically detected from your pasted text using `NLLanguageRecognizer`  -  no manual selection needed.
 
 **Elite voice recognition algorithm.** Custom-built word matching algorithm specifically designed for teleprompter use. More reliable than most third-party solutions for handling natural speech patterns, pauses, mispronunciations, and partial words.
 
 **In-window script editing.** Edit your script directly in the teleprompter window without closing the overlay. No need to paste from external editors for minor changes.
 
-**Menu bar integration.** Lives in your menu bar. Launch scripts from clipboard, access recent scripts, adjust settings — all without a separate app window cluttering your workspace.
+**Menu bar integration.** Lives in your menu bar. Launch scripts from clipboard, access recent scripts, adjust settings  -  all without a separate app window cluttering your workspace.
 
-**macOS Services integration.** Launch your script directly from any text editor via macOS Services — right-click a selected text and send it to VoicePrompter instantly.
+**macOS Services integration.** Launch your script directly from any text editor via macOS Services  -  right-click a selected text and send it to VoicePrompter instantly.
 
-**Bracket handling.** Same as the web app — stage directions in brackets are shown to you but not matched by voice recognition.
+**Bracket handling.** Same as the web app  -  stage directions in brackets are shown to you but not matched by voice recognition.
 
 **Script history (up to 100 scripts).** Recent scripts stored locally.
 
@@ -107,7 +107,7 @@ Professionals who record demos, webinars, tutorials, podcasts, product videos, o
 2. The app appears in your menu bar on first launch.
 3. Copy a script to your clipboard.
 4. Click the menu bar icon → "Paste from Clipboard."
-5. Resize and reposition the overlay window — place it below your camera.
+5. Resize and reposition the overlay window  -  place it below your camera.
 6. Click the microphone button to start voice recognition.
 7. Start talking.
 
@@ -138,7 +138,7 @@ If you're on a Mac and record professionally, do demos, webinars, presentations,
 - [Why All Teleprompter Apps Are Terrible (And What I Did About It)](./why-all-teleprompter-apps-suck.md)
 - [How to Use a Teleprompter Naturally](./how-to-use-teleprompter-naturally.md)
 - [How to Read a Script Without Looking Like You're Reading](./how-to-read-script-without-looking-like-reading.md)
-- [Teleprompter for Zoom — Completely Invisible](./teleprompter-for-zoom-invisible.md)
+- [Teleprompter for Zoom  -  Completely Invisible](./teleprompter-for-zoom-invisible.md)
 - [Teleprompter in 60+ Languages](./multilingual-teleprompter-60-languages.md)
 - [Free Voice-Activated Teleprompter for Solo Creators](./free-voice-activated-teleprompter.md)
 

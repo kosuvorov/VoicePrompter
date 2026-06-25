@@ -1,6 +1,6 @@
 ---
 title: "Why Voice Scrolling is Essential for Solo Creators"
-description: "Hands-free operation, natural pausing, and reduced editing time — why voice-activated teleprompters are a solo creator's best friend."
+description: "Hands-free operation, natural pausing, and reduced editing time  -  why voice-activated teleprompters are a solo creator's best friend."
 date: "Nov 20, 2025"
 image: "https://images.unsplash.com/photo-1600195558301-9197701f6758?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
@@ -10,7 +10,7 @@ keywords: ["teleprompter", "video production"]
 
 ![A solo content creator setting up a camera on a tripod in a home office.](https://images.unsplash.com/photo-1622546773566-935303d3d119?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80)
 
-Being a solo content creator is a juggling act. You are the writer, the lighting technician, the audio engineer, the camera operator, and the on-screen talent—all at once.
+Being a solo content creator is a juggling act. You are the writer, the lighting technician, the audio engineer, the camera operator, and the on-screen talent - all at once.
 
 When you add a teleprompter to this mix, it often adds more complexity than it solves. You have to guess the correct scroll speed before you start recording. If you guess wrong, you spend the entire take mentally battling the scrolling text, trying to catch up or slow down.
 
