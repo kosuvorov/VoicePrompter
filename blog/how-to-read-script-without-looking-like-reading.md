@@ -6,7 +6,7 @@ image: "https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?auto=format
 keywords: ["teleprompter", "video production"]
 ---
 
-Let me guess: you've watched a video where the person is clearly reading something off-screen, and you couldn't concentrate on what they were saying because their eyes were doing that thing — that slow, mechanical, left-to-right drift. It's distracting. It breaks trust. The viewer stops believing you know what you're talking about, even if you do.
+Let me guess: you've watched a video where the person is clearly reading something off-screen, and you couldn't concentrate on what they were saying because their eyes were doing that thing  -  that slow, mechanical, left-to-right drift. It's distracting. It breaks trust. The viewer stops believing you know what you're talking about, even if you do.
 
 The good news is this is entirely fixable. And no, the solution is not "just memorize everything." That's terrible advice that I'll address directly in [stop memorizing your script](./stop-memorizing-your-script.md).
 
@@ -14,13 +14,13 @@ Here's what actually works.
 
 ## The Real Reason People Look Like They're Reading
 
-Most people think the problem is the eyes. It's not — or at least, not only. The real problem is the relationship between the script, the screen, and the camera.
+Most people think the problem is the eyes. It's not  -  or at least, not only. The real problem is the relationship between the script, the screen, and the camera.
 
 If your teleprompter or notes are placed anywhere other than directly below or at your camera lens, your eyes will drift. Even a few degrees off-center is enough for a viewer to detect. Humans are extremely good at knowing when someone is making direct eye contact versus looking slightly to the side. We've evolved to be sensitive to exactly that.
 
 The second problem is speed. When people read, especially under pressure, they tend to read too fast. The words come out flat because you're processing them visually, not emotionally. There's no natural pause, no variation in pace. It sounds like someone reading, because that's exactly what's happening.
 
-The third problem is contrast — between the parts of your script you know well and the parts you don't. The fluent sections sound natural. The unfamiliar sections slow you down. The transitions between them are obvious.
+The third problem is contrast  -  between the parts of your script you know well and the parts you don't. The fluent sections sound natural. The unfamiliar sections slow you down. The transitions between them are obvious.
 
 ## Fix 1: Position the Text Correctly
 
@@ -30,7 +30,7 @@ The goal is to minimize the angle between where your eyes are pointing and where
 
 If you use a teleprompter glass setup (a half-mirror that reflects text while staying transparent), the glass goes directly in front of the lens. That's the gold standard for eye contact. But for most creators, a good software teleprompter positioned correctly gets you 90% of the way there.
 
-On a Mac, [VoicePrompter](https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8) is a floating, always-on-top window that you can position wherever you want — right below your camera, right next to it, wherever your setup requires. It sounds small but it matters enormously.
+On a Mac, [VoicePrompter](https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8) is a floating, always-on-top window that you can position wherever you want  -  right below your camera, right next to it, wherever your setup requires. It sounds small but it matters enormously.
 
 ## Fix 2: Slow Down
 
@@ -46,7 +46,7 @@ Voice-activated teleprompters like [VoicePrompter](https://voiceprompter.app) he
 
 The most common reading mistake: processing one word at a time. Your eye lands on "the", processes it, moves to "best", processes it, moves to "way", processes it.
 
-Instead, train yourself to grab three or four words at a glance, then deliver them as a unit before going back for the next chunk. This is how professional news anchors and politicians read from teleprompters — they scan a phrase, look at the camera, deliver it, then glance back for the next phrase.
+Instead, train yourself to grab three or four words at a glance, then deliver them as a unit before going back for the next chunk. This is how professional news anchors and politicians read from teleprompters  -  they scan a phrase, look at the camera, deliver it, then glance back for the next phrase.
 
 Practice this in isolation before using it in a real recording. Read a paragraph out loud and consciously try to grab three-word chunks. It feels slow and clunky at first. After a few sessions, it becomes automatic.
 
@@ -60,11 +60,11 @@ Before recording, go through your script and mark it up:
 
 When you're reading, these markers guide your delivery and give you permission to pause. Pauses are not mistakes. They're what makes spoken delivery feel human.
 
-[VoicePrompter](https://voiceprompter.app) supports bracket handling — text inside brackets like `[pause]` or `[smile]` gets skipped by the voice recognition engine, so you can write stage directions directly into your script without them interfering with the scrolling.
+[VoicePrompter](https://voiceprompter.app) supports bracket handling  -  text inside brackets like `[pause]` or `[smile]` gets skipped by the voice recognition engine, so you can write stage directions directly into your script without them interfering with the scrolling.
 
 ## Fix 5: Practice the Sections You Don't Know
 
-The fluency gap between your familiar sections and unfamiliar ones is what viewers actually notice. The fix is not to memorize everything — it's to reduce the size of the unfamiliar sections.
+The fluency gap between your familiar sections and unfamiliar ones is what viewers actually notice. The fix is not to memorize everything  -  it's to reduce the size of the unfamiliar sections.
 
 Find the parts of your script where you stumble. Record yourself reading just those parts five or six times. By the third attempt you'll start to internalize the rhythm. By the sixth, it starts to sound like you're speaking from experience rather than reading off a page.
 
@@ -76,11 +76,11 @@ Read one sentence from your script. Then look directly into your camera lens and
 
 This builds the muscle of transitioning between reading and addressing the camera. After twenty or thirty minutes of this, you'll find the transitions getting shorter and smoother. Eventually, you're reading a phrase and delivering it to the camera with almost no lag.
 
-This works even better if you have a [voice-activated teleprompter](./free-voice-activated-teleprompter.md) that follows your pace — because you're never rushing to "keep up" with the scroll.
+This works even better if you have a [voice-activated teleprompter](./free-voice-activated-teleprompter.md) that follows your pace  -  because you're never rushing to "keep up" with the scroll.
 
 ## The Bottom Line
 
-Reading a script naturally is a skill. Like any skill, it gets better with deliberate practice. The equipment matters — position your text correctly, use a voice-scrolling teleprompter so the pace stays with you — but the skill is in the delivery. Slow down. Read in phrases. Mark your pauses.
+Reading a script naturally is a skill. Like any skill, it gets better with deliberate practice. The equipment matters  -  position your text correctly, use a voice-scrolling teleprompter so the pace stays with you  -  but the skill is in the delivery. Slow down. Read in phrases. Mark your pauses.
 
 And if you haven't already, read [how to use a teleprompter naturally](./how-to-use-teleprompter-naturally.md) for the technical side of making it all work seamlessly.
 
@@ -90,4 +90,4 @@ And if you haven't already, read [how to use a teleprompter naturally](./how-to-
 - [Why All Teleprompter Apps Are Terrible (And What I Did About It)](./why-all-teleprompter-apps-suck.md)
 - [Best Teleprompter App for Mac](./best-teleprompter-app-for-mac.md)
 - [How to Use a Teleprompter Naturally](./how-to-use-teleprompter-naturally.md)
-- [Stop Memorizing Your Script — Do This Instead](./stop-memorizing-your-script.md)
+- [Stop Memorizing Your Script  -  Do This Instead](./stop-memorizing-your-script.md)

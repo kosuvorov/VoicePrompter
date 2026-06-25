@@ -10,15 +10,15 @@ I have been using a teleprompter device for five years. And I would like to file
 
 Why the hell are all teleprompter apps so bad?
 
-I'm not even talking about the manual scrolling ones — those are obviously useless for solo creators. If you're filming alone, who's supposed to sit there and scroll for you? I'm talking about the apps that are supposed to be smart enough to scroll automatically while you talk. The ones that have been on the App Store for years, charge real money, and still somehow can't do the one thing they're supposed to do.
+I'm not even talking about the manual scrolling ones  -  those are obviously useless for solo creators. If you're filming alone, who's supposed to sit there and scroll for you? I'm talking about the apps that are supposed to be smart enough to scroll automatically while you talk. The ones that have been on the App Store for years, charge real money, and still somehow can't do the one thing they're supposed to do.
 
 Let me tell you what "not working" actually looks like in practice.
 
 ## The Real Problem With Voice-Scrolling Teleprompters
 
-The core feature of any modern teleprompter app is voice-activated scrolling. You talk, the text scrolls. Simple idea. Terrible execution — at least in most apps I've tried.
+The core feature of any modern teleprompter app is voice-activated scrolling. You talk, the text scrolls. Simple idea. Terrible execution  -  at least in most apps I've tried.
 
-Here's what actually happens. The app mishears a word. The scroll jumps three paragraphs forward. You panic. You tap the screen to get back. The moment is ruined. Or worse — the app just stops responding entirely while you're mid-sentence, and there you are, standing in front of a camera, frozen, looking directly at a screen that's given up on you.
+Here's what actually happens. The app mishears a word. The scroll jumps three paragraphs forward. You panic. You tap the screen to get back. The moment is ruined. Or worse  -  the app just stops responding entirely while you're mid-sentence, and there you are, standing in front of a camera, frozen, looking directly at a screen that's given up on you.
 
 The second most common failure mode is lag. The recognition fires too slowly, so the text is always a couple of seconds behind what you're actually saying. That means you're either waiting for the app to catch up, or the app is showing you words you've already said. Either way, you lose your rhythm.
 
@@ -33,9 +33,9 @@ I couldn't find anything that did all of this well. So I built it myself.
 
 ## What I Built: VoicePrompter
 
-[VoicePrompter](https://voiceprompter.app) is a free, open-source web app that works as a progressive web app (PWA) — meaning you can install it on your phone or desktop and use it completely offline. It uses your device's built-in speech recognition, so no audio is sent to any server. Everything stays on your device.
+[VoicePrompter](https://voiceprompter.app) is a free, open-source web app that works as a progressive web app (PWA)  -  meaning you can install it on your phone or desktop and use it completely offline. It uses your device's built-in speech recognition, so no audio is sent to any server. Everything stays on your device.
 
-The voice scrolling actually works. And I say that having personally tested it in English, Polish, Ukrainian, Russian, French, and Spanish. It pauses when you stop talking and resumes when you start again — exactly the way it should.
+The voice scrolling actually works. And I say that having personally tested it in English, Polish, Ukrainian, Russian, French, and Spanish. It pauses when you stop talking and resumes when you start again  -  exactly the way it should.
 
 Beyond the core scrolling, there are things I added because I couldn't believe other apps didn't have them. Paragraph preservation, for instance. Mirror mode. A hands-free restart voice command ("prompter restart"). Visual stop signs that show you where to pause. Touch-to-jump so you can tap any word and the prompter snaps to that position instantly.
 
@@ -43,11 +43,11 @@ You can read the full breakdown in my [complete VoicePrompter guide](./voiceprom
 
 ## Then I Made a Mac Version
 
-After people started using the web app, I realized there was a different but equally painful problem for a different kind of user. Not solo creators filming on their phones — but professionals who record webinars, product demos, sales calls, tutorials, podcasts, and online presentations on their Macs.
+After people started using the web app, I realized there was a different but equally painful problem for a different kind of user. Not solo creators filming on their phones  -  but professionals who record webinars, product demos, sales calls, tutorials, podcasts, and online presentations on their Macs.
 
 Their pain is slightly different. They don't need mirror mode. They need an app that stays visible to them while being completely invisible to everyone else on the call. They need something that works while they're sharing their screen in Zoom or Google Meet. And they need the scrolling to be reliable enough that they can trust it in a live sales call or recording session.
 
-That's [VoicePrompter for Mac](https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8) — a native macOS app that lives in your menu bar and stays on top of everything, including full-screen apps and slides, while being completely hidden from screen recording and screen sharing software.
+That's [VoicePrompter for Mac](https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8)  -  a native macOS app that lives in your menu bar and stays on top of everything, including full-screen apps and slides, while being completely hidden from screen recording and screen sharing software.
 
 It uses Apple's native speech recognition, which is why it works in 60+ languages and happens entirely on your device. The whole app is 2 megabytes. You can leave it running all day.
 
@@ -57,7 +57,7 @@ If you're specifically looking for a Mac solution, take a look at [best teleprom
 
 If you record videos, you've felt this pain. You hit record. You mess up a line. You start over. You mess up again. You do twelve takes of the same thirty-second intro. By take eight, you're stiff and you can hear it in your voice.
 
-A good teleprompter eliminates that. You write your script once, you read it, you're done. No memorizing. No retakes because you blanked on a word. Just one clean take — or close to it.
+A good teleprompter eliminates that. You write your script once, you read it, you're done. No memorizing. No retakes because you blanked on a word. Just one clean take  -  or close to it.
 
 I wrote more about this in [how to stop memorizing your script](./stop-memorizing-your-script.md) and [how to record tutorial videos faster](./record-tutorial-videos-faster.md) if that's the specific problem you're trying to solve.
 

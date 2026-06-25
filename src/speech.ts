@@ -14,8 +14,42 @@ let speechBlocked = false;
 let isFirstStart = true;
 let gotResultOnFirstStart = false;
 
+const isBrave = !!(navigator as any).brave;
+
 function showBrowserWarning() {
     els.browserWarning.classList.remove('hidden');
+}
+
+function showSpeechServiceWarning(errorType: 'service-not-allowed' | 'not-allowed') {
+    const { speechServiceWarning, speechServiceWarningTitle, speechServiceWarningBody } = els;
+
+    if (errorType === 'not-allowed') {
+        speechServiceWarningTitle.textContent = 'Microphone Access Denied';
+        speechServiceWarningBody.innerHTML =
+            'VoicePrompter needs microphone access to follow your voice.<br><br>' +
+            'Click the <strong class="text-neutral-200">lock icon</strong> in your browser\'s address bar, ' +
+            'set <strong class="text-neutral-200">Microphone</strong> to Allow, then reload the page.';
+    } else if (isBrave) {
+        speechServiceWarningTitle.textContent = 'Brave Shields Blocking Voice';
+        speechServiceWarningBody.innerHTML =
+            'Brave\'s privacy shields block the speech recognition service used by this app.<br><br>' +
+            '<strong class="text-neutral-200">To enable voice scrolling in Brave:</strong><br>' +
+            '1. Click the <strong class="text-neutral-200">Brave Shields icon</strong> (🦁) in the address bar<br>' +
+            '2. Toggle <strong class="text-neutral-200">Shields</strong> off for this site<br>' +
+            '3. Reload the page<br><br>' +
+            'Or switch to <strong class="text-neutral-200">Chrome</strong>, ' +
+            '<strong class="text-neutral-200">Edge</strong>, or ' +
+            '<strong class="text-neutral-200">Safari</strong>.';
+    } else {
+        speechServiceWarningTitle.textContent = 'Voice Recognition Blocked';
+        speechServiceWarningBody.innerHTML =
+            'Your browser or network is blocking the speech recognition service.<br><br>' +
+            'Try <strong class="text-neutral-200">Chrome</strong>, ' +
+            '<strong class="text-neutral-200">Edge</strong>, or ' +
+            '<strong class="text-neutral-200">Safari</strong> for voice scrolling.';
+    }
+
+    speechServiceWarning.classList.remove('hidden');
 }
 
 export function initSpeech(): void {
@@ -79,10 +113,12 @@ export function initSpeech(): void {
         // Arc / silent-fail detection: error fires immediately on first start with no results
         if (isFirstStart && !gotResultOnFirstStart) {
             isFirstStart = false;
-            if (e.error === 'not-allowed' || e.error === 'service-not-allowed' || e.error === 'audio-capture' || e.error === 'aborted') {
-                // These are legitimate errors that don't mean the browser lacks support
-                // 'aborted' happens on Safari iOS when the permission dialog interrupts the first recognition start
-            } else {
+            if (e.error === 'service-not-allowed') {
+                showSpeechServiceWarning('service-not-allowed');
+            } else if (e.error === 'not-allowed' || e.error === 'audio-capture') {
+                showSpeechServiceWarning('not-allowed');
+            } else if (e.error !== 'aborted') {
+                // 'aborted' on Safari iOS = permission dialog interrupted first start; not an error
                 showBrowserWarning();
             }
             state.isListening = false;

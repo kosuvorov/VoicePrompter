@@ -26,6 +26,9 @@ if (fs.existsSync(macDir)) {
 export default defineConfig({
     appType: 'mpa',
     // base: '/Teleprompter/', // Removed for custom domain
+    optimizeDeps: {
+        exclude: ['@xenova/transformers']
+    },
     plugins: [
         VitePWA({
             registerType: 'autoUpdate',

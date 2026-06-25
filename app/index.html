@@ -94,6 +94,57 @@
         </div>
     </div>
 
+    <!-- Speech Service Warning (Brave / service-not-allowed / mic denied) -->
+    <div id="speechServiceWarning"
+        class="hidden fixed inset-0 z-[10002] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div
+            class="bg-neutral-900 border border-neutral-700 rounded-xl p-6 max-w-sm w-full shadow-2xl shadow-black/50">
+            <div class="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center mx-auto mb-4">
+                <svg class="w-6 h-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                </svg>
+            </div>
+            <h2 id="speechServiceWarningTitle" class="text-lg font-bold text-white mb-2 text-center">Voice Recognition Blocked</h2>
+            <p id="speechServiceWarningBody" class="text-neutral-400 text-sm leading-relaxed mb-4"></p>
+            <button id="useOfflineModeBtn"
+                class="w-full px-4 py-2.5 bg-[#FFBB00] hover:bg-[#e6a800] rounded-lg text-sm font-semibold text-black transition-colors mb-2">
+                Try Offline Voice – English (~38 MB)
+            </button>
+            <button id="useOfflineMultilingualBtn"
+                class="w-full px-4 py-2.5 bg-neutral-700 hover:bg-neutral-600 rounded-lg text-sm font-semibold text-white transition-colors mb-2 border border-neutral-600">
+                Try Offline Voice – All Languages (~75 MB)
+            </button>
+            <button id="dismissSpeechServiceWarningBtn"
+                class="w-full px-4 py-2.5 bg-neutral-800 hover:bg-neutral-700 rounded-lg text-sm text-white transition-colors border border-neutral-700">
+                Continue Anyway (scroll manually)
+            </button>
+        </div>
+    </div>
+
+    <!-- Whisper Offline Model Loading -->
+    <div id="whisperLoadingModal"
+        class="hidden fixed inset-0 z-[10003] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-neutral-900 border border-neutral-700 rounded-xl p-6 max-w-sm w-full shadow-2xl shadow-black/50 text-center">
+            <div class="w-12 h-12 rounded-full bg-[#FFBB00]/10 flex items-center justify-center mx-auto mb-4">
+                <svg class="w-6 h-6 text-[#FFBB00] animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                </svg>
+            </div>
+            <h2 id="whisperLoadingTitle" class="text-lg font-bold text-white mb-1">Loading Offline Model</h2>
+            <p id="whisperLoadingMsg" class="text-neutral-400 text-sm mb-4">Downloading speech model (first time only)…</p>
+            <div class="w-full bg-neutral-800 rounded-full h-2 mb-4 overflow-hidden">
+                <div id="whisperProgressBar" class="bg-[#FFBB00] h-2 rounded-full transition-all duration-300" style="width:0%"></div>
+            </div>
+            <p class="text-neutral-500 text-xs">The model is cached after first download.</p>
+            <button id="cancelWhisperLoadBtn"
+                class="mt-4 text-xs text-neutral-500 hover:text-neutral-300 underline transition-colors">
+                Cancel
+            </button>
+        </div>
+    </div>
+
     <!-- iPad PWA Warning -->
     <div id="ipadPwaWarning"
         class="hidden fixed inset-0 z-[10000] bg-black bg-opacity-90 flex items-center justify-center p-4">

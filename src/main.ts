@@ -10,6 +10,14 @@ import { enterVideoMode, exitVideoMode, toggleVideoLayout, startRecording, stopR
 import { detectAll } from 'tinyld/light';
 import { fetchGoogleDocText } from './gdoc';
 import { enumerateAndPopulateDevices } from './devices';
+import {
+    loadWhisperModel,
+    startWhisperListening,
+    stopWhisperListening,
+    setWhisperStatusCallback,
+    type WhisperStatus
+} from './whisper';
+let whisperActive = false;
 
 const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
@@ -496,6 +504,11 @@ els.copyGoogleDocUrlBtn.addEventListener('click', async () => {
 
 // Mic Button
 els.micButton.addEventListener('click', () => {
+    if (whisperActive) {
+        (window as any).umami?.track('offline-voice-stop');
+        stopWhisperListening();
+        return;
+    }
     if (state.isListening) {
         (window as any).umami?.track('mic-stop');
         stopListening();
@@ -857,6 +870,81 @@ els.clearHistoryBtn.addEventListener('click', clearHistory);
 // Dismiss Browser Warning
 els.dismissWarningBtn.addEventListener('click', () => {
     els.browserWarning.classList.add('hidden');
+});
+
+// Dismiss Speech Service Warning (Brave / service-not-allowed / mic denied)
+els.dismissSpeechServiceWarningBtn.addEventListener('click', () => {
+    els.speechServiceWarning.classList.add('hidden');
+});
+
+// --- Offline (Whisper) Mode ---
+
+let cancelWhisperLoad = false;
+
+function handleWhisperStatus(s: WhisperStatus) {
+    switch (s.type) {
+        case 'loading':
+            els.whisperLoadingMsg.textContent = s.message;
+            els.whisperProgressBar.style.width = `${s.progress}%`;
+            break;
+        case 'ready':
+            els.whisperLoadingModal.classList.add('hidden');
+            els.speechServiceWarning.classList.add('hidden');
+            // Update mic button to show offline mode is active
+            els.micIcon.innerHTML = `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+            </svg>`;
+            startWhisperListening();
+            whisperActive = true;
+            break;
+        case 'listening':
+            els.statusIndicator.textContent = 'Offline voice active (4s delay)';
+            els.micButton.classList.add('bg-red-600');
+            els.micButton.classList.remove('bg-neutral-800');
+            break;
+        case 'error':
+            els.whisperLoadingModal.classList.add('hidden');
+            alert(`Offline voice error: ${s.message}`);
+            whisperActive = false;
+            break;
+        case 'idle':
+            els.micButton.classList.remove('bg-red-600');
+            els.micButton.classList.add('bg-neutral-800');
+            els.statusIndicator.textContent = '';
+            whisperActive = false;
+            break;
+    }
+}
+
+async function startOfflineMode(variant: 'en' | 'multilingual') {
+    cancelWhisperLoad = false;
+    els.speechServiceWarning.classList.add('hidden');
+    els.whisperLoadingModal.classList.remove('hidden');
+    els.whisperProgressBar.style.width = '0%';
+    els.whisperLoadingMsg.textContent = 'Preparing offline speech model…';
+    setWhisperStatusCallback((s) => {
+        if (cancelWhisperLoad) return;
+        handleWhisperStatus(s);
+    });
+    await loadWhisperModel(variant);
+}
+
+els.useOfflineModeBtn.addEventListener('click', () => {
+    (window as any).umami?.track('offline-voice-start', { variant: 'en' });
+    startOfflineMode('en');
+});
+
+els.useOfflineMultilingualBtn.addEventListener('click', () => {
+    (window as any).umami?.track('offline-voice-start', { variant: 'multilingual' });
+    startOfflineMode('multilingual');
+});
+
+els.cancelWhisperLoadBtn.addEventListener('click', () => {
+    cancelWhisperLoad = true;
+    els.whisperLoadingModal.classList.add('hidden');
+    stopWhisperListening();
+    whisperActive = false;
 });
 
 // Dismiss iPad PWA Warning

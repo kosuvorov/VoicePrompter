@@ -2,7 +2,12 @@
 
 **Access the app:** [https://voiceprompter.app/](https://voiceprompter.app/)
 
-A modern, privacy-focused voice-controlled teleprompter that works completely offline. Uses your browser's built-in speech recognition (Web Speech API) and native iOS WebKit — no external APIs, completely private, and blazing fast on-device processing.
+> **This is a fork of [kosuvorov/VoicePrompter](https://github.com/kosuvorov/VoicePrompter)  -  the original app is live at [voiceprompter.app](https://voiceprompter.app/).**
+> This fork adds a clear warning when **Brave browser** blocks the speech recognition service (instead of the mic button silently doing nothing). It does not fix Intel hardware or make voice work in browsers that don't support it.
+
+A modern, privacy-focused voice-controlled teleprompter that works completely offline. Uses your browser's built-in speech recognition (Web Speech API) and native iOS WebKit  -  no external APIs, completely private, and blazing fast on-device processing.
+
+> ⚠️ **Disclaimer:** Voice scrolling requires the Web Speech API, which only works in **Chrome, Edge, and Safari**  -  and needs an active internet connection to reach Google's speech servers. It does not work in Firefox, and may not work on some network or hardware configurations even in supported browsers. All other features (manual scrolling, script history, settings, video recording) work without voice.
 
 ## ✨ Key Features
 
@@ -28,6 +33,19 @@ A modern, privacy-focused voice-controlled teleprompter that works completely of
 Voice control requires the Web Speech API, which is available in:
 - Chrome, Edge, Safari (desktop and mobile)
 - **Not available in Firefox** (manual scrolling still works)
+
+### 🦁 Brave Browser
+Brave's privacy shields block the connection to Google's speech recognition service by default. The app will detect this and show a clear warning with instructions.
+
+**To enable voice scrolling in Brave:**
+1. Click the **Brave Shields icon** (🦁) in the address bar
+2. Toggle **Shields** off for this site
+3. Reload the page
+
+All other features (manual scrolling, script history, video recording, settings) work normally in Brave without any changes.
+
+### 💻 Intel Hardware
+Intel CPU/GPU does not affect voice recognition  -  that depends entirely on your browser and network. Video recording on Intel automatically falls back from MP4/H.264 to WebM if hardware encoding isn't available, so recording should still work. Voice not working on an Intel machine is a browser or network issue, not a hardware one.
 
 ## 📥 Installing as a PWA (Progressive Web App)
 
@@ -83,7 +101,7 @@ Choose how your text is aligned:
 ### Toggles
 
 #### Mirror Mode 🪞
-Enables horizontal flip + 180° rotation — perfect for use with teleprompter glass. The reflected text reads correctly when bounced off a mirror/glass placed in front of the camera.
+Enables horizontal flip + 180° rotation  -  perfect for use with teleprompter glass. The reflected text reads correctly when bounced off a mirror/glass placed in front of the camera.
 
 #### Show Stop Signs 🛑
 Displays visual markers (dots) at punctuation marks (periods, exclamation points, question marks) to help you pace your reading.
@@ -93,13 +111,13 @@ Enable/disable voice command recognition. Supported commands: "prompter restart"
 
 #### Video Recording 🎥
 Record video and audio directly in the app while reading your script. Two layout modes:
-- **Split Screen** — Script on top, camera preview on bottom
-- **Overlay** — Full-screen camera with semi-transparent script overlay
+- **Split Screen**  -  Script on top, camera preview on bottom
+- **Overlay**  -  Full-screen camera with semi-transparent script overlay
 
 Recordings are saved as MP4 (H.264) or WebM depending on your browser.
 
 #### Rotate Screen 📱
-Rotates the entire app 90° clockwise — useful for iOS devices where screen orientation is locked to portrait but you want to use the teleprompter in landscape mode.
+Rotates the entire app 90° clockwise  -  useful for iOS devices where screen orientation is locked to portrait but you want to use the teleprompter in landscape mode.
 
 #### Preserve Formatting 📝
 When enabled, preserves line breaks and paragraph spacing from your original text. When disabled, reformats text as continuous flow.

@@ -32,7 +32,7 @@ The reason it's free and open source is straightforward: I built it to solve my 
 
 Here's what it does:
 
-**Voice-activated scrolling using your device's built-in speech recognition.** It works via your browser's native speech API, which means the recognition happens on your device — no audio ever leaves your phone or laptop. It supports 34 languages and doesn't require you to select a language manually (though you can).
+**Voice-activated scrolling using your device's built-in speech recognition.** It works via your browser's native speech API, which means the recognition happens on your device  -  no audio ever leaves your phone or laptop. It supports 34 languages and doesn't require you to select a language manually (though you can).
 
 **Works completely offline.** Once you've opened the app, you can turn off your WiFi and it keeps working. This is useful if you're filming somewhere with spotty internet, or if you just don't want to depend on a connection.
 
@@ -52,7 +52,7 @@ Here's what it does:
 
 The web app doesn't support quite as many languages as the Mac version (34+ vs 60+), and the voice recognition algorithm isn't as advanced as what I built into the native Mac app. For recording professional demos, webinars, or presentations on a Mac, the [Mac version](https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8) is significantly better.
 
-But for solo creators filming on a phone? The web app is plenty. The recognition is solid. The interface is built for speed — paste a script, go.
+But for solo creators filming on a phone? The web app is plenty. The recognition is solid. The interface is built for speed  -  paste a script, go.
 
 ## How to Get Started in Under Two Minutes
 
@@ -64,7 +64,7 @@ But for solo creators filming on a phone? The web app is plenty. The recognition
 
 That's it. No account. No sign-up. No tutorial you have to sit through.
 
-If you want to use mirror mode for a teleprompter glass, there's a toggle for that. If you want to lock landscape orientation, toggle that too. The interface is minimal by design — the whole point is to get out of the way and let you record.
+If you want to use mirror mode for a teleprompter glass, there's a toggle for that. If you want to lock landscape orientation, toggle that too. The interface is minimal by design  -  the whole point is to get out of the way and let you record.
 
 ## Customizing It for Your Setup
 
@@ -80,11 +80,11 @@ A few settings that make a real difference:
 
 ## For Mac Users: The Native Version
 
-If you're a creator who uses a Mac for recording — whether you're recording screencasts, demos, podcasts, or video content — you'll want the [native Mac app](https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8) instead.
+If you're a creator who uses a Mac for recording  -  whether you're recording screencasts, demos, podcasts, or video content  -  you'll want the [native Mac app](https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8) instead.
 
 It has more advanced voice recognition, 60+ language support, the invisible overlay mode for screen sharing, and the always-on-top functionality. I cover all of that in the [best teleprompter app for Mac](./best-teleprompter-app-for-mac.md) article.
 
-For everything else — phone recordings, desktop web use, PWA installs — the web app at [voiceprompter.app](https://voiceprompter.app) is what you want.
+For everything else  -  phone recordings, desktop web use, PWA installs  -  the web app at [voiceprompter.app](https://voiceprompter.app) is what you want.
 
 ---
 
@@ -92,4 +92,4 @@ For everything else — phone recordings, desktop web use, PWA installs — the 
 - [Why All Teleprompter Apps Are Terrible (And What I Did About It)](./why-all-teleprompter-apps-suck.md)
 - [Best Teleprompter App for Mac](./best-teleprompter-app-for-mac.md)
 - [How to Use a Teleprompter Naturally](./how-to-use-teleprompter-naturally.md)
-- [Teleprompter in 60+ Languages — Auto Language Detection](./multilingual-teleprompter-60-languages.md)
+- [Teleprompter in 60+ Languages  -  Auto Language Detection](./multilingual-teleprompter-60-languages.md)

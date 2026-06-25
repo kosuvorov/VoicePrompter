@@ -1,6 +1,6 @@
 ---
 title: "Teleprompter for Zoom That's Completely Invisible"
-description: "How to use an invisible teleprompter overlay during Zoom calls, sales demos, and webinars — so your notes never show up in screen share."
+description: "How to use an invisible teleprompter overlay during Zoom calls, sales demos, and webinars  -  so your notes never show up in screen share."
 date: "Mar 16, 2026"
 image: "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
@@ -8,27 +8,27 @@ keywords: ["teleprompter", "video production"]
 
 Here's a situation I've been in more times than I'd like to admit.
 
-You have a sales call in thirty minutes. You've written out exactly what you want to say — the opening, the demo flow, the pricing reveal, all of it. The script is good. You practiced it last night. But the moment you hit "Join Meeting," it all evaporates. You open a second window to glance at your notes, your eyes drift off-camera, and the person on the other end can tell immediately that you're not actually talking to them.
+You have a sales call in thirty minutes. You've written out exactly what you want to say  -  the opening, the demo flow, the pricing reveal, all of it. The script is good. You practiced it last night. But the moment you hit "Join Meeting," it all evaporates. You open a second window to glance at your notes, your eyes drift off-camera, and the person on the other end can tell immediately that you're not actually talking to them.
 
 The obvious solution is a teleprompter. The obvious problem with that solution, until recently, is that teleprompter apps showed up in your screen share.
 
-Here's what I mean. Most teleprompter software runs as a regular window on your desktop. When you share your screen in Zoom or Google Meet, that window is visible to everyone — either as an awkward floating text box in the corner of your video, or as a full overlay in your screenshare. Neither option is acceptable in a professional context.
+Here's what I mean. Most teleprompter software runs as a regular window on your desktop. When you share your screen in Zoom or Google Meet, that window is visible to everyone  -  either as an awkward floating text box in the corner of your video, or as a full overlay in your screenshare. Neither option is acceptable in a professional context.
 
 ## What "Invisible" Actually Means
 
 [VoicePrompter for Mac](https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8) solves this with a specific macOS capability: the app window is excluded from screen capture entirely.
 
-What that means in practice: the overlay is visible to you — it's sitting right there on your screen, floating over your Zoom window, your slides, everything. But from the perspective of your camera, your screen recording, and your Zoom participants, it simply doesn't exist. The screen share shows your slides or desktop. The video shows you looking directly ahead. Nobody sees the script.
+What that means in practice: the overlay is visible to you  -  it's sitting right there on your screen, floating over your Zoom window, your slides, everything. But from the perspective of your camera, your screen recording, and your Zoom participants, it simply doesn't exist. The screen share shows your slides or desktop. The video shows you looking directly ahead. Nobody sees the script.
 
-This is different from just "having a small window" or "positioning it off-screen." The window is literally not captured by macOS's screen recording APIs. Zoom, Teams, OBS, QuickTime — none of them pick it up.
+This is different from just "having a small window" or "positioning it off-screen." The window is literally not captured by macOS's screen recording APIs. Zoom, Teams, OBS, QuickTime  -  none of them pick it up.
 
 ## Always-on-Top: The Other Half of the Problem
 
 Invisibility is only useful if the teleprompter is actually visible to you while you're presenting. And this is where a lot of overlay tools fall apart.
 
-If your teleprompter window can't stay on top of a full-screen Zoom meeting or a full-screen presentation, it disappears behind whatever app is in focus. You switch to Keynote to present your slides — your teleprompter is gone. You go full-screen in Zoom — your teleprompter is gone.
+If your teleprompter window can't stay on top of a full-screen Zoom meeting or a full-screen presentation, it disappears behind whatever app is in focus. You switch to Keynote to present your slides  -  your teleprompter is gone. You go full-screen in Zoom  -  your teleprompter is gone.
 
-VoicePrompter for Mac stays on top of everything. Full-screen apps, multiple desktops, full-screen presentations. You can drag it wherever makes sense for your setup — right next to your camera, directly below it, off to the side if you're using a second monitor.
+VoicePrompter for Mac stays on top of everything. Full-screen apps, multiple desktops, full-screen presentations. You can drag it wherever makes sense for your setup  -  right next to your camera, directly below it, off to the side if you're using a second monitor.
 
 ## How to Position It for Natural Eye Contact
 
@@ -46,7 +46,7 @@ You can read more about positioning and delivery technique in [how to read a scr
 
 The voice scrolling on the Mac app uses Apple's native on-device speech recognition. This is important for a couple of reasons.
 
-First, it's private — nothing is sent to a server. In a sales call or business meeting, that matters. Your script stays on your device.
+First, it's private  -  nothing is sent to a server. In a sales call or business meeting, that matters. Your script stays on your device.
 
 Second, it works offline. If your internet drops for thirty seconds in the middle of a call (it happens), the teleprompter keeps working. Your voice recognition is not dependent on your connection quality.
 

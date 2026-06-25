@@ -29,6 +29,17 @@ export interface Elements {
     mirrorToggle: HTMLInputElement;
     browserWarning: HTMLElement;
     dismissWarningBtn: HTMLElement;
+    speechServiceWarning: HTMLElement;
+    speechServiceWarningTitle: HTMLElement;
+    speechServiceWarningBody: HTMLElement;
+    dismissSpeechServiceWarningBtn: HTMLElement;
+    useOfflineModeBtn: HTMLElement;
+    useOfflineMultilingualBtn: HTMLElement;
+    whisperLoadingModal: HTMLElement;
+    whisperLoadingTitle: HTMLElement;
+    whisperLoadingMsg: HTMLElement;
+    whisperProgressBar: HTMLElement;
+    cancelWhisperLoadBtn: HTMLElement;
     ipadPwaWarning: HTMLElement;
     dismissIpadWarningBtn: HTMLElement;
     langDetectionWarning: HTMLElement;
@@ -138,6 +149,17 @@ export function initElements(): void {
         mirrorToggle: document.getElementById('mirrorToggle') as HTMLInputElement,
         browserWarning: document.getElementById('browserWarning')!,
         dismissWarningBtn: document.getElementById('dismissWarningBtn')!,
+        speechServiceWarning: document.getElementById('speechServiceWarning')!,
+        speechServiceWarningTitle: document.getElementById('speechServiceWarningTitle')!,
+        speechServiceWarningBody: document.getElementById('speechServiceWarningBody')!,
+        dismissSpeechServiceWarningBtn: document.getElementById('dismissSpeechServiceWarningBtn')!,
+        useOfflineModeBtn: document.getElementById('useOfflineModeBtn')!,
+        useOfflineMultilingualBtn: document.getElementById('useOfflineMultilingualBtn')!,
+        whisperLoadingModal: document.getElementById('whisperLoadingModal')!,
+        whisperLoadingTitle: document.getElementById('whisperLoadingTitle')!,
+        whisperLoadingMsg: document.getElementById('whisperLoadingMsg')!,
+        whisperProgressBar: document.getElementById('whisperProgressBar')!,
+        cancelWhisperLoadBtn: document.getElementById('cancelWhisperLoadBtn')!,
         ipadPwaWarning: document.getElementById('ipadPwaWarning')!,
         dismissIpadWarningBtn: document.getElementById('dismissIpadWarningBtn')!,
         langDetectionWarning: document.getElementById('langDetectionWarning')!,

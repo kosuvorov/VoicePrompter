@@ -1,6 +1,6 @@
 ---
 title: "How to Look Confident on Camera (Even When You're Not)"
-description: "Practical camera confidence techniques — from eye contact tricks to script preparation methods that make you look and sound like a pro."
+description: "Practical camera confidence techniques  -  from eye contact tricks to script preparation methods that make you look and sound like a pro."
 date: "Mar 10, 2026"
 image: "https://images.unsplash.com/photo-1609234656388-0ff363383899?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
@@ -14,21 +14,21 @@ Camera confidence is a skill, not a personality trait. And like most skills, it 
 
 I'm starting here because this is the single most common mistake and it's entirely invisible to the person making it.
 
-Most people set up their laptop or phone camera slightly below eye level — because that's where it naturally sits on a desk. The result: the camera is pointing slightly upward at you. You're looking slightly down into it. On screen, this reads as uninterested, slightly dismissive, and closed off.
+Most people set up their laptop or phone camera slightly below eye level  -  because that's where it naturally sits on a desk. The result: the camera is pointing slightly upward at you. You're looking slightly down into it. On screen, this reads as uninterested, slightly dismissive, and closed off.
 
 Raise the camera to eye level or very slightly above. On a laptop, that usually means putting it on a stack of books or a stand. On a phone, a tripod with the camera at the same height as your eyes.
 
-The difference is not subtle. Same person, same room, same lighting — just the camera raised six inches. The perceived confidence goes up noticeably.
+The difference is not subtle. Same person, same room, same lighting  -  just the camera raised six inches. The perceived confidence goes up noticeably.
 
 ## Eye Contact Is With the Lens, Not the Screen
 
-If you're on a video call or recording yourself, your instinct is to look at the face of the person on screen — or at your own face in the corner preview. Don't.
+If you're on a video call or recording yourself, your instinct is to look at the face of the person on screen  -  or at your own face in the corner preview. Don't.
 
 Look at the lens. The actual small circle of glass on your camera or laptop bezel. That is the other person's "eyes." Looking at the screen instead of the lens means, from the other person's perspective, you're looking slightly away from them. It's a small angle, but humans are acutely sensitive to it.
 
-This is harder than it sounds because looking at the lens feels unnatural — you can't see the other person's face when you're looking at the lens. The trick is to glance at the screen briefly to read social cues, then return your gaze to the lens when you're speaking.
+This is harder than it sounds because looking at the lens feels unnatural  -  you can't see the other person's face when you're looking at the lens. The trick is to glance at the screen briefly to read social cues, then return your gaze to the lens when you're speaking.
 
-If you're using a teleprompter — which is the single most effective tool for maintaining eye contact during a scripted presentation — position it as close to your camera lens as physically possible. [VoicePrompter for Mac](https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8) is a floating window you can drag to any position on screen, so you can park it directly below your camera. Your eyes point at the script, which is nearly at the camera — the angle difference is minimal and invisible to viewers.
+If you're using a teleprompter  -  which is the single most effective tool for maintaining eye contact during a scripted presentation  -  position it as close to your camera lens as physically possible. [VoicePrompter for Mac](https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8) is a floating window you can drag to any position on screen, so you can park it directly below your camera. Your eyes point at the script, which is nearly at the camera  -  the angle difference is minimal and invisible to viewers.
 
 ## The Lighting Equation
 
@@ -68,7 +68,7 @@ Read more about this in [how to read a script without looking like you're readin
 
 Relax your jaw. Most people on camera hold their jaw slightly tight, which creates tension visible around the eyes and cheeks.
 
-A slight smile — not a big fixed grin, just a neutral-positive expression — makes an enormous difference. We're wired to interpret neutral faces slightly negatively on camera. A gentle upward turn at the corners reads as engaged and confident.
+A slight smile  -  not a big fixed grin, just a neutral-positive expression  -  makes an enormous difference. We're wired to interpret neutral faces slightly negatively on camera. A gentle upward turn at the corners reads as engaged and confident.
 
 Blink naturally. People under stress blink less (or more erratically). A steady blink rate reads as calm and focused.
 
@@ -76,7 +76,7 @@ Blink naturally. People under stress blink less (or more erratically). A steady 
 
 Two minutes before recording or joining a call, stand up. Walk around. Shake out your hands. Take three slow, deep breaths. This sounds like wellness advice but it has a real physiological effect on your vocal tone and body language. Your shoulders drop, your voice opens up, you stop looking like you're bracing for something.
 
-If you're recording a video and you have a script, read through it one more time before starting — not to memorize it, just to prime the words. Familiarity with the script translates directly to fluency in the delivery.
+If you're recording a video and you have a script, read through it one more time before starting  -  not to memorize it, just to prime the words. Familiarity with the script translates directly to fluency in the delivery.
 
 For specific context on video interviews, see [video interview preparation tips](./video-interview-preparation-tips.md). For Zoom calls and presentations specifically, [zoom sales call tips](./zoom-presentation-tips-sales-calls.md) covers the additional elements that apply to live conversations.
 

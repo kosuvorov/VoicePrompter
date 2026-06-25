@@ -10,7 +10,7 @@ keywords: ["teleprompter", "video production"]
 
 ![A collection of digital devices including a laptop, tablet, and smartphone on a desk.](https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80)
 
-If you are creating video content—whether for YouTube, courses, or corporate presentations—a teleprompter is the fastest way to reduce retakes and ensure you hit every talking point.
+If you are creating video content - whether for YouTube, courses, or corporate presentations - a teleprompter is the fastest way to reduce retakes and ensure you hit every talking point.
 
 But if you're just starting out, you probably don't want to drop a monthly subscription fee just to scroll text on a screen. The good news is that in 2025, high-quality teleprompting software doesn't have to cost money.
 
