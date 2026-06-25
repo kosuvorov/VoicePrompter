@@ -2,7 +2,7 @@
 
 **Access the app:** [https://voiceprompter.app/](https://voiceprompter.app/)
 
-> **This is a fork of [kosuvorov/VoicePrompter](https://github.com/kosuvorov/VoicePrompter) — the original app is live at [voiceprompter.app](https://voiceprompter.app/).**
+> **This is a fork of [kosuvorov/VoicePrompter](https://github.com/kosuvorov/VoicePrompter) - the original app is live at [voiceprompter.app](https://voiceprompter.app/).**
 > This fork adds a clear warning when **Brave browser** blocks the speech recognition service (instead of the mic button silently doing nothing). It does not fix Intel hardware or make voice work in browsers that don't support it.
 
 A modern, privacy-focused voice-controlled teleprompter that works completely offline. Uses your browser's built-in speech recognition (Web Speech API) and native iOS WebKit — no external APIs, completely private, and blazing fast on-device processing.
