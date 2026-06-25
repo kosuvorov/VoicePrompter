@@ -29,6 +29,19 @@ Voice control requires the Web Speech API, which is available in:
 - Chrome, Edge, Safari (desktop and mobile)
 - **Not available in Firefox** (manual scrolling still works)
 
+### 🦁 Brave Browser
+Brave's privacy shields block the connection to Google's speech recognition service by default. The app will detect this and show a clear warning with instructions.
+
+**To enable voice scrolling in Brave:**
+1. Click the **Brave Shields icon** (🦁) in the address bar
+2. Toggle **Shields** off for this site
+3. Reload the page
+
+All other features (manual scrolling, script history, video recording, settings) work normally in Brave without any changes.
+
+### 💻 Intel Hardware
+The app works on Intel-based machines (Windows, Linux, macOS) in Chrome, Edge, and Safari. Video recording automatically selects the best available codec — MP4/H.264 when supported, falling back to WebM/VP9 or WebM/VP8 on older Intel integrated graphics that lack hardware H.264 encoding.
+
 ## 📥 Installing as a PWA (Progressive Web App)
 
 ### On iOS (iPhone/iPad)
