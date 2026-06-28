@@ -26,8 +26,23 @@
     <meta name="twitter:description" content="A frustrated developer's deep dive into why every teleprompter app fails at the basics, and the journey to building one that actually works.">
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80">
 
-    <!-- VideoObject JSON-LD (only present when the article declares a video in frontmatter) -->
-    
+    <!-- JSON-LD (Article + optional VideoObject) -->
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Why All Teleprompter Apps Are Terrible (And What I Did About It)",
+    "description": "A frustrated developer's deep dive into why every teleprompter app fails at the basics, and the journey to building one that actually works.",
+    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+    "datePublished": "2026-03-18",
+    "author": {
+      "@type": "Person",
+      "name": "Konstantin Suvorov"
+    }
+  }
+]
+</script>
 
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -354,6 +369,19 @@
             width: 18px;
             height: 18px;
         }
+
+        .article-tldr {
+            background: #1a1a1a;
+            border-left: 4px solid #DAA000;
+            padding: 16px 20px;
+            margin: 0 0 32px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 1.05rem;
+            color: #d0d0d0;
+        }
+        .article-tldr strong {
+            color: #DAA000;
+        }
     </style>
 
     <!-- Umami Analytics -->
@@ -379,6 +407,9 @@
             </div>
 
             <div class="article-content">
+                <div class="article-tldr" aria-label="Quick Summary">
+                    <strong>TL;DR:</strong> A frustrated developer's deep dive into why every teleprompter app fails at the basics, and the journey to building one that actually works.
+                </div>
                 <p>I have been using a teleprompter device for five years. And I would like to file a public complaint.</p>
 <p>Why the hell are all teleprompter apps so bad?</p>
 <p>I&#39;m not even talking about the manual scrolling ones — those are obviously useless for solo creators. If you&#39;re filming alone, who&#39;s supposed to sit there and scroll for you? I&#39;m talking about the apps that are supposed to be smart enough to scroll automatically while you talk. The ones that have been on the App Store for years, charge real money, and still somehow can&#39;t do the one thing they&#39;re supposed to do.</p>

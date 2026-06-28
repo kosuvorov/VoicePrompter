@@ -26,21 +26,35 @@
     <meta name="twitter:description" content="A step-by-step guide to using an invisible, voice-activated teleprompter on Google Meet. Stays on top during screen shares, scrolls automatically as you speak, runs natively on Mac.">
     <meta name="twitter:image" content="https://i.ytimg.com/vi/hflxTHcTDpE/maxresdefault.jpg">
 
-    <!-- VideoObject JSON-LD (only present when the article declares a video in frontmatter) -->
+    <!-- JSON-LD (Article + optional VideoObject) -->
     <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "VideoObject",
-  "name": "How to Use a Teleprompter on Google Meet (Without Anyone Seeing It)",
-  "description": "A step-by-step guide to using an invisible, voice-activated teleprompter on Google Meet. Stays on top during screen shares, scrolls automatically as you speak, runs natively on Mac.",
-  "thumbnailUrl": [
-    "https://i.ytimg.com/vi/hflxTHcTDpE/maxresdefault.jpg"
-  ],
-  "uploadDate": "2026-05-24",
-  "contentUrl": "https://youtu.be/hflxTHcTDpE",
-  "embedUrl": "https://www.youtube.com/embed/hflxTHcTDpE",
-  "duration": "PT3M3S"
-}
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Use a Teleprompter on Google Meet (Without Anyone Seeing It)",
+    "description": "A step-by-step guide to using an invisible, voice-activated teleprompter on Google Meet. Stays on top during screen shares, scrolls automatically as you speak, runs natively on Mac.",
+    "image": "https://i.ytimg.com/vi/hflxTHcTDpE/maxresdefault.jpg",
+    "datePublished": "2026-05-24",
+    "author": {
+      "@type": "Person",
+      "name": "Konstantin Suvorov"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "How to Use a Teleprompter on Google Meet (Without Anyone Seeing It)",
+    "description": "A step-by-step guide to using an invisible, voice-activated teleprompter on Google Meet. Stays on top during screen shares, scrolls automatically as you speak, runs natively on Mac.",
+    "thumbnailUrl": [
+      "https://i.ytimg.com/vi/hflxTHcTDpE/maxresdefault.jpg"
+    ],
+    "uploadDate": "2026-05-24",
+    "contentUrl": "https://youtu.be/hflxTHcTDpE",
+    "embedUrl": "https://www.youtube.com/embed/hflxTHcTDpE",
+    "duration": "PT3M3S"
+  }
+]
 </script>
 
     <link rel="icon" href="/favicon.ico" sizes="any">
@@ -368,6 +382,19 @@
             width: 18px;
             height: 18px;
         }
+
+        .article-tldr {
+            background: #1a1a1a;
+            border-left: 4px solid #DAA000;
+            padding: 16px 20px;
+            margin: 0 0 32px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 1.05rem;
+            color: #d0d0d0;
+        }
+        .article-tldr strong {
+            color: #DAA000;
+        }
     </style>
 
     <!-- Umami Analytics -->
@@ -393,6 +420,9 @@
             </div>
 
             <div class="article-content">
+                <div class="article-tldr" aria-label="Quick Summary">
+                    <strong>TL;DR:</strong> A step-by-step guide to using an invisible, voice-activated teleprompter on Google Meet. Stays on top during screen shares, scrolls automatically as you speak, runs natively on Mac.
+                </div>
                 <p>If you&#39;ve ever wished you could see your script on a Google Meet call without making it obvious you were reading from it — this post is for you.</p>
 <p>I built a tool that solves exactly this problem, and I want to walk through how it actually works. By the end you&#39;ll know how to set up an invisible teleprompter for Google Meet, why it doesn&#39;t appear in screen shares, and how it scrolls itself while you talk.</p>
 <div class="video-responsive"><iframe src="https://www.youtube.com/embed/hflxTHcTDpE" title="How to use a teleprompter on Google Meet" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>

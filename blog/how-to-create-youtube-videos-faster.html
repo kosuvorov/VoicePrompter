@@ -26,8 +26,23 @@
     <meta name="twitter:description" content="A practical workflow for YouTube creators who want to cut production time in half — from scripting to recording to upload.">
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=800&q=80">
 
-    <!-- VideoObject JSON-LD (only present when the article declares a video in frontmatter) -->
-    
+    <!-- JSON-LD (Article + optional VideoObject) -->
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Create YouTube Videos Faster (Without Sacrificing Quality)",
+    "description": "A practical workflow for YouTube creators who want to cut production time in half — from scripting to recording to upload.",
+    "image": "https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=800&q=80",
+    "datePublished": "2026-03-29",
+    "author": {
+      "@type": "Person",
+      "name": "Konstantin Suvorov"
+    }
+  }
+]
+</script>
 
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -354,6 +369,19 @@
             width: 18px;
             height: 18px;
         }
+
+        .article-tldr {
+            background: #1a1a1a;
+            border-left: 4px solid #DAA000;
+            padding: 16px 20px;
+            margin: 0 0 32px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 1.05rem;
+            color: #d0d0d0;
+        }
+        .article-tldr strong {
+            color: #DAA000;
+        }
     </style>
 
     <!-- Umami Analytics -->
@@ -379,6 +407,9 @@
             </div>
 
             <div class="article-content">
+                <div class="article-tldr" aria-label="Quick Summary">
+                    <strong>TL;DR:</strong> A practical workflow for YouTube creators who want to cut production time in half — from scripting to recording to upload.
+                </div>
                 <p>Most YouTube creators I talk to have the same problem: the videos take too long to make.</p>
 <p>Not because they&#39;re perfectionists (though some are). Because the workflow is broken. They write a script, then try to <a href="./stop-memorizing-your-script.html">memorize it</a>, then record a dozen takes, then spend hours in the editing room cutting together the three usable segments from forty minutes of footage. A ten-minute video takes an entire day. Sometimes two.</p>
 <p>It doesn&#39;t have to work this way. The creators who post consistently — the ones who actually make it past the first fifty videos — almost always have a streamlined production process that lets them go from idea to upload in a few hours, not a few days.</p>
