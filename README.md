@@ -187,7 +187,7 @@ Your scripts are automatically saved to your browser's local storage:
 
 ## 📄 License
 
-MIT License - Free to use and modify
+GPLv3 License - Free to use, modify, and distribute, under the condition that any distributed derivative works are also open-sourced under the same license.
 
 ---
 
