@@ -26,8 +26,23 @@
     <meta name="twitter:description" content="The techniques that separate natural-sounding teleprompter users from the ones who look like they're reading. Practical, actionable advice.">
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=800&q=80">
 
-    <!-- VideoObject JSON-LD (only present when the article declares a video in frontmatter) -->
-    
+    <!-- JSON-LD (Article + optional VideoObject) -->
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Use a Teleprompter Naturally (So Nobody Knows)",
+    "description": "The techniques that separate natural-sounding teleprompter users from the ones who look like they're reading. Practical, actionable advice.",
+    "image": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=800&q=80",
+    "datePublished": "2026-03-11",
+    "author": {
+      "@type": "Person",
+      "name": "Konstantin Suvorov"
+    }
+  }
+]
+</script>
 
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -354,6 +369,19 @@
             width: 18px;
             height: 18px;
         }
+
+        .article-tldr {
+            background: #1a1a1a;
+            border-left: 4px solid #DAA000;
+            padding: 16px 20px;
+            margin: 0 0 32px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 1.05rem;
+            color: #d0d0d0;
+        }
+        .article-tldr strong {
+            color: #DAA000;
+        }
     </style>
 
     <!-- Umami Analytics -->
@@ -379,6 +407,9 @@
             </div>
 
             <div class="article-content">
+                <div class="article-tldr" aria-label="Quick Summary">
+                    <strong>TL;DR:</strong> The techniques that separate natural-sounding teleprompter users from the ones who look like they're reading. Practical, actionable advice.
+                </div>
                 <p>The dead giveaway that someone is using a teleprompter: their eyes move in a steady, rhythmic horizontal sweep, like a slow windshield wiper. It&#39;s the look of someone reading line by line, processing each word as they go.</p>
 <p>Most first-time teleprompter users produce exactly this. They fire up the app, start reading, and realize immediately that they look like a robot.</p>
 <p>The good news: this is a technique problem, not a technology problem. And technique is learnable.</p>

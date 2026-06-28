@@ -26,8 +26,23 @@
     <meta name="twitter:description" content="How VoicePrompter's automatic language detection works across 60+ languages — tested personally in English, Polish, Ukrainian, Russian, French, and Spanish.">
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1451226428352-cf66bf8a0317?auto=format&fit=crop&w=800&q=80">
 
-    <!-- VideoObject JSON-LD (only present when the article declares a video in frontmatter) -->
-    
+    <!-- JSON-LD (Article + optional VideoObject) -->
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Teleprompter in 60+ Languages: How VoicePrompter Handles It",
+    "description": "How VoicePrompter's automatic language detection works across 60+ languages — tested personally in English, Polish, Ukrainian, Russian, French, and Spanish.",
+    "image": "https://images.unsplash.com/photo-1451226428352-cf66bf8a0317?auto=format&fit=crop&w=800&q=80",
+    "datePublished": "2026-02-23",
+    "author": {
+      "@type": "Person",
+      "name": "Konstantin Suvorov"
+    }
+  }
+]
+</script>
 
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -354,6 +369,19 @@
             width: 18px;
             height: 18px;
         }
+
+        .article-tldr {
+            background: #1a1a1a;
+            border-left: 4px solid #DAA000;
+            padding: 16px 20px;
+            margin: 0 0 32px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 1.05rem;
+            color: #d0d0d0;
+        }
+        .article-tldr strong {
+            color: #DAA000;
+        }
     </style>
 
     <!-- Umami Analytics -->
@@ -379,6 +407,9 @@
             </div>
 
             <div class="article-content">
+                <div class="article-tldr" aria-label="Quick Summary">
+                    <strong>TL;DR:</strong> How VoicePrompter's automatic language detection works across 60+ languages — tested personally in English, Polish, Ukrainian, Russian, French, and Spanish.
+                </div>
                 <p>Let me tell you something that surprised me when I built this.</p>
 <p>I tested the language detection in <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8">VoicePrompter for Mac</a> by pasting scripts in French and Spanish — languages I don&#39;t actually speak. And it worked. The app correctly identified the language, switched the speech recognition engine to match, and scrolled the French or Spanish text while I awkwardly read the phonetics out loud.</p>
 <p>I&#39;m Konstantin. And I&#39;ve personally tested English, Polish, Ukrainian, Russian, French, and Spanish in VoicePrompter. The first four I actually speak. The last two I really don&#39;t.</p>

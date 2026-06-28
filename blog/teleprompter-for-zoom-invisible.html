@@ -26,8 +26,23 @@
     <meta name="twitter:description" content="How to use an invisible teleprompter overlay during Zoom calls, sales demos, and webinars — so your notes never show up in screen share.">
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?auto=format&fit=crop&w=800&q=80">
 
-    <!-- VideoObject JSON-LD (only present when the article declares a video in frontmatter) -->
-    
+    <!-- JSON-LD (Article + optional VideoObject) -->
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Teleprompter for Zoom That's Completely Invisible",
+    "description": "How to use an invisible teleprompter overlay during Zoom calls, sales demos, and webinars — so your notes never show up in screen share.",
+    "image": "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?auto=format&fit=crop&w=800&q=80",
+    "datePublished": "2026-03-15",
+    "author": {
+      "@type": "Person",
+      "name": "Konstantin Suvorov"
+    }
+  }
+]
+</script>
 
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -354,6 +369,19 @@
             width: 18px;
             height: 18px;
         }
+
+        .article-tldr {
+            background: #1a1a1a;
+            border-left: 4px solid #DAA000;
+            padding: 16px 20px;
+            margin: 0 0 32px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 1.05rem;
+            color: #d0d0d0;
+        }
+        .article-tldr strong {
+            color: #DAA000;
+        }
     </style>
 
     <!-- Umami Analytics -->
@@ -379,6 +407,9 @@
             </div>
 
             <div class="article-content">
+                <div class="article-tldr" aria-label="Quick Summary">
+                    <strong>TL;DR:</strong> How to use an invisible teleprompter overlay during Zoom calls, sales demos, and webinars — so your notes never show up in screen share.
+                </div>
                 <p>Here&#39;s a situation I&#39;ve been in more times than I&#39;d like to admit.</p>
 <p>You have a sales call in thirty minutes. You&#39;ve written out exactly what you want to say — the opening, the demo flow, the pricing reveal, all of it. The script is good. You practiced it last night. But the moment you hit &quot;Join Meeting,&quot; it all evaporates. You open a second window to glance at your notes, your eyes drift off-camera, and the person on the other end can tell immediately that you&#39;re not actually talking to them.</p>
 <p>The obvious solution is a teleprompter. The obvious problem with that solution, until recently, is that teleprompter apps showed up in your screen share.</p>

@@ -91,14 +91,32 @@ mdFiles.forEach(file => {
 
     articles.push(article);
 
+    // Generate JSON-LD Schema
+    const isoDate = (() => {
+        const d = new Date(article.date);
+        return isNaN(d.getTime()) ? new Date().toISOString().split('T')[0] : d.toISOString().split('T')[0];
+    })();
+    
+    const schemas = [];
+    
+    // Article Schema
+    const articleSchema = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": article.title,
+        "description": article.description,
+        "image": article.image || 'https://voiceprompter.app/og-image.png',
+        "datePublished": isoDate,
+        "author": {
+            "@type": "Person",
+            "name": "Konstantin Suvorov"
+        }
+    };
+    schemas.push(articleSchema);
+
     // Generate VideoObject JSON-LD schema if frontmatter declares a video
-    let videoSchemaBlock = '';
     if (frontmatter.video && frontmatter.video.videoId) {
         const videoId = frontmatter.video.videoId;
-        const isoDate = (() => {
-            const d = new Date(article.date);
-            return isNaN(d.getTime()) ? new Date().toISOString().split('T')[0] : d.toISOString().split('T')[0];
-        })();
         const videoSchema = {
             "@context": "https://schema.org",
             "@type": "VideoObject",
@@ -110,8 +128,10 @@ mdFiles.forEach(file => {
             "embedUrl": `https://www.youtube.com/embed/${videoId}`,
             ...(frontmatter.video.duration ? { duration: frontmatter.video.duration } : {})
         };
-        videoSchemaBlock = `<script type="application/ld+json">\n${JSON.stringify(videoSchema, null, 2)}\n</script>`;
+        schemas.push(videoSchema);
     }
+    
+    const jsonLdBlock = `<script type="application/ld+json">\n${JSON.stringify(schemas, null, 2)}\n</script>`;
 
     // Generate HTML from template
     let html = articleTemplate
@@ -122,7 +142,7 @@ mdFiles.forEach(file => {
         .replace(/\{\{KEYWORDS\}\}/g, article.keywords.join(', '))
         .replace(/\{\{SLUG\}\}/g, article.slug)
         .replace(/\{\{IMAGE\}\}/g, article.image || 'https://voiceprompter.app/og-image.png')
-        .replace(/\{\{VIDEO_SCHEMA\}\}/g, videoSchemaBlock);
+        .replace(/\{\{JSON_LD_SCHEMA\}\}/g, jsonLdBlock);
 
     // Write HTML file
     const outputPath = path.join(BLOG_DIR, `${slug}.html`);
