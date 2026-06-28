@@ -20,14 +20,17 @@ export const state: AppState = {
         textDirection: 'ltr',
         showStopIcon: false,
         preserveFormatting: true,
-        voiceCommandsEnabled: true,
+        voiceCommandsEnabled: false,
         paragraphSpacing: 0.5,
         smoothAnimations: false,
         highlightActiveWord: true,
         activeLinePosition: 35, // Default to 35% from top
         lookaheadWords: 5, // Default lookahead
         dockOpacity: 50, // Default dock opacity (50%)
-        fontFamily: 'mono' // Default font
+        fontFamily: 'mono', // Default font
+        scrollingMode: 'voice',
+        scrollSpeed: 3.5,
+        soundSensitivity: 0.7
     },
     // Video recording state
     isVideoMode: false,

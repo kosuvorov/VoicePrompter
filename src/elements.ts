@@ -79,6 +79,13 @@ export interface Elements {
         comicSans: HTMLElement;
         openDyslexic: HTMLElement;
     };
+    scrollingModeSelect: HTMLSelectElement;
+    scrollSpeedContainer: HTMLElement;
+    scrollSpeedInput: HTMLInputElement;
+    scrollSpeedVal: HTMLElement;
+    soundSensitivityContainer: HTMLElement;
+    soundSensitivityInput: HTMLInputElement;
+    soundSensitivityVal: HTMLElement;
     // Video Recording
     videoModeBtn: HTMLElement;
     videoPreview: HTMLVideoElement;
@@ -188,6 +195,13 @@ export function initElements(): void {
             comicSans: document.getElementById('fontFamilyComicSansBtn')!,
             openDyslexic: document.getElementById('fontFamilyOpenDyslexicBtn')!
         },
+        scrollingModeSelect: document.getElementById('scrollingModeSelect') as HTMLSelectElement,
+        scrollSpeedContainer: document.getElementById('scrollSpeedContainer')!,
+        scrollSpeedInput: document.getElementById('scrollSpeedInput') as HTMLInputElement,
+        scrollSpeedVal: document.getElementById('scrollSpeedVal')!,
+        soundSensitivityContainer: document.getElementById('soundSensitivityContainer')!,
+        soundSensitivityInput: document.getElementById('soundSensitivityInput') as HTMLInputElement,
+        soundSensitivityVal: document.getElementById('soundSensitivityVal')!,
         // Video Recording
         videoModeBtn: document.getElementById('videoModeBtn')!,
         videoPreview: document.getElementById('videoPreview') as HTMLVideoElement,

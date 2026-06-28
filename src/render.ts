@@ -148,45 +148,63 @@ export function restartScript(): void {
     scrollToCurrent();
 }
 
-export function navigateSentences(direction: 'back' | 'forward', sentenceCount: number): void {
+export function navigateParagraphs(direction: 'back' | 'forward', paragraphCount: number): void {
     if (state.scriptWords.length === 0) return;
 
-    // Find all sentence boundary indices (words ending with . ! ?)
-    const sentenceEnds: number[] = [];
+    // Find all paragraph boundary indices (words representing line breaks/stops)
+    // Merge consecutive breaks into a single boundary
+    const paragraphEnds: number[] = [];
+    let lastWasBreak = false;
     state.scriptWords.forEach((w, i) => {
-        if (!w.skip && /[.!?]$/.test(w.word)) {
-            sentenceEnds.push(i);
+        if (w.isStop || w.isBreak) {
+            if (!lastWasBreak) {
+                paragraphEnds.push(i);
+                lastWasBreak = true;
+            } else {
+                // Update to the last break in the sequence
+                paragraphEnds[paragraphEnds.length - 1] = i;
+            }
+        } else if (!w.skip) {
+            lastWasBreak = false;
         }
     });
 
+    // If there are no explicit paragraph breaks, fallback to sentence boundaries
+    if (paragraphEnds.length === 0) {
+        state.scriptWords.forEach((w, i) => {
+            if (!w.skip && /[.!?]$/.test(w.word)) {
+                paragraphEnds.push(i);
+            }
+        });
+    }
+
     if (direction === 'back') {
-        // Find how many sentence boundaries are before currentIndex
+        // Find how many paragraph boundaries are before currentIndex
         let target = 0;
         let boundariesBefore = 0;
-        for (let i = sentenceEnds.length - 1; i >= 0; i--) {
-            if (sentenceEnds[i] < state.currentIndex) {
+        for (let i = paragraphEnds.length - 1; i >= 0; i--) {
+            if (paragraphEnds[i] < state.currentIndex) {
                 boundariesBefore++;
-                if (boundariesBefore >= sentenceCount) {
-                    // Go to the word AFTER the previous sentence end (start of that sentence)
-                    // Find the sentence start: one past the previous boundary, or 0
-                    target = i > 0 ? sentenceEnds[i - 1] + 1 : 0;
+                if (boundariesBefore >= paragraphCount) {
+                    // Go to the word AFTER the previous paragraph end (start of that paragraph)
+                    target = i > 0 ? paragraphEnds[i - 1] + 1 : 0;
                     break;
                 }
             }
         }
-        if (boundariesBefore < sentenceCount) {
+        if (boundariesBefore < paragraphCount) {
             target = 0; // Go to the very beginning
         }
         state.currentIndex = target;
     } else {
-        // Forward: skip ahead by sentenceCount sentence endings
+        // Forward: skip ahead by paragraphCount paragraph endings
         let boundariesAfter = 0;
         let target = state.scriptWords.length - 1;
-        for (let i = 0; i < sentenceEnds.length; i++) {
-            if (sentenceEnds[i] >= state.currentIndex) {
+        for (let i = 0; i < paragraphEnds.length; i++) {
+            if (paragraphEnds[i] >= state.currentIndex) {
                 boundariesAfter++;
-                if (boundariesAfter >= sentenceCount) {
-                    target = sentenceEnds[i] + 1;
+                if (boundariesAfter >= paragraphCount) {
+                    target = paragraphEnds[i] + 1;
                     break;
                 }
             }
@@ -239,20 +257,43 @@ export function applySettings(): void {
 }
 
 export function updateMicUI(isListening: boolean): void {
+    const isVoice = state.config.scrollingMode === 'voice';
+    const pathEl = els.micButton.querySelector('path');
+    
     if (isListening) {
         els.micButton.classList.remove('bg-neutral-800', 'hover:bg-neutral-700');
         els.micButton.classList.add('bg-red-600', 'hover:bg-red-700', 'animate-pulse');
         els.micIcon.classList.add('text-white');
-        els.statusIndicator.textContent = "Listening...";
+        
+        els.statusIndicator.textContent = isVoice ? "Listening..." : "Scrolling...";
         els.statusIndicator.classList.remove('text-neutral-500');
         els.statusIndicator.classList.add('text-red-500');
+        
+        if (pathEl) {
+            if (isVoice) {
+                pathEl.setAttribute('d', 'M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z');
+            } else {
+                // Pause icon
+                pathEl.setAttribute('d', 'M6 19h4V5H6v14zm8-14v14h4V5h-4z');
+            }
+        }
     } else {
         els.micButton.classList.add('bg-neutral-800', 'hover:bg-neutral-700');
         els.micButton.classList.remove('bg-red-600', 'hover:bg-red-700', 'animate-pulse');
         els.micIcon.classList.remove('text-white');
-        els.statusIndicator.textContent = "Tap mic to start";
+        
+        els.statusIndicator.textContent = isVoice ? "Tap mic to start" : "Tap play to start";
         els.statusIndicator.classList.add('text-neutral-500');
         els.statusIndicator.classList.remove('text-red-500');
+        
+        if (pathEl) {
+            if (isVoice) {
+                pathEl.setAttribute('d', 'M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z');
+            } else {
+                // Play icon
+                pathEl.setAttribute('d', 'M8 5v14l11-7z');
+            }
+        }
     }
 }
 

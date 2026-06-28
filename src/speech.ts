@@ -1,14 +1,17 @@
 import { state } from './state';
 import { els } from './elements';
-import { updateMicUI, updateHighlight, scrollToCurrent, advancePastSkipped, restartScript, navigateSentences } from './render';
+import { updateMicUI, updateHighlight, scrollToCurrent, advancePastSkipped, restartScript, navigateParagraphs } from './render';
 
 // Track the last matched word to prevent matching the same word twice in a row
 let lastMatchedWord = '';
 
 // Track which result indices we already processed for commands
 // to prevent re-firing when the recognition engine revisits finalized results
-let lastProcessedResultIndex = -1;
+
 let speechBlocked = false;
+
+// Voice command arming to prevent duplicate triggers
+let commandArmed = true;
 
 // Arc / silent-fail detection
 let isFirstStart = true;
@@ -38,37 +41,66 @@ export function initSpeech(): void {
             gotResultOnFirstStart = true;
         }
 
-        // --- Voice Commands: only on FINALIZED results ---
-        // This ensures each command fires exactly once per utterance
-        if (state.config.voiceCommandsEnabled) {
-            for (let i = event.resultIndex; i < event.results.length; i++) {
-                if (event.results[i].isFinal && i > lastProcessedResultIndex) {
-                    lastProcessedResultIndex = i;
-                    const finalText = event.results[i][0].transcript.trim().toLowerCase();
-                    if (finalText.includes('prompter restart')) {
-                        restartScript();
-                        lastMatchedWord = '';
-                        return;
-                    }
-                    if (finalText.includes('prompter back')) {
-                        navigateSentences('back', 2);
-                        lastMatchedWord = '';
-                        return;
-                    }
-                    if (finalText.includes('prompter forward')) {
-                        navigateSentences('forward', 2);
-                        lastMatchedWord = '';
-                        return;
-                    }
-                }
-            }
-        }
-
-        // --- Word matching: uses all results (interim + final) for responsiveness ---
         let transcript = '';
         for (let i = event.resultIndex; i < event.results.length; i++) {
             transcript += event.results[i][0].transcript;
         }
+
+        // --- Voice Commands (Mac-Style) ---
+        if (state.config.voiceCommandsEnabled) {
+            const cleanTokens = transcript.toLowerCase().replace(/[^\w\s]/g, '').split(/\s+/).filter(t => t.length > 0);
+            if (cleanTokens.length >= 2) {
+                const lastTwoWords = cleanTokens.slice(-2).join(' ');
+                let commandMatched: string | null = null;
+                
+                if (lastTwoWords === 'go start') commandMatched = 'go start';
+                else if (lastTwoWords === 'go finish') commandMatched = 'go finish';
+                else if (lastTwoWords === 'go next') commandMatched = 'go next';
+                else if (lastTwoWords === 'go back') commandMatched = 'go back';
+                
+                if (commandMatched) {
+                    const commandTokens = commandMatched.split(' ');
+                    // Conflict resolution: look ahead up to 10 words
+                    const upcomingScript = state.scriptWords.slice(state.currentIndex, state.currentIndex + 10).map(w => w.word.toLowerCase().replace(/[^\w\s]/g, ''));
+                    
+                    let conflict = false;
+                    for (let j = 0; j < Math.max(0, upcomingScript.length - 1); j++) {
+                        if (upcomingScript[j] === commandTokens[0] && upcomingScript[j+1] === commandTokens[1]) {
+                            conflict = true;
+                            break;
+                        }
+                    }
+                    
+                    if (!conflict) {
+                        if (commandArmed) {
+                            commandArmed = false;
+                            console.log(`[VoiceCommand] TRIGGER: ${commandMatched}`);
+                            if (commandMatched === 'go start') {
+                                restartScript();
+                            } else if (commandMatched === 'go finish') {
+                                state.currentIndex = Math.max(0, state.scriptWords.length - 1);
+                                updateHighlight();
+                                scrollToCurrent();
+                            } else if (commandMatched === 'go next') {
+                                navigateParagraphs('forward', 1);
+                            } else if (commandMatched === 'go back') {
+                                navigateParagraphs('back', 1);
+                            }
+                            lastMatchedWord = '';
+                            return; // Stop processing to prevent the command from being read as script text
+                        }
+                    } else {
+                        commandArmed = true;
+                    }
+                } else {
+                    commandArmed = true;
+                }
+            } else {
+                commandArmed = true;
+            }
+        }
+
+        // --- Word matching: uses all results (interim + final) for responsiveness ---
         const spokenWords = transcript.trim().toLowerCase().split(/\s+/);
         matchWords(spokenWords.slice(-5));
     };
@@ -122,7 +154,7 @@ export function initSpeech(): void {
 
         if (speechBlocked) return;
         if (state.isListening) {
-            lastProcessedResultIndex = -1; // Reset for new recognition session
+
             try {
                 state.recognition.start();
             } catch (error) {
@@ -138,7 +170,7 @@ export function startListening(): void {
     if (!state.recognition) return;
     state.isListening = true;
     lastMatchedWord = '';
-    lastProcessedResultIndex = -1;
+
     speechBlocked = false;
     try {
         state.recognition.start();
@@ -154,7 +186,7 @@ export function stopListening(): void {
     if (!state.recognition) return;
     state.isListening = false;
     lastMatchedWord = '';
-    lastProcessedResultIndex = -1;
+
     try {
         state.recognition.stop();
         updateMicUI(false);

@@ -4,6 +4,7 @@ import { initElements, els } from './elements';
 import { state } from './state';
 import { renderScript, updateHighlight, scrollToCurrent, applySettings, renderHistoryList, restartScript } from './render';
 import { initSpeech, startListening, stopListening } from './speech';
+import { autoScrollManager } from './autoscroll';
 import { saveToHistory, getHistory, clearAllHistory } from './storage';
 import { ScriptWord } from './types';
 import { enterVideoMode, exitVideoMode, toggleVideoLayout, startRecording, stopRecording, flipCamera, getMediaConstraints } from './video';
@@ -494,17 +495,29 @@ els.copyGoogleDocUrlBtn.addEventListener('click', async () => {
     }
 });
 
-// Mic Button
+// Play / Pause / Record Button
 els.micButton.addEventListener('click', () => {
     if (state.isListening) {
-        (window as any).umami?.track('mic-stop');
-        stopListening();
+        if (state.config.scrollingMode === 'voice') {
+            (window as any).umami?.track('mic-stop');
+            stopListening();
+        } else {
+            autoScrollManager.stop();
+            state.isListening = false;
+            import('./render').then(({ updateMicUI }) => updateMicUI(false));
+        }
         // Restore dock opacity
         const dock = document.getElementById('mainControlsDock');
         if (dock) dock.style.opacity = '';
     } else {
-        (window as any).umami?.track('mic-start');
-        startListening();
+        if (state.config.scrollingMode === 'voice') {
+            (window as any).umami?.track('mic-start');
+            startListening();
+        } else {
+            state.isListening = true;
+            import('./render').then(({ updateMicUI }) => updateMicUI(true));
+            autoScrollManager.start();
+        }
         // Fade dock while listening
         const dock = document.getElementById('mainControlsDock');
         if (dock) dock.style.opacity = (state.config.dockOpacity / 100).toString();
@@ -1084,6 +1097,52 @@ if (!isIOS) {
     });
 }
 
+function updateScrollingUI() {
+    els.scrollingModeSelect.value = state.config.scrollingMode;
+    els.scrollSpeedInput.value = state.config.scrollSpeed.toString();
+    els.scrollSpeedVal.textContent = `${state.config.scrollSpeed.toFixed(1)} wps`;
+    els.soundSensitivityInput.value = state.config.soundSensitivity.toString();
+    els.soundSensitivityVal.textContent = `${Math.round(state.config.soundSensitivity * 100)}%`;
+
+    els.scrollSpeedContainer.classList.toggle('hidden', state.config.scrollingMode === 'voice');
+    els.soundSensitivityContainer.classList.toggle('hidden', state.config.scrollingMode !== 'sound');
+
+    // Update Mic button icon based on mode
+    const path = els.micButton.querySelector('path');
+    if (path) {
+        if (state.config.scrollingMode === 'voice') {
+            path.setAttribute('d', 'M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.91-3c-.49 0-.9.36-.98.85C16.52 14.2 14.47 16 12 16s-4.52-1.8-4.93-4.15c-.08-.49-.49-.85-.98-.85-.61 0-1.09.54-1 1.14.49 3 2.89 5.35 5.91 5.78V20c0 .55.45 1 1 1s1-.45 1-1v-2.08c3.02-.43 5.42-2.78 5.91-5.78.1-.6-.39-1.14-1-1.14z');
+        } else {
+            // Play icon
+            path.setAttribute('d', 'M8 5v14l11-7z');
+        }
+    }
+}
+
+els.scrollingModeSelect.addEventListener('change', (e) => {
+    state.config.scrollingMode = (e.target as HTMLSelectElement).value as any;
+    updateScrollingUI();
+    if (state.isListening) {
+        // Stop current mode
+        stopListening();
+        autoScrollManager.stop();
+        state.isListening = false;
+        import('./render').then(({ updateMicUI }) => updateMicUI(false));
+    }
+});
+
+els.scrollSpeedInput.addEventListener('input', (e) => {
+    state.config.scrollSpeed = parseFloat((e.target as HTMLInputElement).value);
+    els.scrollSpeedVal.textContent = `${state.config.scrollSpeed.toFixed(1)} wps`;
+});
+
+els.soundSensitivityInput.addEventListener('input', (e) => {
+    state.config.soundSensitivity = parseFloat((e.target as HTMLInputElement).value);
+    els.soundSensitivityVal.textContent = `${Math.round(state.config.soundSensitivity * 100)}%`;
+});
+
+updateScrollingUI();
+
 initializeUI();
 
 // Pin the floating controls dock to the visual viewport. iOS Safari (esp. in
@@ -1124,3 +1183,4 @@ function pinDockToVisualViewport(): void {
     }
 }
 pinDockToVisualViewport();
+

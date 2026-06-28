@@ -1,4 +1,5 @@
 export type VideoLayoutMode = 'split' | 'overlay';
+export type ScrollingMode = 'voice' | 'sound' | 'constant';
 
 export interface ScriptWord {
     word: string;
@@ -27,6 +28,9 @@ export interface AppConfig {
     lookaheadWords: number; // 1-10 words to look ahead
     dockOpacity: number; // 0-100 opacity of dock while recording
     fontFamily: string; // Font family for the script
+    scrollingMode: ScrollingMode;
+    scrollSpeed: number; // Words per second
+    soundSensitivity: number; // 0 to 1
 }
 
 export interface AppState {
