@@ -229,6 +229,7 @@ export function applySettings(): void {
     }
 
     els.scriptContent.style.setProperty('--paragraph-spacing', `${state.config.paragraphSpacing}em`);
+    els.scriptContent.style.lineHeight = `${state.config.lineHeight}`;
     els.scriptContent.style.textAlign = state.config.textAlign;
     els.scriptContent.style.direction = state.config.textDirection;
 

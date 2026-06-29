@@ -47,7 +47,7 @@ useCases.forEach((useCase) => {
         if (!fs.existsSync(physicalVideoPath)) {
             console.warn(`⚠️ Warning: Local video file not found at ${physicalVideoPath}. Falling back to default YouTube embed for ${useCase.name}.`);
             // Fallback default YouTube embed
-            videoEmbed = `<div class="video-responsive"><iframe src="https://www.youtube.com/embed/2PYq2wI-HWk" title="VoicePrompter for ${useCase.name}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`;
+            videoEmbed = `<div class="video-responsive"><iframe src="https://www.youtube.com/embed/07Xnj7q2c9Y" title="VoicePrompter for ${useCase.name}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`;
         }
     }
 

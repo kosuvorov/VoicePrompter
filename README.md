@@ -63,9 +63,11 @@ Once installed, the app works completely offline and launches like a native appl
 The app listens to your speech and automatically scrolls as you read. Simply speak your script naturally!
 
 **Special Voice Commands:**
-- Say **"prompter restart"** - Jumps back to the beginning of your script
-- Say **"prompter back"** - Scrolls back 2 sentences
-- Say **"prompter forward"** - Skips forward 2 sentences
+- Say **"go start"** - Jumps back to the beginning of your script
+- Say **"go back"** - Scrolls back a few lines
+- Say **"go next"** - Skips forward a few lines
+- Say **"go finish"** - Jumps to the end of your script
+
 
 ### Manual Navigation
 - **Click any word** - Jump to that position in the script
@@ -89,7 +91,7 @@ Enables horizontal flip + 180° rotation — perfect for use with teleprompter g
 Displays visual markers (dots) at punctuation marks (periods, exclamation points, question marks) to help you pace your reading.
 
 #### Voice Commands 🎤
-Enable/disable voice command recognition. Supported commands: "prompter restart", "prompter back" (go back 2 sentences), "prompter forward" (skip forward 2 sentences).
+Enable/disable voice command recognition. Supported commands: "go start", "go back" (scrolls back a few lines), "go next" (skips forward a few lines), "go finish".
 
 #### Video Recording 🎥
 Record video and audio directly in the app while reading your script. Two layout modes:

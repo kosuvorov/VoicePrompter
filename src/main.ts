@@ -956,7 +956,7 @@ function initializeUI(): void {
     // Seed demo script for first-time users
     const history = getHistory();
     if (history.length === 0) {
-        const demoText = `Welcome to VoicePrompter - a completely free teleprompter that works right in the browser.\nThis text is scrolling automatically as you speak following your voice.\nSee the highlighted word? That's where you are in the script right now.\nIf you want to jump to a different part, just tap any word and it syncs instantly.\nYou can also use voice commands to restart the script or skip a few lines.\nThe app can also record video with the script overlaid, so you don't need any extra software.\nIn the settings you can adjust font size, margins, line and paragraph spacing, pick a color theme and more - I encourage you to explore the settings on your own and find the best ones for you.\nThe app supports 34 languages and detects them automatically.\nOne more thing - text in square brackets gets skipped automatically [like this]. Useful for notes or reminders to yourself.\nEverything runs on your device. Nothing is sent to any server. You can even save it to your home screen and use it completely offline.\n\nNow go make something great ;)`;
+        const demoText = `Welcome to VoicePrompter - a completely free teleprompter that works right in the browser.\nThis text is scrolling automatically as you speak following your voice.\nSee the highlighted word? That's where you are in the script right now.\nIf you want to jump to a different part, just tap any word and it syncs instantly.\nYou can also use voice commands like go back, go next, go start, or go finish.\nThe app can also record video with the script overlaid, so you don't need any extra software.\nIn the settings you can adjust font size, margins, line and paragraph spacing, pick a color theme and more - I encourage you to explore the settings on your own and find the best ones for you.\nThe app supports 34 languages and detects them automatically.\nOne more thing - text in square brackets gets skipped automatically [like this]. Useful for notes or reminders to yourself.\nEverything runs on your device. Nothing is sent to any server. You can even save it to your home screen and use it completely offline.\n\nNow go make something great ;)`;
 
         // Save to localStorage with 'demo' tag
         const demoItem = {
@@ -1141,9 +1141,16 @@ els.soundSensitivityInput.addEventListener('input', (e) => {
     els.soundSensitivityVal.textContent = `${Math.round(state.config.soundSensitivity * 100)}%`;
 });
 
-updateScrollingUI();
-
-initializeUI();
+document.addEventListener('DOMContentLoaded', () => {
+    updateScrollingUI();
+    initializeUI();
+    pinDockToVisualViewport();
+    
+    // Fallback for async localStorage injection (e.g. WKWebView)
+    setTimeout(() => {
+        renderHistoryList(getHistory(), loadScript);
+    }, 500);
+});
 
 // Pin the floating controls dock to the visual viewport. iOS Safari (esp. in
 // landscape) paints `position: fixed` elements near the visual viewport's
