@@ -60,12 +60,14 @@ export function initSpeech(): void {
                 
                 if (commandMatched) {
                     const commandTokens = commandMatched.split(' ');
-                    // Conflict resolution: look ahead up to 10 words
-                    const upcomingScript = state.scriptWords.slice(state.currentIndex, state.currentIndex + 10).map(w => w.word.toLowerCase().replace(/[^\w\s]/g, ''));
+                    // Conflict resolution: look around the current index (back 4, forward 10)
+                    const startIdx = Math.max(0, state.currentIndex - 4);
+                    const endIdx = Math.min(state.scriptWords.length, state.currentIndex + 10);
+                    const windowScript = state.scriptWords.slice(startIdx, endIdx).map(w => w.word.toLowerCase().replace(/[^\w\s]/g, ''));
                     
                     let conflict = false;
-                    for (let j = 0; j < Math.max(0, upcomingScript.length - 1); j++) {
-                        if (upcomingScript[j] === commandTokens[0] && upcomingScript[j+1] === commandTokens[1]) {
+                    for (let j = 0; j < Math.max(0, windowScript.length - 1); j++) {
+                        if (windowScript[j] === commandTokens[0] && windowScript[j+1] === commandTokens[1]) {
                             conflict = true;
                             break;
                         }
