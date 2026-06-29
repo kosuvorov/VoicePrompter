@@ -840,6 +840,9 @@ els.screenRotationToggle.addEventListener('change', (e) => {
     } else {
         document.body.classList.remove('screen-rotated');
     }
+    // Re-evaluate the dock: in rotated mode it must drop the viewport-based
+    // pin and use the CSS `bottom-8`; on un-rotate it must re-pin.
+    pinDockToVisualViewport();
 });
 
 // Smooth Animations Toggle
@@ -1157,19 +1160,50 @@ document.addEventListener('DOMContentLoaded', () => {
 // bottom but hit-tests them at their layout-viewport position — so taps fall
 // through to the script. Computing `top` from `visualViewport` keeps the hit
 // rect under the rendered button.
+//
+// Idempotent: called from both module-eval and DOMContentLoaded so the dock is
+// pinned regardless of which fires first (with async module loading either can
+// win). A guard flag ensures listeners/observers are only wired once.
+let dockPinned = false;
 function pinDockToVisualViewport(): void {
     const dock = document.getElementById('mainControlsDock');
     const vv = window.visualViewport;
     if (!dock || !vv) return;
     const update = () => {
+        // Manual rotation (the Screen Rotation toggle) puts a `transform` on
+        // <body>, which makes `position: fixed` resolve against the rotated
+        // body instead of the viewport. Our viewport-based `top` would then
+        // shove the dock off-screen (buttons invisible AND untappable). Fall
+        // back to the CSS `bottom-8`, which lays out correctly under rotation.
+        if (document.body.classList.contains('screen-rotated')) {
+            dock.style.top = '';
+            dock.style.bottom = '';
+            return;
+        }
+        // The dock starts hidden inside #prompterContainer, so offsetHeight is
+        // 0 until the prompter is shown. Skip until it has a real height,
+        // otherwise we'd pin it ~64px too low; the MutationObserver below
+        // re-runs this once the prompter becomes visible.
+        if (dock.offsetHeight === 0) return;
         const visualBottomInLayout = vv.offsetTop + vv.height;
         const margin = 32; // matches original `bottom-8`
         dock.style.bottom = 'auto';
         dock.style.top = `${visualBottomInLayout - dock.offsetHeight - margin}px`;
     };
+    if (dockPinned) {
+        // Already wired; just recompute (e.g. second call after DOM is ready).
+        requestAnimationFrame(update);
+        return;
+    }
+    dockPinned = true;
     vv.addEventListener('resize', update);
     vv.addEventListener('scroll', update);
-    window.addEventListener('orientationchange', () => requestAnimationFrame(update));
+    // After an orientation change iOS reports stale visualViewport dimensions
+    // for a beat, so recompute on the next frame *and* after a short delay.
+    window.addEventListener('orientationchange', () => {
+        requestAnimationFrame(update);
+        setTimeout(update, 300);
+    });
     requestAnimationFrame(update);
 
     // Recalculate when the prompter container is shown (class 'hidden' is removed)
