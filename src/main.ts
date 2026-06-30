@@ -316,14 +316,71 @@ function loadScript(text: string, googleDocUrl: string | null = null): void {
 
     renderScript();
     applySettings(); // Ensure settings are applied after render
+    lockBodyScroll(); // Keep tap targets aligned in the full-screen prompter (see below)
 }
 
 function resetApp(): void {
     stopListening();
+    unlockBodyScroll();
     els.prompterContainer.classList.add('hidden');
     els.setupScreen.classList.remove('hidden');
     renderHistoryList(getHistory(), loadScript);
 }
+
+// ── Body scroll lock — iOS PWA landscape tap-offset fix ──────────────────
+// On iOS 26 (esp. standalone/PWA, landscape) the page can get stuck in a
+// negative scroll / visual-viewport offset — observed live as
+// scrollY === visualViewport.offsetTop === -62. Touch coordinates are in
+// visual-viewport space while element hit-testing is in layout space, so that
+// offset makes every tap land ~62px from where the control is painted — both
+// the dock buttons AND the script words ("I have to tap below the button").
+// The teleprompter is a full-screen fixed overlay that never needs to scroll,
+// so we pin the body at scroll 0 while it's open, which keeps the two
+// coordinate systems aligned. Verified on-device: with this lock, scrollY and
+// visualViewport.offsetTop stay 0 and taps register correctly.
+let bodyScrollLocked = false;
+function lockBodyScroll(): void {
+    if (bodyScrollLocked) return;
+    bodyScrollLocked = true;
+    const b = document.body, h = document.documentElement;
+    h.style.overflow = 'hidden';
+    b.style.position = 'fixed';
+    b.style.top = '0';
+    b.style.left = '0';
+    b.style.right = '0';
+    b.style.bottom = '0';
+    b.style.width = '100%';
+    b.style.height = '100%';
+    b.style.overflow = 'hidden';
+    b.style.overscrollBehavior = 'none';
+    window.scrollTo(0, 0);
+}
+function unlockBodyScroll(): void {
+    if (!bodyScrollLocked) return;
+    bodyScrollLocked = false;
+    const b = document.body, h = document.documentElement;
+    h.style.overflow = '';
+    b.style.position = '';
+    b.style.top = '';
+    b.style.left = '';
+    b.style.right = '';
+    b.style.bottom = '';
+    b.style.width = '';
+    b.style.height = '';
+    b.style.overflow = '';
+    b.style.overscrollBehavior = '';
+    window.scrollTo(0, 0);
+}
+// The stuck offset can reappear on orientation change or when iOS adjusts the
+// visual viewport; re-zero the scroll whenever it drifts while locked.
+function keepScrollZeroWhileLocked(): void {
+    if (bodyScrollLocked && Math.round(window.scrollY) !== 0) window.scrollTo(0, 0);
+}
+if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', keepScrollZeroWhileLocked);
+    window.visualViewport.addEventListener('scroll', keepScrollZeroWhileLocked);
+}
+window.addEventListener('orientationchange', () => setTimeout(keepScrollZeroWhileLocked, 60));
 
 function clearHistory(): void {
     if (confirm('Clear all recent scripts?')) {
@@ -1144,15 +1201,34 @@ els.soundSensitivityInput.addEventListener('input', (e) => {
     els.soundSensitivityVal.textContent = `${Math.round(state.config.soundSensitivity * 100)}%`;
 });
 
-document.addEventListener('DOMContentLoaded', () => {
+function boot(): void {
     updateScrollingUI();
     initializeUI();
     pinDockToVisualViewport();
-    
+
     // Fallback for async localStorage injection (e.g. WKWebView)
     setTimeout(() => {
         renderHistoryList(getHistory(), loadScript);
     }, 500);
+}
+
+// Run boot as soon as the DOM is ready. We must NOT rely solely on the
+// DOMContentLoaded event: this is an ES module (deferred), so by the time it
+// evaluates the DOM is already parsed and the event may have *already fired*
+// (or won't fire on a bfcache restore). When that happened, initializeUI never
+// ran and the Recent Scripts list stayed empty until a later user action
+// (e.g. returning from the prompter) re-rendered it.
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot, { once: true });
+} else {
+    boot();
+}
+
+// iOS Safari restores pages from the back-forward cache without firing
+// DOMContentLoaded, so re-render history (and re-pin the dock) on show.
+window.addEventListener('pageshow', () => {
+    renderHistoryList(getHistory(), loadScript);
+    pinDockToVisualViewport();
 });
 
 // Pin the floating controls dock to the visual viewport. iOS Safari (esp. in
