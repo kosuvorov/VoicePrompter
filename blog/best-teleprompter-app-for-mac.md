@@ -1,7 +1,8 @@
 ---
-title: "Best Teleprompter App for Mac in 2025: An Honest Look"
-description: "An honest comparison of Mac teleprompter apps — what actually matters, what's missing, and where VoicePrompter fits in the landscape."
+title: "Best Teleprompter App for Mac in 2026: An Honest Look"
+description: "An honest, hands-on comparison of the best teleprompter apps for Mac in 2026 — voice scrolling, invisible screen-share, pricing, and where VoicePrompter fits."
 date: "Mar 20, 2026"
+updated: "Jun 30, 2026"
 image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
 ---

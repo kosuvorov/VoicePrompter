@@ -1,6 +1,6 @@
 ---
 title: "How to Read a Script Without Looking Like You're Reading"
-description: "The gap between reading and performing. Learn how to deliver scripted content that sounds spontaneous and genuine."
+description: "How to read a script on camera so it sounds natural, not robotic — where to look, how to phrase and pace, and the prompter setup that makes delivery effortless."
 date: "Mar 8, 2026"
 image: "https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
