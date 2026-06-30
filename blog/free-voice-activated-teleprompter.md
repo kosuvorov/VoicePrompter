@@ -1,95 +1,71 @@
 ---
-title: "Free Voice-Activated Teleprompter for Solo Creators"
-description: "Why voice-activated scrolling is a game-changer for solo content creators, and how to get started with a free tool that works offline."
+title: "Voice-Activated Teleprompter: What It Really Means (and How to Get It Free)"
+description: "Most 'voice-activated' teleprompters only detect sound — they don't follow your words. Here's the real difference, and how to get true voice scrolling free."
 date: "Mar 14, 2026"
+updated: "Jun 30, 2026"
 image: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=800&q=80"
-keywords: ["teleprompter", "video production"]
+keywords: ["voice activated teleprompter", "free voice activated teleprompter", "teleprompter that follows your voice", "voice teleprompter"]
+video:
+  videoId: "AFw-cO8qsEM"
 ---
 
-Here's a thing that should not be as hard as it is.
+# Voice-Activated Teleprompter: What It Really Means (and How to Get It Free)
 
-You're a solo creator. You make YouTube videos, or TikToks, or Instagram Reels. You film yourself with your phone or a camera pointing at you. You write scripts because winging it leads to forty-minute rambles you then have to edit down to three minutes.
+A voice-activated teleprompter scrolls your script by following your voice instead of a fixed timer — but there are **two completely different versions of "voice-activated," and most apps only do the weaker one.** The good news: the real thing is available free in your browser with [VoicePrompter](https://voiceprompter.app). Here's the difference, and why it matters.
 
-You need a teleprompter. But you're not filming on a broadcast news set. You have no crew. Nobody to scroll for you. And you're probably not looking to spend money on hardware or expensive software before you even know if it'll actually help.
+## The two meanings of "voice-activated"
 
-What you need is a voice-activated teleprompter that works on your phone, is free, doesn't require you to set up an account, and actually works. And finding that has been, for a very long time, genuinely annoying.
+Both get marketed with the same words, but they are not the same technology:
 
-## What Voice-Activated Actually Means (And Why It Matters)
+- **Sound detection ("voice sync").** The app listens for *sound above a volume threshold*. You talk, it scrolls; you go quiet, it stops. It has no idea what you're actually saying or where you are in the script. Some apps even say so plainly in their own docs — *"voice sync, not voice recognition… simply detecting audio levels."* The problem: the moment you pause oddly, get interrupted, ad-lib, or jump to a different part of the script, it loses you — because it was only reacting to noise.
+- **Word tracking (real speech recognition).** The app follows your *actual words* and your *position* in the script. Skip a paragraph, improvise a sentence, or go back to re-read a line, and it stays with you. This is much harder to build — and it's the version that actually feels like magic.
 
-A lot of apps advertise "automatic scrolling." What they mean is: you set a speed, and the text scrolls at that speed constantly. That's not voice-activated. That's just auto-scroll.
+The simple test: if an app only scrolls while it hears noise, it's sound detection. If it follows you when you go *off* script, it's word tracking.
 
-Real voice activation means: you speak, the text follows what you're saying. When you pause, the scroll pauses. When you resume, it resumes. The scroll position is matched to your actual speech, not to a timer.
+## Why word tracking is the one you want
 
-This matters enormously in practice. With auto-scroll, if you speed up slightly or slow down slightly, you fall out of sync with the text. If you pause to take a breath, the text keeps scrolling and you've lost your place. If you take a sip of water, the text has moved two paragraphs while you weren't talking.
+Real speaking is never perfectly linear. You pause for emphasis. Someone asks a question. You decide to say your third point first. With sound detection, every one of those moments risks the text marching on without you — or stopping dead. With word tracking, the script just follows your voice, at your pace, in your order. VoicePrompter even scrolls **backward**: start reading an earlier line and it moves back to it. And you can **tap any word** to jump the prompter straight there.
 
-With real voice scrolling, the text is always on the right line because it's tracking your actual words. You can pace yourself naturally. You can pause for emphasis. You can improvise a line and then come back to the script.
+## How to get real voice scrolling — free
 
-## VoicePrompter Web App: What It Is and Why It's Free
+The free [VoicePrompter web app](https://voiceprompter.app) does genuine voice scrolling right in your browser. No download, no account, no cost:
 
-[VoicePrompter](https://voiceprompter.app) is a free, open-source web app I built because I couldn't find anything like it that actually worked.
+<div class="video-responsive"><iframe src="https://www.youtube.com/embed/AFw-cO8qsEM" title="VoicePrompter — free voice-activated teleprompter demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
 
-The reason it's free and open source is straightforward: I built it to solve my own problem, and it seemed wrong to charge for it when the solution is a web app that costs basically nothing to host. The code is on [GitHub](https://github.com/kosuvorov/VoicePrompter) if you want to look at it.
+- **Follows your voice in 34 languages**, auto-detected, all processed **on your device** — your script never leaves your browser.
+- **Works offline.** Install it as an app (PWA) on iPhone, Android, Mac, or Windows and it keeps working with WiFi off — handy when you're filming somewhere with spotty internet.
+- **Mirror mode** for teleprompter glass, **landscape lock** on iOS, active-word highlighting, and a hands-free *"prompter restart"* voice command for when you're filming alone.
+- A deliberately minimal interface: paste your script and go.
 
-Here's what it does:
-
-**Voice-activated scrolling using your device's built-in speech recognition.** It works via your browser's native speech API, which means the recognition happens on your device — no audio ever leaves your phone or laptop. It supports 34 languages and doesn't require you to select a language manually (though you can).
-
-**Works completely offline.** Once you've opened the app, you can turn off your WiFi and it keeps working. This is useful if you're filming somewhere with spotty internet, or if you just don't want to depend on a connection.
-
-**Installable as a PWA.** On iPhone or Android, you can add VoicePrompter to your home screen and it works like a native app. On a Mac or Windows, you can install it as a progressive web app through Chrome. No App Store, no Play Store, no download required.
-
-**Mirror mode.** If you use an actual teleprompter glass (the half-mirror hardware that goes in front of your camera lens), the mirror mode flips the text horizontally so it reads correctly in the reflected display.
-
-**Landscape lock on iOS.** iOS doesn't normally let web apps force landscape orientation. VoicePrompter handles this, which matters a lot if you're filming in landscape and want your teleprompter in landscape too.
-
-**Visual stop signs and active word highlighting.** You can add pause indicators to your script and see the currently-read word highlighted as you go.
-
-**Touch to jump.** Tap any word in the script and the prompter instantly snaps to that position. Useful when you want to re-record a section without scrolling back manually.
-
-**"Prompter restart" voice command.** Say "prompter restart" and the script resets to the beginning, hands-free. Especially useful when filming alone.
-
-## What It Doesn't Do (And Why That's Fine)
-
-The web app doesn't support quite as many languages as the Mac version (34+ vs 60+), and the voice recognition algorithm isn't as advanced as what I built into the native Mac app. For recording professional demos, webinars, or presentations on a Mac, the [Mac version](https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8) is significantly better.
-
-But for solo creators filming on a phone? The web app is plenty. The recognition is solid. The interface is built for speed — paste a script, go.
-
-## How to Get Started in Under Two Minutes
-
+### Get started in under two minutes
 1. Open [voiceprompter.app](https://voiceprompter.app) on your phone or browser.
-2. Paste your script using the "Paste to Replace" button.
-3. Adjust font size and spacing until the text is comfortable to read at your filming distance.
-4. Turn on speech recognition (the microphone button).
+2. Paste your script.
+3. Bump the font size up (bigger than you think — at filming distance you want to read without squinting) and give yourself generous line spacing.
+4. Tap the microphone to turn on speech recognition.
 5. Start talking.
 
-That's it. No account. No sign-up. No tutorial you have to sit through.
+## For Mac: the version that's invisible on screen share
 
-If you want to use mirror mode for a teleprompter glass, there's a toggle for that. If you want to lock landscape orientation, toggle that too. The interface is minimal by design — the whole point is to get out of the way and let you record.
+If you record on a Mac and need the text to **stay invisible during screen sharing** — Zoom, Google Meet, Teams, OBS — and float on top of every app, the native [VoicePrompter for Mac](https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-voice-activated&mt=8) adds that, plus a more advanced engine and 60+ languages. One reviewer put it simply: *"the most robust, reliable, versatile and customizable one I've tried… it follows them word for word."* More on that in [best teleprompter app for Mac](./best-teleprompter-app-for-mac.md).
 
-## Customizing It for Your Setup
+## Frequently asked questions
 
-A few settings that make a real difference:
+**Is a voice-activated teleprompter free?** Yes — the VoicePrompter web app does real voice scrolling for free, with no account. The native Mac app (invisible overlay, 60+ languages) is a paid upgrade.
 
-**Font size:** Bigger than you think you need. If you're filming from three feet away, you want to be able to read comfortably without squinting. On a phone screen, I use a font size of at least 40.
+**What's the difference between sound scrolling and voice scrolling?** Sound scrolling moves the text whenever it hears noise; real voice scrolling follows your actual words and position, so you can pause, ad-lib, or jump around and it keeps up.
 
-**Line spacing:** Generous spacing between lines makes it easier to scan quickly without losing your place. I use 1.5–2x.
+**Does it work if English isn't my first language?** Yes — the web app supports 34 languages and the Mac app 60+, with on-device recognition that handles accents well.
 
-**Scroll position:** There's a "look-ahead" setting that controls how far above center the active line appears. Adjusting this lets you tune how much upcoming text you can see before you get there.
+**Does my script get uploaded anywhere?** No. Recognition runs on your device; your text stays local.
 
-**Dark mode:** If you're filming against a light background and you don't want the phone screen to create a visible light source, dark mode significantly reduces the glow.
+**Can it scroll backward?** Yes — start reading an earlier line and VoicePrompter scrolls back to it. Most teleprompters are forward-only.
 
-## For Mac Users: The Native Version
-
-If you're a creator who uses a Mac for recording — whether you're recording screencasts, demos, podcasts, or video content — you'll want the [native Mac app](https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8) instead.
-
-It has more advanced voice recognition, 60+ language support, the invisible overlay mode for screen sharing, and the always-on-top functionality. I cover all of that in the [best teleprompter app for Mac](./best-teleprompter-app-for-mac.md) article.
-
-For everything else — phone recordings, desktop web use, PWA installs — the web app at [voiceprompter.app](https://voiceprompter.app) is what you want.
+Try it now at [voiceprompter.app](https://voiceprompter.app) — paste a script and start talking.
 
 ---
 
 **Related articles:**
-- [Why All Teleprompter Apps Are Terrible (And What I Did About It)](./why-all-teleprompter-apps-suck.md)
-- [Best Teleprompter App for Mac](./best-teleprompter-app-for-mac.md)
-- [How to Use a Teleprompter Naturally](./how-to-use-teleprompter-naturally.md)
+- [Best Teleprompter App for Mac in 2026: An Honest Look](./best-teleprompter-app-for-mac.md)
+- [Why Voice Scrolling is Essential for Solo Creators](./voice-scrolling-solo-creators.md)
 - [Teleprompter in 60+ Languages — Auto Language Detection](./multilingual-teleprompter-60-languages.md)
+- [How to Use a Teleprompter Naturally](./how-to-use-teleprompter-naturally.md)
