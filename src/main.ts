@@ -1158,14 +1158,19 @@ if (!isIOS) {
 }
 
 function updateScrollingUI() {
-    els.scrollingModeSelect.value = state.config.scrollingMode;
-    els.scrollSpeedInput.value = state.config.scrollSpeed.toString();
-    els.scrollSpeedVal.textContent = `${state.config.scrollSpeed.toFixed(1)} wps`;
-    els.soundSensitivityInput.value = state.config.soundSensitivity.toString();
-    els.soundSensitivityVal.textContent = `${Math.round(state.config.soundSensitivity * 100)}%`;
+    // NOTE: the scrolling-mode settings controls (select + speed/sensitivity
+    // sliders) are referenced here but were never added to app/index.html, so
+    // these els are null at runtime. Guard every access — an unguarded throw
+    // here aborts module/init and prevents the Recent Scripts list (and the
+    // dock pin) from ever rendering on load.
+    if (els.scrollingModeSelect) els.scrollingModeSelect.value = state.config.scrollingMode;
+    if (els.scrollSpeedInput) els.scrollSpeedInput.value = state.config.scrollSpeed.toString();
+    if (els.scrollSpeedVal) els.scrollSpeedVal.textContent = `${state.config.scrollSpeed.toFixed(1)} wps`;
+    if (els.soundSensitivityInput) els.soundSensitivityInput.value = state.config.soundSensitivity.toString();
+    if (els.soundSensitivityVal) els.soundSensitivityVal.textContent = `${Math.round(state.config.soundSensitivity * 100)}%`;
 
-    els.scrollSpeedContainer.classList.toggle('hidden', state.config.scrollingMode === 'voice');
-    els.soundSensitivityContainer.classList.toggle('hidden', state.config.scrollingMode !== 'sound');
+    els.scrollSpeedContainer?.classList.toggle('hidden', state.config.scrollingMode === 'voice');
+    els.soundSensitivityContainer?.classList.toggle('hidden', state.config.scrollingMode !== 'sound');
 
     // Update Mic button icon based on mode
     const path = els.micButton.querySelector('path');
@@ -1179,7 +1184,10 @@ function updateScrollingUI() {
     }
 }
 
-els.scrollingModeSelect.addEventListener('change', (e) => {
+// Optional chaining: these controls are absent from app/index.html, so without
+// the `?.` the first of these top-level calls throws during module evaluation
+// and everything after it (boot/init, history render, dock pin) never runs.
+els.scrollingModeSelect?.addEventListener('change', (e) => {
     state.config.scrollingMode = (e.target as HTMLSelectElement).value as any;
     updateScrollingUI();
     if (state.isListening) {
@@ -1191,14 +1199,14 @@ els.scrollingModeSelect.addEventListener('change', (e) => {
     }
 });
 
-els.scrollSpeedInput.addEventListener('input', (e) => {
+els.scrollSpeedInput?.addEventListener('input', (e) => {
     state.config.scrollSpeed = parseFloat((e.target as HTMLInputElement).value);
-    els.scrollSpeedVal.textContent = `${state.config.scrollSpeed.toFixed(1)} wps`;
+    if (els.scrollSpeedVal) els.scrollSpeedVal.textContent = `${state.config.scrollSpeed.toFixed(1)} wps`;
 });
 
-els.soundSensitivityInput.addEventListener('input', (e) => {
+els.soundSensitivityInput?.addEventListener('input', (e) => {
     state.config.soundSensitivity = parseFloat((e.target as HTMLInputElement).value);
-    els.soundSensitivityVal.textContent = `${Math.round(state.config.soundSensitivity * 100)}%`;
+    if (els.soundSensitivityVal) els.soundSensitivityVal.textContent = `${Math.round(state.config.soundSensitivity * 100)}%`;
 });
 
 function boot(): void {
