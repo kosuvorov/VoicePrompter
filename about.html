@@ -305,6 +305,33 @@
             height: 18px;
         }
     </style>
+
+    <!-- Organization + author entity (E-E-A-T). Blog posts reference the author via this URL. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://voiceprompter.app/#organization",
+          "name": "VoicePrompter",
+          "url": "https://voiceprompter.app/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://voiceprompter.app/logo-no-bg.png"
+          },
+          "founder": { "@id": "https://voiceprompter.app/about.html#konstantin-suvorov" }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://voiceprompter.app/about.html#konstantin-suvorov",
+          "name": "Konstantin Suvorov",
+          "url": "https://voiceprompter.app/about.html",
+          "worksFor": { "@id": "https://voiceprompter.app/#organization" }
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>

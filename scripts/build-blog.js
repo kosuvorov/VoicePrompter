@@ -56,6 +56,36 @@ function convertWikiLinks(md) {
     return md;
 }
 
+// Strip light markdown (links, emphasis, code marks) to plain text for schema fields.
+function stripMd(s) {
+    return s
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // [text](url) -> text
+        .replace(/\*\*([^*]+)\*\*/g, '$1')       // **bold** -> bold
+        .replace(/[*_`]/g, '')                    // stray emphasis/code marks
+        .trim();
+}
+
+// Extract FAQ pairs from a "## Frequently asked questions" (or "## FAQ") section so we
+// can emit FAQPage JSON-LD. Convention (see the seo skill's writing-content.md): each
+// item is a single paragraph that opens with a bold question, e.g.
+//   **Does VoicePrompter work offline?** Yes — speech recognition runs on-device.
+function extractFaqs(md) {
+    const faqs = [];
+    let inFaq = false;
+    for (const line of md.split('\n')) {
+        const h2 = line.match(/^##\s+(.*\S)\s*$/);
+        if (h2) {
+            inFaq = /frequently asked|faq/i.test(h2[1].trim());
+            continue;
+        }
+        if (/^#{1,6}\s/.test(line)) { inFaq = false; continue; } // any other heading ends the section
+        if (!inFaq) continue;
+        const m = line.match(/^\s*\*\*(.+?)\*\*[:.\s]*(.+\S)\s*$/);
+        if (m) faqs.push({ question: stripMd(m[1]), answer: stripMd(m[2]) });
+    }
+    return faqs;
+}
+
 const articles = [];
 
 // Process each markdown file
@@ -74,6 +104,17 @@ mdFiles.forEach(file => {
     
     // Convert internal markdown links (.md) to HTML links (.html)
     htmlContent = htmlContent.replace(/href="(\.[^"]*)\.md"/g, 'href="$1.html"');
+
+    // Performance: lazy-load + async-decode content images, but keep the first image
+    // eager (it's usually the hero / LCP element) and give it high fetch priority.
+    let imgCount = 0;
+    htmlContent = htmlContent.replace(/<img\b([^>]*)>/g, (full, attrs) => {
+        if (/\bloading=/.test(attrs)) return full; // respect any explicit setting
+        imgCount += 1;
+        return imgCount === 1
+            ? `<img${attrs} decoding="async" fetchpriority="high">`
+            : `<img${attrs} loading="lazy" decoding="async">`;
+    });
 
     // Generate slug from filename
     const slug = file.replace('.md', '');
@@ -99,20 +140,72 @@ mdFiles.forEach(file => {
     
     const schemas = [];
     
-    // Article Schema
+    const SITE = 'https://voiceprompter.app';
+    const pageUrl = `${SITE}/blog/${article.slug}.html`;
+
+    // dateModified powers the freshness signal when a post is refreshed. Set an
+    // `updated:` (or `dateModified:`) frontmatter field on a refresh; otherwise it
+    // mirrors the publish date.
+    const modifiedIso = (() => {
+        const src = frontmatter.updated || frontmatter.dateModified;
+        if (src) { const d = new Date(src); if (!isNaN(d.getTime())) return d.toISOString().split('T')[0]; }
+        return isoDate;
+    })();
+
+    // Article Schema (enriched: dateModified, author entity, publisher)
     const articleSchema = {
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": article.title,
         "description": article.description,
-        "image": article.image || 'https://voiceprompter.app/og-image.png',
+        "image": article.image || `${SITE}/og-image.png`,
         "datePublished": isoDate,
+        "dateModified": modifiedIso,
         "author": {
             "@type": "Person",
-            "name": "Konstantin Suvorov"
+            "name": "Konstantin Suvorov",
+            "url": `${SITE}/about.html`
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "VoicePrompter",
+            "url": `${SITE}/`,
+            "logo": {
+                "@type": "ImageObject",
+                "url": `${SITE}/logo-no-bg.png`
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": pageUrl
         }
     };
     schemas.push(articleSchema);
+
+    // Breadcrumb Schema (Home › Blog › Article) — aids SERP breadcrumbs and crawl context
+    schemas.push({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE}/` },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${SITE}/blog/` },
+            { "@type": "ListItem", "position": 3, "name": article.title, "item": pageUrl }
+        ]
+    });
+
+    // FAQPage Schema — generated from the post's FAQ section when present (see extractFaqs)
+    const faqs = extractFaqs(content);
+    if (faqs.length) {
+        schemas.push({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(f => ({
+                "@type": "Question",
+                "name": f.question,
+                "acceptedAnswer": { "@type": "Answer", "text": f.answer }
+            }))
+        });
+    }
 
     // Generate VideoObject JSON-LD schema if frontmatter declares a video
     if (frontmatter.video && frontmatter.video.videoId) {
