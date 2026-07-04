@@ -665,7 +665,8 @@
             font-size: 14px;
             color: var(--text-light);
             line-height: 1.55;
-            margin: 0 2px;
+            margin: 4px 6px 0;
+            padding: 0 4px;
         }
 
         .film-progress {
@@ -1114,35 +1115,12 @@
             background-position: center;
         }
 
-        .pricing-universal {
-            max-width: 640px;
-            margin: 48px auto 0;
-            background: var(--surface);
-            border: 1px solid var(--surface-border);
-            border-radius: var(--radius);
-            padding: 28px 32px;
-            text-align: center;
-        }
-
-        .pricing-universal h3 {
-            font-family: var(--font-serif);
-            font-size: 21px;
-            color: var(--accent);
-            margin-bottom: 8px;
-        }
-
-        .pricing-universal p {
-            font-size: 15px;
-            color: var(--text-light);
-            line-height: 1.65;
-        }
-
         .pricing-universal-links {
             display: flex;
             justify-content: center;
             gap: 12px;
             flex-wrap: wrap;
-            margin-top: 18px;
+            margin-top: 32px;
         }
 
         .pricing-universal-links a {
@@ -1586,7 +1564,7 @@
             </video>
             <img class="hero-phone-frame" src="/iOS/iPhone%2017%20Pro%20frame.png" alt="" aria-hidden="true"
                 width="1128" height="2350" loading="eager">
-            <button id="unmute-btn" aria-label="Toggle sound" style="position: absolute; bottom: 30px; right: 20px; z-index: 10; background: rgba(0,0,0,0.5); border: none; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; color: white; cursor: pointer;">
+            <button id="unmute-btn" aria-label="Toggle sound" style="position: absolute; bottom: 30px; right: 20px; z-index: 10; background: rgba(255,255,255,0.7); border: none; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; color: black; cursor: pointer;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
             </button>
             <script>
@@ -1970,6 +1948,7 @@
     <!-- ═══════════════════════ Pricing ═══════════════════════ -->
     <section class="pricing container fade-up" id="pricing">
         <h2>Simple pricing</h2>
+        <p style="text-align: center; color: var(--accent); font-size: 20px; margin-top: -44px; margin-bottom: 48px; font-family: var(--font-serif);">One purchase. Every Apple device.</p>
 
         <div class="pricing-grid">
             <div class="pricing-card">
@@ -2003,17 +1982,11 @@
             </div>
         </div>
 
-        <div class="pricing-universal">
-            <h3>One purchase. Every Apple device.</h3>
-            <p>VoicePrompter uses Apple's Universal Purchase: a single license unlocks Pro on your iPhone, iPad, and Mac. Buy it once, use it everywhere.</p>
-            <div class="pricing-universal-links">
-                <a href="/ios/" aria-current="page">iPhone - you're here</a>
-                <a href="/ipados/">VoicePrompter for iPad →</a>
-                <a href="/mac/">VoicePrompter for Mac →</a>
-            </div>
+        <div class="pricing-universal-links">
+            <a href="/ios/" aria-current="page">iPhone - you're here</a>
+            <a href="/ipados/">VoicePrompter for iPad →</a>
+            <a href="/mac/">VoicePrompter for Mac →</a>
         </div>
-
-        <p class="pricing-trust">No account required. Speech recognition runs entirely on your iPhone. Your scripts and audio never leave your device.</p>
     </section>
 
     <!-- ═══════════════════════ FAQ ═══════════════════════ -->
@@ -2139,7 +2112,7 @@
         <h2>Ready to nail every take?</h2>
         <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=ios-landing-footer&mt=8"
             target="_blank" rel="noopener" data-umami-event="ios-footer-download">
-            <img src="/Download_on_the_App_Store_Badge_black.svg" alt="Download on the App Store"
+            <img src="/Download_on_the_App_Store_Badge_US-UK_RGB_wht_092917.svg" alt="Download on the App Store"
                 style="height:56px;margin:0 auto;">
         </a>
     </section>
@@ -2278,7 +2251,7 @@
 
             /* ───────────── Floating download bar ───────────── */
             const floatingCta = document.getElementById('floating-cta');
-            const problemSection = document.querySelector('.problem');
+            const howSection = document.querySelector('.how');
             const footerCta = document.getElementById('footer-cta');
             let reachedSecondSection = false;
             let footerNear = false;
@@ -2288,7 +2261,7 @@
             };
 
             const checkFloating = () => {
-                reachedSecondSection = problemSection.getBoundingClientRect().top <= window.innerHeight * 0.85;
+                reachedSecondSection = howSection && (howSection.getBoundingClientRect().top <= window.innerHeight * 0.85);
                 updateFloating();
             };
 
