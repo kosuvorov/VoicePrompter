@@ -924,6 +924,42 @@
             background-position: center;
         }
 
+        .pricing-sub {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 640px;
+            margin: 0 auto 56px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .pricing-universal-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        .pricing-universal-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 18px;
+            border: 1px solid var(--surface-border);
+            border-radius: var(--pill);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.02);
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .pricing-universal-links a:hover {
+            border-color: rgba(255, 187, 0, 0.4);
+            color: var(--pop);
+        }
+
         .pricing-trust {
             text-align: center;
             margin-top: 40px;
@@ -1780,7 +1816,7 @@
         </div>
 
         <p class="hero-trust">
-            Trusted by <span class="stat-number">850+</span> creators worldwide
+            Trusted by <span class="stat-number">10,000+</span> creators worldwide
         </p>
 
         <div class="hero-image">
@@ -2302,6 +2338,7 @@
     <!-- ═══════════════════════ Pricing ═══════════════════════ -->
     <section class="pricing container fade-up" id="pricing">
         <h2>Simple pricing</h2>
+        <p class="pricing-sub">One purchase. Every Apple device.</p>
 
         <div class="pricing-grid">
             <div class="pricing-card">
@@ -2335,8 +2372,10 @@
             </div>
         </div>
 
-        <p class="pricing-trust">No account required. Runs entirely on your Mac. Your text never leaves your device.
-        </p>
+        <div class="pricing-universal-links">
+            <a href="/ios/">VoicePrompter for iPhone →</a>
+            <a href="/mac/" aria-current="page">Mac - you're here</a>
+        </div>
     </section>
     <!-- SECTION_PRICING_END -->
 
