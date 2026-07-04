@@ -285,6 +285,12 @@ const sitemapEntries = [
     <priority>0.8</priority>
   </url>`,
     `  <url>
+    <loc>https://voiceprompter.app/ios/</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`,
+    `  <url>
     <loc>https://voiceprompter.app/about.html</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
