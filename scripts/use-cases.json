@@ -112,7 +112,7 @@
       },
       {
         "q": "How to use a teleprompter with Google Meet?",
-        "a": "Using VoicePrompter with Google Meet is simple: 1. Launch VoicePrompter on your Mac. 2. Load your script. 3. Position the transparent prompter window directly next to your webcam. 4. Share your screen or browser window in Google Meet—the prompter is automatically excluded and invisible to other participants. 5. Speak naturally, and the prompter will scroll in sync with your voice."
+        "a": "Using VoicePrompter with Google Meet is simple: 1. Launch VoicePrompter on your Mac. 2. Load your script. 3. Position the transparent prompter window directly next to your webcam. 4. Share your screen or browser window in Google Meet - the prompter is automatically excluded and invisible to other participants. 5. Speak naturally, and the prompter will scroll in sync with your voice."
       }
     ]
   },
@@ -244,11 +244,11 @@
       },
       {
         "q": "Will Teams participants see my prompter when I share my screen?",
-        "a": "No. When you share your desktop or a specific window in Microsoft Teams, macOS excludes the VoicePrompter window from the video feed. Other participants will only see your presentation—never the prompter."
+        "a": "No. When you share your desktop or a specific window in Microsoft Teams, macOS excludes the VoicePrompter window from the video feed. Other participants will only see your presentation - never the prompter."
       },
       {
         "q": "How to use a teleprompter with Microsoft Teams?",
-        "a": "To use VoicePrompter with Microsoft Teams: 1. Start the app on your macOS device. 2. Load your presentation notes. 3. Float the prompter window directly below your webcam. 4. Share your screen on Microsoft Teams—the prompter window is automatically hidden from the shared feed. 5. Present naturally as the script scrolls along with your speech."
+        "a": "To use VoicePrompter with Microsoft Teams: 1. Start the app on your macOS device. 2. Load your presentation notes. 3. Float the prompter window directly below your webcam. 4. Share your screen on Microsoft Teams - the prompter window is automatically hidden from the shared feed. 5. Present naturally as the script scrolls along with your speech."
       }
     ]
   },
@@ -259,7 +259,7 @@
     "logo": "/logos/loom.svg",
     "badgeText": "Seamless Loom Integration",
     "metaTitle": "VoicePrompter | The Best Teleprompter for Loom Video Recordings",
-    "metaDescription": "Loom has no built-in teleprompter — but you can add one. VoicePrompter floats a voice-activated prompter that stays 100% invisible in your Loom recordings.",
+    "metaDescription": "Loom has no built-in teleprompter - but you can add one. VoicePrompter floats a voice-activated prompter that stays 100% invisible in your Loom recordings.",
     "canonicalUrl": "https://voiceprompter.app/mac/loom/",
     "eyebrow": "Loom Integration",
     "heroTitle": "The best teleprompter for Loom recordings",

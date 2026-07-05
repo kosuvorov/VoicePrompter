@@ -30,7 +30,7 @@ Because the words are familiar, your brain processes them faster. The teleprompt
 
 ## Step 2: The Phrase-Grab Technique
 
-Instead of reading word by word, train yourself to grab 3–4 words at a glance — a phrase — and then deliver that phrase while looking at (or toward) the camera.
+Instead of reading word by word, train yourself to grab 3–4 words at a glance - a phrase - and then deliver that phrase while looking at (or toward) the camera.
 
 Here's the pattern:
 
@@ -39,7 +39,7 @@ Here's the pattern:
 3. Eyes return to screen → grab the next phrase ("is positioning the window")
 4. Eyes toward camera → deliver it ("is positioning the window")
 
-Repeat. The eye movement becomes a rhythm. The transitions get faster. Eventually, the "look at camera" step becomes so brief and frequent that it looks like natural eye contact with occasional thoughtful glances away — exactly what real conversational delivery looks like.
+Repeat. The eye movement becomes a rhythm. The transitions get faster. Eventually, the "look at camera" step becomes so brief and frequent that it looks like natural eye contact with occasional thoughtful glances away - exactly what real conversational delivery looks like.
 
 ## Step 3: Set Your Scroll Speed Correctly
 
@@ -53,9 +53,9 @@ This is especially liberating for the phrase-grab technique because there's no p
 
 These are technical but they matter a lot.
 
-Font should be large enough that you can read a line with a single, brief glance — no squinting, no trying to focus. For most setups, this means 40–60pt at reading distance. Err on the larger side.
+Font should be large enough that you can read a line with a single, brief glance - no squinting, no trying to focus. For most setups, this means 40–60pt at reading distance. Err on the larger side.
 
-Line width should be narrow enough that your eye doesn't have to sweep far horizontally to read a full line. Narrow your teleprompter window to maybe 30–40% of your screen width. Each line should be short — 5–8 words at most. This reduces the horizontal eye sweep that gives away teleprompter reading.
+Line width should be narrow enough that your eye doesn't have to sweep far horizontally to read a full line. Narrow your teleprompter window to maybe 30–40% of your screen width. Each line should be short - 5–8 words at most. This reduces the horizontal eye sweep that gives away teleprompter reading.
 
 ## Step 5: Practice Out Loud, Deliberately
 
@@ -67,11 +67,11 @@ The only way to build this skill is repetition. Here's a focused practice routin
 4. Do it again, consciously applying the phrase-grab technique.
 5. Watch again. Repeat until the eye movement is minimal.
 
-Three or four sessions of this — maybe 20–30 minutes total — is usually enough to build the fundamental habit. After that, it's just a matter of applying it in real recordings.
+Three or four sessions of this - maybe 20–30 minutes total - is usually enough to build the fundamental habit. After that, it's just a matter of applying it in real recordings.
 
 ## The Bracket Trick for Stage Directions
 
-One feature in [VoicePrompter](https://voiceprompter.app) that's worth knowing: text inside brackets is skipped by the voice recognition engine. So you can write stage directions directly into your script — `[smile]`, `[pause 2 seconds]`, `[lean forward]`, `[show slide]` — and the app will display them for you but not try to match them to speech.
+One feature in [VoicePrompter](https://voiceprompter.app) that's worth knowing: text inside brackets is skipped by the voice recognition engine. So you can write stage directions directly into your script - `[smile]`, `[pause 2 seconds]`, `[lean forward]`, `[show slide]` - and the app will display them for you but not try to match them to speech.
 
 This is surprisingly useful once you get comfortable with teleprompter reading, because it lets you script your delivery details, not just your words.
 

@@ -10,7 +10,7 @@ You hit record. You get through the intro. You mess up a line. You start over. Y
 
 Sound familiar? Because this was my exact workflow for a long time.
 
-Here's the thing: most of the people recording product demos are not professional presenters. They're founders, product managers, engineers, marketers — people who know their product inside out but have never had media training. And the advice you'll find online ("just practice more," "be more relaxed") is not particularly useful when you're on take nineteen and the deadline is tomorrow.
+Here's the thing: most of the people recording product demos are not professional presenters. They're founders, product managers, engineers, marketers - people who know their product inside out but have never had media training. And the advice you'll find online ("just practice more," "be more relaxed") is not particularly useful when you're on take nineteen and the deadline is tomorrow.
 
 So here's what actually works.
 
@@ -28,21 +28,21 @@ A full script also means you can use a teleprompter. More on that in a moment.
 
 The structure that works for product demos:
 
-1. **The pain, in one sentence.** What problem does this solve? Make it specific and recognizable. "If you record demos, tutorials, or product videos, you know the drill — hit record, mess up a line, start over."
+1. **The pain, in one sentence.** What problem does this solve? Make it specific and recognizable. "If you record demos, tutorials, or product videos, you know the drill - hit record, mess up a line, start over."
 
-2. **The solution, in one sentence.** Don't explain how it works yet. Just name the outcome. "I built a tool that lets you read your script while looking directly into the camera — invisible to your screen share."
+2. **The solution, in one sentence.** Don't explain how it works yet. Just name the outcome. "I built a tool that lets you read your script while looking directly into the camera - invisible to your screen share."
 
-3. **Show it in action.** Screencast, screen recording, live demo — whatever applies. Walk through the core workflow, not every feature. One complete use case is better than fifteen half-explained features.
+3. **Show it in action.** Screencast, screen recording, live demo - whatever applies. Walk through the core workflow, not every feature. One complete use case is better than fifteen half-explained features.
 
 4. **The specific details.** Pricing, availability, requirements. Keep it short.
 
 5. **The single next step.** One CTA. Not "visit our website, follow us on LinkedIn, sign up for the newsletter, book a demo, watch our other videos." Just one thing.
 
-## Use a Teleprompter — But Use It Correctly
+## Use a Teleprompter - But Use It Correctly
 
 A teleprompter doesn't just reduce takes. It changes the quality of your delivery.
 
-When you know your script is there and reliable, you stop trying to hold everything in your head. That cognitive load — "what was the next point, did I forget to mention the integration, how do I say this precisely?" — disappears. You can focus entirely on delivery: pace, tone, energy, eye contact.
+When you know your script is there and reliable, you stop trying to hold everything in your head. That cognitive load - "what was the next point, did I forget to mention the integration, how do I say this precisely?" - disappears. You can focus entirely on delivery: pace, tone, energy, eye contact.
 
 The key is using a teleprompter that works correctly. [VoicePrompter for Mac](https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8) is what I use. It's an always-on-top, transparent overlay that follows your speech automatically using Apple's on-device voice recognition. You talk, it scrolls. You pause, it waits.
 
@@ -59,7 +59,7 @@ If your demo is longer than two or three minutes, don't try to record it in a si
 - Core feature 2 (60–90 seconds)
 - Pricing and CTA (30–45 seconds)
 
-Record each section separately. If you nail the intro on take two and stumble on the pricing section, you only re-record the pricing section — not the whole thing. Your editing time collapses dramatically.
+Record each section separately. If you nail the intro on take two and stumble on the pricing section, you only re-record the pricing section - not the whole thing. Your editing time collapses dramatically.
 
 Use a slate (clap your hands or snap your fingers) at the start of each section to make the edit points easy to find in your editing software.
 
@@ -67,7 +67,7 @@ Use a slate (clap your hands or snap your fingers) at the start of each section 
 
 Record more than you think you need.
 
-Don't cut the recording the second you finish your last sentence. Let it run for five extra seconds of silence. Similarly, don't start talking the instant you hit record — give yourself three seconds first.
+Don't cut the recording the second you finish your last sentence. Let it run for five extra seconds of silence. Similarly, don't start talking the instant you hit record - give yourself three seconds first.
 
 This sounds trivial but it eliminates a huge amount of editing frustration. The extra silence at the start and end gives you clean cut points, prevents your first and last words from being clipped, and removes the pressure of getting the exact start and stop timing right.
 
@@ -87,7 +87,7 @@ The best product demos I've seen share a few qualities:
 
 They're short. Two minutes, maybe three. Every sentence has a purpose.
 
-They show real usage. Not a clean demo environment with no data — actual usage that looks like something the viewer might do.
+They show real usage. Not a clean demo environment with no data - actual usage that looks like something the viewer might do.
 
 The presenter sounds like they care. Not like they're reading a brochure, not like they're on call #47 of the day. Like they're showing you something that actually solves a problem.
 
@@ -99,6 +99,6 @@ For more on the full production workflow, see [how to record tutorial videos fas
 
 **Related articles:**
 - [Why All Teleprompter Apps Are Terrible (And What I Did About It)](./why-all-teleprompter-apps-suck.md)
-- [Teleprompter for Zoom — Completely Invisible](./teleprompter-for-zoom-invisible.md)
+- [Teleprompter for Zoom - Completely Invisible](./teleprompter-for-zoom-invisible.md)
 - [Best Teleprompter App for Mac](./best-teleprompter-app-for-mac.md)
 - [How to Record Tutorial Videos Faster](./record-tutorial-videos-faster.md)
