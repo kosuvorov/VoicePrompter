@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's New - VoicePrompter</title>
+    <meta name="description" content="Latest updates, feature releases, and version history for VoicePrompter iOS, macOS, iPadOS, and Web apps.">
+    <meta name="keywords" content="voiceprompter changelog, whats new, updates, release notes, teleprompter updates">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://voiceprompter.app/changelog.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://voiceprompter.app/changelog.html">
+    <meta property="og:title" content="What's New">
+    <meta property="og:description" content="Latest updates, feature releases, and version history for VoicePrompter iOS, macOS, iPadOS, and Web apps.">
+    <meta property="og:image" content="https://voiceprompter.app/og-image.png">
+    <meta property="og:site_name" content="VoicePrompter">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://voiceprompter.app/changelog.html">
+    <meta name="twitter:title" content="What's New">
+    <meta name="twitter:description" content="Latest updates, feature releases, and version history for VoicePrompter iOS, macOS, iPadOS, and Web apps.">
+    <meta name="twitter:image" content="https://voiceprompter.app/og-image.png">
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "VoicePrompter",
+    "operatingSystem": "iOS, macOS, iPadOS, Web",
+    "applicationCategory": "MultimediaApplication",
+    "softwareVersion": "3.3",
+    "releaseNotes": "https://voiceprompter.app/changelog.html",
+    "author": {
+      "@type": "Person",
+      "name": "Konstantin Suvorov",
+      "url": "https://voiceprompter.app/about.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "VoicePrompter",
+      "url": "https://voiceprompter.app"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://voiceprompter.app/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Changelog",
+        "item": "https://voiceprompter.app/changelog.html"
+      }
+    ]
+  }
+]
+</script>
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Google+Sans+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+    <!-- Secondary heading font (Google Sans) - loaded async so it doesn't block render -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/google-sans:vf@latest/latin.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/google-sans:vf@latest/latin.css"></noscript>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #0F0F0F;
+            --surface: #1A1A1A;
+            --surface-border: rgba(255, 255, 255, 0.08);
+            --text: #F2EBE3;
+            --text-light: #A39C93;
+            --accent: #F5EFEB;
+            --pop: #FFBB00;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Google Sans', 'Google Sans Flex', 'Product Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .grain-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .article-container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            margin-bottom: 32px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #DAA000;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.25;
+            color: var(--accent);
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .article-meta {
+            font-size: 0.9375rem;
+            color: var(--text-light);
+        }
+
+        /* Markdown Typography overrides for Changelog styling */
+        .article-content h2 {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin: 48px 0 20px;
+            border-bottom: 1px solid var(--surface-border);
+            padding-bottom: 8px;
+        }
+
+        .article-content h3 {
+            font-size: 1.3rem;
+            color: var(--pop);
+            margin: 28px 0 12px;
+        }
+
+        .article-content p {
+            margin-bottom: 16px;
+            font-size: 1.05rem;
+            color: var(--text);
+        }
+
+        .article-content ul {
+            margin-bottom: 24px;
+            padding-left: 20px;
+        }
+
+        .article-content li {
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+            color: var(--text);
+        }
+
+        .article-content li strong {
+            color: var(--accent);
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            border-top: 1px solid var(--surface-border);
+            padding-top: 40px;
+        }
+
+        .cta-box {
+            background: var(--surface);
+            border: 1px solid var(--surface-border);
+            padding: 32px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .cta-box h3 {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .cta-box p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--pop);
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .cta-button:hover {
+            opacity: 0.9;
+        }
+
+        /* Footer styling */
+        .footer {
+            border-top: 1px solid var(--surface-border);
+            padding: 80px 20px 40px;
+            background: #0A0A0A;
+        }
+
+        .footer-grid {
+            max-width: 1100px;
+            margin: 0 auto 60px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .footer-col a {
+            display: block;
+            color: var(--text-light);
+            text-decoration: none;
+            margin-bottom: 12px;
+            font-size: 0.9375rem;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: var(--pop);
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--surface-border);
+            padding-top: 30px;
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .footer-bottom a {
+            color: var(--text-light);
+            text-decoration: underline;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            color: var(--text-light);
+            transition: color 0.2s;
+        }
+
+        .footer-social a:hover {
+            color: var(--pop);
+        }
+
+        .footer-social svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+
+    <!-- Umami Analytics -->
+    <script defer src="https://reactive-analytics.up.railway.app/script.js"
+        data-website-id="eee38a2c-9b72-4937-9ee4-37827bae546c"></script>
+<link rel="manifest" href="/manifest.webmanifest"></head>
+
+<body>
+    <div class="grain-bg"></div>
+    <div class="article-container">
+        <a href="/" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+            Back to Home
+        </a>
+
+        <article>
+            <div class="article-header">
+                <h1>What's New</h1>
+                <div class="article-meta">Latest updates, feature releases, and version history for VoicePrompter iOS, macOS, iPadOS, and Web apps.</div>
+            </div>
+
+            <div class="article-content">
+                <h1>VoicePrompter Changelog</h1>
+<h2>Apple Native Apps (iOS, iPadOS, &amp; macOS)</h2>
+<p><em>Pushed directly to the App Store</em></p>
+<h3>Version 3.3</h3>
+<ul>
+<li><strong>Improved Voice Commands</strong> - Voice commands no longer trigger accidentally when your script contains the same exact words.</li>
+<li><strong>Smoother Scrolling</strong> - Smoother, more reliable scrolling.</li>
+<li><strong>Enhanced Voice Control</strong> - Navigate your script hands-free with voice commands (go next, go back, go to start, go to finish).</li>
+<li><strong>Smoother Animations</strong> - Smoother scroll animation while reading and smoother word-highlight animation in Picture-in-Picture floating mode.</li>
+</ul>
+<h3>Version 3.2</h3>
+<ul>
+<li><strong>Hands-free Navigation</strong> - Added voice commands: Say &quot;go next&quot;, &quot;go back&quot;, &quot;go start&quot;, or &quot;go finish&quot; to navigate your script hands-free while you read.</li>
+</ul>
+<h3>Version 3.1</h3>
+<ul>
+<li><strong>iOS &amp; iPadOS Release</strong> - VoicePrompter introduces iOS and iPadOS apps!</li>
+<li><strong>Scrolling Algorithm Improvement</strong> - Major improvements to scrolling algorithm and smoothness. The teleprompter now glides between lines instead of jumping, for both word-by-word and line-by-line scrolling.</li>
+<li><strong>Accurate Voice Tracking</strong> - Better at staying on the right line when your script repeats a word or phrase, with fewer accidental jumps on short, common words.</li>
+<li><strong>Adjustable Active Line Position</strong> - Choose where the active reading line sits on the screen using a settings slider or menu bar control. Updates live as you drag.</li>
+<li><strong>Script Management</strong> - Improved recent scripts list. Displays more text to distinguish scripts and allows clicking anywhere on a card to launch.</li>
+<li><strong>Preset Recovery</strong> - Default preset now restores all settings, including active line position and screen-sharing visibility.</li>
+</ul>
+<h3>Version 3.0</h3>
+<ul>
+<li><strong>Native Platform Features</strong> - Introduces iOS and iPadOS apps along with major macOS improvements.</li>
+<li><strong>Settings Presets</strong> - Save favorite fonts, colors, sizes, and scrolling configurations to switch with a single click.</li>
+<li><strong>Smarter Voice Tracking</strong> - Listens to the entire script at all times to follow the voice accurately, keep up when skipping around, and prevent jumping on repeats.</li>
+<li><strong>Backward Scrolling</strong> - Prompter moves back to earlier lines if a section is read again.</li>
+<li><strong>Over-Full-Screen App Support</strong> - Open the prompter overlay on top of full-screen presentations, meetings, and apps.</li>
+<li><strong>Right-to-Left (RTL) Support</strong> - Text direction options for languages read from right to left.</li>
+</ul>
+<h3>Version 2.3</h3>
+<ul>
+<li><strong>Color Customization</strong> - Font color choices with quick black/white presets.</li>
+<li><strong>Solid Background Color</strong> - Choose custom background colors (solid black, white, or custom) instead of default system colors.</li>
+<li><strong>Mirror Mode</strong> - Flip the teleprompter vertically to read naturally in physical teleprompter glass or beam-splitter setups.</li>
+</ul>
+<h3>Version 2.2</h3>
+<ul>
+<li><strong>Hover to Pause</strong> - Automatically pauses Sound or Constant scrolling when the mouse hovers over the window.</li>
+<li><strong>Quick Menu Controls</strong> - Toggle hover-to-pause from the menu bar Scrolling Mode settings.</li>
+<li><strong>Stats &amp; Word Milestones</strong> - Added milestone tracking for speaking achievements (200,000 and 500,000 words).</li>
+<li><strong>Settings Enhancements</strong> - Restore Default Settings correctly resets preferences. Redesigned menu bar settings list controls with descriptions.</li>
+</ul>
+<h3>Version 2.1</h3>
+<ul>
+<li><strong>Sound Scrolling Mode</strong> - Advances when sound is detected and pauses when silent, compatible with any language. Works with macOS Voice Isolation to filter background noise.</li>
+<li><strong>Constant Scrolling Mode</strong> - Set a fixed speed for a steady automatic scroll without microphone access.</li>
+<li><strong>Voice Scrolling</strong> - Custom word-by-word speech tracking using on-device recognition.</li>
+<li><strong>On-the-fly Adjustment</strong> - Adjust speed and microphone sensitivity instantly.</li>
+<li><strong>Pacing Assistance</strong> - Scrolling slows on longer words to match natural speaking rhythms.</li>
+<li><strong>Quick Access Settings</strong> - Settings tab and redesigned menu bar popover for scrolling modes, speed, and audio inputs.</li>
+<li><strong>Onboarding Experience</strong> - Streamlined setup flow for microphone and speech permissions highlighting on-device privacy.</li>
+</ul>
+<h3>Version 2.0</h3>
+<ul>
+<li><strong>Gliding Motion</strong> - Smooth word-by-word scrolling instead of line jumps.</li>
+<li><strong>Detached Control Bar</strong> - Controls stay static while the overlay window follows the cursor.</li>
+<li><strong>Auto-Start Microphone</strong> - Automatically starts listening upon loading a script.</li>
+<li><strong>Tabbed Settings UI</strong> - Organized tabs for Scripts, Stats, Help, General, License, and Menu Bar.</li>
+<li><strong>Menu Bar Configurator</strong> - Customize widgets (opacity slider, font size, audio toggle) in the menu bar.</li>
+<li><strong>Aesthetic Overhaul</strong> - SF Rounded font, customized menu bar icon, and option to snap controls below the camera notch.</li>
+<li><strong>Bug Fixes</strong> - Resolved Safari speech recognition conflicts and asset shadow rendering bugs.</li>
+</ul>
+<h3>Version 1.3.2</h3>
+<ul>
+<li><strong>Analytics Polish</strong> - Tweaked internal usage data analytics.</li>
+</ul>
+<h3>Version 1.3.1</h3>
+<ul>
+<li><strong>Keyboard Shortcuts</strong> - Shortcut to toggle follow-mouse cursor mode (⌥⌘F) and speech recognition (⌥⌘S).</li>
+</ul>
+<h3>Version 1.3</h3>
+<ul>
+<li><strong>Follow Mouse Cursor</strong> - Window follows cursor positioning as you move.</li>
+<li><strong>Glass Transparency</strong> - Switch between translucent glass background and solid color with adjustable opacity.</li>
+<li><strong>Audio Device Selection</strong> - Quick dropdown to select external mics or iPhone microphones.</li>
+<li><strong>Rating Prompts</strong> - Quick in-app review prompting.</li>
+</ul>
+<h3>Version 1.2</h3>
+<ul>
+<li><strong>Lifetime Purchase</strong> - One-time payment option added alongside subscription plans.</li>
+</ul>
+<h3>Version 1.1</h3>
+<ul>
+<li><strong>Auto Language Detection</strong> - Integrates NLLanguageRecognizer to identify script languages.</li>
+<li><strong>Live Edit Mode</strong> - Directly edit scripts inside the presentation overlay window.</li>
+<li><strong>Enhanced Control Bar</strong> - Reordered actions (Edit, Microphone, Restart, Close).</li>
+<li><strong>Recent Scripts Expansion</strong> - Capacity expanded to 100 scrollable scripts with copy-to-clipboard options.</li>
+<li><strong>Onboarding Tools</strong> - Added tutorial links and pre-loaded interactive demo scripts.</li>
+</ul>
+<hr>
+<h2>Web App &amp; Website Updates</h2>
+<p><em>Compiled chronologically from web application commits</em></p>
+<h3>July 2026</h3>
+<ul>
+<li><strong>iPad Landing Page</strong> - Created a dedicated landing page for iPad users.</li>
+<li><strong>Vite Build System &amp; Use Cases</strong> - Rebuilt use-case template links and optimized cross-linking for pricing sections.</li>
+<li><strong>SEO &amp; Layout Fixes</strong> - Standardized Safari max-content width scaling, corrected Mac landing margins, and unified iOS/macOS CTA button widths.</li>
+</ul>
+<h3>June 2026</h3>
+<ul>
+<li><strong>Voice Suppression Updates</strong> - Added look-back window logic to suppress false triggers for voice command words.</li>
+<li><strong>Settings Resiliency</strong> - Prevented app initialization crashes when the user has an empty recent scripts history.</li>
+<li><strong>iOS PWA Responsiveness</strong> - Corrected tap offset coordinates in landscape mode and fixed history panel loading alignment.</li>
+<li><strong>Rotated Landscape Dock</strong> - Kept floating player controls visible and interactive when PWA is locked or rotated.</li>
+<li><strong>Semantic SEO</strong> - Integrated structured JSON-LD schemas and LLM-friendly TL;DR parameters for blog indexing.</li>
+</ul>
+<h3>May 2026</h3>
+<ul>
+<li><strong>Google Docs Integration</strong> - Direct integration allowing users to import scripts from Google Docs. Uses custom proxy failovers (Codetabs) to eliminate production fetching latencies and secure strict fetch timeouts.</li>
+<li><strong>Safari Zoom Fix</strong> - Set Google Docs input font-size to 16px to prevent iOS Safari auto-zooming on focus.</li>
+<li><strong>Device Selector Bypass for iOS</strong> - Hidden device selector on iOS to prevent WebRTC conflicts with DJI mics and default routing.</li>
+<li><strong>Video Swipe Fix</strong> - Prevented default Safari bouncing behaviors when swiping video overlays.</li>
+<li><strong>Content Expansion</strong> - Added dedicated video walkthroughs and how-to guides for integrations with Zoom and Google Meet.</li>
+<li><strong>Landing Page Redesign</strong> - Moved primary CTA buttons into the hero section and overhauled responsiveness across mobile viewports.</li>
+</ul>
+<h3>April 2026</h3>
+<ul>
+<li><strong>Dyslexic Accessibility</strong> - Added OpenDyslexic font-picker options alongside classic Mono, Sans, and Serif categories.</li>
+<li><strong>Video Dock Controls</strong> - Added recording dock opacity slider (30% to 100%) and customizable margins.</li>
+<li><strong>Bug Fixes</strong> - Resolved line-height default mismatches and false-positive Safari &#39;Voice Not Available&#39; alerts when starting/stopping speech sessions.</li>
+</ul>
+<h3>March 2026</h3>
+<ul>
+<li><strong>Custom Language Picker</strong> - Added a manual selector supporting 34 languages alongside automatic language detection powered by the tinyld library.</li>
+<li><strong>PWA Routing Stability</strong> - Fixed a critical Service Worker bug that intercepted GitHub Pages HTML paths.</li>
+<li><strong>Static Blog System</strong> - Swapped client-side JS rendering for statically compiled HTML generation from markdown, improving load-time performance.</li>
+<li><strong>Domain Migration</strong> - Transferred main domain routing from voiceprompter.xyz to voiceprompter.app.</li>
+<li><strong>Video Recording &amp; Voice Commands</strong> - Initial release of video mode (saving local recordings) and basic voice triggers (back/forward commands).</li>
+</ul>
+<h3>February 2026</h3>
+<ul>
+<li><strong>Responsiveness Overhaul</strong> - Consolidated container grid layouts, fixed horizontal device margins, and standardized vertical spacing on mobile views.</li>
+<li><strong>Gold Theme Customization</strong> - Configured warm dark mode preset featuring a customized gold (#FFBB00) accent palette.</li>
+<li><strong>Menu Architecture</strong> - Shifted application shell route to <code>/app/</code> and added dedicated minimal landing pages for Mac and Web clients.</li>
+</ul>
+<h3>December 2025</h3>
+<ul>
+<li><strong>Scrolling Algorithm Rebuild</strong> - Resolved double-jump scrolling bugs. Matches spoken transcripts against a deduplicated script word set by scanning nearest-neighbor terms first.</li>
+<li><strong>Customization Settings</strong> - Replaced default line highlighting with a slider to configure lookahead words (1-10) and toggle animations.</li>
+</ul>
+
+            </div>
+
+            <div class="article-footer">
+                <div class="cta-box">
+                    <h3>Ready to try it?</h3>
+                    <p>Experience voice-activated scrolling for yourself.</p>
+                    <a href="/" class="cta-button">Open VoicePrompter</a>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Product</h4>
+                <a href="/web">Web App</a>
+                <a href="/mac">Mac App</a>
+                <a href="/ios">iPhone App</a>
+                <a href="/ipad">iPad App</a>
+            </div>
+            <div class="footer-col">
+                <h4>Integrations</h4>
+                <a href="/mac/google-meet/">Google Meet</a>
+                <a href="/mac/zoom/">Zoom Meetings</a>
+                <a href="/mac/microsoft-teams/">Microsoft Teams</a>
+                <a href="/mac/loom/">Loom Recordings</a>
+                <a href="/mac/riverside/">Riverside Podcasts</a>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">GitHub</a>
+                <a href="/blog">Blog</a>
+                <a href="/changelog.html">Changelog</a>
+                <a href="https://www.youtube.com/@kosuvorov" target="_blank" rel="noopener">YouTube</a>
+            </div>
+            <div class="footer-col">
+                <h4>Help</h4>
+                <a href="mailto:konstantin@voiceprompter.app">Contact</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="/privacy">Privacy Policy</a>
+            </div>
+            <div class="footer-col">
+                <h4>Support the project</h4>
+                <a href="https://buymeacoffee.com/kosuvorov" target="_blank" rel="noopener">Buy me a coffee ☕</a>
+                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">Give a star on GitHub ⭐</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Made by <a href="https://instagram.com/kosuvorov" target="_blank" rel="noopener" style="color:var(--text-light);text-decoration:underline;text-underline-offset:2px;">Konstantin Suvorov</a> · © 2026 VoicePrompter</p>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/voiceprompter" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+                <a href="https://www.tiktok.com/@voiceprompter" target="_blank" rel="noopener" aria-label="TikTok">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.18 8.18 0 0 0 4.76 1.52V6.84a4.83 4.83 0 0 1-1-.15z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@kosuvorov" target="_blank" rel="noopener" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
