@@ -39,7 +39,7 @@ I wrote a deeper explainer on these in [the five ways a teleprompter can scroll]
 
 ## 1. VoicePrompter - best overall for iPhone and iPad
 
-<p><img src="/logo-icon-no-bg.svg" alt="VoicePrompter app icon" style="width:64px;height:64px;" loading="lazy"></p>
+<p><img src="/logos/competitors/voiceprompter.png" alt="VoicePrompter app icon" style="width:64px;height:64px;border-radius:14px;" loading="lazy"></p>
 
 **Best for creators who want the script to follow them, not the other way around.** VoicePrompter tracks your speech against the whole script at every moment. Skip a paragraph, ad-lib a story, or restart a sentence from earlier, and it finds you there - it's the only app in this list that scrolls *backward*. It's also the only one that floats a picture-in-picture prompter over Instagram, TikTok, Snapchat, or any camera app while their camera records you, and it records in up to 4K with lens selection when you'd rather film in-app. Voice tracking runs on-device in 60+ languages, offline, with a one-tap "start from clipboard" flow.
 
