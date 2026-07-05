@@ -4,10 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node scripts/build-use-cases.js && vite",
+    "dev": "node scripts/build-changelog.js && node scripts/build-use-cases.js && vite",
+    "build:changelog": "node scripts/build-changelog.js",
     "build:blog": "node scripts/build-blog.js",
     "build:use-cases": "node scripts/build-use-cases.js",
-    "build": "npm run build:blog && npm run build:use-cases && tsc && vite build",
+    "build": "npm run build:changelog && npm run build:blog && npm run build:use-cases && tsc && vite build",
     "preview": "vite preview"
   },
   "devDependencies": {

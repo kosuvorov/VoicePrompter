@@ -320,6 +320,12 @@ const sitemapEntries = [
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>`,
+    `  <url>
+    <loc>https://voiceprompter.app/changelog.html</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>`,
     ...articles.map(article => `  <url>
     <loc>https://voiceprompter.app/blog/${article.slug}.html</loc>
     <lastmod>${today}</lastmod>

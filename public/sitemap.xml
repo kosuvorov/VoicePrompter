@@ -55,6 +55,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://voiceprompter.app/changelog.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://voiceprompter.app/blog/best-teleprompter-app-for-iphone.html</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
