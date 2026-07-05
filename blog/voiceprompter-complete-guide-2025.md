@@ -138,7 +138,7 @@ If you're on a Mac and record professionally, do demos, webinars, presentations,
 - [Why All Teleprompter Apps Are Terrible (And What I Did About It)](./why-all-teleprompter-apps-suck.md)
 - [How to Use a Teleprompter Naturally](./how-to-use-teleprompter-naturally.md)
 - [How to Read a Script Without Looking Like You're Reading](./how-to-read-script-without-looking-like-reading.md)
-- [Teleprompter for Zoom - Completely Invisible](./teleprompter-for-zoom-invisible.md)
+- [How to Use a Teleprompter on Zoom (Without Anyone Seeing It)](./how-to-use-teleprompter-on-zoom.md)
 - [Teleprompter in 60+ Languages](./multilingual-teleprompter-60-languages.md)
 - [Free Voice-Activated Teleprompter for Solo Creators](./free-voice-activated-teleprompter.md)
 

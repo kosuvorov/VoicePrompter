@@ -2,6 +2,7 @@
 title: "How to Use a Teleprompter on Zoom (Without Anyone Seeing It)"
 description: "A step-by-step guide to using an invisible, voice-activated teleprompter on Zoom. Stays on top during screen shares, scrolls automatically as you speak, runs natively on Mac."
 date: "May 24, 2026"
+updated: "Jul 6, 2026"
 image: "https://i.ytimg.com/vi/5jrEJmocyBs/maxresdefault.jpg"
 keywords:
   - zoom teleprompter
@@ -90,6 +91,24 @@ The use cases I hear about most often:
 
 If you fall into any of these and the idea of having your script visible but invisible sounds appealing, the app is worth the 10 minutes it takes to set up.
 
+## Where exactly should the window sit?
+
+The sweet spot I've landed on after a lot of calls: script window immediately below the camera, font large enough to read without squinting, and the window as close to the lens as it can get while staying readable. On a laptop that means hugging the top bezel; with an external webcam, put the window on the same monitor, directly adjacent to the camera. The smaller the angle between your eyes and the lens, the more the call feels like eye contact. There's more on delivery in [how to read a script without looking like you're reading](./how-to-read-script-without-looking-like-reading.md).
+
+## Frequently asked questions
+
+**Is the teleprompter really invisible in a Zoom screen share?** Yes. The window is excluded from screen capture at the macOS level, so Zoom's screen share, cloud recordings, OBS, and QuickTime never pick it up. You see the script; participants see only your shared screen and camera.
+
+**Does it show up in Zoom recordings?** No. Local and cloud recordings capture the same feed participants see, and the prompter window isn't part of it.
+
+**Does it work when Zoom is in full-screen mode?** Yes, the window stays on top of full-screen Zoom, full-screen Keynote or PowerPoint, and across multiple desktops.
+
+**Do I need an internet connection for the voice scrolling?** No. Speech recognition runs on-device, so the script keeps scrolling even if your connection hiccups mid-call, and nothing you say is sent to a server.
+
+**Can people tell I'm using a teleprompter?** Not if the window sits close to the camera and you keep the font big. Voice-paced scrolling helps most here: because you never chase a fixed scroll speed, your delivery keeps its natural rhythm.
+
+**Does it work with Google Meet and Teams too?** Yes, the same invisibility applies to any app on your Mac - see the [Google Meet guide](./how-to-use-teleprompter-on-google-meet.md) and the [Microsoft Teams page](/mac/microsoft-teams/).
+
 ## Try it free
 
 VoicePrompter has a free tier that includes the demo script plus three custom scripts of unlimited length - enough to test it through a few real calls before deciding. If you want more scripts, there's a one-time purchase and a subscription option in the Mac App Store.
@@ -99,7 +118,6 @@ You can grab it on the [VoicePrompter for Zoom](/mac/zoom/) page, or jump straig
 ---
 
 **Related articles:**
-- [Teleprompter for Zoom That's Completely Invisible](./teleprompter-for-zoom-invisible.md)
 - [How to Use a Teleprompter on Google Meet](./how-to-use-teleprompter-on-google-meet.md)
 - [Best Teleprompter App for Mac](./best-teleprompter-app-for-mac.md)
 - [Zoom Sales Call Presentation Tips](./zoom-presentation-tips-sales-calls.md)

@@ -56,5 +56,5 @@ Need an invisible overlay for calls and demos? [Try VoicePrompter for Mac](https
 
 **Related articles:**
 - [Best Teleprompter App for Mac in 2026: An Honest Look](./best-teleprompter-app-for-mac.md)
-- [Teleprompter for Zoom - Completely Invisible](./teleprompter-for-zoom-invisible.md)
+- [How to Use a Teleprompter on Zoom (Without Anyone Seeing It)](./how-to-use-teleprompter-on-zoom.md)
 - [How to Use a Teleprompter on Google Meet](./how-to-use-teleprompter-on-google-meet.md)

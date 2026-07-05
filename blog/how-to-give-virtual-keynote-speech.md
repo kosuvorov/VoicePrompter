@@ -102,4 +102,4 @@ For the Zoom-specific version of many of these tips, see [Zoom presentation tips
 - [How to Look Confident on Camera](./how-to-look-confident-on-camera.md)
 - [How to Read a Script Without Looking Like You're Reading](./how-to-read-script-without-looking-like-reading.md)
 - [Zoom Sales Call Presentation Tips](./zoom-presentation-tips-sales-calls.md)
-- [Teleprompter for Zoom - Completely Invisible](./teleprompter-for-zoom-invisible.md)
+- [How to Use a Teleprompter on Zoom (Without Anyone Seeing It)](./how-to-use-teleprompter-on-zoom.md)

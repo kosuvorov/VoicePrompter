@@ -99,6 +99,6 @@ For more on the full production workflow, see [how to record tutorial videos fas
 
 **Related articles:**
 - [Why All Teleprompter Apps Are Terrible (And What I Did About It)](./why-all-teleprompter-apps-suck.md)
-- [Teleprompter for Zoom - Completely Invisible](./teleprompter-for-zoom-invisible.md)
+- [How to Use a Teleprompter on Zoom (Without Anyone Seeing It)](./how-to-use-teleprompter-on-zoom.md)
 - [Best Teleprompter App for Mac](./best-teleprompter-app-for-mac.md)
 - [How to Record Tutorial Videos Faster](./record-tutorial-videos-faster.md)

@@ -85,7 +85,7 @@ These are broader creator suites (BIGVU) or browser-based prompters (Speakflow) 
 
 Picture a sales call over Zoom. You have a tight script - opening, qualifying questions, demo flow, close. With a normal teleprompter window you have two problems: if you share your screen, the text appears in the share; and even if you don't, the window clutters your screen and you're one accidental app-switch from losing it.
 
-With an invisible overlay that stays on top, the prompter is always there, always readable, visible only to you, and never in the recording or share. That's a qualitatively different experience - and it's why so many VoicePrompter reviews mention calls and demos specifically. I cover the full setup in [teleprompter for Zoom - invisible overlay](./teleprompter-for-zoom-invisible.md).
+With an invisible overlay that stays on top, the prompter is always there, always readable, visible only to you, and never in the recording or share. That's a qualitatively different experience - and it's why so many VoicePrompter reviews mention calls and demos specifically. I cover the full setup in [how to use a teleprompter on Zoom](./how-to-use-teleprompter-on-zoom.md).
 
 ## Frequently asked questions
 
@@ -105,7 +105,7 @@ Ready to try it? [Get VoicePrompter for Mac](https://apps.apple.com/app/apple-st
 
 **Related articles:**
 - [Why All Teleprompter Apps Are Terrible (And What I Did About It)](./why-all-teleprompter-apps-suck.md)
-- [Teleprompter for Zoom - Completely Invisible](./teleprompter-for-zoom-invisible.md)
+- [How to Use a Teleprompter on Zoom (Without Anyone Seeing It)](./how-to-use-teleprompter-on-zoom.md)
 - [Free Voice-Activated Teleprompter for Solo Creators](./free-voice-activated-teleprompter.md)
 - [How to Record a Product Demo Video](./how-to-record-product-demo-video.md)
 - [VoicePrompter Complete Guide](./voiceprompter-complete-guide-2025.md)

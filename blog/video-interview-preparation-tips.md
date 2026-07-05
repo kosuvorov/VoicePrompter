@@ -92,5 +92,5 @@ For general on-camera confidence technique, see [how to look confident on camera
 **Related articles:**
 - [How to Look Confident on Camera](./how-to-look-confident-on-camera.md)
 - [How to Read a Script Without Looking Like You're Reading](./how-to-read-script-without-looking-like-reading.md)
-- [Teleprompter for Zoom - Completely Invisible](./teleprompter-for-zoom-invisible.md)
+- [How to Use a Teleprompter on Zoom (Without Anyone Seeing It)](./how-to-use-teleprompter-on-zoom.md)
 - [Zoom Sales Call Presentation Tips](./zoom-presentation-tips-sales-calls.md)

@@ -63,4 +63,4 @@ Want word tracking, not just sound? [Try VoicePrompter for Mac](https://apps.app
 **Related articles:**
 - [Best Teleprompter App for Mac in 2026: An Honest Look](./best-teleprompter-app-for-mac.md)
 - [Voice-Activated Teleprompter: What It Really Means](./free-voice-activated-teleprompter.md)
-- [Teleprompter for Zoom - Completely Invisible](./teleprompter-for-zoom-invisible.md)
+- [How to Use a Teleprompter on Zoom (Without Anyone Seeing It)](./how-to-use-teleprompter-on-zoom.md)

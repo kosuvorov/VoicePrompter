@@ -70,7 +70,7 @@ That's the whole setup. Once you've done it once, opening a new script for your 
 
 ## Does it work outside Google Meet?
 
-Yes. Anything you can run on a Mac - Zoom, Microsoft Teams, FaceTime, Loom, Riverside, OBS, Descript, Streamlabs, even a Keynote presentation in full-screen mode - VoicePrompter floats on top of it and stays invisible to the capture. We have [dedicated guides for Zoom](./teleprompter-for-zoom-invisible.md), [Microsoft Teams](/mac/microsoft-teams/), [Loom](/mac/loom/), and [Riverside](/mac/riverside/) if you want the specifics for those platforms.
+Yes. Anything you can run on a Mac - Zoom, Microsoft Teams, FaceTime, Loom, Riverside, OBS, Descript, Streamlabs, even a Keynote presentation in full-screen mode - VoicePrompter floats on top of it and stays invisible to the capture. We have [dedicated guides for Zoom](./how-to-use-teleprompter-on-zoom.md), [Microsoft Teams](/mac/microsoft-teams/), [Loom](/mac/loom/), and [Riverside](/mac/riverside/) if you want the specifics for those platforms.
 
 ## Who tends to use this on Google Meet specifically
 
@@ -94,7 +94,7 @@ You can grab it on the [VoicePrompter for Google Meet](/mac/google-meet/) page, 
 ---
 
 **Related articles:**
-- [Teleprompter for Zoom That's Completely Invisible](./teleprompter-for-zoom-invisible.md)
+- [How to Use a Teleprompter on Zoom (Without Anyone Seeing It)](./how-to-use-teleprompter-on-zoom.md)
 - [Best Teleprompter App for Mac](./best-teleprompter-app-for-mac.md)
 - [How to Read a Script Without Looking Like You're Reading](./how-to-read-script-without-looking-like-reading.md)
 - [How to Record Webinars and Podcasts](./how-to-record-webinars-and-podcasts.md)

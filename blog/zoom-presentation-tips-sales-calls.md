@@ -97,7 +97,7 @@ The script is there so you can be present. Not so you can recite.
 ---
 
 **Related articles:**
-- [Teleprompter for Zoom - Completely Invisible](./teleprompter-for-zoom-invisible.md)
+- [How to Use a Teleprompter on Zoom (Without Anyone Seeing It)](./how-to-use-teleprompter-on-zoom.md)
 - [How to Look Confident on Camera](./how-to-look-confident-on-camera.md)
 - [Video Interview Preparation Tips](./video-interview-preparation-tips.md)
 - [Best Teleprompter App for Mac](./best-teleprompter-app-for-mac.md)
