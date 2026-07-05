@@ -75,8 +75,10 @@
             height: 100vh;
             pointer-events: none;
             z-index: 9999;
-            opacity: 0.04;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 180px 180px;
         }
 
         .article-container {
@@ -276,6 +278,67 @@
                 text-align: center;
             }
         }
+        /* ── Platform tabs ── */
+        .changelog-tabs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin: 8px 0 36px;
+            padding: 4px;
+            background: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 100px;
+            width: fit-content;
+        }
+
+        .changelog-tab {
+            appearance: none;
+            border: 0;
+            background: transparent;
+            color: #a0a0a0;
+            font: inherit;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            padding: 10px 22px;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: color 0.2s, background 0.2s;
+        }
+
+        .changelog-tab:hover {
+            color: #fff;
+        }
+
+        .changelog-tab.active {
+            background: #FFBB00;
+            color: #000;
+            font-weight: 600;
+        }
+
+        .changelog-panel {
+            display: none;
+        }
+
+        .changelog-panel.active {
+            display: block;
+        }
+
+        .changelog-section-title {
+            font-size: 1.4rem;
+            color: #fff;
+            margin: 0 0 4px;
+        }
+
+        .changelog-panel h3 {
+            margin-top: 40px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .changelog-panel > p > em {
+            color: #888;
+            font-size: 0.9375rem;
+        }
     </style>
 
     <!-- Umami Analytics -->
@@ -308,7 +371,12 @@
                 <div class="cta-box">
                     <h3>Ready to try it?</h3>
                     <p>Experience voice-activated scrolling for yourself.</p>
-                    <a href="/" class="cta-button">Open VoicePrompter</a>
+                    <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=changelog&mt=8"
+                        target="_blank" rel="noopener" data-umami-event="changelog-download">
+                        <img src="/Download_on_the_App_Store_Badge_US-UK_RGB_wht_092917.svg"
+                            alt="Download VoicePrompter on the App Store" style="height:52px;width:auto;margin:0 auto;display:block;">
+                    </a>
+                    <p style="margin:16px 0 0;font-size:0.9rem;"><a href="/web/" style="color:#a0a0a0;text-decoration:underline;text-underline-offset:2px;">or try the free web app</a></p>
                 </div>
             </div>
         </article>

@@ -28,8 +28,63 @@ if (!fs.existsSync(TEMPLATE_PATH)) {
 const templateHtml = fs.readFileSync(TEMPLATE_PATH, 'utf-8');
 const markdownContent = fs.readFileSync(CHANGELOG_MD_PATH, 'utf-8');
 
-// Parse markdown to HTML
-const htmlContent = marked(markdownContent);
+// Split the markdown into platform sections on level-2 headings.
+// Each `## Heading` becomes a tab; new sections in changelog.md become tabs automatically.
+function tabMeta(heading) {
+    if (/apple|ios|mac/i.test(heading)) return { id: 'apple', label: 'Apple Apps' };
+    if (/web/i.test(heading)) return { id: 'web', label: 'Web App' };
+    if (/windows/i.test(heading)) return { id: 'windows', label: 'Windows' };
+    if (/android/i.test(heading)) return { id: 'android', label: 'Android' };
+    const slug = heading.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    return { id: slug, label: heading.split('(')[0].trim() };
+}
+
+const rawSections = markdownContent.split(/^## /m).slice(1);
+const sections = rawSections.map((raw) => {
+    const heading = raw.split('\n')[0].trim();
+    const body = raw.slice(raw.indexOf('\n') + 1).replace(/^---\s*$/m, '');
+    const { id, label } = tabMeta(heading);
+    return { id, label, heading, html: marked(body) };
+});
+
+if (sections.length === 0) {
+    console.error('❌ Error: no "## " sections found in changelog.md');
+    process.exit(1);
+}
+
+const tabsHtml = sections.map((s, i) =>
+    `<button class="changelog-tab${i === 0 ? ' active' : ''}" id="tab-${s.id}" role="tab" aria-selected="${i === 0}" aria-controls="panel-${s.id}" data-panel="${s.id}">${s.label}</button>`
+).join('\n            ');
+
+const panelsHtml = sections.map((s, i) => `
+        <section class="changelog-panel${i === 0 ? ' active' : ''}" id="panel-${s.id}" role="tabpanel" aria-labelledby="tab-${s.id}">
+            <h2 class="changelog-section-title">${s.heading}</h2>
+            ${s.html}
+        </section>`).join('\n');
+
+const htmlContent = `
+        <div class="changelog-tabs" role="tablist" aria-label="Platform">
+            ${tabsHtml}
+        </div>
+${panelsHtml}
+        <script>
+        (function () {
+            const tabs = document.querySelectorAll('.changelog-tab');
+            const panels = document.querySelectorAll('.changelog-panel');
+            function activate(id, updateHash) {
+                tabs.forEach(t => {
+                    const on = t.dataset.panel === id;
+                    t.classList.toggle('active', on);
+                    t.setAttribute('aria-selected', on);
+                });
+                panels.forEach(p => p.classList.toggle('active', p.id === 'panel-' + id));
+                if (updateHash) history.replaceState(null, '', '#' + id);
+            }
+            tabs.forEach(t => t.addEventListener('click', () => activate(t.dataset.panel, true)));
+            const fromHash = location.hash.slice(1);
+            if (fromHash && document.getElementById('panel-' + fromHash)) activate(fromHash, false);
+        })();
+        </script>`;
 
 // Metadata variables
 const title = 'What\'s New';
