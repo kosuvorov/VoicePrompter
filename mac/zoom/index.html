@@ -958,6 +958,33 @@
             margin-right: auto;
         }
 
+        .pricing-universal-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        .pricing-universal-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 18px;
+            border: 1px solid var(--surface-border);
+            border-radius: var(--pill);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.02);
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .pricing-universal-links a:hover {
+            border-color: rgba(255, 187, 0, 0.4);
+            color: var(--pop);
+        }
+
         /* ───────────────────────── FAQ ───────────────────────── */
         .faq {
             max-width: 800px;
@@ -2325,6 +2352,8 @@
 
         <p class="pricing-trust">No account required. Runs entirely on your Mac. Your text never leaves your device.
         </p>
+
+        
     </section>
     <!-- SECTION_PRICING_END -->
 

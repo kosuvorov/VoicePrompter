@@ -62,7 +62,9 @@
     "heroSubtitle": "Read your script naturally during Google Meet calls. Hidden from other participants, and follows your voice in real time.",
     "heroVideoEmbed": "<div class=\"video-responsive\"><iframe src=\"https://www.youtube.com/embed/hflxTHcTDpE\" title=\"VoicePrompter for Google Meet\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen loading=\"lazy\"></iframe></div>",
     "footerCtaHeadline": "Ready to feel great on Google Meet?",
-    "hideSections": [],
+    "hideSections": [
+      "universal_links"
+    ],
     "audienceItems": [
       {
         "icon": "briefcase",
@@ -130,7 +132,9 @@
     "heroSubtitle": "Read your notes naturally during Zoom presentations. Floating window stays on top, scrolls automatically as you speak, and is hidden on screen shares.",
     "heroVideoEmbed": "<div class=\"video-responsive\"><iframe src=\"https://www.youtube.com/embed/5jrEJmocyBs\" title=\"VoicePrompter for Zoom\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen loading=\"lazy\"></iframe></div>",
     "footerCtaHeadline": "Ready to nail your next Zoom call?",
-    "hideSections": [],
+    "hideSections": [
+      "universal_links"
+    ],
     "audienceItems": [
       {
         "icon": "briefcase",
@@ -198,7 +202,9 @@
     "heroSubtitle": "Read your notes naturally during Teams meetings. Floating window stays on top, scrolls automatically as you speak, and is hidden on screen shares.",
     "heroVideoEmbed": "<div class=\"video-responsive\"><iframe src=\"https://www.youtube.com/embed/07Xnj7q2c9Y\" title=\"VoicePrompter for Microsoft Teams\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen loading=\"lazy\"></iframe></div>",
     "footerCtaHeadline": "Ready to present confidently on Teams?",
-    "hideSections": [],
+    "hideSections": [
+      "universal_links"
+    ],
     "audienceItems": [
       {
         "icon": "briefcase",
@@ -266,7 +272,9 @@
     "heroSubtitle": "Record perfect Loom videos in one take. Read your script naturally while looking directly at the camera. The prompter window is invisible in your recordings.",
     "heroVideoEmbed": "<div class=\"video-responsive\"><iframe src=\"https://www.youtube.com/embed/07Xnj7q2c9Y\" title=\"VoicePrompter for Loom\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen loading=\"lazy\"></iframe></div>",
     "footerCtaHeadline": "Ready to record your best Loom yet?",
-    "hideSections": [],
+    "hideSections": [
+      "universal_links"
+    ],
     "audienceItems": [
       {
         "icon": "monitor",
@@ -334,7 +342,9 @@
     "heroSubtitle": "Record flawless podcasts and interviews on Riverside.fm. The floating script follows your voice and stays completely invisible on screen captures and feeds.",
     "heroVideoEmbed": "<div class=\"video-responsive\"><iframe src=\"https://www.youtube.com/embed/07Xnj7q2c9Y\" title=\"VoicePrompter for Riverside\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen loading=\"lazy\"></iframe></div>",
     "footerCtaHeadline": "Ready to sound like a pro on Riverside?",
-    "hideSections": [],
+    "hideSections": [
+      "universal_links"
+    ],
     "audienceItems": [
       {
         "icon": "mic",
