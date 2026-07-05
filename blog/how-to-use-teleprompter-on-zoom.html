@@ -102,7 +102,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Google+Sans+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
-    <!-- Secondary heading font (Google Sans) — loaded async so it doesn't block render -->
+    <!-- Secondary heading font (Google Sans) - loaded async so it doesn't block render -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/google-sans:vf@latest/latin.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/google-sans:vf@latest/latin.css"></noscript>
     <style>
@@ -465,20 +465,20 @@
                 <div class="article-tldr" aria-label="Quick Summary">
                     <strong>TL;DR:</strong> A step-by-step guide to using an invisible, voice-activated teleprompter on Zoom. Stays on top during screen shares, scrolls automatically as you speak, runs natively on Mac.
                 </div>
-                <p>If you&#39;ve ever wished you could see your script on a Zoom call without making it obvious you were reading from it — this post is for you.</p>
+                <p>If you&#39;ve ever wished you could see your script on a Zoom call without making it obvious you were reading from it - this post is for you.</p>
 <p>I built a tool that solves exactly this problem, and I want to walk through how it actually works. By the end you&#39;ll know how to set up an invisible teleprompter for Zoom, why it doesn&#39;t appear in screen shares, and how it scrolls itself while you talk.</p>
 <div class="video-responsive"><iframe src="https://www.youtube.com/embed/5jrEJmocyBs" title="How to use a teleprompter on Zoom" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
 
 <h2>Why I built this in the first place</h2>
 <p>For about a year, I was recording podcasts and webinars over Zoom almost every week. I had experience hosting. I had outlines. I rehearsed. And it was still stressful every single time.</p>
-<p>The worry was always the same: forgetting a question I really wanted to ask, blanking on the name of a tool I meant to reference, fumbling the transition into the next segment. I tried the obvious workarounds — sticky notes on my monitor, a Google Doc open in another window, a printed page taped next to the camera. They all had the same problem: my eyes were visibly not on the camera, and guests could tell.</p>
-<p>Eventually I got tired of it and built <a href="/mac/zoom/">VoicePrompter</a> — a native Mac app that puts your script in a floating window that&#39;s invisible to everyone except you. It took the stress out of recording, gave me back the time I was spending re-doing takes, and ended up being the thing I now use for every Zoom meeting, not just podcasts.</p>
+<p>The worry was always the same: forgetting a question I really wanted to ask, blanking on the name of a tool I meant to reference, fumbling the transition into the next segment. I tried the obvious workarounds - sticky notes on my monitor, a Google Doc open in another window, a printed page taped next to the camera. They all had the same problem: my eyes were visibly not on the camera, and guests could tell.</p>
+<p>Eventually I got tired of it and built <a href="/mac/zoom/">VoicePrompter</a> - a native Mac app that puts your script in a floating window that&#39;s invisible to everyone except you. It took the stress out of recording, gave me back the time I was spending re-doing takes, and ended up being the thing I now use for every Zoom meeting, not just podcasts.</p>
 <h2>What &quot;invisible during screen sharing&quot; actually means</h2>
 <p>This is the part that surprises most people, so I want to be precise about it.</p>
-<p>Most teleprompter apps run as regular desktop windows. The moment you share your screen on Zoom, that window is visible to everyone on the call — either floating awkwardly in the corner of your camera tile, or right there in the middle of your screen share. Not acceptable in a sales call, a job interview, or a webinar.</p>
+<p>Most teleprompter apps run as regular desktop windows. The moment you share your screen on Zoom, that window is visible to everyone on the call - either floating awkwardly in the corner of your camera tile, or right there in the middle of your screen share. Not acceptable in a sales call, a job interview, or a webinar.</p>
 <p>VoicePrompter uses a specific macOS capability: the app&#39;s window is excluded from screen capture at the OS level. What that means in practice:</p>
 <ul>
-<li><strong>You see it.</strong> It&#39;s floating right there on your screen, sitting on top of Zoom, your slides, your demo — wherever you place it.</li>
+<li><strong>You see it.</strong> It&#39;s floating right there on your screen, sitting on top of Zoom, your slides, your demo - wherever you place it.</li>
 <li><strong>Nobody else sees it.</strong> Not on your shared screen, not on a Zoom recording, not on a screenshot, not in OBS or QuickTime. Zoom and every other capture tool simply doesn&#39;t pick the window up.</li>
 </ul>
 <p>It&#39;s not &quot;small&quot; or &quot;off-screen&quot; or &quot;hidden behind another window.&quot; The window is literally not captured by the screen recording APIs. This is the core feature, and it&#39;s the reason the rest of the app works.</p>
@@ -489,24 +489,24 @@
 <ol>
 <li><strong>It&#39;s private.</strong> Your script never leaves your Mac. Your audio never leaves your Mac. Nothing is sent to a server, ever. For sales calls, recruiter interviews, or anything covered by NDA, this is the only acceptable answer.</li>
 <li><strong>It works offline.</strong> If your internet drops mid-call (it happens on Zoom regularly), the teleprompter keeps scrolling because the recognition is local.</li>
-<li><strong>It&#39;s fast and forgiving.</strong> The recognition is the same engine Apple uses across macOS. It handles natural speech, pauses for emphasis, filler words, and conversational pacing — you don&#39;t need to enunciate like you&#39;re testing a robot.</li>
+<li><strong>It&#39;s fast and forgiving.</strong> The recognition is the same engine Apple uses across macOS. It handles natural speech, pauses for emphasis, filler words, and conversational pacing - you don&#39;t need to enunciate like you&#39;re testing a robot.</li>
 </ol>
 <p>The other detail worth mentioning: it supports 60+ languages and auto-detects your script&#39;s language. So if you&#39;re presenting in Spanish to a Spanish-speaking client, just paste a Spanish script and start talking. No settings to change.</p>
 <h2>Step-by-step: setting it up for your next Zoom call</h2>
 <p>Here&#39;s the actual flow, start to finish, the first time you use it:</p>
 <ol>
-<li><strong>Install VoicePrompter from the Mac App Store.</strong> It lives in your menu bar — no dock icon, no clutter.</li>
+<li><strong>Install VoicePrompter from the Mac App Store.</strong> It lives in your menu bar - no dock icon, no clutter.</li>
 <li><strong>Click the menu bar icon and paste your script.</strong> You can have multiple scripts saved; switch between them with a keyboard shortcut.</li>
 <li><strong>Position the floating window near your camera.</strong> On a laptop, drag it just below the camera bezel and as wide as feels comfortable. On a desktop with an external webcam, put it on the same screen as the webcam, ideally right next to it. The closer the script is to the camera lens, the more natural your eye line looks.</li>
 <li><strong>Set the font size and scroll behavior.</strong> Bigger font = less eye movement = more natural. Pick a scroll speed slightly slower than you&#39;d naturally speak.</li>
 <li><strong>Start the voice recognition.</strong> The window starts following your voice. Test it by reading a few lines.</li>
-<li><strong>Join your Zoom meeting.</strong> Share your screen if you need to. The teleprompter window is not visible to anyone else on the call — verified by Apple as part of the App Store review process.</li>
+<li><strong>Join your Zoom meeting.</strong> Share your screen if you need to. The teleprompter window is not visible to anyone else on the call - verified by Apple as part of the App Store review process.</li>
 </ol>
 <p>That&#39;s the whole setup. Once you&#39;ve done it once, opening a new script for your next call takes about 15 seconds.</p>
 <h2>Does it work in Zoom full-screen mode?</h2>
-<p>Yes. VoicePrompter stays always on top of every app, including Zoom in full-screen mode, full-screen Keynote or PowerPoint slides, and across multiple desktops. You don&#39;t have to choose between a clean full-screen meeting view and your script — you get both.</p>
+<p>Yes. VoicePrompter stays always on top of every app, including Zoom in full-screen mode, full-screen Keynote or PowerPoint slides, and across multiple desktops. You don&#39;t have to choose between a clean full-screen meeting view and your script - you get both.</p>
 <h2>Does it work outside Zoom?</h2>
-<p>Yes. Anything you can run on a Mac — Google Meet, Microsoft Teams, FaceTime, Loom, Riverside, OBS, Descript, Streamlabs, even a Keynote presentation in full-screen mode — VoicePrompter floats on top of it and stays invisible to the capture. There are <a href="./how-to-use-teleprompter-on-google-meet.html">dedicated guides for Google Meet</a>, <a href="/mac/microsoft-teams/">Microsoft Teams</a>, <a href="/mac/loom/">Loom</a>, and <a href="/mac/riverside/">Riverside</a> if you want the specifics for those platforms.</p>
+<p>Yes. Anything you can run on a Mac - Google Meet, Microsoft Teams, FaceTime, Loom, Riverside, OBS, Descript, Streamlabs, even a Keynote presentation in full-screen mode - VoicePrompter floats on top of it and stays invisible to the capture. There are <a href="./how-to-use-teleprompter-on-google-meet.html">dedicated guides for Google Meet</a>, <a href="/mac/microsoft-teams/">Microsoft Teams</a>, <a href="/mac/loom/">Loom</a>, and <a href="/mac/riverside/">Riverside</a> if you want the specifics for those platforms.</p>
 <h2>Who tends to use this on Zoom specifically</h2>
 <p>The use cases I hear about most often:</p>
 <ul>
@@ -520,7 +520,7 @@
 </ul>
 <p>If you fall into any of these and the idea of having your script visible but invisible sounds appealing, the app is worth the 10 minutes it takes to set up.</p>
 <h2>Try it free</h2>
-<p>VoicePrompter has a free tier that includes the demo script plus three custom scripts of unlimited length — enough to test it through a few real calls before deciding. If you want more scripts, there&#39;s a one-time purchase and a subscription option in the Mac App Store.</p>
+<p>VoicePrompter has a free tier that includes the demo script plus three custom scripts of unlimited length - enough to test it through a few real calls before deciding. If you want more scripts, there&#39;s a one-time purchase and a subscription option in the Mac App Store.</p>
 <p>You can grab it on the <a href="/mac/zoom/">VoicePrompter for Zoom</a> page, or jump straight to the <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-zoom&mt=8">Mac App Store</a>.</p>
 <hr>
 <p><strong>Related articles:</strong></p>
@@ -551,6 +551,7 @@
                 <a href="/web">Web App</a>
                 <a href="/mac">Mac App</a>
             <a href="/ios">iPhone App</a>
+            <a href="/ipad">iPad App</a>
                 </div>
             <div class="footer-col">
                 <h4>Integrations</h4>
