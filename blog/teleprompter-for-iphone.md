@@ -63,4 +63,6 @@ The iOS app is free to use for up to 3 custom scripts, each with unlimited words
 
 **Does it work on iPad?** Yes, the same app runs on iPad - handy for tripod setups where the iPad sits next to a camera.
 
+**Is a teleprompter the same as an autocue?** Yes - autocue is the British and broadcast term for the same thing. VoicePrompter works as a voice-tracking autocue app on iPhone and iPad, including mirror mode for autocue-style glass rigs.
+
 **Does voice scrolling need an internet connection?** No. Speech recognition runs on-device, so it works offline and your audio stays on your phone.

@@ -123,4 +123,6 @@ The setup guide for iPhone is in [teleprompter for iPhone that scrolls as you sp
 
 **Can a teleprompter stay invisible while I record in TikTok or Instagram?** Yes, if the app can float over other apps. Those apps record from the camera, not the screen, so a floating script never appears in the video. VoicePrompter and Floating Notes can do this; most others prompt only inside their own recorder.
 
+**What's the best autocue app for iPhone or iPad?** Autocue is the British term for a teleprompter, so the answer is the same ranking: VoicePrompter leads for its voice-tracking autocue with mirror mode for glass rigs, with Teleprompter.com and PromptSmart Pro as alternatives.
+
 **Is there a good free teleprompter for iPhone?** VoicePrompter's free tier includes full voice tracking with 3 custom scripts plus an unlimited demo script, no account needed. Most competitor free tiers watermark video or limit core features - check each listing for current terms.
