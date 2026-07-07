@@ -2,6 +2,7 @@
 title: "Video Interview Prep Tips: How to Actually Be Ready"
 description: "Pre-recorded video interviews are tricky. Here's how to prepare properly so you sound confident, concise, and professional."
 date: "Feb 28, 2026"
+updated: "Jul 7, 2026"
 image: "https://images.unsplash.com/photo-1573497019418-b400bb3ab074?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
 ---
@@ -86,6 +87,16 @@ Have your teleprompter loaded with your answers before you start. When the quest
 If you stumble, pause, collect yourself, and continue. You don't always get a retake, but you almost always get a few seconds of silence which you can edit or which the interviewer will forgive.
 
 For general on-camera confidence technique, see [how to look confident on camera](./how-to-look-confident-on-camera.md).
+
+## Frequently asked questions
+
+**Can I use a teleprompter during a video interview?** For prepared openers and your own questions, yes - keep bullet points, not a word-for-word script of answers, so you stay responsive.
+
+**Will the interviewer see my notes?** Not with an overlay that's excluded from screen capture: on a Mac, VoicePrompter stays visible only to you, even during screen sharing.
+
+**How do I keep eye contact in a video interview?** Put your notes directly under the camera lens and raise the camera to eye level - eye drift to a second monitor is what reads as distraction.
+
+**Is it cheating to use notes in an interview?** Prepared talking points are standard practice; what matters is delivery. Notes near the lens simply let you stay composed while staying honest.
 
 ---
 

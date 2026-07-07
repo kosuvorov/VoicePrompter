@@ -2,6 +2,7 @@
 title: "Teleprompter in 60+ Languages: How VoicePrompter Handles It"
 description: "How VoicePrompter's automatic language detection works across 60+ languages - tested personally in English, Polish, Ukrainian, Russian, French, and Spanish."
 date: "Feb 24, 2026"
+updated: "Jul 7, 2026"
 image: "https://images.unsplash.com/photo-1451226428352-cf66bf8a0317?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
 ---
@@ -60,9 +61,19 @@ This is more significant for multilingual scripts than it might seem. If you're 
 
 For the free multilingual option: [voiceprompter.app](https://voiceprompter.app) - paste your script, select your language, start talking.
 
-For the full 60+ language, auto-detection, always-on-top Mac experience: [VoicePrompter on the Mac App Store](https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8). $3.99/month or $39.99/year with a free tier including 3 custom scripts.
+For the full 60+ language, auto-detection, always-on-top Mac experience: [VoicePrompter on the Mac App Store](https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8). Free to use for up to 3 custom scripts plus a demo script; paid plans (including a one-time Lifetime option) unlock more.
 
-If you want the full breakdown of the Mac app's features, the [VoicePrompter complete guide](./voiceprompter-complete-guide-2025.md) covers everything in one place.
+If you want the full breakdown of the Mac app's features, the [VoicePrompter complete guide](./voiceprompter-complete-guide.md) covers everything in one place.
+
+## Frequently asked questions
+
+**Which teleprompter supports the most languages?** VoicePrompter's native apps track your voice in 60+ languages with automatic detection from the script; the free web app covers 34.
+
+**Does voice tracking work with an accent?** Yes - one App Store reviewer, a non-native speaker, wrote that it recognizes his English well and keeps up.
+
+**Can I switch languages between scripts?** Yes, detection is automatic per script: paste Spanish and it listens in Spanish, no settings involved.
+
+**Does multilingual voice tracking need internet?** No - recognition runs on-device, so every language works offline and no audio leaves your machine.
 
 ---
 
@@ -70,4 +81,4 @@ If you want the full breakdown of the Mac app's features, the [VoicePrompter com
 - [Free Voice-Activated Teleprompter for Solo Creators](./free-voice-activated-teleprompter.md)
 - [Best Teleprompter App for Mac](./best-teleprompter-app-for-mac.md)
 - [Why All Teleprompter Apps Are Terrible (And What I Did About It)](./why-all-teleprompter-apps-suck.md)
-- [VoicePrompter Complete Guide](./voiceprompter-complete-guide-2025.md)
+- [VoicePrompter Complete Guide](./voiceprompter-complete-guide.md)

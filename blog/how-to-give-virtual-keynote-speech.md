@@ -2,6 +2,7 @@
 title: "How to Give a Virtual Keynote Speech That Doesn't Lose Your Audience"
 description: "Practical techniques for delivering a compelling virtual keynote - from setup and scripting to engagement and delivery without notes."
 date: "Mar 29, 2026"
+updated: "Jul 7, 2026"
 image: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
 ---
@@ -95,6 +96,16 @@ They have word-for-word scripts for their openings and closings. They have a tel
 Virtual keynotes require more preparation because the medium gives you less. But if you put that preparation in, the result is a talk that feels seamless - and an audience that stays until the end.
 
 For the Zoom-specific version of many of these tips, see [Zoom presentation tips for sales calls](./zoom-presentation-tips-sales-calls.md). If you're also recording webinars or panels, [how to record webinars and podcasts](./how-to-record-webinars-and-podcasts.md) covers the recording-specific workflow.
+
+## Frequently asked questions
+
+**Can I use a teleprompter for a virtual keynote?** Yes - it's how polished virtual keynotes are done: a floating script near the lens keeps delivery tight for 30-60 minutes without memorization.
+
+**How do I present slides and read a script at once?** Use an overlay that stays above full-screen presentation mode and is excluded from screen sharing - the audience sees only your slides.
+
+**How do I keep energy up in a long virtual talk?** Write spoken-style, stand if you can, and let voice-paced scrolling handle the place-keeping so your attention goes to delivery.
+
+**What if I lose my place mid-keynote?** With whole-script tracking you practically can't: start any line and the text scrolls to meet you, even backward.
 
 ---
 

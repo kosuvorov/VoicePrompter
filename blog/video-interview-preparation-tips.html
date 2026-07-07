@@ -36,7 +36,7 @@
     "description": "Pre-recorded video interviews are tricky. Here's how to prepare properly so you sound confident, concise, and professional.",
     "image": "https://images.unsplash.com/photo-1573497019418-b400bb3ab074?auto=format&fit=crop&w=800&q=80",
     "datePublished": "2026-02-27",
-    "dateModified": "2026-02-27",
+    "dateModified": "2026-07-06",
     "author": {
       "@type": "Person",
       "name": "Konstantin Suvorov",
@@ -77,6 +77,44 @@
         "position": 3,
         "name": "Video Interview Prep Tips: How to Actually Be Ready",
         "item": "https://voiceprompter.app/blog/video-interview-preparation-tips.html"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can I use a teleprompter during a video interview?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For prepared openers and your own questions, yes - keep bullet points, not a word-for-word script of answers, so you stay responsive."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will the interviewer see my notes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not with an overlay that's excluded from screen capture: on a Mac, VoicePrompter stays visible only to you, even during screen sharing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I keep eye contact in a video interview?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Put your notes directly under the camera lens and raise the camera to eye level - eye drift to a second monitor is what reads as distraction."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it cheating to use notes in an interview?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Prepared talking points are standard practice; what matters is delivery. Notes near the lens simply let you stay composed while staying honest."
+        }
       }
     ]
   }
@@ -171,6 +209,74 @@
         .article-meta {
             color: #888;
             font-size: 0.9375rem;
+        }
+
+        .article-author {
+            color: #d0d0d0;
+            font-weight: 600;
+        }
+
+        .article-author:hover {
+            color: #DAA000;
+        }
+
+        .article-author-role {
+            color: #777;
+        }
+
+        .article-hero {
+            width: 100%;
+            height: auto;
+            max-height: 340px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 4px 0 8px;
+        }
+
+        .article-toc {
+            background: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+
+        .article-toc strong {
+            display: block;
+            color: #fff;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .article-toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            columns: 2;
+            column-gap: 24px;
+        }
+
+        .article-toc li {
+            margin-bottom: 6px;
+            break-inside: avoid;
+        }
+
+        .article-toc a {
+            color: #a0a0a0;
+            text-decoration: none;
+        }
+
+        .article-toc a:hover {
+            color: #DAA000;
+        }
+
+        @media (max-width: 560px) {
+            .article-toc ul {
+                columns: 1;
+            }
         }
 
         .article-content {
@@ -493,39 +599,45 @@
         <article>
             <div class="article-header">
                 <h1>Video Interview Prep Tips: How to Actually Be Ready</h1>
-                <div class="article-meta">Feb 28, 2026</div>
+                <div class="article-meta">
+                    <a class="article-author" href="/about.html">Konstantin Suvorov</a>
+                    <span class="article-author-role">· builds VoicePrompter</span>
+                    <span aria-hidden="true"> · </span>Feb 28, 2026
+                </div>
             </div>
 
             <div class="article-content">
                 <div class="article-tldr" aria-label="Quick Summary">
                     <strong>TL;DR:</strong> Pre-recorded video interviews are tricky. Here's how to prepare properly so you sound confident, concise, and professional.
                 </div>
+                <img class="article-hero" src="https://images.unsplash.com/photo-1573497019418-b400bb3ab074?auto=format&fit=crop&w=800&q=80" alt="" decoding="async" fetchpriority="high">
+                <nav class="article-toc" aria-label="Contents"><strong>In this article</strong><ul><li><a href="#write-your-answers-out-first">Write Your Answers Out First</a></li><li><a href="#use-a-teleprompter-for-your-notes">Use a Teleprompter for Your Notes</a></li><li><a href="#the-technique-for-not-looking-like-you-39-re-reading">The Technique for Not Looking Like You&#39;re Reading</a></li><li><a href="#the-setup-camera-lighting-background">The Setup: Camera, Lighting, Background</a></li><li><a href="#what-to-actually-prepare">What to Actually Prepare</a></li><li><a href="#the-practice-recording-step-most-people-skip">The Practice Recording Step Most People Skip</a></li><li><a href="#on-the-day">On the Day</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
                 <p>Pre-recorded video interviews have become standard for a lot of hiring processes. You get a link, a set of questions, a time limit per response, and one or two attempts to get it right. No interviewer. No back-and-forth. Just you, a camera, and a clock.</p>
 <p>And yet most people treat these exactly like a spoken interview - they think through what they want to say, hit record, and improvise. That works if you&#39;re an unusually smooth extemporaneous speaker. For the rest of us, it produces a recording that sounds hesitant, verbose, and full of &quot;um&quot; and &quot;so.&quot;</p>
 <p>Here&#39;s a better approach.</p>
-<h2>Write Your Answers Out First</h2>
+<h2 id="write-your-answers-out-first">Write Your Answers Out First</h2>
 <p>I know this sounds obvious. Most people skip it anyway because writing takes time and &quot;I&#39;ll just speak naturally.&quot;</p>
 <p>Here&#39;s the problem: natural spoken answers are longer, less structured, and less precise than written ones. A written answer forces you to think through what you actually want to say. It also gives you something to fall back on if you go blank.</p>
 <p>Write your answers to the expected questions in full. Not bullet points - full sentences, the way you want to say them. Then read them aloud several times until they don&#39;t sound like you&#39;re reading.</p>
 <p>Yes, this is a lot of work. It&#39;s also the difference between sounding confident and sounding like you&#39;re figuring it out in real time.</p>
-<h2>Use a Teleprompter for Your Notes</h2>
+<h2 id="use-a-teleprompter-for-your-notes">Use a Teleprompter for Your Notes</h2>
 <p>Here&#39;s where most interview advice gets timid. They say &quot;use notes but don&#39;t read from notes.&quot; That&#39;s not advice, that&#39;s a contradiction.</p>
 <p>The right approach: use a teleprompter so that your notes are in front of you, follow your pace, and let you read them while looking at the camera - without the viewer being able to tell you&#39;re reading.</p>
 <p>For a recorded video interview on a Mac, <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8">VoicePrompter for Mac</a> is the cleanest setup. It&#39;s a transparent, always-on-top overlay. Position it right below your camera, set the font large enough to read comfortably, start the voice recognition, and deliver your answer.</p>
 <p>The scroll follows your voice. When you pause to think, the text pauses with you. You&#39;re not racing to keep up with auto-scroll. You&#39;re not manually swiping at a critical moment. The script is there exactly when you need it.</p>
 <p>For a phone or browser-based setup, <a href="https://voiceprompter.app">voiceprompter.app</a> is free, works offline, and requires no sign-up.</p>
-<h2>The Technique for Not Looking Like You&#39;re Reading</h2>
+<h2 id="the-technique-for-not-looking-like-you-39-re-reading">The Technique for Not Looking Like You&#39;re Reading</h2>
 <p>Put the teleprompter as close to your camera lens as physically possible. The smaller the angle between &quot;where my eyes are pointing&quot; and &quot;where the lens is,&quot; the more natural your eye contact looks.</p>
 <p>Read in phrases, not word-by-word. Grab three or four words with a glance, then deliver them while looking at the lens. Then go back for the next chunk. This is how news anchors and politicians read from teleprompters - it looks like direct conversation, not reading.</p>
 <p>Slow down. Under pressure, we all speed up. Deliberate slowing-down feels unnatural while recording and sounds natural on playback. Trust the feeling of &quot;this is too slow&quot; - it probably isn&#39;t.</p>
 <p>For a full breakdown of the technique, read <a href="./how-to-read-script-without-looking-like-reading.html">how to read a script without looking like you&#39;re reading</a>.</p>
-<h2>The Setup: Camera, Lighting, Background</h2>
+<h2 id="the-setup-camera-lighting-background">The Setup: Camera, Lighting, Background</h2>
 <p>These matter more for a recorded interview than for a live one, because the viewer will watch the recording more analytically. First impressions are formed in the first ten seconds.</p>
 <p><strong>Camera at eye level.</strong> Laptop cameras are almost always too low. Put your laptop on a stack of books or a stand until the camera is level with your eyes. This is the single highest-impact change you can make.</p>
 <p><strong>Light source in front of you.</strong> Sit facing a window, or use a ring light. The light should be hitting your face, not your back. Backlighting makes you a silhouette.</p>
 <p><strong>Background should be clean.</strong> Not necessarily professional-studio-level perfect, but clean and intentional. A bookshelf, a plain wall, a slightly blurred room - all fine. A pile of laundry and a visible unmade bed - not fine.</p>
 <p><strong>Test your audio before anything else.</strong> Do a thirty-second test recording and listen back with headphones. Most built-in laptop microphones are decent in a quiet room. If there&#39;s echo or ambient noise, an external USB microphone is a meaningful upgrade for under $50.</p>
-<h2>What to Actually Prepare</h2>
+<h2 id="what-to-actually-prepare">What to Actually Prepare</h2>
 <p>For a standard job interview, here are the questions you almost certainly need prepared answers for:</p>
 <ul>
 <li>Tell me about yourself (this should be 90 seconds, scripted, practiced)</li>
@@ -536,15 +648,20 @@
 <li>Do you have any questions for us (yes, always, and prepare them)</li>
 </ul>
 <p>That&#39;s six answers. Write all six. Read each one aloud three times. Then record yourself and watch it back - this step is painful but genuinely useful.</p>
-<h2>The Practice Recording Step Most People Skip</h2>
+<h2 id="the-practice-recording-step-most-people-skip">The Practice Recording Step Most People Skip</h2>
 <p>Record yourself answering a question and watch it back. I know. It&#39;s uncomfortable. Do it anyway.</p>
 <p>Watch specifically for: eye drift (are you looking at the screen instead of the lens?), pace (are you rushing?), filler words (um, like, so, you know), and posture (are you slouching?).</p>
 <p>One round of this - record, watch, note the issues, re-record - will improve your delivery more than any amount of mental rehearsal. The camera shows you things about yourself that you genuinely cannot notice in real time.</p>
-<h2>On the Day</h2>
+<h2 id="on-the-day">On the Day</h2>
 <p>Run through your notes one more time. Not memorizing - just priming. Stand up, shake out your hands, take a few slow breaths. Warm up your voice (say a few sentences out loud so your voice isn&#39;t cold and tight when you start).</p>
 <p>Have your teleprompter loaded with your answers before you start. When the question appears, take five seconds to read it, make sure it matches the answer you prepared, then start talking.</p>
 <p>If you stumble, pause, collect yourself, and continue. You don&#39;t always get a retake, but you almost always get a few seconds of silence which you can edit or which the interviewer will forgive.</p>
 <p>For general on-camera confidence technique, see <a href="./how-to-look-confident-on-camera.html">how to look confident on camera</a>.</p>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<p><strong>Can I use a teleprompter during a video interview?</strong> For prepared openers and your own questions, yes - keep bullet points, not a word-for-word script of answers, so you stay responsive.</p>
+<p><strong>Will the interviewer see my notes?</strong> Not with an overlay that&#39;s excluded from screen capture: on a Mac, VoicePrompter stays visible only to you, even during screen sharing.</p>
+<p><strong>How do I keep eye contact in a video interview?</strong> Put your notes directly under the camera lens and raise the camera to eye level - eye drift to a second monitor is what reads as distraction.</p>
+<p><strong>Is it cheating to use notes in an interview?</strong> Prepared talking points are standard practice; what matters is delivery. Notes near the lens simply let you stay composed while staying honest.</p>
 <hr>
 <p><strong>Related articles:</strong></p>
 <ul>

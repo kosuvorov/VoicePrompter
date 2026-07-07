@@ -40,6 +40,9 @@ For a speech, a rehearsal, a quick take, or any camera-only recording, the onlin
 
 If you're comparing several browser prompters first, I tested the field honestly in [the best free web teleprompter apps](best-free-web-teleprompter.html).
 
+<div style="margin:20px 0;"><a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-online-teleprompter&mt=8" target="_blank" rel="noopener"><img src="/Download_on_the_App_Store_Badge_US-UK_RGB_wht_092917.svg" alt="Download VoicePrompter on the App Store" style="height:52px;"></a></div>
+
+
 ## Frequently asked questions
 
 **Is there a free online teleprompter with no download?** Yes - the VoicePrompter web app runs in your browser free of charge: no download, no account, no watermark. Paste your script and start.

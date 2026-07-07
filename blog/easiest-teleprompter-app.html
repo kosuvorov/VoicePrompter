@@ -231,6 +231,74 @@
             font-size: 0.9375rem;
         }
 
+        .article-author {
+            color: #d0d0d0;
+            font-weight: 600;
+        }
+
+        .article-author:hover {
+            color: #DAA000;
+        }
+
+        .article-author-role {
+            color: #777;
+        }
+
+        .article-hero {
+            width: 100%;
+            height: auto;
+            max-height: 340px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 4px 0 8px;
+        }
+
+        .article-toc {
+            background: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+
+        .article-toc strong {
+            display: block;
+            color: #fff;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .article-toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            columns: 2;
+            column-gap: 24px;
+        }
+
+        .article-toc li {
+            margin-bottom: 6px;
+            break-inside: avoid;
+        }
+
+        .article-toc a {
+            color: #a0a0a0;
+            text-decoration: none;
+        }
+
+        .article-toc a:hover {
+            color: #DAA000;
+        }
+
+        @media (max-width: 560px) {
+            .article-toc ul {
+                columns: 1;
+            }
+        }
+
         .article-content {
             font-size: 1.0625rem;
             color: #d0d0d0;
@@ -551,16 +619,21 @@
         <article>
             <div class="article-header">
                 <h1>The Easiest Teleprompter App: One Click From Script to Reading</h1>
-                <div class="article-meta">Jul 7, 2026</div>
+                <div class="article-meta">
+                    <a class="article-author" href="/about.html">Konstantin Suvorov</a>
+                    <span class="article-author-role">· builds VoicePrompter</span>
+                    <span aria-hidden="true"> · </span>Jul 7, 2026
+                </div>
             </div>
 
             <div class="article-content">
                 <div class="article-tldr" aria-label="Quick Summary">
                     <strong>TL;DR:</strong> The easiest teleprompter app is the one with the fewest steps between your script and your first take. Here's the one-click flow, timed against the usual five-step setup.
                 </div>
-                <h1>The Easiest Teleprompter App: One Click From Script to Reading</h1>
-<p>The easiest teleprompter app is the one that gets you from &quot;script written&quot; to &quot;reading on camera&quot; with the fewest steps - and by that measure the flow to beat is a single click. <a href="https://voiceprompter.app">VoicePrompter</a> reads whatever is on your clipboard: copy your script anywhere, click once, start talking. I built it, and this post breaks down why teleprompter setup friction is usually five or six steps deep, and what &quot;easy&quot; should actually mean.</p>
-<h2>Count the steps in your current app</h2>
+                
+                <nav class="article-toc" aria-label="Contents"><strong>In this article</strong><ul><li><a href="#count-the-steps-in-your-current-app">Count the steps in your current app</a></li><li><a href="#what-one-click-looks-like">What one click looks like</a></li><li><a href="#quot-easy-quot-according-to-people-who-just-installed-it">&quot;Easy&quot; according to people who just installed it</a></li><li><a href="#try-the-one-click-flow">Try the one-click flow</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
+                <p>The easiest teleprompter app is the one that gets you from &quot;script written&quot; to &quot;reading on camera&quot; with the fewest steps - and by that measure the flow to beat is a single click. <a href="https://voiceprompter.app">VoicePrompter</a> reads whatever is on your clipboard: copy your script anywhere, click once, start talking. I built it, and this post breaks down why teleprompter setup friction is usually five or six steps deep, and what &quot;easy&quot; should actually mean.</p>
+<h2 id="count-the-steps-in-your-current-app">Count the steps in your current app</h2>
 <p>Most teleprompter apps assume your script lives inside <em>their</em> editor. That gives the typical flow a shape you&#39;ll recognize:</p>
 <ol>
 <li>Open the app and create a new script</li>
@@ -571,7 +644,7 @@
 <li>Find it in the list and press start</li>
 </ol>
 <p>Six steps, every single time - before you&#39;ve read a word. It&#39;s not a catastrophe; it&#39;s a paper cut you take twenty times a week. And it quietly shapes behavior: when starting the prompter is annoying, you skip it for &quot;quick&quot; videos, and those are exactly the takes that ramble.</p>
-<h2>What one click looks like</h2>
+<h2 id="what-one-click-looks-like">What one click looks like</h2>
 <p>Nobody writes scripts in a teleprompter. You write in Notes, Google Docs, Notion, or wherever your drafts live. So the honest job of a teleprompter is to <em>receive</em> a script, not host it. That&#39;s why VoicePrompter&#39;s main flow is <strong>Start from clipboard</strong>: copy the text wherever you wrote it, click the menu bar icon on Mac (or tap once on iPhone and iPad), and the prompter is already scrolling to your voice.</p>
 <p>The same &quot;fewest steps&quot; thinking runs through the rest of it:</p>
 <ul>
@@ -582,12 +655,12 @@
 </ul>
 <div class="video-responsive"><iframe src="https://www.youtube.com/embed/07Xnj7q2c9Y" title="VoicePrompter for Mac - one-click teleprompter demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
 
-<h2>&quot;Easy&quot; according to people who just installed it</h2>
+<h2 id="quot-easy-quot-according-to-people-who-just-installed-it">&quot;Easy&quot; according to people who just installed it</h2>
 <p>The strongest evidence for ease of use is what first-day users say. From the App Store: <em>&quot;Downloaded the app for the first time yesterday and in less than 5 minutes, I was all set up.&quot;</em> - Holdridge87. And: <em>&quot;The app is simple to use from the get go and it works flawlessly!&quot;</em> - sunblinksgallery. A third, comparing the field: <em>&quot;So many other teleprompters are complicated to work with on Zoom. This was smooth, easy to work with.&quot;</em> - Savioshe.</p>
 <p>Ease also has a second half people forget: <strong>staying easy mid-take.</strong> A prompter that&#39;s simple to start but strands you the moment you ad-lib isn&#39;t easy - it&#39;s fragile. Whole-script voice tracking means going off-script, skipping ahead, or re-reading a line requires zero taps; the text finds you.</p>
-<h2>Try the one-click flow</h2>
+<h2 id="try-the-one-click-flow">Try the one-click flow</h2>
 <p>The free tier (3 custom scripts plus an unlimited demo, no account) is enough to test the whole flow today: <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-easiest-teleprompter&mt=8">VoicePrompter for Mac, iPhone, and iPad</a>, or the <a href="https://voiceprompter.app/web/">free web version</a> with nothing to install at all.</p>
-<h2>Frequently asked questions</h2>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <p><strong>What is the easiest teleprompter app to use?</strong> The one with the shortest path from script to reading: VoicePrompter starts from your clipboard in one click, with no account, and its voice scrolling removes speed setup entirely.</p>
 <p><strong>Do I have to type my script into the teleprompter?</strong> Not with a clipboard-based flow - write anywhere (Notes, Docs, Notion), copy, and start. Apps built around internal editors typically need five or six steps per script.</p>
 <p><strong>Is it easy to use during a call or recording?</strong> Yes - on Mac the floating window stays on top of Zoom or your slides and is invisible in screen shares, so there&#39;s nothing to manage mid-call. The <a href="how-to-use-teleprompter-on-zoom.html">Zoom setup guide</a> shows the whole flow.</p>

@@ -36,7 +36,7 @@
     "description": "A frustrated developer's deep dive into why every teleprompter app fails at the basics, and the journey to building one that actually works.",
     "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
     "datePublished": "2026-03-17",
-    "dateModified": "2026-03-17",
+    "dateModified": "2026-07-06",
     "author": {
       "@type": "Person",
       "name": "Konstantin Suvorov",
@@ -77,6 +77,44 @@
         "position": 3,
         "name": "Why All Teleprompter Apps Are Terrible (And What I Did About It)",
         "item": "https://voiceprompter.app/blog/why-all-teleprompter-apps-suck.html"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why do most teleprompter apps feel bad to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most scroll at a fixed speed, so you serve the software instead of it serving you - every pause and ad-lib desynchronizes the script."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the difference between sound detection and word tracking?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sound detection scrolls on volume and can't know where you are; word tracking follows your actual words, so skipping, improvising, and re-reading all work."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there a teleprompter that follows your entire script?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "VoicePrompter tracks speech against the whole script at all times - jump anywhere, including backward, and it finds you."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What should I test before trusting a teleprompter app?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pause mid-take, ad-lib a sentence, then restart an earlier line. Most apps fail at least one of the three."
+        }
       }
     ]
   }
@@ -171,6 +209,74 @@
         .article-meta {
             color: #888;
             font-size: 0.9375rem;
+        }
+
+        .article-author {
+            color: #d0d0d0;
+            font-weight: 600;
+        }
+
+        .article-author:hover {
+            color: #DAA000;
+        }
+
+        .article-author-role {
+            color: #777;
+        }
+
+        .article-hero {
+            width: 100%;
+            height: auto;
+            max-height: 340px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 4px 0 8px;
+        }
+
+        .article-toc {
+            background: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+
+        .article-toc strong {
+            display: block;
+            color: #fff;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .article-toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            columns: 2;
+            column-gap: 24px;
+        }
+
+        .article-toc li {
+            margin-bottom: 6px;
+            break-inside: avoid;
+        }
+
+        .article-toc a {
+            color: #a0a0a0;
+            text-decoration: none;
+        }
+
+        .article-toc a:hover {
+            color: #DAA000;
+        }
+
+        @media (max-width: 560px) {
+            .article-toc ul {
+                columns: 1;
+            }
         }
 
         .article-content {
@@ -493,18 +599,24 @@
         <article>
             <div class="article-header">
                 <h1>Why All Teleprompter Apps Are Terrible (And What I Did About It)</h1>
-                <div class="article-meta">Mar 18, 2026</div>
+                <div class="article-meta">
+                    <a class="article-author" href="/about.html">Konstantin Suvorov</a>
+                    <span class="article-author-role">· builds VoicePrompter</span>
+                    <span aria-hidden="true"> · </span>Mar 18, 2026
+                </div>
             </div>
 
             <div class="article-content">
                 <div class="article-tldr" aria-label="Quick Summary">
                     <strong>TL;DR:</strong> A frustrated developer's deep dive into why every teleprompter app fails at the basics, and the journey to building one that actually works.
                 </div>
+                <img class="article-hero" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="" decoding="async" fetchpriority="high">
+                <nav class="article-toc" aria-label="Contents"><strong>In this article</strong><ul><li><a href="#the-real-problem-with-voice-scrolling-teleprompters">The Real Problem With Voice-Scrolling Teleprompters</a></li><li><a href="#what-i-built-voiceprompter">What I Built: VoicePrompter</a></li><li><a href="#then-i-made-a-mac-version">Then I Made a Mac Version</a></li><li><a href="#why-this-matters-for-your-workflow">Why This Matters for Your Workflow</a></li><li><a href="#the-actual-test">The Actual Test</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
                 <p>I have been using a teleprompter device for five years. And I would like to file a public complaint.</p>
 <p>Why the hell are all teleprompter apps so bad?</p>
 <p>I&#39;m not even talking about the manual scrolling ones - those are obviously useless for solo creators. If you&#39;re filming alone, who&#39;s supposed to sit there and scroll for you? I&#39;m talking about the apps that are supposed to be smart enough to scroll automatically while you talk. The ones that have been on the App Store for years, charge real money, and still somehow can&#39;t do the one thing they&#39;re supposed to do.</p>
 <p>Let me tell you what &quot;not working&quot; actually looks like in practice.</p>
-<h2>The Real Problem With Voice-Scrolling Teleprompters</h2>
+<h2 id="the-real-problem-with-voice-scrolling-teleprompters">The Real Problem With Voice-Scrolling Teleprompters</h2>
 <p>The core feature of any modern teleprompter app is voice-activated scrolling. You talk, the text scrolls. Simple idea. Terrible execution - at least in most apps I&#39;ve tried.</p>
 <p>Here&#39;s what actually happens. The app mishears a word. The scroll jumps three paragraphs forward. You panic. You tap the screen to get back. The moment is ruined. Or worse - the app just stops responding entirely while you&#39;re mid-sentence, and there you are, standing in front of a camera, frozen, looking directly at a screen that&#39;s given up on you.</p>
 <p>The second most common failure mode is lag. The recognition fires too slowly, so the text is always a couple of seconds behind what you&#39;re actually saying. That means you&#39;re either waiting for the app to catch up, or the app is showing you words you&#39;ve already said. Either way, you lose your rhythm.</p>
@@ -516,25 +628,30 @@
 <li>Free, or at least not unreasonably priced</li>
 </ul>
 <p>I couldn&#39;t find anything that did all of this well. So I built it myself.</p>
-<h2>What I Built: VoicePrompter</h2>
+<h2 id="what-i-built-voiceprompter">What I Built: VoicePrompter</h2>
 <p><a href="https://voiceprompter.app">VoicePrompter</a> is a free, open-source web app that works as a progressive web app (PWA) - meaning you can install it on your phone or desktop and use it completely offline. It uses your device&#39;s built-in speech recognition, so no audio is sent to any server. Everything stays on your device.</p>
 <p>The voice scrolling actually works. And I say that having personally tested it in English, Polish, Ukrainian, Russian, French, and Spanish. It pauses when you stop talking and resumes when you start again - exactly the way it should.</p>
 <p>Beyond the core scrolling, there are things I added because I couldn&#39;t believe other apps didn&#39;t have them. Paragraph preservation, for instance. Mirror mode. A hands-free restart voice command (&quot;prompter restart&quot;). Visual stop signs that show you where to pause. Touch-to-jump so you can tap any word and the prompter snaps to that position instantly.</p>
-<p>You can read the full breakdown in my <a href="./voiceprompter-complete-guide-2025.html">complete VoicePrompter guide</a>.</p>
-<h2>Then I Made a Mac Version</h2>
+<p>You can read the full breakdown in my <a href="./voiceprompter-complete-guide.html">complete VoicePrompter guide</a>.</p>
+<h2 id="then-i-made-a-mac-version">Then I Made a Mac Version</h2>
 <p>After people started using the web app, I realized there was a different but equally painful problem for a different kind of user. Not solo creators filming on their phones - but professionals who record webinars, product demos, sales calls, tutorials, podcasts, and online presentations on their Macs.</p>
 <p>Their pain is slightly different. They don&#39;t need mirror mode. They need an app that stays visible to them while being completely invisible to everyone else on the call. They need something that works while they&#39;re sharing their screen in Zoom or Google Meet. And they need the scrolling to be reliable enough that they can trust it in a live sales call or recording session.</p>
 <p>That&#39;s <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8">VoicePrompter for Mac</a> - a native macOS app that lives in your menu bar and stays on top of everything, including full-screen apps and slides, while being completely hidden from screen recording and screen sharing software.</p>
 <p>It uses Apple&#39;s native speech recognition, which is why it works in 60+ languages and happens entirely on your device. The whole app is 2 megabytes. You can leave it running all day.</p>
 <p>If you&#39;re specifically looking for a Mac solution, take a look at <a href="./best-teleprompter-app-for-mac.html">best teleprompter app for Mac</a> where I go deeper on what makes a Mac teleprompter actually worth using.</p>
-<h2>Why This Matters for Your Workflow</h2>
+<h2 id="why-this-matters-for-your-workflow">Why This Matters for Your Workflow</h2>
 <p>If you record videos, you&#39;ve felt this pain. You hit record. You mess up a line. You start over. You mess up again. You do twelve takes of the same thirty-second intro. By take eight, you&#39;re stiff and you can hear it in your voice.</p>
 <p>A good teleprompter eliminates that. You write your script once, you read it, you&#39;re done. No memorizing. No retakes because you blanked on a word. Just one clean take - or close to it.</p>
 <p>I wrote more about this in <a href="./stop-memorizing-your-script.html">how to stop memorizing your script</a> and <a href="./record-tutorial-videos-faster.html">how to record tutorial videos faster</a> if that&#39;s the specific problem you&#39;re trying to solve.</p>
-<h2>The Actual Test</h2>
+<h2 id="the-actual-test">The Actual Test</h2>
 <p>You want to know if a teleprompter works? Use it in a real recording. Not a two-minute test, not a quiet room with no background noise. Use it in your actual setup. That&#39;s the only way to know.</p>
 <p>I&#39;ve been using VoicePrompter in my own recordings for a while now. This article was recorded using it. If it sounds natural, that&#39;s the point.</p>
 <p>Go to <a href="https://voiceprompter.app">voiceprompter.app</a> and try it. It&#39;s free. No account, no sign-up, no nothing. Just paste your script and go.</p>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<p><strong>Why do most teleprompter apps feel bad to use?</strong> Most scroll at a fixed speed, so you serve the software instead of it serving you - every pause and ad-lib desynchronizes the script.</p>
+<p><strong>What&#39;s the difference between sound detection and word tracking?</strong> Sound detection scrolls on volume and can&#39;t know where you are; word tracking follows your actual words, so skipping, improvising, and re-reading all work.</p>
+<p><strong>Is there a teleprompter that follows your entire script?</strong> VoicePrompter tracks speech against the whole script at all times - jump anywhere, including backward, and it finds you.</p>
+<p><strong>What should I test before trusting a teleprompter app?</strong> Pause mid-take, ad-lib a sentence, then restart an earlier line. Most apps fail at least one of the three.</p>
 <hr>
 <p><strong>Related articles:</strong></p>
 <ul>

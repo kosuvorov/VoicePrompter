@@ -96,8 +96,12 @@ mdFiles.forEach(file => {
     // Parse frontmatter and content
     const { data: frontmatter, content } = matter(fileContent);
 
+    // The template renders the frontmatter title as the page <h1>; strip a leading
+    // markdown H1 from the body so posts don't ship two h1 tags.
+    const contentWithoutH1 = content.replace(/^\s*# .*\n+/, '');
+
     // Pre-process Obsidian wiki-style links → standard markdown
-    const processedContent = convertWikiLinks(content);
+    const processedContent = convertWikiLinks(contentWithoutH1);
 
     // Convert markdown to HTML
     let htmlContent = marked(processedContent);
@@ -116,6 +120,19 @@ mdFiles.forEach(file => {
             : `<img${attrs} loading="lazy" decoding="async">`;
     });
 
+    // Add ids to h2 headings and build a small table of contents for long posts
+    const tocEntries = [];
+    htmlContent = htmlContent.replace(/<h2>([^<]+)<\/h2>/g, (full, text) => {
+        const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        tocEntries.push({ id, text });
+        return `<h2 id="${id}">${text}</h2>`;
+    });
+    const tocHtml = tocEntries.length >= 4
+        ? `<nav class="article-toc" aria-label="Contents"><strong>In this article</strong><ul>${tocEntries
+              .map((t) => `<li><a href="#${t.id}">${t.text}</a></li>`)
+              .join('')}</ul></nav>`
+        : '';
+
     // Generate slug from filename
     const slug = file.replace('.md', '');
 
@@ -127,7 +144,9 @@ mdFiles.forEach(file => {
         date: frontmatter.date || 'Unknown date',
         image: frontmatter.image || '',
         keywords: frontmatter.keywords || [],
-        content: htmlContent
+        content: htmlContent,
+        toc: tocHtml,
+        video: Boolean(frontmatter.video && frontmatter.video.videoId)
     };
 
     articles.push(article);
@@ -232,6 +251,11 @@ mdFiles.forEach(file => {
         .replace(/\{\{DESCRIPTION\}\}/g, article.description)
         .replace(/\{\{DATE\}\}/g, article.date)
         .replace(/\{\{CONTENT\}\}/g, article.content)
+        .replace(/\{\{TOC\}\}/g, article.toc || '')
+        .replace(/\{\{HERO\}\}/g,
+            article.image && !article.video && !/ytimg\.com/.test(article.image)
+                ? `<img class="article-hero" src="${article.image}" alt="" decoding="async" fetchpriority="high">`
+                : '')
         .replace(/\{\{KEYWORDS\}\}/g, article.keywords.join(', '))
         .replace(/\{\{SLUG\}\}/g, article.slug)
         .replace(/\{\{IMAGE\}\}/g, article.image || 'https://voiceprompter.app/og-image.png')

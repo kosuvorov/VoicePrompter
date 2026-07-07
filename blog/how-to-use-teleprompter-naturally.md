@@ -2,6 +2,7 @@
 title: "How to Use a Teleprompter Naturally (So Nobody Knows)"
 description: "The techniques that separate natural-sounding teleprompter users from the ones who look like they're reading. Practical, actionable advice."
 date: "Mar 12, 2026"
+updated: "Jul 7, 2026"
 image: "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
 ---
@@ -86,6 +87,16 @@ This is surprisingly useful once you get comfortable with teleprompter reading, 
 **Not practicing before the real recording.** Reading from a teleprompter feels natural after practice and awkward before it. Don't try to figure out the technique during your actual recording.
 
 For the placement and setup details, see [how to read a script without looking like you're reading](./how-to-read-script-without-looking-like-reading.md). For the Mac-specific setup, [best teleprompter app for Mac](./best-teleprompter-app-for-mac.md) covers everything you need.
+
+## Frequently asked questions
+
+**How do you use a teleprompter naturally?** Big font close to the lens, a script written the way you talk, and voice-paced scrolling so you never chase the text - naturalness is mostly setup, not talent.
+
+**Why do I sound robotic on a teleprompter?** Almost always fixed-speed scrolling: you're matching a machine's pace. Word tracking flips it so the machine matches yours.
+
+**Should I rehearse before using a teleprompter?** One read-aloud pass to fix written-not-spoken sentences is enough; voice tracking makes even first takes usable.
+
+**How far from the camera can the text be?** As close as physically possible - the smaller the angle between the words and the lens, the less your eyes visibly move.
 
 ---
 

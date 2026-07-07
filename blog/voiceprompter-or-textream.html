@@ -231,6 +231,74 @@
             font-size: 0.9375rem;
         }
 
+        .article-author {
+            color: #d0d0d0;
+            font-weight: 600;
+        }
+
+        .article-author:hover {
+            color: #DAA000;
+        }
+
+        .article-author-role {
+            color: #777;
+        }
+
+        .article-hero {
+            width: 100%;
+            height: auto;
+            max-height: 340px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 4px 0 8px;
+        }
+
+        .article-toc {
+            background: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+
+        .article-toc strong {
+            display: block;
+            color: #fff;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .article-toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            columns: 2;
+            column-gap: 24px;
+        }
+
+        .article-toc li {
+            margin-bottom: 6px;
+            break-inside: avoid;
+        }
+
+        .article-toc a {
+            color: #a0a0a0;
+            text-decoration: none;
+        }
+
+        .article-toc a:hover {
+            color: #DAA000;
+        }
+
+        @media (max-width: 560px) {
+            .article-toc ul {
+                columns: 1;
+            }
+        }
+
         .article-content {
             font-size: 1.0625rem;
             color: #d0d0d0;
@@ -551,20 +619,25 @@
         <article>
             <div class="article-header">
                 <h1>VoicePrompter or Textream: Free and Open Source vs Reliable and Native</h1>
-                <div class="article-meta">Jun 30, 2026</div>
+                <div class="article-meta">
+                    <a class="article-author" href="/about.html">Konstantin Suvorov</a>
+                    <span class="article-author-role">· builds VoicePrompter</span>
+                    <span aria-hidden="true"> · </span>Jun 30, 2026
+                </div>
             </div>
 
             <div class="article-content">
                 <div class="article-tldr" aria-label="Quick Summary">
                     <strong>TL;DR:</strong> Textream is free and open source but installs from GitHub and has reported reliability issues. Here's how it compares to VoicePrompter - and which to choose.
                 </div>
-                <h1>VoicePrompter or Textream: Free and Open Source vs Reliable and Native</h1>
-<p>If you&#39;re weighing VoicePrompter against Textream, it comes down to a trade-off: Textream is <strong>free and open source</strong>, while <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-vs-textream&mt=8">VoicePrompter</a> is a <strong>reliable, native Mac app you install from the App Store</strong>. If reliability matters to you - and for a teleprompter it should - that&#39;s the deciding factor. Here&#39;s the honest comparison.</p>
-<h2>Two things to weigh: where it comes from, and whether it holds up</h2>
+                
+                <nav class="article-toc" aria-label="Contents"><strong>In this article</strong><ul><li><a href="#two-things-to-weigh-where-it-comes-from-and-whether-it-holds-up">Two things to weigh: where it comes from, and whether it holds up</a></li><li><a href="#side-by-side">Side by side</a></li><li><a href="#where-textream-has-a-real-appeal">Where Textream has a real appeal</a></li><li><a href="#why-people-pick-voiceprompter">Why people pick VoicePrompter</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
+                <p>If you&#39;re weighing VoicePrompter against Textream, it comes down to a trade-off: Textream is <strong>free and open source</strong>, while <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-vs-textream&mt=8">VoicePrompter</a> is a <strong>reliable, native Mac app you install from the App Store</strong>. If reliability matters to you - and for a teleprompter it should - that&#39;s the deciding factor. Here&#39;s the honest comparison.</p>
+<h2 id="two-things-to-weigh-where-it-comes-from-and-whether-it-holds-up">Two things to weigh: where it comes from, and whether it holds up</h2>
 <p><strong>How you install it.</strong> Textream is distributed on <strong>GitHub, not the Mac App Store</strong>. For developers, that&#39;s no problem. For everyone else it&#39;s a real wall: because the app isn&#39;t signed with an Apple Developer certificate, macOS blocks it by default, and to open it you have to <strong>run a command in Terminal</strong> to override Gatekeeper and allow an unsigned app. That&#39;s both a security risk (you&#39;re bypassing the protection that vets apps) and, frankly, too much to ask of a regular user who just wants a teleprompter. An App Store app installs in one click and has already passed Apple&#39;s safety review.</p>
 <p><strong>Whether the voice scrolling is reliable.</strong> This is the bigger issue. A teleprompter that stumbles mid-take is worse than no teleprompter, because it breaks your focus exactly when you can least afford it. As of mid-2026, Textream&#39;s own public issue tracker reports problems including voice recognition <strong>freezing periodically</strong>, the prompter <strong>&quot;not scrolling with my speech,&quot;</strong> <strong>tracking breaking when you resize the window</strong>, and <strong>word tracking broken for Chinese, Japanese, and Korean</strong>.</p>
 <p>VoicePrompter is built around getting that one thing right, and its voice scrolling is the best I&#39;ve found on the market: it tracks against your <strong>entire script at once</strong> - an unlimited listening window - so it never loses you when you pause, ad-lib, or jump around. Most engines can only match the next handful of words. For contrast on reliability, a user emailed after using it for a broadcast: <em>&quot;I just used the app for a Chinese broadcast and it worked well.&quot;</em></p>
-<h2>Side by side</h2>
+<h2 id="side-by-side">Side by side</h2>
 <table>
 <thead>
 <tr>
@@ -604,13 +677,13 @@
 <td>60+ (CJK reported broken)</td>
 </tr>
 </tbody></table>
-<h2>Where Textream has a real appeal</h2>
+<h2 id="where-textream-has-a-real-appeal">Where Textream has a real appeal</h2>
 <p>Credit where it&#39;s due: Textream is <strong>free and open source</strong>, which is genuinely valuable if you like to inspect or modify the code, or you&#39;re comfortable running builds from GitHub. If you&#39;re a tinkerer who wants a free, hackable starting point and you don&#39;t mind ironing out rough edges yourself, that&#39;s a legitimate reason to use it.</p>
 <div class="video-responsive"><iframe src="https://www.youtube.com/embed/07Xnj7q2c9Y" title="VoicePrompter for Mac - voice-controlled teleprompter demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
 
-<h2>Why people pick VoicePrompter</h2>
+<h2 id="why-people-pick-voiceprompter">Why people pick VoicePrompter</h2>
 <p>VoicePrompter is a native Mac app from the App Store with the most reliable voice scrolling I&#39;ve found - an unlimited listening window that tracks your whole script - plus a transparent overlay that stays <strong>invisible during screen sharing</strong> and floats on top of everything. It&#39;s also the <strong>easiest to start</strong>: write your script wherever you already work - Notes, Google Docs, Notion - and launch it in <strong>one click</strong> from your clipboard, instead of pasting and managing scripts inside an app&#39;s editor. It holds a <strong>5.0★ rating</strong>, is used by creators in <strong>125+ countries</strong>, and is <strong>free to use for up to 3 custom scripts plus a demo script</strong> - no terminal, no risk.</p>
-<h2>Frequently asked questions</h2>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <p><strong>Is Textream free?</strong> Yes - it&#39;s free and open source, distributed on GitHub. Just note the setup: because it&#39;s unsigned, you&#39;ll need to run a Terminal command to let macOS open it.</p>
 <p><strong>Is there a free version of VoicePrompter?</strong> Yes - two of them. The <a href="https://voiceprompter.app">web app</a> does voice scrolling free in any browser, and the native <strong>Mac app is free to use</strong> for up to 3 custom scripts (each with unlimited words and sessions) plus a free demo script - upgrade only if you need more.</p>
 <p><strong>Where do I store my scripts?</strong> Wherever you already work - Google Docs, Apple Notes, Notion, Obsidian. Copy the text, click Load from Clipboard, and the window opens instantly. That one-click start is a big part of why it&#39;s so easy to use.</p>

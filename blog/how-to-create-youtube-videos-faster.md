@@ -2,6 +2,7 @@
 title: "How to Create YouTube Videos Faster (Without Sacrificing Quality)"
 description: "A practical workflow for YouTube creators who want to cut production time in half - from scripting to recording to upload."
 date: "Mar 29, 2026"
+updated: "Jul 7, 2026"
 image: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
 ---
@@ -79,6 +80,16 @@ One video, start to finish, in about three hours. That's sustainable even if You
 The creators who burn out are almost always the ones whose process is too slow. Speed isn't about cutting corners - it's about not wasting time on things that don't make the video better.
 
 For a deeper look at the tutorial-specific version of this workflow, see [how to record tutorial videos faster](./record-tutorial-videos-faster.md). If you're also creating course content, [teleprompter for online course creators](./teleprompter-for-online-course-creators.md) covers the differences in scripting and recording for educational material.
+
+## Frequently asked questions
+
+**What slows down YouTube production the most?** Retakes and editing around rambles - both symptoms of unscripted delivery. A script plus voice-paced prompting attacks both at once.
+
+**How many takes should a scripted video need?** With voice-paced prompting, one or two per section is normal; the script follows you, so a stumble means re-reading a line, not restarting the video.
+
+**Can I use a teleprompter for screen-recorded videos?** On a Mac, yes - the floating script is invisible to OBS and QuickTime capture, so tutorials and demos read cleanly.
+
+**Does scripting kill spontaneity?** No - write conversationally and ad-lib freely; word tracking waits during the tangent and picks you up when you return.
 
 ---
 

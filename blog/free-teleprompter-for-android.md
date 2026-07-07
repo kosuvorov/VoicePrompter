@@ -37,6 +37,9 @@ For filming, put the phone or tablet as close to your camera as possible - or pr
 
 If you also work on Apple devices, the [native apps](https://voiceprompter.app) add the floating window, 4K recording, and whole-script tracking with backward scrolling - one purchase across iPhone, iPad, and Mac.
 
+<div style="margin:20px 0;"><a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-android-web&mt=8" target="_blank" rel="noopener"><img src="/Download_on_the_App_Store_Badge_US-UK_RGB_wht_092917.svg" alt="Download VoicePrompter on the App Store" style="height:52px;"></a></div>
+
+
 ## Frequently asked questions
 
 **Is there a free teleprompter app for Android?** Yes - the VoicePrompter web app is completely free on Android: open it in Chrome, paste your script, and it scrolls as you speak. No download or account needed.

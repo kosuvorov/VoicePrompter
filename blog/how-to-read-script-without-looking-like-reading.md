@@ -2,6 +2,7 @@
 title: "How to Read a Script Without Looking Like You're Reading"
 description: "How to read a script on camera so it sounds natural, not robotic - where to look, how to phrase and pace, and the prompter setup that makes delivery effortless."
 date: "Mar 8, 2026"
+updated: "Jul 7, 2026"
 image: "https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
 ---
@@ -83,6 +84,16 @@ This works even better if you have a [voice-activated teleprompter](./free-voice
 Reading a script naturally is a skill. Like any skill, it gets better with deliberate practice. The equipment matters - position your text correctly, use a voice-scrolling teleprompter so the pace stays with you - but the skill is in the delivery. Slow down. Read in phrases. Mark your pauses.
 
 And if you haven't already, read [how to use a teleprompter naturally](./how-to-use-teleprompter-naturally.md) for the technical side of making it all work seamlessly.
+
+## Frequently asked questions
+
+**How do you read a script without looking like you're reading?** Text tight against the lens, big font, spoken-style writing, and scrolling that follows your voice - eye drift and metronome pacing are the two giveaways.
+
+**Where should the teleprompter be for natural eye contact?** As close to the camera as possible: on a laptop that's hugging the top bezel; with a webcam, directly beside or below it.
+
+**Does font size matter?** A lot - bigger text means less eye travel per line, which is exactly the movement viewers notice.
+
+**Can viewers tell when scrolling is voice-paced?** They notice the result: your rhythm stays yours, pauses land, and nothing about the delivery reads as scripted.
 
 ---
 

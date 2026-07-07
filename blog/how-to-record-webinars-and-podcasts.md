@@ -2,6 +2,7 @@
 title: "How to Record Webinars and Podcasts That Don't Sound Winged"
 description: "Most webinars sound like a smart person rambling. Here's how to deliver structured, tight content without sounding robotic."
 date: "Mar 4, 2026"
+updated: "Jul 7, 2026"
 image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
 ---
@@ -81,6 +82,16 @@ If you make a mistake mid-segment, don't stop recording. Pause. Take a breath. S
 With a voice-activated teleprompter, you can also tap any word in the script to jump back to an earlier point and re-record from there - without stopping the recording. This is particularly useful for re-doing a transition or a key phrase.
 
 For the full workflow on reducing retakes, see [how to record tutorial videos faster](./record-tutorial-videos-faster.md). For the product demo variant of this, [how to record a product demo video](./how-to-record-product-demo-video.md) covers the same principles in a more focused context.
+
+## Frequently asked questions
+
+**Can I use a teleprompter during a live webinar?** Yes - an invisible overlay keeps your outline in view while attendees see only your slides and camera.
+
+**Do podcast hosts use teleprompters?** Increasingly - for intros, ad reads, and structured segments. Voice pacing matters most here, because listeners are sensitive to a read cadence.
+
+**How do I read questions naturally during interviews?** Keep them in a floating window near the lens; whole-script tracking means you can skip questions or loop back as the conversation flows.
+
+**Will my notes appear in the recording?** Not on a Mac with capture-excluded prompting - Zoom, Riverside, and OBS recordings never see the window.
 
 ---
 

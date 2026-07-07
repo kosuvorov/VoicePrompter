@@ -239,6 +239,74 @@
             font-size: 0.9375rem;
         }
 
+        .article-author {
+            color: #d0d0d0;
+            font-weight: 600;
+        }
+
+        .article-author:hover {
+            color: #DAA000;
+        }
+
+        .article-author-role {
+            color: #777;
+        }
+
+        .article-hero {
+            width: 100%;
+            height: auto;
+            max-height: 340px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 4px 0 8px;
+        }
+
+        .article-toc {
+            background: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+
+        .article-toc strong {
+            display: block;
+            color: #fff;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .article-toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            columns: 2;
+            column-gap: 24px;
+        }
+
+        .article-toc li {
+            margin-bottom: 6px;
+            break-inside: avoid;
+        }
+
+        .article-toc a {
+            color: #a0a0a0;
+            text-decoration: none;
+        }
+
+        .article-toc a:hover {
+            color: #DAA000;
+        }
+
+        @media (max-width: 560px) {
+            .article-toc ul {
+                columns: 1;
+            }
+        }
+
         .article-content {
             font-size: 1.0625rem;
             color: #d0d0d0;
@@ -559,28 +627,33 @@
         <article>
             <div class="article-header">
                 <h1>Teleprompter Online: Use One in Your Browser Right Now (No Download)</h1>
-                <div class="article-meta">Jul 7, 2026</div>
+                <div class="article-meta">
+                    <a class="article-author" href="/about.html">Konstantin Suvorov</a>
+                    <span class="article-author-role">· builds VoicePrompter</span>
+                    <span aria-hidden="true"> · </span>Jul 7, 2026
+                </div>
             </div>
 
             <div class="article-content">
                 <div class="article-tldr" aria-label="Quick Summary">
                     <strong>TL;DR:</strong> A free online teleprompter that scrolls with your voice - no download, no signup, works on any device with a browser. Open it, paste your script, start talking.
                 </div>
-                <h1>Teleprompter Online: Use One in Your Browser Right Now (No Download)</h1>
-<p>You can use a teleprompter online, right now, without installing or signing up for anything: open the <a href="https://voiceprompter.app/web/">VoicePrompter web app</a>, paste your script, and start talking - it scrolls as you speak. It&#39;s free, it runs entirely in your browser on any device, and your script never leaves your machine. I built it; here&#39;s what it does, what an online teleprompter can and can&#39;t do, and when the native apps are worth it.</p>
-<h2>What makes an online teleprompter actually useful</h2>
+                
+                <nav class="article-toc" aria-label="Contents"><strong>In this article</strong><ul><li><a href="#what-makes-an-online-teleprompter-actually-useful">What makes an online teleprompter actually useful</a></li><li><a href="#sixty-second-setup">Sixty-second setup</a></li><li><a href="#what-a-browser-teleprompter-can-39-t-do">What a browser teleprompter can&#39;t do</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
+                <p>You can use a teleprompter online, right now, without installing or signing up for anything: open the <a href="https://voiceprompter.app/web/">VoicePrompter web app</a>, paste your script, and start talking - it scrolls as you speak. It&#39;s free, it runs entirely in your browser on any device, and your script never leaves your machine. I built it; here&#39;s what it does, what an online teleprompter can and can&#39;t do, and when the native apps are worth it.</p>
+<h2 id="what-makes-an-online-teleprompter-actually-useful">What makes an online teleprompter actually useful</h2>
 <p>Plenty of browser prompters exist, and most are the digital equivalent of a paper scroll: paste text, set a speed, press play. Fine for a podium speech; frustrating for camera work, because a fixed crawl never matches how you actually talk.</p>
 <p>The difference with VoicePrompter&#39;s web app is <strong>voice scrolling in the browser</strong>. It uses the speech recognition built into Chrome, Edge, and Safari to follow what you&#39;re saying - the text advances with your words, pauses when you stop, and resumes when you do. Recognition runs on your device: no audio uploaded, no account, nothing stored on a server. It handles 34 languages with automatic detection, has a mirror mode for beam-splitter glass, video recording built in, and works offline once loaded (it installs as a PWA if you want an icon on your desktop or home screen).</p>
 <div class="video-responsive"><iframe src="https://www.youtube.com/embed/AFw-cO8qsEM" title="VoicePrompter online teleprompter demo - voice-activated in the browser" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
 
-<h2>Sixty-second setup</h2>
+<h2 id="sixty-second-setup">Sixty-second setup</h2>
 <ol>
 <li>Open <strong><a href="https://voiceprompter.app/web/">voiceprompter.app/web</a></strong> in Chrome, Edge, or Safari (Firefox doesn&#39;t support the browser speech API).</li>
 <li>Paste your script and tap the microphone; allow mic access.</li>
 <li>Talk. Adjust font size and colors to taste; position the window near your camera.</li>
 </ol>
 <p>That works identically on a Mac, a Windows PC, an Android phone or tablet (<a href="free-teleprompter-for-android.html">full Android guide here</a>), an iPhone, or a Chromebook - if it runs a modern browser, it runs the prompter.</p>
-<h2>What a browser teleprompter can&#39;t do</h2>
+<h2 id="what-a-browser-teleprompter-can-39-t-do">What a browser teleprompter can&#39;t do</h2>
 <p>Honesty about the limits, because they&#39;re exactly why the native apps exist:</p>
 <ul>
 <li><strong>A browser tab appears in screen shares and recordings.</strong> If you&#39;re presenting on Zoom or recording a demo, everyone sees the tab. The <a href="https://voiceprompter.app/mac/">native Mac app</a> solves this with a floating window that&#39;s invisible to screen capture.</li>
@@ -589,7 +662,10 @@
 </ul>
 <p>For a speech, a rehearsal, a quick take, or any camera-only recording, the online version is genuinely all you need - which is why over 9,500 scripts are read aloud through VoicePrompter every month. When your work moves into calls, screen shares, and social apps, that&#39;s the upgrade moment.</p>
 <p>If you&#39;re comparing several browser prompters first, I tested the field honestly in <a href="best-free-web-teleprompter.html">the best free web teleprompter apps</a>.</p>
-<h2>Frequently asked questions</h2>
+<div style="margin:20px 0;"><a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-online-teleprompter&mt=8" target="_blank" rel="noopener"><img src="/Download_on_the_App_Store_Badge_US-UK_RGB_wht_092917.svg" alt="Download VoicePrompter on the App Store" style="height:52px;" decoding="async" fetchpriority="high"></a></div>
+
+
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <p><strong>Is there a free online teleprompter with no download?</strong> Yes - the VoicePrompter web app runs in your browser free of charge: no download, no account, no watermark. Paste your script and start.</p>
 <p><strong>Is there an online teleprompter that&#39;s voice activated?</strong> Yes - VoicePrompter&#39;s web version scrolls by following your speech using the browser&#39;s built-in recognition, entirely on your device.</p>
 <p><strong>Which browsers does an online teleprompter work in?</strong> Chrome, Edge, and Safari support the speech API; Firefox currently doesn&#39;t. Any recent device works - Mac, Windows, Android, iPhone, Chromebook.</p>

@@ -231,6 +231,74 @@
             font-size: 0.9375rem;
         }
 
+        .article-author {
+            color: #d0d0d0;
+            font-weight: 600;
+        }
+
+        .article-author:hover {
+            color: #DAA000;
+        }
+
+        .article-author-role {
+            color: #777;
+        }
+
+        .article-hero {
+            width: 100%;
+            height: auto;
+            max-height: 340px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 4px 0 8px;
+        }
+
+        .article-toc {
+            background: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+
+        .article-toc strong {
+            display: block;
+            color: #fff;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .article-toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            columns: 2;
+            column-gap: 24px;
+        }
+
+        .article-toc li {
+            margin-bottom: 6px;
+            break-inside: avoid;
+        }
+
+        .article-toc a {
+            color: #a0a0a0;
+            text-decoration: none;
+        }
+
+        .article-toc a:hover {
+            color: #DAA000;
+        }
+
+        @media (max-width: 560px) {
+            .article-toc ul {
+                columns: 1;
+            }
+        }
+
         .article-content {
             font-size: 1.0625rem;
             color: #d0d0d0;
@@ -551,24 +619,29 @@
         <article>
             <div class="article-header">
                 <h1>VoicePrompter or PromptSmart: A Cleaner, Native Mac Voice Teleprompter</h1>
-                <div class="article-meta">Jun 30, 2026</div>
+                <div class="article-meta">
+                    <a class="article-author" href="/about.html">Konstantin Suvorov</a>
+                    <span class="article-author-role">· builds VoicePrompter</span>
+                    <span aria-hidden="true"> · </span>Jun 30, 2026
+                </div>
             </div>
 
             <div class="article-content">
                 <div class="article-tldr" aria-label="Quick Summary">
                     <strong>TL;DR:</strong> PromptSmart pioneered voice tracking, but its Mac app is an iOS port. Here's how it compares to VoicePrompter, the native Mac alternative - and which to pick.
                 </div>
-                <h1>VoicePrompter or PromptSmart: A Cleaner, Native Mac Voice Teleprompter</h1>
-<p>PromptSmart and <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-vs-promptsmart&mt=8">VoicePrompter</a> both do the thing that matters most - they follow your voice with real word tracking, not just sound. So this comparison isn&#39;t about whether voice scrolling works; it&#39;s about <strong>which is the better experience on a Mac.</strong> Short version: PromptSmart is an iPhone app first, while VoicePrompter is built for macOS - and on a Mac, that shows.</p>
-<h2>Credit first: PromptSmart got voice tracking right early</h2>
+                
+                <nav class="article-toc" aria-label="Contents"><strong>In this article</strong><ul><li><a href="#credit-first-promptsmart-got-voice-tracking-right-early">Credit first: PromptSmart got voice tracking right early</a></li><li><a href="#where-it-falls-short-on-a-mac">Where it falls short on a Mac</a></li><li><a href="#side-by-side">Side by side</a></li><li><a href="#why-people-pick-voiceprompter-on-mac">Why people pick VoicePrompter on Mac</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
+                <p>PromptSmart and <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-vs-promptsmart&mt=8">VoicePrompter</a> both do the thing that matters most - they follow your voice with real word tracking, not just sound. So this comparison isn&#39;t about whether voice scrolling works; it&#39;s about <strong>which is the better experience on a Mac.</strong> Short version: PromptSmart is an iPhone app first, while VoicePrompter is built for macOS - and on a Mac, that shows.</p>
+<h2 id="credit-first-promptsmart-got-voice-tracking-right-early">Credit first: PromptSmart got voice tracking right early</h2>
 <p>PromptSmart&#39;s &quot;VoiceTrack&quot; was one of the first teleprompter features to genuinely follow your speech rather than scroll on a timer, and in English it works well. If you&#39;re on an iPhone or iPad and you mostly speak English, it&#39;s a capable, proven option. This isn&#39;t a strawman - it&#39;s real voice tracking.</p>
-<h2>Where it falls short on a Mac</h2>
+<h2 id="where-it-falls-short-on-a-mac">Where it falls short on a Mac</h2>
 <p>Two honest points, as of mid-2026:</p>
 <ul>
 <li><strong>The Mac app feels like a port.</strong> PromptSmart is iOS-first, and its Mac version reads like the iPhone app stretched onto a desktop window - the interface is dated and clunky next to something designed for macOS. VoicePrompter is a native Mac menu-bar app: it floats on top of every app (including full-screen Keynote and Zoom), stays <strong>invisible during screen sharing</strong>, and starts a script in one click from your clipboard.</li>
 <li><strong>Language coverage.</strong> PromptSmart&#39;s recognition is strongest in English and falls off noticeably in other languages. VoicePrompter tracks your voice in <strong>60+ languages</strong> with on-device recognition.</li>
 </ul>
-<h2>Side by side</h2>
+<h2 id="side-by-side">Side by side</h2>
 <table>
 <thead>
 <tr>
@@ -605,9 +678,9 @@
 </tbody></table>
 <div class="video-responsive"><iframe src="https://www.youtube.com/embed/07Xnj7q2c9Y" title="VoicePrompter for Mac - voice-controlled teleprompter demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
 
-<h2>Why people pick VoicePrompter on Mac</h2>
+<h2 id="why-people-pick-voiceprompter-on-mac">Why people pick VoicePrompter on Mac</h2>
 <p>For Mac recording - demos, webinars, sales calls, courses - the combination of a <strong>native, always-on-top, invisible overlay</strong> with the best voice scrolling I&#39;ve found (an <strong>unlimited listening window</strong> that tracks your whole script in <strong>60+ languages</strong>) is the specific thing that solves the real problem. It&#39;s also the <strong>easiest to start</strong>: write your script in Notes, Docs, or Notion and launch it in <strong>one click</strong> from your clipboard - no wrestling it into a dated in-app editor first. Add menu-bar quick settings, deep customization, a <strong>5.0★ App Store rating</strong>, and a free web version to try. As one reviewer put it: <em>&quot;the most robust, reliable, versatile and customizable one I&#39;ve tried.&quot;</em></p>
-<h2>Frequently asked questions</h2>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <p><strong>Do both follow your voice?</strong> Yes - both use real word tracking. The difference is the Mac experience and language coverage, not whether voice scrolling works.</p>
 <p><strong>Is PromptSmart good on Mac?</strong> Its voice tech is solid, but the Mac app is an iOS port with a dated interface; VoicePrompter is built natively for macOS.</p>
 <p><strong>Which handles non-English languages better?</strong> VoicePrompter - 60+ languages on-device, vs PromptSmart&#39;s English-focused recognition.</p>

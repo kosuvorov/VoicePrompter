@@ -231,6 +231,74 @@
             font-size: 0.9375rem;
         }
 
+        .article-author {
+            color: #d0d0d0;
+            font-weight: 600;
+        }
+
+        .article-author:hover {
+            color: #DAA000;
+        }
+
+        .article-author-role {
+            color: #777;
+        }
+
+        .article-hero {
+            width: 100%;
+            height: auto;
+            max-height: 340px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 4px 0 8px;
+        }
+
+        .article-toc {
+            background: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+
+        .article-toc strong {
+            display: block;
+            color: #fff;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .article-toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            columns: 2;
+            column-gap: 24px;
+        }
+
+        .article-toc li {
+            margin-bottom: 6px;
+            break-inside: avoid;
+        }
+
+        .article-toc a {
+            color: #a0a0a0;
+            text-decoration: none;
+        }
+
+        .article-toc a:hover {
+            color: #DAA000;
+        }
+
+        @media (max-width: 560px) {
+            .article-toc ul {
+                columns: 1;
+            }
+        }
+
         .article-content {
             font-size: 1.0625rem;
             color: #d0d0d0;
@@ -551,19 +619,24 @@
         <article>
             <div class="article-header">
                 <h1>VoicePrompter or BIGVU: A Focused Teleprompter vs an All-in-One Suite</h1>
-                <div class="article-meta">Jun 30, 2026</div>
+                <div class="article-meta">
+                    <a class="article-author" href="/about.html">Konstantin Suvorov</a>
+                    <span class="article-author-role">· builds VoicePrompter</span>
+                    <span aria-hidden="true"> · </span>Jun 30, 2026
+                </div>
             </div>
 
             <div class="article-content">
                 <div class="article-tldr" aria-label="Quick Summary">
                     <strong>TL;DR:</strong> BIGVU bundles a teleprompter with captions, editing, and publishing. VoicePrompter does one thing extremely well. Here's which fits your workflow.
                 </div>
-                <h1>VoicePrompter or BIGVU: A Focused Teleprompter vs an All-in-One Suite</h1>
-<p>BIGVU and <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-vs-bigvu&mt=8">VoicePrompter</a> solve the teleprompter problem from opposite directions. BIGVU is a <strong>creator suite</strong> - teleprompter plus captions, editing, and publishing in one place. VoicePrompter is a <strong>focused, native Mac teleprompter</strong> that does prompting better than a suite can and stays out of the way of everything else. The right pick depends on whether you want one tool that does many things, or the best tool for the one thing.</p>
-<h2>Two different philosophies</h2>
+                
+                <nav class="article-toc" aria-label="Contents"><strong>In this article</strong><ul><li><a href="#two-different-philosophies">Two different philosophies</a></li><li><a href="#side-by-side">Side by side</a></li><li><a href="#where-bigvu-makes-sense">Where BIGVU makes sense</a></li><li><a href="#why-people-pick-voiceprompter">Why people pick VoicePrompter</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
+                <p>BIGVU and <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-vs-bigvu&mt=8">VoicePrompter</a> solve the teleprompter problem from opposite directions. BIGVU is a <strong>creator suite</strong> - teleprompter plus captions, editing, and publishing in one place. VoicePrompter is a <strong>focused, native Mac teleprompter</strong> that does prompting better than a suite can and stays out of the way of everything else. The right pick depends on whether you want one tool that does many things, or the best tool for the one thing.</p>
+<h2 id="two-different-philosophies">Two different philosophies</h2>
 <p><strong>BIGVU</strong> is an all-in-one video kit. If you want to record, auto-caption, trim, brand, and publish short videos without leaving one app, it covers a lot of ground - mostly aimed at social/marketing video, and largely web- and mobile-based.</p>
 <p><strong>VoicePrompter</strong> is deliberately narrow. It&#39;s a native Mac overlay that floats on top of any app, stays <strong>invisible during screen sharing</strong>, and follows your voice with real <strong>word tracking</strong> in 60+ languages. It doesn&#39;t edit or publish your video - it makes the <em>reading</em> effortless and gets out of the way, so it pairs with whatever recording or conferencing tools you already use.</p>
-<h2>Side by side</h2>
+<h2 id="side-by-side">Side by side</h2>
 <table>
 <thead>
 <tr>
@@ -598,13 +671,13 @@
 <td>All-in-one social video production</td>
 </tr>
 </tbody></table>
-<h2>Where BIGVU makes sense</h2>
+<h2 id="where-bigvu-makes-sense">Where BIGVU makes sense</h2>
 <p>If your real goal is producing captioned social clips end to end - and you&#39;d rather have captions, editing, and scheduling bundled with your teleprompter - BIGVU&#39;s breadth is the point. For that workflow, an all-in-one suite can genuinely save you from juggling apps.</p>
 <div class="video-responsive"><iframe src="https://www.youtube.com/embed/07Xnj7q2c9Y" title="VoicePrompter for Mac - voice-controlled teleprompter demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
 
-<h2>Why people pick VoicePrompter</h2>
+<h2 id="why-people-pick-voiceprompter">Why people pick VoicePrompter</h2>
 <p>If what you actually need is a teleprompter that <em>works</em> - with the best voice scrolling I&#39;ve found (an <strong>unlimited listening window</strong> that tracks your whole script), invisible on screen shares, floating over everything - a focused native app beats a suite where prompting is one feature among many. It&#39;s also the <strong>easiest to start</strong>: write your script anywhere (Notes, Docs, Notion) and launch it in <strong>one click</strong> from your clipboard. VoicePrompter holds a <strong>5.0★ App Store rating</strong>, supports <strong>60+ languages</strong>, and has a free web version. One reviewer summed it up: <em>&quot;the most robust, reliable, versatile and customizable one I&#39;ve tried… it follows them word for word.&quot;</em></p>
-<h2>Frequently asked questions</h2>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <p><strong>Does BIGVU have a teleprompter?</strong> Yes - it&#39;s one feature of a broader suite that also does captions, editing, and publishing.</p>
 <p><strong>Is VoicePrompter an all-in-one tool?</strong> No, by design. It focuses on being the best teleprompter and pairs with your existing recording/editing tools.</p>
 <p><strong>Which is invisible during screen sharing?</strong> VoicePrompter - its overlay is hidden from screen shares and recordings.</p>

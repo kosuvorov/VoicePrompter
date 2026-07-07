@@ -36,7 +36,7 @@
     "description": "Practical techniques for delivering a compelling virtual keynote - from setup and scripting to engagement and delivery without notes.",
     "image": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80",
     "datePublished": "2026-03-28",
-    "dateModified": "2026-03-28",
+    "dateModified": "2026-07-06",
     "author": {
       "@type": "Person",
       "name": "Konstantin Suvorov",
@@ -77,6 +77,44 @@
         "position": 3,
         "name": "How to Give a Virtual Keynote Speech That Doesn't Lose Your Audience",
         "item": "https://voiceprompter.app/blog/how-to-give-virtual-keynote-speech.html"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can I use a teleprompter for a virtual keynote?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes - it's how polished virtual keynotes are done: a floating script near the lens keeps delivery tight for 30-60 minutes without memorization."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I present slides and read a script at once?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use an overlay that stays above full-screen presentation mode and is excluded from screen sharing - the audience sees only your slides."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I keep energy up in a long virtual talk?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Write spoken-style, stand if you can, and let voice-paced scrolling handle the place-keeping so your attention goes to delivery."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if I lose my place mid-keynote?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "With whole-script tracking you practically can't: start any line and the text scrolls to meet you, even backward."
+        }
       }
     ]
   }
@@ -171,6 +209,74 @@
         .article-meta {
             color: #888;
             font-size: 0.9375rem;
+        }
+
+        .article-author {
+            color: #d0d0d0;
+            font-weight: 600;
+        }
+
+        .article-author:hover {
+            color: #DAA000;
+        }
+
+        .article-author-role {
+            color: #777;
+        }
+
+        .article-hero {
+            width: 100%;
+            height: auto;
+            max-height: 340px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 4px 0 8px;
+        }
+
+        .article-toc {
+            background: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+
+        .article-toc strong {
+            display: block;
+            color: #fff;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .article-toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            columns: 2;
+            column-gap: 24px;
+        }
+
+        .article-toc li {
+            margin-bottom: 6px;
+            break-inside: avoid;
+        }
+
+        .article-toc a {
+            color: #a0a0a0;
+            text-decoration: none;
+        }
+
+        .article-toc a:hover {
+            color: #DAA000;
+        }
+
+        @media (max-width: 560px) {
+            .article-toc ul {
+                columns: 1;
+            }
         }
 
         .article-content {
@@ -493,58 +599,69 @@
         <article>
             <div class="article-header">
                 <h1>How to Give a Virtual Keynote Speech That Doesn't Lose Your Audience</h1>
-                <div class="article-meta">Mar 29, 2026</div>
+                <div class="article-meta">
+                    <a class="article-author" href="/about.html">Konstantin Suvorov</a>
+                    <span class="article-author-role">· builds VoicePrompter</span>
+                    <span aria-hidden="true"> · </span>Mar 29, 2026
+                </div>
             </div>
 
             <div class="article-content">
                 <div class="article-tldr" aria-label="Quick Summary">
                     <strong>TL;DR:</strong> Practical techniques for delivering a compelling virtual keynote - from setup and scripting to engagement and delivery without notes.
                 </div>
+                <img class="article-hero" src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80" alt="" decoding="async" fetchpriority="high">
+                <nav class="article-toc" aria-label="Contents"><strong>In this article</strong><ul><li><a href="#the-first-sixty-seconds-decide-everything">The First Sixty Seconds Decide Everything</a></li><li><a href="#your-slides-are-not-your-script">Your Slides Are Not Your Script</a></li><li><a href="#pacing-for-screens-not-stages">Pacing for Screens, Not Stages</a></li><li><a href="#the-technical-setup-nobody-gets-right">The Technical Setup Nobody Gets Right</a></li><li><a href="#engagement-without-a-live-audience">Engagement Without a Live Audience</a></li><li><a href="#the-rehearsal-that-actually-matters">The Rehearsal That Actually Matters</a></li><li><a href="#the-q-amp-a-transition">The Q&amp;A Transition</a></li><li><a href="#the-uncomfortable-truth-about-virtual-speaking">The Uncomfortable Truth About Virtual Speaking</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
                 <p>Virtual keynotes are harder than in-person ones. This isn&#39;t obvious until you&#39;ve done both.</p>
 <p>On stage, you have the audience&#39;s energy. You can see faces. You can feel the room shift when you land a point. The physical space creates a contract between you and the audience - they showed up, they&#39;re sitting in chairs, and social norms keep them there even if they&#39;re bored.</p>
 <p>On a screen, none of that exists. Your audience is sitting at their desk with email, Slack, and their phone within arm&#39;s reach. They have their camera off. They might be in their kitchen. The bar for keeping their attention is significantly higher, and you have fewer tools to do it with.</p>
 <p>Here&#39;s how to actually deliver a virtual keynote that holds an audience.</p>
-<h2>The First Sixty Seconds Decide Everything</h2>
+<h2 id="the-first-sixty-seconds-decide-everything">The First Sixty Seconds Decide Everything</h2>
 <p>In person, you get a few minutes of goodwill. People settle in. They give you the benefit of the doubt while you warm up.</p>
 <p>Virtually, you get about sixty seconds. If your opening is &quot;thanks so much for having me, I&#39;m really excited to be here, let me just share my screen, can everyone see my screen?&quot; - you&#39;ve already lost a chunk of the room.</p>
 <p>Script your opening. Not bullet points. Not a rough idea. Word for word. Make it a specific, concrete statement or story that immediately signals &quot;this will be worth your time.&quot; Something surprising, counterintuitive, or directly relevant to a problem the audience has right now. (If you&#39;re wondering how to deliver a scripted opening without sounding scripted, <a href="./how-to-read-script-without-looking-like-reading.html">how to read a script without looking like you&#39;re reading</a> covers this in depth.)</p>
 <p>Write this opening, read it aloud, tighten it, and read it aloud again. It should be under sixty seconds and it should make people put down their phones.</p>
-<h2>Your Slides Are Not Your Script</h2>
+<h2 id="your-slides-are-not-your-script">Your Slides Are Not Your Script</h2>
 <p>Most keynote speakers use slides as memory prompts. Each slide reminds them what to say next. This works on stage because you can glance at the confidence monitor briefly and it looks natural.</p>
 <p>On a virtual call, looking at your slides means looking away from the camera. And looking away from the camera means breaking eye contact with your audience. Do this enough and you start to look unprepared - like you&#39;re reading your own presentation for the first time.</p>
 <p>Separate your slides from your script. Your slides should support what you&#39;re saying visually. Your script should be somewhere else - somewhere you can read it while looking directly at the camera.</p>
 <p>This is where a teleprompter overlay changes the game entirely. With a tool like <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8">VoicePrompter&#39;s Mac app</a>, your script floats in a small translucent window right next to your camera lens. You read the script while maintaining eye contact. Your slides advance separately - either on a timer, with a clicker, or through your presentation software. The audience sees a speaker who seems to know their material perfectly and never breaks eye contact. What they don&#39;t see is the script floating two inches from the lens.</p>
 <p>Because the overlay is invisible to screen sharing and recording, it doesn&#39;t appear in the Zoom call or any recording of the session. From the audience&#39;s perspective, you&#39;re just an unusually polished speaker.</p>
-<h2>Pacing for Screens, Not Stages</h2>
+<h2 id="pacing-for-screens-not-stages">Pacing for Screens, Not Stages</h2>
 <p>On stage, you can take long pauses. You can walk to a different spot. You can let silence fill a large room for effect. These are powerful tools in physical space.</p>
 <p>On screen, a long pause feels like a technical glitch. Dead air makes people check if their connection dropped. You need to recalibrate your pacing for the medium.</p>
 <p>Speak slightly faster than you would on stage - not rushed, but without the dramatic pauses. Keep your transitions tight. When you move from one point to the next, bridge it explicitly: &quot;That&#39;s the problem. Now here&#39;s what I think we should do about it.&quot; Don&#39;t let there be a gap where people wonder if you&#39;re done.</p>
 <p>Use vocal variety instead of physical movement. On stage, you move your body to create energy. On screen, your voice has to do all of that work. Changes in speed, pitch, and volume are what keep a virtual audience engaged. Monotone delivery, even with great content, will lose people fast. For more on this, <a href="./how-to-look-confident-on-camera.html">how to look confident on camera</a> covers vocal and physical presence in detail.</p>
-<h2>The Technical Setup Nobody Gets Right</h2>
+<h2 id="the-technical-setup-nobody-gets-right">The Technical Setup Nobody Gets Right</h2>
 <p>Most virtual keynote speakers dramatically underinvest in their technical setup. They treat it like a regular Zoom call. It&#39;s not. You&#39;re speaking to hundreds or thousands of people. Small technical issues become large audience problems.</p>
 <p>Lighting: face a window, or use a ring light or two softbox lights. The light should be in front of you, not behind you. Backlighting creates a silhouette effect that screams &quot;I didn&#39;t prepare for this.&quot;</p>
 <p>Camera: at eye level, not laptop-on-desk level. If you&#39;re using a laptop camera, raise the laptop. If you can, use an external webcam mounted on a tripod or monitor. The quality difference is noticeable, but more importantly, the angle difference is what makes you look professional versus casual.</p>
 <p>Audio: use a dedicated microphone. Not your laptop mic. Not your AirPods. A USB condenser mic or a lapel mic. Clean audio signals professionalism and competence in a way that nothing else does. People will forgive medium video quality. They won&#39;t forgive bad audio. (The same principle applies to <a href="./zoom-presentation-tips-sales-calls.html">Zoom sales calls</a> - audio quality is the single biggest differentiator.)</p>
 <p>Background: clean and intentional. A bookshelf is fine. A blank wall is fine. A messy kitchen is not. If your background is distracting, use a real backdrop or a clean virtual background - but only if your webcam handles virtual backgrounds well. A glitchy virtual background is worse than a messy real one.</p>
-<h2>Engagement Without a Live Audience</h2>
+<h2 id="engagement-without-a-live-audience">Engagement Without a Live Audience</h2>
 <p>The hardest part of virtual keynotes is that you&#39;re speaking into silence. There&#39;s no laughter, no nodding, no energy coming back at you. This is psychologically draining and it affects your delivery.</p>
 <p>A few techniques that help.</p>
 <p>Ask the audience to use the chat. Not vague &quot;feel free to drop questions in the chat&quot; - specific prompts. &quot;Type the name of your company in the chat right now.&quot; &quot;What&#39;s the biggest challenge you&#39;re facing with X? One word, drop it in the chat.&quot; This gives you something to respond to and gives the audience a reason to engage.</p>
 <p>Reference the chat during your talk. If someone drops a comment that relates to your next point, call it out. &quot;I see Sarah mentioned onboarding - that&#39;s exactly what I want to talk about next.&quot; This makes the audience feel heard and keeps them active.</p>
 <p>Change the visual every two to three minutes. A new slide, a demo, a switch from slides to your face, a video clip. The variety resets attention. If you stay on the same slide for five minutes while talking, you&#39;re fighting biology - human attention drifts when the visual stimulus doesn&#39;t change.</p>
-<h2>The Rehearsal That Actually Matters</h2>
+<h2 id="the-rehearsal-that-actually-matters">The Rehearsal That Actually Matters</h2>
 <p>Don&#39;t rehearse by reading your script silently. Don&#39;t rehearse by mumbling through it at your desk. Rehearse the way you&#39;ll perform: sitting in front of your camera, with your slides loaded, with your teleprompter running, speaking at full volume.</p>
 <p>Do this at least twice before the real event. The first time, you&#39;ll discover that certain sentences are awkward to say aloud, that some transitions feel clunky, and that your timing is off. Fix all of this. The second time, you&#39;ll feel the flow and you&#39;ll know which parts need more energy and which need to breathe.</p>
 <p>If you use voice-activated scrolling on your teleprompter, the rehearsal also calibrates your sense of how the text tracks your speech. By the time you deliver the real keynote, reading from the prompter will feel completely natural - because you&#39;ve already done it twice.</p>
-<h2>The Q&amp;A Transition</h2>
+<h2 id="the-q-amp-a-transition">The Q&amp;A Transition</h2>
 <p>If your keynote includes a Q&amp;A segment, script the transition. The worst virtual keynotes end with &quot;so, uh, that&#39;s kind of what I wanted to cover, I think we have some time for questions?&quot;</p>
 <p>Instead: &quot;That&#39;s the core of what I wanted to share today. I&#39;ll sum it up in one sentence: [your one-sentence thesis]. I&#39;d love to hear what resonated or what you&#39;d push back on. Drop your questions in the chat or raise your hand, and let&#39;s dig in.&quot;</p>
 <p>Clear. Confident. Invites engagement. And you didn&#39;t have to think of it on the spot because it was on your teleprompter.</p>
-<h2>The Uncomfortable Truth About Virtual Speaking</h2>
+<h2 id="the-uncomfortable-truth-about-virtual-speaking">The Uncomfortable Truth About Virtual Speaking</h2>
 <p>The speakers who look effortless on virtual stages are not winging it. They&#39;re more prepared than they would be for an in-person talk, not less.</p>
 <p>They have word-for-word scripts for their openings and closings. They have a teleprompter so they never lose their place. They&#39;ve rehearsed with their actual tech setup. They&#39;ve thought about pacing, engagement, and visual variety in ways that an in-person venue would handle for them automatically.</p>
 <p>Virtual keynotes require more preparation because the medium gives you less. But if you put that preparation in, the result is a talk that feels seamless - and an audience that stays until the end.</p>
 <p>For the Zoom-specific version of many of these tips, see <a href="./zoom-presentation-tips-sales-calls.html">Zoom presentation tips for sales calls</a>. If you&#39;re also recording webinars or panels, <a href="./how-to-record-webinars-and-podcasts.html">how to record webinars and podcasts</a> covers the recording-specific workflow.</p>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<p><strong>Can I use a teleprompter for a virtual keynote?</strong> Yes - it&#39;s how polished virtual keynotes are done: a floating script near the lens keeps delivery tight for 30-60 minutes without memorization.</p>
+<p><strong>How do I present slides and read a script at once?</strong> Use an overlay that stays above full-screen presentation mode and is excluded from screen sharing - the audience sees only your slides.</p>
+<p><strong>How do I keep energy up in a long virtual talk?</strong> Write spoken-style, stand if you can, and let voice-paced scrolling handle the place-keeping so your attention goes to delivery.</p>
+<p><strong>What if I lose my place mid-keynote?</strong> With whole-script tracking you practically can&#39;t: start any line and the text scrolls to meet you, even backward.</p>
 <hr>
 <p><strong>Related articles:</strong></p>
 <ul>

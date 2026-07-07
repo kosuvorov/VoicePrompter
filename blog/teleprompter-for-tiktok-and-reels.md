@@ -1,7 +1,8 @@
 ---
-title: Best teleprompter for TikTok. Instagram Reels and youtube shorts.
-description: How to use a teleprompter for tiktok videos, instagram reels, youtube shorts and other short-form content.
-date: May 6, 2026
+title: "Teleprompter for TikTok, Instagram Reels & YouTube Shorts"
+description: "How to use a teleprompter for TikTok videos, Instagram Reels, and YouTube Shorts - including a floating prompter that works inside the TikTok and Instagram apps."
+date: "May 6, 2026"
+updated: "Jul 7, 2026"
 image: https://images.pexels.com/photos/7480548/pexels-photo-7480548.jpeg
 keywords:
   - teleprompter
@@ -106,3 +107,13 @@ The algorithm rewards consistency. A teleprompter is how you stay consistent.
 - [[how-to-look-confident-on-camera|How to Look Confident on Camera]]
 - [[stop-memorizing-your-script|Stop Memorizing Your Script - Do This Instead]]
 - [[how-to-create-youtube-videos-faster|How to Create YouTube Videos Faster]]
+
+## Frequently asked questions
+
+**Can I use a teleprompter inside the TikTok or Instagram app?** Yes - [VoicePrompter for iOS](https://voiceprompter.app/ios/) floats a picture-in-picture script window over TikTok, Instagram, or Snapchat while their camera records you, so the prompter never appears in the video.
+
+**Does TikTok have a built-in teleprompter?** TikTok has a basic text feature for some accounts, but it scrolls at a fixed speed and only works inside TikTok's camera. A floating voice-tracking prompter works across every app and follows your actual words.
+
+**How do I not look like I'm reading in Reels and Shorts?** Keep the script window close to the lens, use a big font, and use voice-paced scrolling so your delivery keeps its rhythm - the technique guide is in [how to read a script without looking like you're reading](how-to-read-script-without-looking-like-reading.html).
+
+**Is there a free option for short-form videos?** VoicePrompter's free tier includes voice tracking and the floating window with 3 custom scripts - [get it on the App Store](https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-tiktok-reels&mt=8).

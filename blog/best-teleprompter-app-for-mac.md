@@ -108,4 +108,4 @@ Ready to try it? [Get VoicePrompter for Mac](https://apps.apple.com/app/apple-st
 - [How to Use a Teleprompter on Zoom (Without Anyone Seeing It)](./how-to-use-teleprompter-on-zoom.md)
 - [Free Voice-Activated Teleprompter for Solo Creators](./free-voice-activated-teleprompter.md)
 - [How to Record a Product Demo Video](./how-to-record-product-demo-video.md)
-- [VoicePrompter Complete Guide](./voiceprompter-complete-guide-2025.md)
+- [VoicePrompter Complete Guide](./voiceprompter-complete-guide.md)

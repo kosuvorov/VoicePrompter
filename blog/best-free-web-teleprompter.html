@@ -223,6 +223,74 @@
             font-size: 0.9375rem;
         }
 
+        .article-author {
+            color: #d0d0d0;
+            font-weight: 600;
+        }
+
+        .article-author:hover {
+            color: #DAA000;
+        }
+
+        .article-author-role {
+            color: #777;
+        }
+
+        .article-hero {
+            width: 100%;
+            height: auto;
+            max-height: 340px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 4px 0 8px;
+        }
+
+        .article-toc {
+            background: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+
+        .article-toc strong {
+            display: block;
+            color: #fff;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .article-toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            columns: 2;
+            column-gap: 24px;
+        }
+
+        .article-toc li {
+            margin-bottom: 6px;
+            break-inside: avoid;
+        }
+
+        .article-toc a {
+            color: #a0a0a0;
+            text-decoration: none;
+        }
+
+        .article-toc a:hover {
+            color: #DAA000;
+        }
+
+        @media (max-width: 560px) {
+            .article-toc ul {
+                columns: 1;
+            }
+        }
+
         .article-content {
             font-size: 1.0625rem;
             color: #d0d0d0;
@@ -543,28 +611,33 @@
         <article>
             <div class="article-header">
                 <h1>Best Free Web Teleprompter Apps in 2026 (No Download)</h1>
-                <div class="article-meta">Jun 30, 2026</div>
+                <div class="article-meta">
+                    <a class="article-author" href="/about.html">Konstantin Suvorov</a>
+                    <span class="article-author-role">· builds VoicePrompter</span>
+                    <span aria-hidden="true"> · </span>Jun 30, 2026
+                </div>
             </div>
 
             <div class="article-content">
                 <div class="article-tldr" aria-label="Quick Summary">
                     <strong>TL;DR:</strong> The best free online teleprompters you can use in a browser - compared on voice scrolling, privacy, languages, and offline use. Here's which one to pick.
                 </div>
-                <h1>Best Free Web Teleprompter Apps in 2026 (No Download)</h1>
-<p>The best free web teleprompter is one that <strong>follows your voice, keeps your script private, and works without an account</strong> - and most free options miss at least one of those. After comparing the main browser-based tools, <a href="https://voiceprompter.app">VoicePrompter</a> is the one I&#39;d recommend (full disclosure: I built it, and below I&#39;ll be specific about what each tool does and doesn&#39;t do). Here&#39;s the honest roundup.</p>
-<h2>How I compared them</h2>
+                
+                <nav class="article-toc" aria-label="Contents"><strong>In this article</strong><ul><li><a href="#how-i-compared-them">How I compared them</a></li><li><a href="#1-voiceprompter-best-overall-free-web-teleprompter">1. VoicePrompter - best overall free web teleprompter</a></li><li><a href="#2-cueprompter-simplest-but-no-voice-scrolling">2. CuePrompter - simplest, but no voice scrolling</a></li><li><a href="#3-speakflow-polished-but-voice-scrolling-is-paywalled">3. Speakflow - polished, but voice scrolling is paywalled</a></li><li><a href="#4-telepromptermirror-basic-and-local">4. TeleprompterMirror - basic and local</a></li><li><a href="#at-a-glance">At a glance</a></li><li><a href="#the-verdict">The verdict</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
+                <p>The best free web teleprompter is one that <strong>follows your voice, keeps your script private, and works without an account</strong> - and most free options miss at least one of those. After comparing the main browser-based tools, <a href="https://voiceprompter.app">VoicePrompter</a> is the one I&#39;d recommend (full disclosure: I built it, and below I&#39;ll be specific about what each tool does and doesn&#39;t do). Here&#39;s the honest roundup.</p>
+<h2 id="how-i-compared-them">How I compared them</h2>
 <p>A free web teleprompter lives or dies on four things: <strong>real voice scrolling</strong> (does the text follow your speech, or just auto-scroll?), <strong>privacy</strong> (does your script stay on your device?), <strong>offline use</strong> (does it work without a connection?), and <strong>friction</strong> (signup, paywalls, watermarks). Here&#39;s how the main options stack up.</p>
-<h2>1. VoicePrompter - best overall free web teleprompter</h2>
+<h2 id="1-voiceprompter-best-overall-free-web-teleprompter">1. VoicePrompter - best overall free web teleprompter</h2>
 <p><strong>Best for: anyone who wants real voice scrolling for free.</strong> VoicePrompter runs in any browser with no account and no cost, and it does genuine voice scrolling - the text follows your actual speech, pauses when you pause, and lets you tap any word to jump there. It supports <strong>34 languages</strong> with auto-detection, runs <strong>entirely on your device</strong> (your script never leaves your browser), <strong>works offline</strong> once installed as an app (PWA), and includes mirror mode for teleprompter glass. The interface is clean and fast: paste your script and go. It&#39;s also open source.</p>
 <div class="video-responsive"><iframe src="https://www.youtube.com/embed/AFw-cO8qsEM" title="VoicePrompter - free voice-activated teleprompter demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
 
-<h2>2. CuePrompter - simplest, but no voice scrolling</h2>
+<h2 id="2-cueprompter-simplest-but-no-voice-scrolling">2. CuePrompter - simplest, but no voice scrolling</h2>
 <p><strong>Best for: a quick, no-frills run-through at your desk.</strong> CuePrompter is one of the oldest browser teleprompters, and its appeal is simplicity: paste text, set a speed, go full-screen, no signup. The trade-off is that it&#39;s <strong>fixed-speed auto-scroll only</strong> - no voice scrolling - and the interface shows its age, with no script saving and limited options. Fine for a fast rehearsal; not for keeping pace while you actually record.</p>
-<h2>3. Speakflow - polished, but voice scrolling is paywalled</h2>
+<h2 id="3-speakflow-polished-but-voice-scrolling-is-paywalled">3. Speakflow - polished, but voice scrolling is paywalled</h2>
 <p><strong>Best for: a clean web prompter if you don&#39;t need voice on the free tier.</strong> Speakflow has a nice interface and offers voice-activated scrolling - but on the <strong>free tier that voice scrolling is locked</strong>, and there&#39;s a word-count limit. You&#39;re effectively getting manual/auto-scroll for free, with the headline feature behind a paid plan. Worth knowing before you build a workflow around it.</p>
-<h2>4. TeleprompterMirror - basic and local</h2>
+<h2 id="4-telepromptermirror-basic-and-local">4. TeleprompterMirror - basic and local</h2>
 <p><strong>Best for: a simple free tool with optional sound-based scrolling.</strong> TeleprompterMirror is a straightforward web prompter where you paste a script, set a speed, and play; in Chrome you can enable a microphone button for sound-activated scrolling. Scripts are stored locally in your browser. It works, but it&#39;s basic, and its voice option is sound-based rather than true word tracking.</p>
-<h2>At a glance</h2>
+<h2 id="at-a-glance">At a glance</h2>
 <table>
 <thead>
 <tr>
@@ -604,9 +677,9 @@
 <td>None</td>
 </tr>
 </tbody></table>
-<h2>The verdict</h2>
+<h2 id="the-verdict">The verdict</h2>
 <p>If you only need to scroll text at a set speed for a quick rehearsal, CuePrompter is fine. But if you want a free web teleprompter that <strong>actually follows your voice</strong>, keeps your script <strong>private</strong>, and <strong>works offline</strong>, VoicePrompter is the most complete option - and it doesn&#39;t lock the main feature behind a paywall. Try it at <a href="https://voiceprompter.app">voiceprompter.app</a>. If you&#39;re on a Mac and need the prompter to stay <strong>invisible during screen sharing</strong>, the native <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-free-web&mt=8">Mac app</a> adds that.</p>
-<h2>Frequently asked questions</h2>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <p><strong>Is there a free online teleprompter with voice scrolling?</strong> Yes - VoicePrompter does real voice scrolling for free in your browser, with no account.</p>
 <p><strong>Do free web teleprompters work offline?</strong> Most don&#39;t, but VoicePrompter does once you install it as an app (PWA) - useful when filming with no connection.</p>
 <p><strong>Does my script stay private?</strong> With VoicePrompter, yes - recognition runs on your device and your script never leaves the browser. Not every web tool can say that.</p>

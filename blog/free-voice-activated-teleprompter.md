@@ -66,6 +66,6 @@ Try it now at [voiceprompter.app](https://voiceprompter.app) - paste a script an
 
 **Related articles:**
 - [Best Teleprompter App for Mac in 2026: An Honest Look](./best-teleprompter-app-for-mac.md)
-- [Why Voice Scrolling is Essential for Solo Creators](./voice-scrolling-solo-creators.md)
+- [Why Voice Scrolling is Essential for Solo Creators](./free-voice-activated-teleprompter.md)
 - [Teleprompter in 60+ Languages - Auto Language Detection](./multilingual-teleprompter-60-languages.md)
 - [How to Use a Teleprompter Naturally](./how-to-use-teleprompter-naturally.md)

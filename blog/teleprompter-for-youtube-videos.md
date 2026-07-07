@@ -32,6 +32,9 @@ On iPhone, [VoicePrompter for iOS](https://voiceprompter.app/ios/) gives you two
 
 Three habits carry most of the weight: write the script the way you actually talk (contractions, short sentences - read it aloud once and rewrite anything that sounds like an essay), keep the text as close to the lens as possible so your eyes don't visibly track, and trust the pause - silence reads as confidence on camera, and a voice-paced prompter pauses with you. The deeper technique guide is in [how to read a script without looking like you're reading](how-to-read-script-without-looking-like-reading.html), and the channel-growth angle in [how to create YouTube videos faster](how-to-create-youtube-videos-faster.html).
 
+
+<div style="margin:20px 0;"><a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-youtube-videos&mt=8" target="_blank" rel="noopener"><img src="/Download_on_the_App_Store_Badge_US-UK_RGB_wht_092917.svg" alt="Download VoicePrompter on the App Store" style="height:52px;"></a></div>
+
 ## Frequently asked questions
 
 **What's the best teleprompter app for YouTube videos?** One with voice-paced scrolling: VoicePrompter follows your words in 60+ languages on Mac, iPhone, and iPad, so scripted videos keep a natural delivery. The free tier includes full voice tracking.

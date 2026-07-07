@@ -36,7 +36,7 @@
     "description": "How to read a script on camera so it sounds natural, not robotic - where to look, how to phrase and pace, and the prompter setup that makes delivery effortless.",
     "image": "https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?auto=format&fit=crop&w=800&q=80",
     "datePublished": "2026-03-07",
-    "dateModified": "2026-03-07",
+    "dateModified": "2026-07-06",
     "author": {
       "@type": "Person",
       "name": "Konstantin Suvorov",
@@ -77,6 +77,44 @@
         "position": 3,
         "name": "How to Read a Script Without Looking Like You're Reading",
         "item": "https://voiceprompter.app/blog/how-to-read-script-without-looking-like-reading.html"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you read a script without looking like you're reading?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Text tight against the lens, big font, spoken-style writing, and scrolling that follows your voice - eye drift and metronome pacing are the two giveaways."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where should the teleprompter be for natural eye contact?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "As close to the camera as possible: on a laptop that's hugging the top bezel; with a webcam, directly beside or below it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does font size matter?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A lot - bigger text means less eye travel per line, which is exactly the movement viewers notice."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can viewers tell when scrolling is voice-paced?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "They notice the result: your rhythm stays yours, pauses land, and nothing about the delivery reads as scripted."
+        }
       }
     ]
   }
@@ -171,6 +209,74 @@
         .article-meta {
             color: #888;
             font-size: 0.9375rem;
+        }
+
+        .article-author {
+            color: #d0d0d0;
+            font-weight: 600;
+        }
+
+        .article-author:hover {
+            color: #DAA000;
+        }
+
+        .article-author-role {
+            color: #777;
+        }
+
+        .article-hero {
+            width: 100%;
+            height: auto;
+            max-height: 340px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 4px 0 8px;
+        }
+
+        .article-toc {
+            background: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+
+        .article-toc strong {
+            display: block;
+            color: #fff;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .article-toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            columns: 2;
+            column-gap: 24px;
+        }
+
+        .article-toc li {
+            margin-bottom: 6px;
+            break-inside: avoid;
+        }
+
+        .article-toc a {
+            color: #a0a0a0;
+            text-decoration: none;
+        }
+
+        .article-toc a:hover {
+            color: #DAA000;
+        }
+
+        @media (max-width: 560px) {
+            .article-toc ul {
+                columns: 1;
+            }
         }
 
         .article-content {
@@ -493,36 +599,42 @@
         <article>
             <div class="article-header">
                 <h1>How to Read a Script Without Looking Like You're Reading</h1>
-                <div class="article-meta">Mar 8, 2026</div>
+                <div class="article-meta">
+                    <a class="article-author" href="/about.html">Konstantin Suvorov</a>
+                    <span class="article-author-role">· builds VoicePrompter</span>
+                    <span aria-hidden="true"> · </span>Mar 8, 2026
+                </div>
             </div>
 
             <div class="article-content">
                 <div class="article-tldr" aria-label="Quick Summary">
                     <strong>TL;DR:</strong> How to read a script on camera so it sounds natural, not robotic - where to look, how to phrase and pace, and the prompter setup that makes delivery effortless.
                 </div>
+                <img class="article-hero" src="https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?auto=format&fit=crop&w=800&q=80" alt="" decoding="async" fetchpriority="high">
+                <nav class="article-toc" aria-label="Contents"><strong>In this article</strong><ul><li><a href="#the-real-reason-people-look-like-they-39-re-reading">The Real Reason People Look Like They&#39;re Reading</a></li><li><a href="#fix-1-position-the-text-correctly">Fix 1: Position the Text Correctly</a></li><li><a href="#fix-2-slow-down">Fix 2: Slow Down</a></li><li><a href="#fix-3-read-in-phrases-not-words">Fix 3: Read in Phrases, Not Words</a></li><li><a href="#fix-4-mark-your-script-for-delivery">Fix 4: Mark Your Script for Delivery</a></li><li><a href="#fix-5-practice-the-sections-you-don-39-t-know">Fix 5: Practice the Sections You Don&#39;t Know</a></li><li><a href="#the-eye-contact-hack">The Eye Contact Hack</a></li><li><a href="#the-bottom-line">The Bottom Line</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
                 <p>Let me guess: you&#39;ve watched a video where the person is clearly reading something off-screen, and you couldn&#39;t concentrate on what they were saying because their eyes were doing that thing - that slow, mechanical, left-to-right drift. It&#39;s distracting. It breaks trust. The viewer stops believing you know what you&#39;re talking about, even if you do.</p>
 <p>The good news is this is entirely fixable. And no, the solution is not &quot;just memorize everything.&quot; That&#39;s terrible advice that I&#39;ll address directly in <a href="./stop-memorizing-your-script.html">stop memorizing your script</a>.</p>
 <p>Here&#39;s what actually works.</p>
-<h2>The Real Reason People Look Like They&#39;re Reading</h2>
+<h2 id="the-real-reason-people-look-like-they-39-re-reading">The Real Reason People Look Like They&#39;re Reading</h2>
 <p>Most people think the problem is the eyes. It&#39;s not - or at least, not only. The real problem is the relationship between the script, the screen, and the camera.</p>
 <p>If your teleprompter or notes are placed anywhere other than directly below or at your camera lens, your eyes will drift. Even a few degrees off-center is enough for a viewer to detect. Humans are extremely good at knowing when someone is making direct eye contact versus looking slightly to the side. We&#39;ve evolved to be sensitive to exactly that.</p>
 <p>The second problem is speed. When people read, especially under pressure, they tend to read too fast. The words come out flat because you&#39;re processing them visually, not emotionally. There&#39;s no natural pause, no variation in pace. It sounds like someone reading, because that&#39;s exactly what&#39;s happening.</p>
 <p>The third problem is contrast - between the parts of your script you know well and the parts you don&#39;t. The fluent sections sound natural. The unfamiliar sections slow you down. The transitions between them are obvious.</p>
-<h2>Fix 1: Position the Text Correctly</h2>
+<h2 id="fix-1-position-the-text-correctly">Fix 1: Position the Text Correctly</h2>
 <p>Your script or teleprompter should be as close to your camera lens as physically possible. On a laptop, that means right below or above the webcam. On a phone, directly under or over the front-facing camera.</p>
 <p>The goal is to minimize the angle between where your eyes are pointing and where the lens is. Even a 5–10 degree offset is perceptible on camera. At 15–20 degrees, it&#39;s obvious.</p>
 <p>If you use a teleprompter glass setup (a half-mirror that reflects text while staying transparent), the glass goes directly in front of the lens. That&#39;s the gold standard for eye contact. But for most creators, a good software teleprompter positioned correctly gets you 90% of the way there.</p>
 <p>On a Mac, <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8">VoicePrompter</a> is a floating, always-on-top window that you can position wherever you want - right below your camera, right next to it, wherever your setup requires. It sounds small but it matters enormously.</p>
-<h2>Fix 2: Slow Down</h2>
+<h2 id="fix-2-slow-down">Fix 2: Slow Down</h2>
 <p>This is the counterintuitive one. When you&#39;re reading from a script, your instinct is to push through quickly. Resist that.</p>
 <p>Slow down. More than feels comfortable. More than feels natural in your head.</p>
 <p>Good speech on camera is slower than you think it needs to be. Pauses feel long to you and natural to the viewer. The difference in perceived pace between &quot;too fast to follow&quot; and &quot;authoritative and clear&quot; is often just one beat of silence at the end of each sentence.</p>
 <p>Voice-activated teleprompters like <a href="https://voiceprompter.app">VoicePrompter</a> help here because the app pauses when you pause. You don&#39;t have to worry about &quot;losing your place&quot; if you take a breath. The text waits for you.</p>
-<h2>Fix 3: Read in Phrases, Not Words</h2>
+<h2 id="fix-3-read-in-phrases-not-words">Fix 3: Read in Phrases, Not Words</h2>
 <p>The most common reading mistake: processing one word at a time. Your eye lands on &quot;the&quot;, processes it, moves to &quot;best&quot;, processes it, moves to &quot;way&quot;, processes it.</p>
 <p>Instead, train yourself to grab three or four words at a glance, then deliver them as a unit before going back for the next chunk. This is how professional news anchors and politicians read from teleprompters - they scan a phrase, look at the camera, deliver it, then glance back for the next phrase.</p>
 <p>Practice this in isolation before using it in a real recording. Read a paragraph out loud and consciously try to grab three-word chunks. It feels slow and clunky at first. After a few sessions, it becomes automatic.</p>
-<h2>Fix 4: Mark Your Script for Delivery</h2>
+<h2 id="fix-4-mark-your-script-for-delivery">Fix 4: Mark Your Script for Delivery</h2>
 <p>Before recording, go through your script and mark it up:</p>
 <ul>
 <li>Add slashes <code>/</code> where you want to pause</li>
@@ -531,17 +643,22 @@
 </ul>
 <p>When you&#39;re reading, these markers guide your delivery and give you permission to pause. Pauses are not mistakes. They&#39;re what makes spoken delivery feel human.</p>
 <p><a href="https://voiceprompter.app">VoicePrompter</a> supports bracket handling - text inside brackets like <code>[pause]</code> or <code>[smile]</code> gets skipped by the voice recognition engine, so you can write stage directions directly into your script without them interfering with the scrolling.</p>
-<h2>Fix 5: Practice the Sections You Don&#39;t Know</h2>
+<h2 id="fix-5-practice-the-sections-you-don-39-t-know">Fix 5: Practice the Sections You Don&#39;t Know</h2>
 <p>The fluency gap between your familiar sections and unfamiliar ones is what viewers actually notice. The fix is not to memorize everything - it&#39;s to reduce the size of the unfamiliar sections.</p>
 <p>Find the parts of your script where you stumble. Record yourself reading just those parts five or six times. By the third attempt you&#39;ll start to internalize the rhythm. By the sixth, it starts to sound like you&#39;re speaking from experience rather than reading off a page.</p>
-<h2>The Eye Contact Hack</h2>
+<h2 id="the-eye-contact-hack">The Eye Contact Hack</h2>
 <p>Here&#39;s a simple drill that&#39;s surprisingly effective.</p>
 <p>Read one sentence from your script. Then look directly into your camera lens and deliver it from memory (or as close as you can get). Then look back at the script for the next sentence.</p>
 <p>This builds the muscle of transitioning between reading and addressing the camera. After twenty or thirty minutes of this, you&#39;ll find the transitions getting shorter and smoother. Eventually, you&#39;re reading a phrase and delivering it to the camera with almost no lag.</p>
 <p>This works even better if you have a <a href="./free-voice-activated-teleprompter.html">voice-activated teleprompter</a> that follows your pace - because you&#39;re never rushing to &quot;keep up&quot; with the scroll.</p>
-<h2>The Bottom Line</h2>
+<h2 id="the-bottom-line">The Bottom Line</h2>
 <p>Reading a script naturally is a skill. Like any skill, it gets better with deliberate practice. The equipment matters - position your text correctly, use a voice-scrolling teleprompter so the pace stays with you - but the skill is in the delivery. Slow down. Read in phrases. Mark your pauses.</p>
 <p>And if you haven&#39;t already, read <a href="./how-to-use-teleprompter-naturally.html">how to use a teleprompter naturally</a> for the technical side of making it all work seamlessly.</p>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<p><strong>How do you read a script without looking like you&#39;re reading?</strong> Text tight against the lens, big font, spoken-style writing, and scrolling that follows your voice - eye drift and metronome pacing are the two giveaways.</p>
+<p><strong>Where should the teleprompter be for natural eye contact?</strong> As close to the camera as possible: on a laptop that&#39;s hugging the top bezel; with a webcam, directly beside or below it.</p>
+<p><strong>Does font size matter?</strong> A lot - bigger text means less eye travel per line, which is exactly the movement viewers notice.</p>
+<p><strong>Can viewers tell when scrolling is voice-paced?</strong> They notice the result: your rhythm stays yours, pauses land, and nothing about the delivery reads as scripted.</p>
 <hr>
 <p><strong>Related articles:</strong></p>
 <ul>

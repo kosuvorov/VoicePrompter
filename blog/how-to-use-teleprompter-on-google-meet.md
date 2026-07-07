@@ -2,6 +2,7 @@
 title: "How to Use a Teleprompter on Google Meet (Without Anyone Seeing It)"
 description: "A step-by-step guide to using an invisible, voice-activated teleprompter on Google Meet. Stays on top during screen shares, scrolls automatically as you speak, runs natively on Mac."
 date: "May 24, 2026"
+updated: "Jul 7, 2026"
 image: "https://i.ytimg.com/vi/hflxTHcTDpE/maxresdefault.jpg"
 keywords:
   - google meet teleprompter
@@ -90,6 +91,16 @@ If you fall into any of these and the idea of having your script visible but inv
 VoicePrompter has a free tier that includes the demo script plus three custom scripts of unlimited length - enough to test it through a few real calls before deciding. If you want more scripts, there's a one-time purchase and a subscription option in the Mac App Store.
 
 You can grab it on the [VoicePrompter for Google Meet](/mac/google-meet/) page, or jump straight to the [Mac App Store](https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-google-meet&mt=8).
+
+## Frequently asked questions
+
+**Is the teleprompter visible to others on Google Meet?** No - on a Mac the window is excluded from screen capture, so participants and recordings never see it, even while presenting.
+
+**Does it stay on top of full-screen Google Meet?** Yes, including full-screen mode and shared slides.
+
+**Do I need to change any Meet settings?** None - the invisibility is handled by macOS-level capture exclusion, not a Meet configuration.
+
+**Does this also work in Meet companion or grid modes?** Yes - the overlay floats above whatever layout you use; only you can see it.
 
 ---
 

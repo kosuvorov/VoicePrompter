@@ -231,6 +231,74 @@
             font-size: 0.9375rem;
         }
 
+        .article-author {
+            color: #d0d0d0;
+            font-weight: 600;
+        }
+
+        .article-author:hover {
+            color: #DAA000;
+        }
+
+        .article-author-role {
+            color: #777;
+        }
+
+        .article-hero {
+            width: 100%;
+            height: auto;
+            max-height: 340px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 4px 0 8px;
+        }
+
+        .article-toc {
+            background: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+
+        .article-toc strong {
+            display: block;
+            color: #fff;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .article-toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            columns: 2;
+            column-gap: 24px;
+        }
+
+        .article-toc li {
+            margin-bottom: 6px;
+            break-inside: avoid;
+        }
+
+        .article-toc a {
+            color: #a0a0a0;
+            text-decoration: none;
+        }
+
+        .article-toc a:hover {
+            color: #DAA000;
+        }
+
+        @media (max-width: 560px) {
+            .article-toc ul {
+                columns: 1;
+            }
+        }
+
         .article-content {
             font-size: 1.0625rem;
             color: #d0d0d0;
@@ -551,19 +619,24 @@
         <article>
             <div class="article-header">
                 <h1>VoicePrompter or Teleprompter.com: Invisible Mac Overlay vs Recording App</h1>
-                <div class="article-meta">Jun 30, 2026</div>
+                <div class="article-meta">
+                    <a class="article-author" href="/about.html">Konstantin Suvorov</a>
+                    <span class="article-author-role">· builds VoicePrompter</span>
+                    <span aria-hidden="true"> · </span>Jun 30, 2026
+                </div>
             </div>
 
             <div class="article-content">
                 <div class="article-tldr" aria-label="Quick Summary">
                     <strong>TL;DR:</strong> Teleprompter.com is a polished recording app; VoicePrompter is a native Mac overlay that's invisible on screen share. Here's the honest difference.
                 </div>
-                <h1>VoicePrompter or Teleprompter.com: Invisible Mac Overlay vs Recording App</h1>
-<p>Teleprompter.com and <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-vs-teleprompter-com&mt=8">VoicePrompter</a> are built around different ideas. Teleprompter.com is a polished, <strong>recording-focused</strong> app - a companion to its iOS app - built around capturing video. VoicePrompter is a native macOS <strong>overlay</strong> that floats on top of whatever you&#39;re already doing, stays <strong>invisible during screen sharing</strong>, and pairs with whatever recording app you already like. Which is right depends on one question: are you recording to camera, or talking through your own apps and calls?</p>
-<h2>What each is really for</h2>
+                
+                <nav class="article-toc" aria-label="Contents"><strong>In this article</strong><ul><li><a href="#what-each-is-really-for">What each is really for</a></li><li><a href="#side-by-side">Side by side</a></li><li><a href="#where-teleprompter-com-is-genuinely-strong">Where Teleprompter.com is genuinely strong</a></li><li><a href="#why-people-pick-voiceprompter">Why people pick VoicePrompter</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
+                <p>Teleprompter.com and <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-vs-teleprompter-com&mt=8">VoicePrompter</a> are built around different ideas. Teleprompter.com is a polished, <strong>recording-focused</strong> app - a companion to its iOS app - built around capturing video. VoicePrompter is a native macOS <strong>overlay</strong> that floats on top of whatever you&#39;re already doing, stays <strong>invisible during screen sharing</strong>, and pairs with whatever recording app you already like. Which is right depends on one question: are you recording to camera, or talking through your own apps and calls?</p>
+<h2 id="what-each-is-really-for">What each is really for</h2>
 <p><strong>Teleprompter.com</strong> wants to be the place you record. It has its own camera/recording workflow, voice-controlled scrolling, mirrored text, and syncing across your devices. If your job is &quot;film me reading a script to camera,&quot; it&#39;s a legitimate, well-made option.</p>
 <p><strong>VoicePrompter</strong> isn&#39;t trying to be your recording app. It&#39;s a transparent window that sits on top of Zoom, Google Meet, Teams, Keynote, OBS, or whatever you&#39;re using - and it&#39;s <strong>hidden from screen shares and screen recordings</strong>. That makes it the better fit for demos, webinars, sales calls, and presentations, where the prompter has to coexist invisibly with other software rather than be the main stage.</p>
-<h2>Side by side</h2>
+<h2 id="side-by-side">Side by side</h2>
 <table>
 <thead>
 <tr>
@@ -598,13 +671,13 @@
 <td>Cross-platform / web</td>
 </tr>
 </tbody></table>
-<h2>Where Teleprompter.com is genuinely strong</h2>
+<h2 id="where-teleprompter-com-is-genuinely-strong">Where Teleprompter.com is genuinely strong</h2>
 <p>If you want an all-in-one &quot;open the app, read, and record&quot; experience with device syncing and built-in video, Teleprompter.com does that well, and across more platforms than a Mac-only app. For straightforward to-camera recording, it&#39;s a solid choice.</p>
 <div class="video-responsive"><iframe src="https://www.youtube.com/embed/07Xnj7q2c9Y" title="VoicePrompter for Mac - voice-controlled teleprompter demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
 
-<h2>Why people pick VoicePrompter</h2>
+<h2 id="why-people-pick-voiceprompter">Why people pick VoicePrompter</h2>
 <p>For anyone who works <em>through</em> their Mac - sharing a screen on a call, presenting slides, recording a demo - the invisible, always-on-top overlay is the feature that changes everything, and you can run it alongside your favorite recording app. As one user wrote about sales calls: <em>&quot;they stay visible only to me even when I share my screen.&quot;</em> On top of that, VoicePrompter&#39;s voice scrolling is the best I&#39;ve found - an <strong>unlimited listening window</strong> that tracks your whole script, so it never loses you when you jump around - and it&#39;s the <strong>easiest to start</strong>: write your script in Notes, Docs, or Notion and launch it in <strong>one click</strong> from your clipboard. It supports <strong>60+ languages</strong>, holds a <strong>5.0★ rating</strong>, and has a free web version to try.</p>
-<h2>Frequently asked questions</h2>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <p><strong>Does Teleprompter.com stay invisible during screen sharing?</strong> No - it&#39;s built around its own recording workflow, not a transparent overlay hidden from screen shares. VoicePrompter is.</p>
 <p><strong>Which is better for Zoom or Google Meet calls?</strong> VoicePrompter - it floats on top of the call and stays invisible to the people you&#39;re sharing your screen with.</p>
 <p><strong>Can I use VoicePrompter with my own recording app?</strong> Yes - it runs at the system level alongside any recording or conferencing tool (QuickTime, OBS, Loom, Zoom, Meet, Teams), so you keep your favorite recorder and just add invisible prompting on top.</p>

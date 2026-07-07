@@ -36,7 +36,7 @@
     "description": "Memorizing a video script is almost always a waste of time. Here's why, and what actually works for delivering polished content.",
     "image": "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=800&q=80",
     "datePublished": "2026-02-21",
-    "dateModified": "2026-02-21",
+    "dateModified": "2026-07-06",
     "author": {
       "@type": "Person",
       "name": "Konstantin Suvorov",
@@ -77,6 +77,44 @@
         "position": 3,
         "name": "Stop Memorizing Your Script. Do This Instead.",
         "item": "https://voiceprompter.app/blog/stop-memorizing-your-script.html"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is it better to memorize a script or use a teleprompter?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For most on-camera work, a voice-paced teleprompter wins: you keep the exact wording without the memorization hours, and your delivery stays natural because the text follows your speech."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does my delivery sound worse when I memorize?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Working memory is busy retrieving lines, which flattens tone and eye contact. Reading from a prompter next to the lens frees that attention for actual delivery."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does using a teleprompter make you sound robotic?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Only fixed-speed scrolling does. Word tracking follows your pauses and pace, so the read keeps your natural rhythm."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to get comfortable with a teleprompter?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most people sound natural within two or three takes once the window sits close to the camera - far less practice than memorizing a single script."
+        }
       }
     ]
   }
@@ -171,6 +209,74 @@
         .article-meta {
             color: #888;
             font-size: 0.9375rem;
+        }
+
+        .article-author {
+            color: #d0d0d0;
+            font-weight: 600;
+        }
+
+        .article-author:hover {
+            color: #DAA000;
+        }
+
+        .article-author-role {
+            color: #777;
+        }
+
+        .article-hero {
+            width: 100%;
+            height: auto;
+            max-height: 340px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 4px 0 8px;
+        }
+
+        .article-toc {
+            background: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+
+        .article-toc strong {
+            display: block;
+            color: #fff;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .article-toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            columns: 2;
+            column-gap: 24px;
+        }
+
+        .article-toc li {
+            margin-bottom: 6px;
+            break-inside: avoid;
+        }
+
+        .article-toc a {
+            color: #a0a0a0;
+            text-decoration: none;
+        }
+
+        .article-toc a:hover {
+            color: #DAA000;
+        }
+
+        @media (max-width: 560px) {
+            .article-toc ul {
+                columns: 1;
+            }
         }
 
         .article-content {
@@ -493,42 +599,48 @@
         <article>
             <div class="article-header">
                 <h1>Stop Memorizing Your Script. Do This Instead.</h1>
-                <div class="article-meta">Feb 22, 2026</div>
+                <div class="article-meta">
+                    <a class="article-author" href="/about.html">Konstantin Suvorov</a>
+                    <span class="article-author-role">· builds VoicePrompter</span>
+                    <span aria-hidden="true"> · </span>Feb 22, 2026
+                </div>
             </div>
 
             <div class="article-content">
                 <div class="article-tldr" aria-label="Quick Summary">
                     <strong>TL;DR:</strong> Memorizing a video script is almost always a waste of time. Here's why, and what actually works for delivering polished content.
                 </div>
+                <img class="article-hero" src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=800&q=80" alt="" decoding="async" fetchpriority="high">
+                <nav class="article-toc" aria-label="Contents"><strong>In this article</strong><ul><li><a href="#the-problem-with-memorization">The Problem With Memorization</a></li><li><a href="#what-professional-speakers-do-instead">What Professional Speakers Do Instead</a></li><li><a href="#what-a-teleprompter-actually-does-for-your-brain">What a Teleprompter Actually Does for Your Brain</a></li><li><a href="#the-right-tool-for-this">The Right Tool for This</a></li><li><a href="#quot-but-won-39-t-i-sound-like-i-39-m-reading-quot">&quot;But Won&#39;t I Sound Like I&#39;m Reading?&quot;</a></li><li><a href="#a-better-workflow-write-load-record">A Better Workflow: Write → Load → Record</a></li><li><a href="#when-memorization-actually-makes-sense">When Memorization Actually Makes Sense</a></li><li><a href="#the-summary">The Summary</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
                 <p>Memorizing a script for a video is, with very few exceptions, a waste of your time.</p>
 <p>I&#39;ll explain why, and I&#39;ll tell you what actually works.</p>
-<h2>The Problem With Memorization</h2>
+<h2 id="the-problem-with-memorization">The Problem With Memorization</h2>
 <p>When you memorize a script and then try to deliver it on camera, a few things consistently happen.</p>
 <p>First, the delivery sounds memorized. There&#39;s a specific cadence to recalled text - slightly too even, slightly too fast, with tiny hesitations at retrieval moments that viewers feel as artificiality even when they can&#39;t name it. It&#39;s the same phenomenon as &quot;I know you rehearsed this&quot; in a school play.</p>
 <p>Second, if you lose the thread - blank on a word, go off-script by accident, get distracted by a notification - you often can&#39;t recover. The script is in your head as a linear sequence. A break anywhere in that sequence sends you back to the beginning or to a complete stop. This is why people film thirty takes of a two-minute video.</p>
 <p>Third, it&#39;s slow. Properly memorizing a three-minute script takes most people multiple sessions over multiple days. That&#39;s a significant time investment for a workflow you want to repeat regularly.</p>
-<h2>What Professional Speakers Do Instead</h2>
+<h2 id="what-professional-speakers-do-instead">What Professional Speakers Do Instead</h2>
 <p>Professional speakers - the people doing this every day, at scale - almost never memorize. They use teleprompters.</p>
 <p>News anchors, politicians, corporate presenters, late-night hosts. The teleprompter is everywhere in professional broadcast media precisely because memorization is unreliable at scale and wastes talent on the wrong activity.</p>
 <p>The misconception is that teleprompters are for people who can&#39;t remember things. The reality is the opposite: they&#39;re for people who value their time and want their cognitive resources focused on delivery rather than recall.</p>
-<h2>What a Teleprompter Actually Does for Your Brain</h2>
+<h2 id="what-a-teleprompter-actually-does-for-your-brain">What a Teleprompter Actually Does for Your Brain</h2>
 <p>When you use a voice-activated teleprompter, the script is in front of you, following your pace, and always on the next line when you need it.</p>
 <p>The result: you&#39;re not holding anything in your head. You have zero memory burden. Your entire brain is free to focus on tone, eye contact, energy, pacing, and connection.</p>
 <p>This is the difference between going through the motions of delivery and actually delivering. The words take care of themselves. You take care of everything else.</p>
 <p>If you&#39;ve ever noticed that your best takes are usually the first or second one - before fatigue and self-consciousness set in - this is why. The early takes still have energy because you haven&#39;t spent it on recall. A teleprompter lets you have that energy on every take.</p>
-<h2>The Right Tool for This</h2>
+<h2 id="the-right-tool-for-this">The Right Tool for This</h2>
 <p><a href="https://voiceprompter.app">VoicePrompter</a> is a free voice-activated teleprompter that works on any device via browser. You paste your script, it scrolls as you speak, pauses when you pause. No account, no sign-up. Just go to <a href="https://voiceprompter.app">voiceprompter.app</a>.</p>
-<p>If you&#39;re recording on a Mac - demos, webinars, tutorials, presentations, sales calls - the <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8">VoicePrompter Mac app</a> adds the always-on-top and screen-capture-invisible features that make it work in professional settings. It&#39;s $3.99/month with a free tier.</p>
-<h2>&quot;But Won&#39;t I Sound Like I&#39;m Reading?&quot;</h2>
+<p>If you&#39;re recording on a Mac - demos, webinars, tutorials, presentations, sales calls - the <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8">VoicePrompter Mac app</a> adds the always-on-top and screen-capture-invisible features that make it work in professional settings. It&#39;s free to use for up to 3 custom scripts plus a demo script, with paid plans (including a one-time Lifetime option) if you need more.</p>
+<h2 id="quot-but-won-39-t-i-sound-like-i-39-m-reading-quot">&quot;But Won&#39;t I Sound Like I&#39;m Reading?&quot;</h2>
 <p>This is the most common objection. And it&#39;s a fair one - badly-used teleprompters are obvious.</p>
 <p>But a well-used teleprompter is invisible. The technique involves positioning the text close to your camera lens, reading in phrases (not word-by-word), and pacing yourself slightly slower than feels natural. These are learnable skills.</p>
 <p>I go into this in detail in <a href="./how-to-use-teleprompter-naturally.html">how to use a teleprompter naturally</a> and <a href="./how-to-read-script-without-looking-like-reading.html">how to read a script without looking like you&#39;re reading</a>. The short version: practice for 20–30 minutes with a familiar script, and you&#39;ll have the fundamentals.</p>
-<h2>A Better Workflow: Write → Load → Record</h2>
+<h2 id="a-better-workflow-write-load-record">A Better Workflow: Write → Load → Record</h2>
 <p>Instead of: write script → memorize → pray.</p>
 <p>Try: write script → load into teleprompter → record.</p>
 <p>Preparation time drops from hours to minutes. Recording time drops from thirty takes to three. Your delivery improves because you&#39;re present rather than reciting.</p>
 <p>There&#39;s one thing you do need to do: write a good script. This is where your time and energy actually belongs. A tight, well-structured script delivered naturally from a teleprompter beats a memorized, performative one every time.</p>
-<h2>When Memorization Actually Makes Sense</h2>
+<h2 id="when-memorization-actually-makes-sense">When Memorization Actually Makes Sense</h2>
 <p>There are scenarios where memorizing short chunks is worth it:</p>
 <ul>
 <li>Your opening 15–30 seconds. A truly fluid, natural-sounding opening sets the tone for everything that follows. Memorize this.</li>
@@ -536,9 +648,14 @@
 <li>Your own name, company name, product name. I know this sounds absurd. You&#39;d be surprised how many people stumble on their own product name in a recording.</li>
 </ul>
 <p>Everything else: use a teleprompter.</p>
-<h2>The Summary</h2>
+<h2 id="the-summary">The Summary</h2>
 <p>Memorizing scripts is slow, unreliable, and produces stiffer delivery than reading naturally from a teleprompter. The learning curve for teleprompter technique is short. The time savings are immediate and real.</p>
 <p>The rest of your workflow - script quality, camera setup, lighting - matters a lot and is covered in <a href="./record-tutorial-videos-faster.html">how to record tutorial videos faster</a> and <a href="./how-to-look-confident-on-camera.html">how to look confident on camera</a>.</p>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<p><strong>Is it better to memorize a script or use a teleprompter?</strong> For most on-camera work, a voice-paced teleprompter wins: you keep the exact wording without the memorization hours, and your delivery stays natural because the text follows your speech.</p>
+<p><strong>Why does my delivery sound worse when I memorize?</strong> Working memory is busy retrieving lines, which flattens tone and eye contact. Reading from a prompter next to the lens frees that attention for actual delivery.</p>
+<p><strong>Does using a teleprompter make you sound robotic?</strong> Only fixed-speed scrolling does. Word tracking follows your pauses and pace, so the read keeps your natural rhythm.</p>
+<p><strong>How long does it take to get comfortable with a teleprompter?</strong> Most people sound natural within two or three takes once the window sits close to the camera - far less practice than memorizing a single script.</p>
 <hr>
 <p><strong>Related articles:</strong></p>
 <ul>

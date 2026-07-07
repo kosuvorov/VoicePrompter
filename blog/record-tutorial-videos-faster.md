@@ -2,6 +2,7 @@
 title: "How to Record Tutorial Videos Faster (Without Sacrificing Quality)"
 description: "The prep takes forever, the retakes take forever, the editing takes forever. Here's a workflow to cut all three in half."
 date: "Feb 26, 2026"
+updated: "Jul 7, 2026"
 image: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
 ---
@@ -95,6 +96,16 @@ Zoom in on the specific area you're demonstrating. Many screen recording tools h
 Followed consistently, this takes most 10-minute tutorials from a 4-hour day to a 2-hour morning. The dry run and the teleprompter are the biggest time savers.
 
 For the webinar variant of this workflow, see [how to record webinars and podcasts](./how-to-record-webinars-and-podcasts.md). For the product-demo-specific version, [how to record a product demo video](./how-to-record-product-demo-video.md).
+
+## Frequently asked questions
+
+**How do I record tutorial videos faster?** Script the narration, then use a voice-paced teleprompter so each section lands in one take - the biggest time sink in tutorials is re-recording rambling explanations.
+
+**Can I read a script while screen recording?** On a Mac, yes - VoicePrompter's floating window is invisible to screen capture, so your narration script floats over the very screen you're recording.
+
+**How much time can a teleprompter save per tutorial?** As an estimate with assumptions shown: going from ~6 takes to ~2 on a 5-minute script at ~7 minutes per take saves 25-30 minutes per video.
+
+**Do I need to memorize product steps before recording?** No - keep the exact click-path in the prompter and narrate as you go; ad-libs work because word tracking waits for you.
 
 ---
 

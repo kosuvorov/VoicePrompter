@@ -2,6 +2,7 @@
 title: "How to Record a Product Demo Video Without 50 Takes"
 description: "Stop re-recording your demos. A practical workflow for founders, PMs, and marketers who need to ship demo videos without the stress."
 date: "Mar 6, 2026"
+updated: "Jul 7, 2026"
 image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
 ---
@@ -94,6 +95,16 @@ The presenter sounds like they care. Not like they're reading a brochure, not li
 That last quality is the hardest to manufacture and the easiest to lose when you're on take fifteen. Get your setup right, reduce the takes, and the genuine energy takes care of itself.
 
 For more on the full production workflow, see [how to record tutorial videos faster](./record-tutorial-videos-faster.md).
+
+## Frequently asked questions
+
+**How do I narrate a product demo without stumbling?** Script the narration and read it from a prompter floating over the product itself - on a Mac the window is invisible to the screen recording.
+
+**Can I pause the demo to click through the product?** Yes - voice tracking pauses when you stop talking and resumes when you do, so clicks and typing don't desync the script.
+
+**Why do accented speakers love prompters for demos?** One reviewer, a non-native speaker, said it keeps up with his accent and already saved him time across many product demos.
+
+**Are one-take demos realistic?** With voice-paced scrolling, mostly yes: stumbles mean re-reading a sentence (it scrolls backward with you), not restarting the recording.
 
 ---
 

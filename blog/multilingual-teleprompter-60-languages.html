@@ -36,7 +36,7 @@
     "description": "How VoicePrompter's automatic language detection works across 60+ languages - tested personally in English, Polish, Ukrainian, Russian, French, and Spanish.",
     "image": "https://images.unsplash.com/photo-1451226428352-cf66bf8a0317?auto=format&fit=crop&w=800&q=80",
     "datePublished": "2026-02-23",
-    "dateModified": "2026-02-23",
+    "dateModified": "2026-07-06",
     "author": {
       "@type": "Person",
       "name": "Konstantin Suvorov",
@@ -77,6 +77,44 @@
         "position": 3,
         "name": "Teleprompter in 60+ Languages: How VoicePrompter Handles It",
         "item": "https://voiceprompter.app/blog/multilingual-teleprompter-60-languages.html"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Which teleprompter supports the most languages?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "VoicePrompter's native apps track your voice in 60+ languages with automatic detection from the script; the free web app covers 34."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does voice tracking work with an accent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes - one App Store reviewer, a non-native speaker, wrote that it recognizes his English well and keeps up."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I switch languages between scripts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, detection is automatic per script: paste Spanish and it listens in Spanish, no settings involved."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does multilingual voice tracking need internet?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No - recognition runs on-device, so every language works offline and no audio leaves your machine."
+        }
       }
     ]
   }
@@ -171,6 +209,74 @@
         .article-meta {
             color: #888;
             font-size: 0.9375rem;
+        }
+
+        .article-author {
+            color: #d0d0d0;
+            font-weight: 600;
+        }
+
+        .article-author:hover {
+            color: #DAA000;
+        }
+
+        .article-author-role {
+            color: #777;
+        }
+
+        .article-hero {
+            width: 100%;
+            height: auto;
+            max-height: 340px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 4px 0 8px;
+        }
+
+        .article-toc {
+            background: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+
+        .article-toc strong {
+            display: block;
+            color: #fff;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .article-toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            columns: 2;
+            column-gap: 24px;
+        }
+
+        .article-toc li {
+            margin-bottom: 6px;
+            break-inside: avoid;
+        }
+
+        .article-toc a {
+            color: #a0a0a0;
+            text-decoration: none;
+        }
+
+        .article-toc a:hover {
+            color: #DAA000;
+        }
+
+        @media (max-width: 560px) {
+            .article-toc ul {
+                columns: 1;
+            }
         }
 
         .article-content {
@@ -493,49 +599,60 @@
         <article>
             <div class="article-header">
                 <h1>Teleprompter in 60+ Languages: How VoicePrompter Handles It</h1>
-                <div class="article-meta">Feb 24, 2026</div>
+                <div class="article-meta">
+                    <a class="article-author" href="/about.html">Konstantin Suvorov</a>
+                    <span class="article-author-role">· builds VoicePrompter</span>
+                    <span aria-hidden="true"> · </span>Feb 24, 2026
+                </div>
             </div>
 
             <div class="article-content">
                 <div class="article-tldr" aria-label="Quick Summary">
                     <strong>TL;DR:</strong> How VoicePrompter's automatic language detection works across 60+ languages - tested personally in English, Polish, Ukrainian, Russian, French, and Spanish.
                 </div>
+                <img class="article-hero" src="https://images.unsplash.com/photo-1451226428352-cf66bf8a0317?auto=format&fit=crop&w=800&q=80" alt="" decoding="async" fetchpriority="high">
+                <nav class="article-toc" aria-label="Contents"><strong>In this article</strong><ul><li><a href="#why-language-support-matters-more-than-most-teleprompter-apps-admit">Why Language Support Matters More Than Most Teleprompter Apps Admit</a></li><li><a href="#automatic-language-detection">Automatic Language Detection</a></li><li><a href="#who-this-is-for">Who This Is For</a></li><li><a href="#the-web-app-34-languages">The Web App: 34 Languages</a></li><li><a href="#on-device-private">On-Device = Private</a></li><li><a href="#bracket-handling-across-languages">Bracket Handling Across Languages</a></li><li><a href="#getting-started">Getting Started</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
                 <p>Let me tell you something that surprised me when I built this.</p>
 <p>I tested the language detection in <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8">VoicePrompter for Mac</a> by pasting scripts in French and Spanish - languages I don&#39;t actually speak. And it worked. The app correctly identified the language, switched the speech recognition engine to match, and scrolled the French or Spanish text while I awkwardly read the phonetics out loud.</p>
 <p>I&#39;m Konstantin. And I&#39;ve personally tested English, Polish, Ukrainian, Russian, French, and Spanish in VoicePrompter. The first four I actually speak. The last two I really don&#39;t.</p>
-<h2>Why Language Support Matters More Than Most Teleprompter Apps Admit</h2>
+<h2 id="why-language-support-matters-more-than-most-teleprompter-apps-admit">Why Language Support Matters More Than Most Teleprompter Apps Admit</h2>
 <p>The dirty secret of most &quot;multilingual&quot; teleprompter apps: they support five or six languages in the dropdown, and only English actually performs well. The voice recognition for other languages is noticeably worse - mistranslations, lagging scroll, frequent pauses. If you create content in Polish, Ukrainian, Spanish, Hindi, or any other non-English language, you&#39;ve probably experienced this firsthand.</p>
 <p>VoicePrompter for Mac supports 60+ languages through Apple&#39;s native on-device speech recognition APIs. This is the same speech engine that powers Siri, dictation across macOS, and Voice Control. It&#39;s had enormous engineering investment behind it and performs significantly better than third-party recognition engines for a wide range of languages.</p>
 <p>The supported list includes (but is not limited to) English, Spanish, Portuguese, French, German, Italian, Polish, Ukrainian, Russian, Japanese, Korean, Chinese (Simplified and Traditional), Hindi, Arabic, Dutch, Swedish, Norwegian, Danish, Finnish, Czech, Hungarian, Romanian, Turkish, Hebrew, Thai, Vietnamese, Indonesian, and many more.</p>
-<h2>Automatic Language Detection</h2>
+<h2 id="automatic-language-detection">Automatic Language Detection</h2>
 <p>You don&#39;t need to tell the app what language your script is in. VoicePrompter uses Apple&#39;s <code>NLLanguageRecognizer</code> framework to detect the language of the text you paste and automatically sets the recognition engine to match.</p>
 <p>In practice: you copy a script in Ukrainian, paste it into VoicePrompter, and the language detection fires before you even start recording. The speech recognition is already configured for Ukrainian by the time you press the microphone button.</p>
 <p>This sounds like a small quality-of-life feature. In a real recording workflow, it eliminates a consistent source of friction - especially for people who record in multiple languages or switch between them.</p>
-<h2>Who This Is For</h2>
+<h2 id="who-this-is-for">Who This Is For</h2>
 <p><strong>Multilingual creators.</strong> If you make content in more than one language - for different regional audiences, different platforms, or different clients - you don&#39;t want to maintain separate apps or setups for each language. VoicePrompter handles the switching automatically.</p>
 <p><strong>Non-English creators.</strong> If your primary language isn&#39;t English, you&#39;ve been underserved by most teleprompter software. The apps are almost always built by English speakers, tested primarily in English, and released with other-language support as an afterthought. The quality difference in voice recognition is real and noticeable.</p>
 <p><strong>Corporate and professional presentations.</strong> If your company operates in multiple markets and you&#39;re recording product demos, training materials, or presentations in multiple languages, the automatic detection means one less step in your workflow.</p>
 <p><strong>Language learners creating content.</strong> This is an unusual but real use case. If you&#39;re learning a language and want to create content in it, a teleprompter that correctly handles the phonetics of that language is significantly more useful than one that&#39;s guessing.</p>
-<h2>The Web App: 34 Languages</h2>
+<h2 id="the-web-app-34-languages">The Web App: 34 Languages</h2>
 <p>The free <a href="https://voiceprompter.app">VoicePrompter web app</a> at voiceprompter.app supports 34 languages via the browser&#39;s native Web Speech API. This covers all major world languages, and the web app also includes automatic language detection - just paste your script and it detects the language for you. You can also select manually from the settings.</p>
 <p>For the full 60+ language support and automatic detection, you need <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8">VoicePrompter for Mac</a>.</p>
-<h2>On-Device = Private</h2>
+<h2 id="on-device-private">On-Device = Private</h2>
 <p>One thing worth mentioning explicitly: all speech recognition in both the web app and the Mac app happens on-device. No audio is sent to any server.</p>
 <p>For creators working in regions with data privacy requirements, for content that&#39;s confidential before publication, or simply for people who prefer not to stream their voice data to a cloud service - this matters.</p>
-<h2>Bracket Handling Across Languages</h2>
+<h2 id="bracket-handling-across-languages">Bracket Handling Across Languages</h2>
 <p>VoicePrompter&#39;s bracket handling works across all languages. If you write <code>[pause]</code> or <code>[smile]</code> or any stage direction in brackets - in any language - the app skips it for recognition purposes while still displaying it for you as a visual cue.</p>
 <p>This is more significant for multilingual scripts than it might seem. If you&#39;re writing in a language where your stage directions are in a different language than the main text (writing <code>[pause]</code> in English inside a French script, for example), the bracket handling correctly isolates those parts from the recognition engine.</p>
-<h2>Getting Started</h2>
+<h2 id="getting-started">Getting Started</h2>
 <p>For the free multilingual option: <a href="https://voiceprompter.app">voiceprompter.app</a> - paste your script, select your language, start talking.</p>
-<p>For the full 60+ language, auto-detection, always-on-top Mac experience: <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8">VoicePrompter on the Mac App Store</a>. $3.99/month or $39.99/year with a free tier including 3 custom scripts.</p>
-<p>If you want the full breakdown of the Mac app&#39;s features, the <a href="./voiceprompter-complete-guide-2025.html">VoicePrompter complete guide</a> covers everything in one place.</p>
+<p>For the full 60+ language, auto-detection, always-on-top Mac experience: <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8">VoicePrompter on the Mac App Store</a>. Free to use for up to 3 custom scripts plus a demo script; paid plans (including a one-time Lifetime option) unlock more.</p>
+<p>If you want the full breakdown of the Mac app&#39;s features, the <a href="./voiceprompter-complete-guide.html">VoicePrompter complete guide</a> covers everything in one place.</p>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<p><strong>Which teleprompter supports the most languages?</strong> VoicePrompter&#39;s native apps track your voice in 60+ languages with automatic detection from the script; the free web app covers 34.</p>
+<p><strong>Does voice tracking work with an accent?</strong> Yes - one App Store reviewer, a non-native speaker, wrote that it recognizes his English well and keeps up.</p>
+<p><strong>Can I switch languages between scripts?</strong> Yes, detection is automatic per script: paste Spanish and it listens in Spanish, no settings involved.</p>
+<p><strong>Does multilingual voice tracking need internet?</strong> No - recognition runs on-device, so every language works offline and no audio leaves your machine.</p>
 <hr>
 <p><strong>Related articles:</strong></p>
 <ul>
 <li><a href="./free-voice-activated-teleprompter.html">Free Voice-Activated Teleprompter for Solo Creators</a></li>
 <li><a href="./best-teleprompter-app-for-mac.html">Best Teleprompter App for Mac</a></li>
 <li><a href="./why-all-teleprompter-apps-suck.html">Why All Teleprompter Apps Are Terrible (And What I Did About It)</a></li>
-<li><a href="./voiceprompter-complete-guide-2025.html">VoicePrompter Complete Guide</a></li>
+<li><a href="./voiceprompter-complete-guide.html">VoicePrompter Complete Guide</a></li>
 </ul>
 
             </div>

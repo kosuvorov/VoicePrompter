@@ -2,6 +2,7 @@
 title: "Stop Memorizing Your Script. Do This Instead."
 description: "Memorizing a video script is almost always a waste of time. Here's why, and what actually works for delivering polished content."
 date: "Feb 22, 2026"
+updated: "Jul 7, 2026"
 image: "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
 ---
@@ -42,7 +43,7 @@ If you've ever noticed that your best takes are usually the first or second one 
 
 [VoicePrompter](https://voiceprompter.app) is a free voice-activated teleprompter that works on any device via browser. You paste your script, it scrolls as you speak, pauses when you pause. No account, no sign-up. Just go to [voiceprompter.app](https://voiceprompter.app).
 
-If you're recording on a Mac - demos, webinars, tutorials, presentations, sales calls - the [VoicePrompter Mac app](https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8) adds the always-on-top and screen-capture-invisible features that make it work in professional settings. It's $3.99/month with a free tier.
+If you're recording on a Mac - demos, webinars, tutorials, presentations, sales calls - the [VoicePrompter Mac app](https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8) adds the always-on-top and screen-capture-invisible features that make it work in professional settings. It's free to use for up to 3 custom scripts plus a demo script, with paid plans (including a one-time Lifetime option) if you need more.
 
 ## "But Won't I Sound Like I'm Reading?"
 
@@ -77,6 +78,16 @@ Everything else: use a teleprompter.
 Memorizing scripts is slow, unreliable, and produces stiffer delivery than reading naturally from a teleprompter. The learning curve for teleprompter technique is short. The time savings are immediate and real.
 
 The rest of your workflow - script quality, camera setup, lighting - matters a lot and is covered in [how to record tutorial videos faster](./record-tutorial-videos-faster.md) and [how to look confident on camera](./how-to-look-confident-on-camera.md).
+
+## Frequently asked questions
+
+**Is it better to memorize a script or use a teleprompter?** For most on-camera work, a voice-paced teleprompter wins: you keep the exact wording without the memorization hours, and your delivery stays natural because the text follows your speech.
+
+**Why does my delivery sound worse when I memorize?** Working memory is busy retrieving lines, which flattens tone and eye contact. Reading from a prompter next to the lens frees that attention for actual delivery.
+
+**Does using a teleprompter make you sound robotic?** Only fixed-speed scrolling does. Word tracking follows your pauses and pace, so the read keeps your natural rhythm.
+
+**How long does it take to get comfortable with a teleprompter?** Most people sound natural within two or three takes once the window sits close to the camera - far less practice than memorizing a single script.
 
 ---
 

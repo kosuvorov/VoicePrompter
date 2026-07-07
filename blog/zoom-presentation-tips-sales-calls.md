@@ -2,6 +2,7 @@
 title: "Zoom Presentation Tips for Sales Calls: Run a Clean Pitch"
 description: "How to deliver a tight, professional sales pitch over Zoom - balancing natural conversation with structured messaging."
 date: "Mar 2, 2026"
+updated: "Jul 7, 2026"
 image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
 ---
@@ -93,6 +94,16 @@ Last thought: a Zoom sales call is a conversation, not a performance. Your job i
 Use your notes as a safety net. Stay in the conversation. If the prospect takes you somewhere unexpected - a question that derails your prepared flow - that's fine. Follow it. Good discovery questions are worth more than a perfectly-delivered pitch.
 
 The script is there so you can be present. Not so you can recite.
+
+## Frequently asked questions
+
+**Can I use notes on a Zoom sales call without it showing?** Yes - a Mac overlay excluded from screen capture keeps talking points visible only to you, even while you share your screen or demo.
+
+**How do top reps stay on-message during demos?** A structured script or talking-point list in an invisible prompter: one user wrote that his points stay visible only to him even when he shares his screen.
+
+**Where should notes sit during a Zoom call?** Directly below the camera, in a large font - eye drift to a second monitor is what makes note-reading obvious.
+
+**Does this work in full-screen Zoom?** VoicePrompter stays on top of every app, including full-screen Zoom and presentation decks.
 
 ---
 

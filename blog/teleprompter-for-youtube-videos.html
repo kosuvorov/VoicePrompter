@@ -231,6 +231,74 @@
             font-size: 0.9375rem;
         }
 
+        .article-author {
+            color: #d0d0d0;
+            font-weight: 600;
+        }
+
+        .article-author:hover {
+            color: #DAA000;
+        }
+
+        .article-author-role {
+            color: #777;
+        }
+
+        .article-hero {
+            width: 100%;
+            height: auto;
+            max-height: 340px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 4px 0 8px;
+        }
+
+        .article-toc {
+            background: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+
+        .article-toc strong {
+            display: block;
+            color: #fff;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .article-toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            columns: 2;
+            column-gap: 24px;
+        }
+
+        .article-toc li {
+            margin-bottom: 6px;
+            break-inside: avoid;
+        }
+
+        .article-toc a {
+            color: #a0a0a0;
+            text-decoration: none;
+        }
+
+        .article-toc a:hover {
+            color: #DAA000;
+        }
+
+        @media (max-width: 560px) {
+            .article-toc ul {
+                columns: 1;
+            }
+        }
+
         .article-content {
             font-size: 1.0625rem;
             color: #d0d0d0;
@@ -551,27 +619,34 @@
         <article>
             <div class="article-header">
                 <h1>Teleprompter for YouTube Videos: Read Scripts Without the YouTube Stare</h1>
-                <div class="article-meta">Jul 7, 2026</div>
+                <div class="article-meta">
+                    <a class="article-author" href="/about.html">Konstantin Suvorov</a>
+                    <span class="article-author-role">· builds VoicePrompter</span>
+                    <span aria-hidden="true"> · </span>Jul 7, 2026
+                </div>
             </div>
 
             <div class="article-content">
                 <div class="article-tldr" aria-label="Quick Summary">
                     <strong>TL;DR:</strong> How to use a teleprompter for YouTube videos on Mac and iPhone: eye-line setup, voice-paced scrolling that kills the robotic read, and the take-count math.
                 </div>
-                <h1>Teleprompter for YouTube Videos: Read Scripts Without the YouTube Stare</h1>
-<p>The right teleprompter for YouTube videos is one that scrolls at <em>your</em> pace - because the thing that makes scripted YouTube videos feel robotic isn&#39;t the script, it&#39;s the speaker pacing themselves to a machine. <a href="https://voiceprompter.app">VoicePrompter</a> flips that: its voice tracking follows your words, so your delivery keeps its natural rhythm. I build it and I film my own <a href="https://www.youtube.com/@kosuvorov">YouTube channel</a> with it; here&#39;s the full setup for Mac and iPhone, plus the honest math on what it saves.</p>
-<h2>Why YouTubers abandon teleprompters (and shouldn&#39;t)</h2>
+                
+                <nav class="article-toc" aria-label="Contents"><strong>In this article</strong><ul><li><a href="#why-youtubers-abandon-teleprompters-and-shouldn-39-t">Why YouTubers abandon teleprompters (and shouldn&#39;t)</a></li><li><a href="#the-mac-setup-talking-head-and-screen-share-videos">The Mac setup (talking-head and screen-share videos)</a></li><li><a href="#the-iphone-setup-shorts-and-filming-on-the-go">The iPhone setup (Shorts and filming on the go)</a></li><li><a href="#making-the-read-sound-like-you">Making the read sound like you</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
+                <p>The right teleprompter for YouTube videos is one that scrolls at <em>your</em> pace - because the thing that makes scripted YouTube videos feel robotic isn&#39;t the script, it&#39;s the speaker pacing themselves to a machine. <a href="https://voiceprompter.app">VoicePrompter</a> flips that: its voice tracking follows your words, so your delivery keeps its natural rhythm. I build it and I film my own <a href="https://www.youtube.com/@kosuvorov">YouTube channel</a> with it; here&#39;s the full setup for Mac and iPhone, plus the honest math on what it saves.</p>
+<h2 id="why-youtubers-abandon-teleprompters-and-shouldn-39-t">Why YouTubers abandon teleprompters (and shouldn&#39;t)</h2>
 <p>Every YouTuber tries a teleprompter once, and many bounce off with the same complaint: &quot;I sound like I&#39;m reading.&quot; That&#39;s usually the fault of <strong>fixed-speed scrolling</strong> - you&#39;re either racing the text or waiting for it, and viewers hear the metronome in your voice. The fix isn&#39;t more rehearsal; it&#39;s scrolling that responds to you. With word tracking, you can slow down for the point that matters, speed through the setup, pause for a beat before the punchline - and the script just stays with you. Even mid-video ad-libs work: wander off for a story and the text waits, jump back in and it follows, including <a href="teleprompter-scrolling-methods.html">scrolling backward</a> if you restart a sentence.</p>
 <p>The payoff is measured in takes. Assuming a 5-minute script and the usual stumbles, most creators run ~6 takes; with voice-paced prompting that drops to ~2. At roughly 7 minutes per take, that&#39;s <strong>25-30 minutes saved per video</strong> - before the editing time you save from cleaner takes. One user put it more simply: <em>&quot;I record a lot of product demos and it already saved me time.&quot;</em> - Junk., App Store review.</p>
-<h2>The Mac setup (talking-head and screen-share videos)</h2>
+<h2 id="the-mac-setup-talking-head-and-screen-share-videos">The Mac setup (talking-head and screen-share videos)</h2>
 <p>For camera videos on a Mac, the floating window sits directly under your webcam, as close to the lens as it can get - big font, short lines, natural eye-line. Because the window <a href="how-to-use-teleprompter-on-zoom.html">stays invisible to screen recording</a>, it also works for tutorial and demo videos where you&#39;re capturing the screen in OBS or QuickTime: your narration script floats over the very screen you&#39;re recording, and the footage never shows it. Copy your script from wherever you draft, click the menu bar icon, record.</p>
 <div class="video-responsive"><iframe src="https://www.youtube.com/embed/07Xnj7q2c9Y" title="VoicePrompter for Mac - teleprompter for YouTube videos demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
 
-<h2>The iPhone setup (Shorts and filming on the go)</h2>
+<h2 id="the-iphone-setup-shorts-and-filming-on-the-go">The iPhone setup (Shorts and filming on the go)</h2>
 <p>On iPhone, <a href="https://voiceprompter.app/ios/">VoicePrompter for iOS</a> gives you two YouTube workflows: record up to 4K inside the app with the script scrolling just under the front camera, or float the picture-in-picture prompter over the YouTube app itself for Shorts and live streams. Filming with an iPad next to a real camera? That rig setup is covered in the <a href="https://voiceprompter.app/ipad/">iPad guide</a>.</p>
-<h2>Making the read sound like you</h2>
+<h2 id="making-the-read-sound-like-you">Making the read sound like you</h2>
 <p>Three habits carry most of the weight: write the script the way you actually talk (contractions, short sentences - read it aloud once and rewrite anything that sounds like an essay), keep the text as close to the lens as possible so your eyes don&#39;t visibly track, and trust the pause - silence reads as confidence on camera, and a voice-paced prompter pauses with you. The deeper technique guide is in <a href="how-to-read-script-without-looking-like-reading.html">how to read a script without looking like you&#39;re reading</a>, and the channel-growth angle in <a href="how-to-create-youtube-videos-faster.html">how to create YouTube videos faster</a>.</p>
-<h2>Frequently asked questions</h2>
+<div style="margin:20px 0;"><a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-youtube-videos&mt=8" target="_blank" rel="noopener"><img src="/Download_on_the_App_Store_Badge_US-UK_RGB_wht_092917.svg" alt="Download VoicePrompter on the App Store" style="height:52px;" decoding="async" fetchpriority="high"></a></div>
+
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <p><strong>What&#39;s the best teleprompter app for YouTube videos?</strong> One with voice-paced scrolling: VoicePrompter follows your words in 60+ languages on Mac, iPhone, and iPad, so scripted videos keep a natural delivery. The free tier includes full voice tracking.</p>
 <p><strong>How do YouTubers use a teleprompter without looking like they&#39;re reading?</strong> Keep the script window tight against the camera lens, use a large font, and use voice tracking so your pacing stays natural - eye drift and metronome pacing are what give reading away.</p>
 <p><strong>Can I use a teleprompter for YouTube Shorts?</strong> Yes - on iPhone, float the prompter over the YouTube app or your camera while filming vertical video. The floating window never appears in the footage.</p>

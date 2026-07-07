@@ -239,6 +239,74 @@
             font-size: 0.9375rem;
         }
 
+        .article-author {
+            color: #d0d0d0;
+            font-weight: 600;
+        }
+
+        .article-author:hover {
+            color: #DAA000;
+        }
+
+        .article-author-role {
+            color: #777;
+        }
+
+        .article-hero {
+            width: 100%;
+            height: auto;
+            max-height: 340px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 4px 0 8px;
+        }
+
+        .article-toc {
+            background: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+
+        .article-toc strong {
+            display: block;
+            color: #fff;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .article-toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            columns: 2;
+            column-gap: 24px;
+        }
+
+        .article-toc li {
+            margin-bottom: 6px;
+            break-inside: avoid;
+        }
+
+        .article-toc a {
+            color: #a0a0a0;
+            text-decoration: none;
+        }
+
+        .article-toc a:hover {
+            color: #DAA000;
+        }
+
+        @media (max-width: 560px) {
+            .article-toc ul {
+                columns: 1;
+            }
+        }
+
         .article-content {
             font-size: 1.0625rem;
             color: #d0d0d0;
@@ -559,20 +627,25 @@
         <article>
             <div class="article-header">
                 <h1>VoicePrompter or Notchie: Which Mac Teleprompter Follows Your Voice?</h1>
-                <div class="article-meta">Jun 30, 2026</div>
+                <div class="article-meta">
+                    <a class="article-author" href="/about.html">Konstantin Suvorov</a>
+                    <span class="article-author-role">· builds VoicePrompter</span>
+                    <span aria-hidden="true"> · </span>Jun 30, 2026
+                </div>
             </div>
 
             <div class="article-content">
                 <div class="article-tldr" aria-label="Quick Summary">
                     <strong>TL;DR:</strong> Notchie scrolls on sound; VoicePrompter follows your actual words. Here's the honest difference between the two Mac teleprompters - and which to pick.
                 </div>
-                <h1>VoicePrompter or Notchie: Which Mac Teleprompter Follows Your Voice?</h1>
-<p>If you&#39;re choosing between VoicePrompter and Notchie, the deciding question is simple: <strong>do you want a teleprompter that follows your <em>words</em>, or one that just reacts to <em>sound</em>?</strong> Notchie scrolls on sound; <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-vs-notchie&mt=8">VoicePrompter</a> tracks your actual speech. For most people, that one difference settles it. Here&#39;s the honest breakdown.</p>
-<h2>The core difference: sound detection vs word tracking</h2>
+                
+                <nav class="article-toc" aria-label="Contents"><strong>In this article</strong><ul><li><a href="#the-core-difference-sound-detection-vs-word-tracking">The core difference: sound detection vs word tracking</a></li><li><a href="#side-by-side">Side by side</a></li><li><a href="#where-notchie-is-genuinely-fine">Where Notchie is genuinely fine</a></li><li><a href="#why-people-pick-voiceprompter">Why people pick VoicePrompter</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
+                <p>If you&#39;re choosing between VoicePrompter and Notchie, the deciding question is simple: <strong>do you want a teleprompter that follows your <em>words</em>, or one that just reacts to <em>sound</em>?</strong> Notchie scrolls on sound; <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-vs-notchie&mt=8">VoicePrompter</a> tracks your actual speech. For most people, that one difference settles it. Here&#39;s the honest breakdown.</p>
+<h2 id="the-core-difference-sound-detection-vs-word-tracking">The core difference: sound detection vs word tracking</h2>
 <p>Notchie markets &quot;voice-activated scrolling,&quot; and to its credit it&#39;s transparent about what that means - in its own words, it&#39;s <em>&quot;voice sync, not voice recognition,&quot;</em> and it works by <em>&quot;simply detecting audio levels.&quot;</em> In other words, it scrolls whenever it hears you talking and pauses when you go quiet. It doesn&#39;t know which words you&#39;re saying or where you are in the script.</p>
 <p>VoicePrompter does that too - it&#39;s the basic <strong>Sound mode</strong> - but it also does the harder thing: <strong>word tracking</strong>. It follows your actual words and your position, so when you ad-lib, skip a section, or jump back to re-read a line, the text follows you instead of drifting off. You can even start an earlier sentence and it scrolls <em>backward</em> to it.</p>
 <p>Why it matters: sound detection is fine if you read straight through, top to bottom, in a quiet room. The moment real life happens - a pause, an interruption, an improvised aside, a retake from the middle - sound-only scrolling loses you.</p>
-<h2>Side by side</h2>
+<h2 id="side-by-side">Side by side</h2>
 <table>
 <thead>
 <tr>
@@ -617,13 +690,13 @@
 <td>Yes</td>
 </tr>
 </tbody></table>
-<h2>Where Notchie is genuinely fine</h2>
+<h2 id="where-notchie-is-genuinely-fine">Where Notchie is genuinely fine</h2>
 <p>Notchie is a tidy, Mac-native notch app, and if your workflow is reading a script straight through in a quiet space, sound-based scrolling does the job. There&#39;s nothing wrong with that mode - it&#39;s literally one of the two modes VoicePrompter ships. The question is just whether you want <em>only</em> that, or that plus real word tracking.</p>
 <div class="video-responsive"><iframe src="https://www.youtube.com/embed/07Xnj7q2c9Y" title="VoicePrompter for Mac - voice-controlled teleprompter demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
 
-<h2>Why people pick VoicePrompter</h2>
+<h2 id="why-people-pick-voiceprompter">Why people pick VoicePrompter</h2>
 <p>Beyond word tracking, VoicePrompter&#39;s voice scrolling is the best I&#39;ve found - an <strong>unlimited listening window</strong> that tracks your whole script, so it stays with you when you go off-script. It floats on top of every app (including full-screen Keynote and Zoom), stays <strong>invisible during screen sharing and recording</strong>, and supports <strong>60+ languages</strong> on-device. It&#39;s also the <strong>easiest and most intuitive</strong> teleprompter to use: write your script anywhere - Notes, Docs, Notion - and start it in <strong>one click</strong> from your clipboard, instead of managing scripts inside a clunkier in-app editor. It holds a <strong>5.0★ App Store rating</strong>. As one reviewer wrote, it&#39;s <em>&quot;the most robust, reliable, versatile and customizable one I&#39;ve tried… it follows them word for word.&quot;</em></p>
-<h2>Frequently asked questions</h2>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <p><strong>Does Notchie follow your voice or just detect sound?</strong> By the company&#39;s own description, Notchie uses sound detection (&quot;voice sync, not voice recognition&quot;) - it scrolls on audio levels, not your words.</p>
 <p><strong>Can VoicePrompter scroll on sound like Notchie?</strong> Yes - that&#39;s its Sound mode. It also offers true word tracking, so you get both.</p>
 <p><strong>Which is better for going off-script or doing retakes?</strong> VoicePrompter - word tracking keeps up when you improvise or restart mid-script; sound-only scrolling can&#39;t.</p>

@@ -223,6 +223,74 @@
             font-size: 0.9375rem;
         }
 
+        .article-author {
+            color: #d0d0d0;
+            font-weight: 600;
+        }
+
+        .article-author:hover {
+            color: #DAA000;
+        }
+
+        .article-author-role {
+            color: #777;
+        }
+
+        .article-hero {
+            width: 100%;
+            height: auto;
+            max-height: 340px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 4px 0 8px;
+        }
+
+        .article-toc {
+            background: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+
+        .article-toc strong {
+            display: block;
+            color: #fff;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .article-toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            columns: 2;
+            column-gap: 24px;
+        }
+
+        .article-toc li {
+            margin-bottom: 6px;
+            break-inside: avoid;
+        }
+
+        .article-toc a {
+            color: #a0a0a0;
+            text-decoration: none;
+        }
+
+        .article-toc a:hover {
+            color: #DAA000;
+        }
+
+        @media (max-width: 560px) {
+            .article-toc ul {
+                columns: 1;
+            }
+        }
+
         .article-content {
             font-size: 1.0625rem;
             color: #d0d0d0;
@@ -543,28 +611,33 @@
         <article>
             <div class="article-header">
                 <h1>5 Ways a Teleprompter Can Scroll (and Which One Is Best)</h1>
-                <div class="article-meta">Jun 30, 2026</div>
+                <div class="article-meta">
+                    <a class="article-author" href="/about.html">Konstantin Suvorov</a>
+                    <span class="article-author-role">· builds VoicePrompter</span>
+                    <span aria-hidden="true"> · </span>Jun 30, 2026
+                </div>
             </div>
 
             <div class="article-content">
                 <div class="article-tldr" aria-label="Quick Summary">
                     <strong>TL;DR:</strong> Constant speed, sound, voice tracking, a remote, or an operator - the five ways teleprompter text scrolls, compared. Here's which works best and why.
                 </div>
-                <h1>5 Ways a Teleprompter Can Scroll (and Which One Is Best)</h1>
-<p>A teleprompter is only as good as the way its text keeps pace with you, and there are exactly five ways to do it: <strong>constant speed, sound-activated, voice (word) tracking, a remote control, or a separate operator.</strong> Having built a teleprompter, I&#39;ve worked with all of them - and for almost everyone recording alone, <strong>voice tracking wins</strong>. Here&#39;s how each method works, what it&#39;s good for, and where it falls apart.</p>
-<h2>How I&#39;m judging them</h2>
+                
+                <nav class="article-toc" aria-label="Contents"><strong>In this article</strong><ul><li><a href="#how-i-39-m-judging-them">How I&#39;m judging them</a></li><li><a href="#1-constant-fixed-speed-auto-scroll">1. Constant (fixed-speed) auto-scroll</a></li><li><a href="#2-sound-activated-scrolling">2. Sound-activated scrolling</a></li><li><a href="#3-voice-word-tracking-the-best-for-most-people">3. Voice (word) tracking - the best for most people</a></li><li><a href="#4-remote-or-foot-pedal-control">4. Remote or foot-pedal control</a></li><li><a href="#5-a-separate-operator">5. A separate operator</a></li><li><a href="#at-a-glance">At a glance</a></li><li><a href="#the-verdict">The verdict</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
+                <p>A teleprompter is only as good as the way its text keeps pace with you, and there are exactly five ways to do it: <strong>constant speed, sound-activated, voice (word) tracking, a remote control, or a separate operator.</strong> Having built a teleprompter, I&#39;ve worked with all of them - and for almost everyone recording alone, <strong>voice tracking wins</strong>. Here&#39;s how each method works, what it&#39;s good for, and where it falls apart.</p>
+<h2 id="how-i-39-m-judging-them">How I&#39;m judging them</h2>
 <p>Three things decide whether a scrolling method actually helps: does it <strong>stay in sync</strong> with your real pace, does it leave your <strong>hands free</strong>, and does it survive the <strong>messy moments</strong> - pauses, retakes, going off-script. Keep those in mind as we go.</p>
-<h2>1. Constant (fixed-speed) auto-scroll</h2>
+<h2 id="1-constant-fixed-speed-auto-scroll">1. Constant (fixed-speed) auto-scroll</h2>
 <p><strong>Best for: short, heavily-rehearsed reads where your pace never changes.</strong> You set a speed and the text scrolls at exactly that rate, forever. It&#39;s simple and predictable - and that&#39;s the problem. Real speaking speeds up and slows down. Pause for a breath and the text marches on; emphasize a word and you fall behind. You spend the whole take managing the scroll instead of your delivery, and one stumble means restarting. Fine for a 15-second intro you&#39;ve memorized; painful for anything longer.</p>
-<h2>2. Sound-activated scrolling</h2>
+<h2 id="2-sound-activated-scrolling">2. Sound-activated scrolling</h2>
 <p><strong>Best for: reading straight through in a quiet room.</strong> The teleprompter listens for sound above a threshold: you talk, it scrolls; you stop, it pauses. This is what many apps market as &quot;voice-activated,&quot; but it&#39;s only reacting to <em>noise</em> - it doesn&#39;t know your words or your position. It&#39;s a real step up from fixed speed because it respects your pauses, but it breaks the moment you ad-lib, get interrupted, or jump to a different part of the script, because there&#39;s nothing tying the scroll to <em>where you actually are</em>.</p>
-<h2>3. Voice (word) tracking - the best for most people</h2>
+<h2 id="3-voice-word-tracking-the-best-for-most-people">3. Voice (word) tracking - the best for most people</h2>
 <p><strong>Best for: basically everyone recording alone.</strong> Real voice scrolling uses speech recognition to follow your <strong>actual words and position</strong> in the script. Pause, improvise, skip ahead, or jump back to re-read a line, and the text follows you - at your pace, in your order, hands-free. It&#39;s by far the hardest method to build well, which is why so few apps do it reliably, but when it works it&#39;s the closest thing to having a perfect operator who can read your mind. This is the method VoicePrompter is built around (it also includes a simple sound mode for when you want it).</p>
-<h2>4. Remote or foot-pedal control</h2>
+<h2 id="4-remote-or-foot-pedal-control">4. Remote or foot-pedal control</h2>
 <p><strong>Best for: live stage and broadcast, where a fixed rundown is read precisely.</strong> A handheld remote or foot pedal lets you (or someone else) nudge the speed or pause manually. It&#39;s reliable and predictable, which is why it&#39;s a stage and newsroom staple. The downsides for solo creators: it occupies a hand (or foot), it&#39;s one more piece of hardware to buy and manage, and it can look awkward on camera. Great in a controlled production; clumsy for a one-person setup.</p>
-<h2>5. A separate operator</h2>
+<h2 id="5-a-separate-operator">5. A separate operator</h2>
 <p><strong>Best for: professional broadcast and film sets.</strong> A human operator scrolls the text to match the talent in real time. It&#39;s the gold standard for responsiveness - a good operator anticipates you - but it requires a second person and a budget, which makes it a non-starter for solo creators, podcasters, and most businesses.</p>
-<h2>At a glance</h2>
+<h2 id="at-a-glance">At a glance</h2>
 <table>
 <thead>
 <tr>
@@ -611,11 +684,11 @@
 <td>Pro sets (needs a person)</td>
 </tr>
 </tbody></table>
-<h2>The verdict</h2>
+<h2 id="the-verdict">The verdict</h2>
 <p>If you have a crew, an operator is unbeatable. For everyone else recording alone - YouTubers, podcasters, course creators, anyone on a Zoom call - <strong>voice (word) tracking is the method that actually keeps up with how people really talk</strong>, with no extra hardware and no second person. That&#39;s exactly why I built <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-scrolling-methods&mt=8">VoicePrompter</a> around it.</p>
 <div class="video-responsive"><iframe src="https://www.youtube.com/embed/07Xnj7q2c9Y" title="VoicePrompter for Mac - voice-controlled teleprompter demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
 
-<h2>Frequently asked questions</h2>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <p><strong>What&#39;s the difference between sound-activated and voice scrolling?</strong> Sound-activated scrolls whenever it hears noise; voice (word) tracking follows your actual words and position, so it survives pauses, ad-libs, and retakes.</p>
 <p><strong>Which scrolling method is best for solo creators?</strong> Voice (word) tracking - it stays in sync, keeps your hands free, and needs no operator or remote.</p>
 <p><strong>Do I need a remote for a teleprompter?</strong> Not if it tracks your voice - voice scrolling replaces the remote for most solo setups.</p>
@@ -626,7 +699,7 @@
 <ul>
 <li><a href="./free-voice-activated-teleprompter.html">Voice-Activated Teleprompter: What It Really Means</a></li>
 <li><a href="./best-teleprompter-app-for-mac.html">Best Teleprompter App for Mac in 2026: An Honest Look</a></li>
-<li><a href="./voice-scrolling-solo-creators.html">Why Voice Scrolling is Essential for Solo Creators</a></li>
+<li><a href="./free-voice-activated-teleprompter.html">Why Voice Scrolling is Essential for Solo Creators</a></li>
 </ul>
 
             </div>

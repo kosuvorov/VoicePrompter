@@ -2,6 +2,7 @@
 title: "Why All Teleprompter Apps Are Terrible (And What I Did About It)"
 description: "A frustrated developer's deep dive into why every teleprompter app fails at the basics, and the journey to building one that actually works."
 date: "Mar 18, 2026"
+updated: "Jul 7, 2026"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
 ---
@@ -39,7 +40,7 @@ The voice scrolling actually works. And I say that having personally tested it i
 
 Beyond the core scrolling, there are things I added because I couldn't believe other apps didn't have them. Paragraph preservation, for instance. Mirror mode. A hands-free restart voice command ("prompter restart"). Visual stop signs that show you where to pause. Touch-to-jump so you can tap any word and the prompter snaps to that position instantly.
 
-You can read the full breakdown in my [complete VoicePrompter guide](./voiceprompter-complete-guide-2025.md).
+You can read the full breakdown in my [complete VoicePrompter guide](./voiceprompter-complete-guide.md).
 
 ## Then I Made a Mac Version
 
@@ -68,6 +69,16 @@ You want to know if a teleprompter works? Use it in a real recording. Not a two-
 I've been using VoicePrompter in my own recordings for a while now. This article was recorded using it. If it sounds natural, that's the point.
 
 Go to [voiceprompter.app](https://voiceprompter.app) and try it. It's free. No account, no sign-up, no nothing. Just paste your script and go.
+
+## Frequently asked questions
+
+**Why do most teleprompter apps feel bad to use?** Most scroll at a fixed speed, so you serve the software instead of it serving you - every pause and ad-lib desynchronizes the script.
+
+**What's the difference between sound detection and word tracking?** Sound detection scrolls on volume and can't know where you are; word tracking follows your actual words, so skipping, improvising, and re-reading all work.
+
+**Is there a teleprompter that follows your entire script?** VoicePrompter tracks speech against the whole script at all times - jump anywhere, including backward, and it finds you.
+
+**What should I test before trusting a teleprompter app?** Pause mid-take, ad-lib a sentence, then restart an earlier line. Most apps fail at least one of the three.
 
 ---
 

@@ -69,4 +69,4 @@ Want the best scrolling method without a crew? [Try VoicePrompter](https://apps.
 **Related articles:**
 - [Voice-Activated Teleprompter: What It Really Means](./free-voice-activated-teleprompter.md)
 - [Best Teleprompter App for Mac in 2026: An Honest Look](./best-teleprompter-app-for-mac.md)
-- [Why Voice Scrolling is Essential for Solo Creators](./voice-scrolling-solo-creators.md)
+- [Why Voice Scrolling is Essential for Solo Creators](./free-voice-activated-teleprompter.md)

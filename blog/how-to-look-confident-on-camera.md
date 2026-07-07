@@ -2,6 +2,7 @@
 title: "How to Look Confident on Camera (Even When You're Not)"
 description: "Practical camera confidence techniques - from eye contact tricks to script preparation methods that make you look and sound like a pro."
 date: "Mar 10, 2026"
+updated: "Jul 7, 2026"
 image: "https://images.unsplash.com/photo-1609234656388-0ff363383899?auto=format&fit=crop&w=800&q=80"
 keywords: ["teleprompter", "video production"]
 ---
@@ -79,6 +80,16 @@ Two minutes before recording or joining a call, stand up. Walk around. Shake out
 If you're recording a video and you have a script, read through it one more time before starting - not to memorize it, just to prime the words. Familiarity with the script translates directly to fluency in the delivery.
 
 For specific context on video interviews, see [video interview preparation tips](./video-interview-preparation-tips.md). For Zoom calls and presentations specifically, [zoom sales call tips](./zoom-presentation-tips-sales-calls.md) covers the additional elements that apply to live conversations.
+
+## Frequently asked questions
+
+**How do I look more confident on camera?** Camera at eye level, eyes near the lens, and remove the fear of forgetting your lines - a voice-paced prompter handles the third part so posture and tone can relax.
+
+**Why do I look nervous on video even when I'm not?** Usually mechanics, not nerves: a low camera angle, eyes darting to notes, and rushed pacing all read as anxiety on screen.
+
+**Does a teleprompter help with camera confidence?** Substantially - one reviewer who uses it for interviews and video calls said it reduces his stress by quite a lot.
+
+**Should I pause on camera?** Yes - deliberate pauses read as confidence. A prompter that follows your voice pauses with you instead of scrolling on without you.
 
 ---
 
