@@ -36,7 +36,7 @@
     "description": "The techniques that separate natural-sounding teleprompter users from the ones who look like they're reading. Practical, actionable advice.",
     "image": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=800&q=80",
     "datePublished": "2026-03-12",
-    "dateModified": "2026-03-12",
+    "dateModified": "2026-07-07",
     "author": {
       "@type": "Person",
       "name": "Konstantin Suvorov",
@@ -77,6 +77,44 @@
         "position": 3,
         "name": "How to Use a Teleprompter Naturally (So Nobody Knows)",
         "item": "https://voiceprompter.app/blog/how-to-use-teleprompter-naturally.html"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you use a teleprompter naturally?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Big font close to the lens, a script written the way you talk, and voice-paced scrolling so you never chase the text - naturalness is mostly setup, not talent."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do I sound robotic on a teleprompter?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Almost always fixed-speed scrolling: you're matching a machine's pace. Word tracking flips it so the machine matches yours."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I rehearse before using a teleprompter?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "One read-aloud pass to fix written-not-spoken sentences is enough; voice tracking makes even first takes usable."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How far from the camera can the text be?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "As close as physically possible - the smaller the angle between the words and the lens, the less your eyes visibly move."
+        }
       }
     ]
   }
@@ -171,6 +209,79 @@
         .article-meta {
             color: #888;
             font-size: 0.9375rem;
+        }
+
+        .article-author {
+            color: #d0d0d0;
+            font-weight: 600;
+        }
+
+        .article-author:hover {
+            color: #DAA000;
+        }
+
+        .article-author-role {
+            color: #777;
+        }
+
+        .article-hero {
+            width: 100%;
+            height: auto;
+            max-height: 340px;
+            -o-object-fit: cover;
+               object-fit: cover;
+            border-radius: 12px;
+            margin: 4px 0 8px;
+        }
+
+        .article-toc {
+            background: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+
+        .article-toc strong {
+            display: block;
+            color: #fff;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .article-toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            -moz-columns: 2;
+                 columns: 2;
+            -moz-column-gap: 24px;
+                 column-gap: 24px;
+        }
+
+        .article-toc li {
+            margin-bottom: 6px;
+            -moz-column-break-inside: avoid;
+                 break-inside: avoid;
+        }
+
+        .article-toc a {
+            color: #a0a0a0;
+            text-decoration: none;
+        }
+
+        .article-toc a:hover {
+            color: #DAA000;
+        }
+
+        @media (max-width: 560px) {
+            .article-toc ul {
+                -moz-columns: 1;
+                     columns: 1;
+            }
         }
 
         .article-content {
@@ -493,25 +604,31 @@
         <article>
             <div class="article-header">
                 <h1>How to Use a Teleprompter Naturally (So Nobody Knows)</h1>
-                <div class="article-meta">Mar 12, 2026</div>
+                <div class="article-meta">
+                    <a class="article-author" href="/about.html">Konstantin Suvorov</a>
+                    <span class="article-author-role">· builds VoicePrompter</span>
+                    <span aria-hidden="true"> · </span>Mar 12, 2026
+                </div>
             </div>
 
             <div class="article-content">
                 <div class="article-tldr" aria-label="Quick Summary">
                     <strong>TL;DR:</strong> The techniques that separate natural-sounding teleprompter users from the ones who look like they're reading. Practical, actionable advice.
                 </div>
+                <img class="article-hero" src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=800&q=80" alt="" decoding="async" fetchpriority="high">
+                <nav class="article-toc" aria-label="Contents"><strong>In this article</strong><ul><li><a href="#understand-what-the-skill-actually-is">Understand What the Skill Actually Is</a></li><li><a href="#step-1-start-with-a-script-you-already-know">Step 1: Start With a Script You Already Know</a></li><li><a href="#step-2-the-phrase-grab-technique">Step 2: The Phrase-Grab Technique</a></li><li><a href="#step-3-set-your-scroll-speed-correctly">Step 3: Set Your Scroll Speed Correctly</a></li><li><a href="#step-4-font-size-and-line-width">Step 4: Font Size and Line Width</a></li><li><a href="#step-5-practice-out-loud-deliberately">Step 5: Practice Out Loud, Deliberately</a></li><li><a href="#the-bracket-trick-for-stage-directions">The Bracket Trick for Stage Directions</a></li><li><a href="#common-mistakes-to-avoid">Common Mistakes to Avoid</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
                 <p>The dead giveaway that someone is using a teleprompter: their eyes move in a steady, rhythmic horizontal sweep, like a slow windshield wiper. It&#39;s the look of someone reading line by line, processing each word as they go.</p>
 <p>Most first-time teleprompter users produce exactly this. They fire up the app, start reading, and realize immediately that they look like a robot.</p>
 <p>The good news: this is a technique problem, not a technology problem. And technique is learnable.</p>
-<h2>Understand What the Skill Actually Is</h2>
+<h2 id="understand-what-the-skill-actually-is">Understand What the Skill Actually Is</h2>
 <p>Using a teleprompter naturally is essentially one skill: reading ahead of your speech. You&#39;re reading a phrase before you deliver it, so that when you open your mouth, the words come out as if they were in your head, not on a screen.</p>
 <p>The gap between &quot;reading from screen&quot; and &quot;reading as if from memory&quot; is this readahead time. Professional teleprompter users have trained themselves to read 3–5 words ahead of what they&#39;re currently speaking. Their eyes are on the next phrase while their voice is on the current one.</p>
 <p>This sounds complex. In practice, after two or three sessions of focused practice, it becomes automatic.</p>
-<h2>Step 1: Start With a Script You Already Know</h2>
+<h2 id="step-1-start-with-a-script-you-already-know">Step 1: Start With a Script You Already Know</h2>
 <p>Your first teleprompter practice should use a script you&#39;ve already internalized. The reason: you don&#39;t want to be learning the words and learning the eye technique at the same time.</p>
 <p>Write or find a paragraph of 150–200 words that you could say from memory if you had to. Then put it into your teleprompter and read it from the screen while practicing the eye technique.</p>
 <p>Because the words are familiar, your brain processes them faster. The teleprompter is acting as a safety net rather than a primary source. This is the exact cognitive state you want to recreate on unfamiliar scripts.</p>
-<h2>Step 2: The Phrase-Grab Technique</h2>
+<h2 id="step-2-the-phrase-grab-technique">Step 2: The Phrase-Grab Technique</h2>
 <p>Instead of reading word by word, train yourself to grab 3–4 words at a glance - a phrase - and then deliver that phrase while looking at (or toward) the camera.</p>
 <p>Here&#39;s the pattern:</p>
 <ol>
@@ -521,15 +638,15 @@
 <li>Eyes toward camera → deliver it (&quot;is positioning the window&quot;)</li>
 </ol>
 <p>Repeat. The eye movement becomes a rhythm. The transitions get faster. Eventually, the &quot;look at camera&quot; step becomes so brief and frequent that it looks like natural eye contact with occasional thoughtful glances away - exactly what real conversational delivery looks like.</p>
-<h2>Step 3: Set Your Scroll Speed Correctly</h2>
+<h2 id="step-3-set-your-scroll-speed-correctly">Step 3: Set Your Scroll Speed Correctly</h2>
 <p>Most teleprompter apps either auto-scroll at a fixed speed or let you control the speed manually. Both have problems: fixed speed doesn&#39;t match your natural variations in pace, and manual speed requires cognitive bandwidth you&#39;d rather spend on delivery.</p>
 <p>Voice-activated scrolling solves this. <a href="https://voiceprompter.app">VoicePrompter</a> (free web app) and <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8">VoicePrompter for Mac</a> both use real-time speech recognition to scroll the text at your natural speaking pace. The text follows you, not the other way around.</p>
 <p>This is especially liberating for the phrase-grab technique because there&#39;s no pressure to &quot;keep up&quot; or &quot;stay ahead&quot; of the scroll. You can grab a phrase, look at the camera, take a brief pause for emphasis, and the text is still there waiting for you.</p>
-<h2>Step 4: Font Size and Line Width</h2>
+<h2 id="step-4-font-size-and-line-width">Step 4: Font Size and Line Width</h2>
 <p>These are technical but they matter a lot.</p>
 <p>Font should be large enough that you can read a line with a single, brief glance - no squinting, no trying to focus. For most setups, this means 40–60pt at reading distance. Err on the larger side.</p>
 <p>Line width should be narrow enough that your eye doesn&#39;t have to sweep far horizontally to read a full line. Narrow your teleprompter window to maybe 30–40% of your screen width. Each line should be short - 5–8 words at most. This reduces the horizontal eye sweep that gives away teleprompter reading.</p>
-<h2>Step 5: Practice Out Loud, Deliberately</h2>
+<h2 id="step-5-practice-out-loud-deliberately">Step 5: Practice Out Loud, Deliberately</h2>
 <p>The only way to build this skill is repetition. Here&#39;s a focused practice routine:</p>
 <ol>
 <li>Set up your teleprompter with a short, familiar script (150–200 words).</li>
@@ -539,15 +656,20 @@
 <li>Watch again. Repeat until the eye movement is minimal.</li>
 </ol>
 <p>Three or four sessions of this - maybe 20–30 minutes total - is usually enough to build the fundamental habit. After that, it&#39;s just a matter of applying it in real recordings.</p>
-<h2>The Bracket Trick for Stage Directions</h2>
+<h2 id="the-bracket-trick-for-stage-directions">The Bracket Trick for Stage Directions</h2>
 <p>One feature in <a href="https://voiceprompter.app">VoicePrompter</a> that&#39;s worth knowing: text inside brackets is skipped by the voice recognition engine. So you can write stage directions directly into your script - <code>[smile]</code>, <code>[pause 2 seconds]</code>, <code>[lean forward]</code>, <code>[show slide]</code> - and the app will display them for you but not try to match them to speech.</p>
 <p>This is surprisingly useful once you get comfortable with teleprompter reading, because it lets you script your delivery details, not just your words.</p>
-<h2>Common Mistakes to Avoid</h2>
+<h2 id="common-mistakes-to-avoid">Common Mistakes to Avoid</h2>
 <p><strong>Reading too fast.</strong> The teleprompter reveals your words faster than you can naturally say them when you rush. Slow down. More than feels comfortable. Your natural pace, not your anxious pace.</p>
 <p><strong>Too much light contrast.</strong> If your teleprompter window is significantly brighter or darker than your surroundings, your pupils adjust and you look like your eyes are reacting to something. Match the brightness of your teleprompter to your ambient light as much as possible.</p>
 <p><strong>Holding the scroll position too long.</strong> If you&#39;re using a manual scroll or a pause-heavy voice recognition, the text can stall. Viewers notice when your eyes &quot;stick&quot; to one spot. Voice-activated scrolling that follows your pace naturally eliminates this.</p>
 <p><strong>Not practicing before the real recording.</strong> Reading from a teleprompter feels natural after practice and awkward before it. Don&#39;t try to figure out the technique during your actual recording.</p>
 <p>For the placement and setup details, see <a href="./how-to-read-script-without-looking-like-reading.html">how to read a script without looking like you&#39;re reading</a>. For the Mac-specific setup, <a href="./best-teleprompter-app-for-mac.html">best teleprompter app for Mac</a> covers everything you need.</p>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<p><strong>How do you use a teleprompter naturally?</strong> Big font close to the lens, a script written the way you talk, and voice-paced scrolling so you never chase the text - naturalness is mostly setup, not talent.</p>
+<p><strong>Why do I sound robotic on a teleprompter?</strong> Almost always fixed-speed scrolling: you&#39;re matching a machine&#39;s pace. Word tracking flips it so the machine matches yours.</p>
+<p><strong>Should I rehearse before using a teleprompter?</strong> One read-aloud pass to fix written-not-spoken sentences is enough; voice tracking makes even first takes usable.</p>
+<p><strong>How far from the camera can the text be?</strong> As close as physically possible - the smaller the angle between the words and the lens, the less your eyes visibly move.</p>
 <hr>
 <p><strong>Related articles:</strong></p>
 <ul>

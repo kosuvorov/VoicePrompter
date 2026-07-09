@@ -231,6 +231,79 @@
             font-size: 0.9375rem;
         }
 
+        .article-author {
+            color: #d0d0d0;
+            font-weight: 600;
+        }
+
+        .article-author:hover {
+            color: #DAA000;
+        }
+
+        .article-author-role {
+            color: #777;
+        }
+
+        .article-hero {
+            width: 100%;
+            height: auto;
+            max-height: 340px;
+            -o-object-fit: cover;
+               object-fit: cover;
+            border-radius: 12px;
+            margin: 4px 0 8px;
+        }
+
+        .article-toc {
+            background: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+
+        .article-toc strong {
+            display: block;
+            color: #fff;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .article-toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            -moz-columns: 2;
+                 columns: 2;
+            -moz-column-gap: 24px;
+                 column-gap: 24px;
+        }
+
+        .article-toc li {
+            margin-bottom: 6px;
+            -moz-column-break-inside: avoid;
+                 break-inside: avoid;
+        }
+
+        .article-toc a {
+            color: #a0a0a0;
+            text-decoration: none;
+        }
+
+        .article-toc a:hover {
+            color: #DAA000;
+        }
+
+        @media (max-width: 560px) {
+            .article-toc ul {
+                -moz-columns: 1;
+                     columns: 1;
+            }
+        }
+
         .article-content {
             font-size: 1.0625rem;
             color: #d0d0d0;
@@ -551,17 +624,22 @@
         <article>
             <div class="article-header">
                 <h1>Best Teleprompter App for Mac in 2026: An Honest Look</h1>
-                <div class="article-meta">Mar 20, 2026</div>
+                <div class="article-meta">
+                    <a class="article-author" href="/about.html">Konstantin Suvorov</a>
+                    <span class="article-author-role">· builds VoicePrompter</span>
+                    <span aria-hidden="true"> · </span>Mar 20, 2026
+                </div>
             </div>
 
             <div class="article-content">
                 <div class="article-tldr" aria-label="Quick Summary">
                     <strong>TL;DR:</strong> An honest, hands-on comparison of the best teleprompter apps for Mac in 2026 - what real voice scrolling means, which apps stay invisible on screen share, and where VoicePrompter fits.
                 </div>
-                <h1>Best Teleprompter App for Mac in 2026: An Honest Look</h1>
-<p>The best teleprompter app for Mac is the one whose text <strong>reliably follows your voice</strong> and stays <strong>invisible when you share your screen</strong> - and surprisingly few do both. After testing most of the options on (and off) the App Store, the app I build and use is <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-best-mac&mt=8">VoicePrompter for Mac</a>. Below is the honest comparison, including where the other apps are genuinely good.</p>
+                
+                <nav class="article-toc" aria-label="Contents"><strong>In this article</strong><ul><li><a href="#what-actually-matters-in-a-mac-teleprompter">What actually matters in a Mac teleprompter</a></li><li><a href="#quot-voice-activated-quot-doesn-39-t-mean-what-you-think">&quot;Voice-activated&quot; doesn&#39;t mean what you think</a></li><li><a href="#the-comparison-at-a-glance">The comparison at a glance</a></li><li><a href="#the-apps-honestly">The apps, honestly</a></li><li><a href="#so-which-should-you-use">So which should you use?</a></li><li><a href="#why-the-invisible-overlay-matters-more-than-you-39-d-think">Why the invisible overlay matters more than you&#39;d think</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
+                <p>The best teleprompter app for Mac is the one whose text <strong>reliably follows your voice</strong> and stays <strong>invisible when you share your screen</strong> - and surprisingly few do both. After testing most of the options on (and off) the App Store, the app I build and use is <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-best-mac&mt=8">VoicePrompter for Mac</a>. Below is the honest comparison, including where the other apps are genuinely good.</p>
 <p><strong>Full disclosure:</strong> I&#39;m the developer of VoicePrompter, so I&#39;m biased - but I&#39;ve tried to make this fair. I&#39;ll tell you which rivals are solid and what they do better, and I&#39;ll be specific about the one thing most of them get wrong.</p>
-<h2>What actually matters in a Mac teleprompter</h2>
+<h2 id="what-actually-matters-in-a-mac-teleprompter">What actually matters in a Mac teleprompter</h2>
 <p>Before comparing anything, here&#39;s what genuinely matters for a Mac workflow:</p>
 <ul>
 <li><strong>It stays on top - including over full-screen apps.</strong> On top of Keynote in presentation mode, on top of full-screen Zoom. If it vanishes when you go full-screen, it&#39;s useless for the most common recording setups.</li>
@@ -570,14 +648,14 @@
 <li><strong>Real language support</strong>, not a dropdown where only English performs.</li>
 <li><strong>Fast and simple to start</strong>, and customizable enough to fit how you actually work.</li>
 </ul>
-<h2>&quot;Voice-activated&quot; doesn&#39;t mean what you think</h2>
+<h2 id="quot-voice-activated-quot-doesn-39-t-mean-what-you-think">&quot;Voice-activated&quot; doesn&#39;t mean what you think</h2>
 <p>This is the single most important thing to understand before you choose, because the marketing is genuinely misleading. Two completely different technologies are both sold as &quot;voice&quot;:</p>
 <ul>
 <li><strong>Sound detection (&quot;voice sync&quot;).</strong> The app listens for <em>sound above a volume threshold</em>. You talk, it scrolls; you pause, it stops. It has <strong>no idea what you&#39;re saying or where you are</strong> in the script. One Mac teleprompter spells this out on its own blog: <em>&quot;voice sync, not voice recognition… simply detecting audio levels.&quot;</em> The catch - the moment you go off-script, skip a paragraph, ad-lib, or jump back, it falls apart. It&#39;s just reacting to noise.</li>
 <li><strong>Word tracking (real speech recognition).</strong> The app follows your <em>actual words</em> and your <em>position</em> in the script. You can skip ahead, improvise, or go back to re-read a line and it keeps pace. This is much harder to build - and it&#39;s what you actually want.</li>
 </ul>
 <p>VoicePrompter does <strong>both</strong>: a simple <strong>Sound mode</strong> (the thing other apps call &quot;voice-activated&quot;) <em>and</em> true <strong>word tracking</strong> that follows your speech in 60+ languages - and lets you scroll <strong>backward</strong> just by starting an earlier line. The word-tracking engine is the part I spent the most time on; it&#39;s why one reviewer wrote that it <em>&quot;follows them word for word.&quot;</em> I go deeper on the why in <a href="./why-all-teleprompter-apps-suck.html">why all teleprompter apps suck</a>.</p>
-<h2>The comparison at a glance</h2>
+<h2 id="the-comparison-at-a-glance">The comparison at a glance</h2>
 <table>
 <thead>
 <tr>
@@ -631,7 +709,7 @@
 <td>Web / cross-platform</td>
 </tr>
 </tbody></table>
-<h2>The apps, honestly</h2>
+<h2 id="the-apps-honestly">The apps, honestly</h2>
 <h3>VoicePrompter for Mac (the one I built)</h3>
 <p>A native macOS menu-bar app with a transparent overlay that stays on top of everything - including full-screen Keynote and Zoom - and is <strong>completely invisible</strong> in Zoom, Teams, Google Meet, OBS, and QuickTime recordings. It uses Apple&#39;s on-device speech recognition (private, works offline), supports <strong>60+ languages</strong> with auto-detection, and offers both <strong>word tracking and Sound mode</strong>, plus <strong>backward scrolling</strong>. You can start a script in <strong>one click from your clipboard</strong>, set up menu-bar quick settings, and customize the look in detail. It&#39;s 2 MB and launches instantly. There&#39;s also a free web version. It holds a <strong>5.0★ App Store rating</strong>, and it&#39;s used by creators in <strong>125+ countries</strong>.</p>
 <p>What users say: <em>&quot;the most robust, reliable, versatile and customizable one I&#39;ve tried… follows them word for word&quot;</em>; on sales calls, <em>&quot;they stay visible only to me even when I share my screen.&quot;</em></p>
@@ -647,16 +725,16 @@
 <p>Free and open source, which is genuinely nice. Two honest caveats. First, you install it from <strong>GitHub, not the App Store</strong> - so there&#39;s no App Store safety check, and the setup is a real barrier for non-technical users who can&#39;t vet the code themselves. Second, reliability: as of mid-2026 its public issue tracker reports voice tracking freezing periodically, &quot;doesn&#39;t scroll with my speech,&quot; tracking breaking when you resize the window, and voice <strong>broken for Chinese/Japanese/Korean</strong>. For a teleprompter, reliability is everything - if it stumbles mid-take, it&#39;s worse than no teleprompter. (For contrast, a VoicePrompter user emailed after using it for a <em>Chinese</em> broadcast: <em>&quot;it worked well.&quot;</em>)</p>
 <h3>BIGVU, Speakflow and other web/suite tools</h3>
 <p>These are broader creator suites (BIGVU) or browser-based prompters (Speakflow) rather than native Mac teleprompters. They can be useful for an all-in-one captions-and-editing workflow or a quick web prompter, but they aren&#39;t a native, always-on-top, invisible-on-screen-share Mac overlay - which is exactly what Mac demos, webinars, and calls need.</p>
-<h2>So which should you use?</h2>
+<h2 id="so-which-should-you-use">So which should you use?</h2>
 <ul>
 <li><strong>Demos, webinars, tutorials, online presentations, podcasts, or sales calls on a Mac</strong> → <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-best-mac&mt=8">VoicePrompter for Mac</a>. The combination of an invisible, always-on-top overlay with <em>reliable</em> voice scrolling is the specific set of features that solves the real problem.</li>
 <li><strong>Camera-only filming and you want free</strong> → the <a href="https://voiceprompter.app">VoicePrompter web app</a> is excellent and costs nothing (it just can&#39;t do the native always-on-top / invisible-overlay tricks).</li>
 <li><strong>English-only voice tracking with device sync</strong> → PromptSmart or Teleprompter.com are worth a look.</li>
 </ul>
-<h2>Why the invisible overlay matters more than you&#39;d think</h2>
+<h2 id="why-the-invisible-overlay-matters-more-than-you-39-d-think">Why the invisible overlay matters more than you&#39;d think</h2>
 <p>Picture a sales call over Zoom. You have a tight script - opening, qualifying questions, demo flow, close. With a normal teleprompter window you have two problems: if you share your screen, the text appears in the share; and even if you don&#39;t, the window clutters your screen and you&#39;re one accidental app-switch from losing it.</p>
 <p>With an invisible overlay that stays on top, the prompter is always there, always readable, visible only to you, and never in the recording or share. That&#39;s a qualitatively different experience - and it&#39;s why so many VoicePrompter reviews mention calls and demos specifically. I cover the full setup in <a href="./how-to-use-teleprompter-on-zoom.html">how to use a teleprompter on Zoom</a>.</p>
-<h2>Frequently asked questions</h2>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <p><strong>What&#39;s the difference between sound scrolling and voice scrolling?</strong> Sound scrolling moves the text whenever it hears you talking (it&#39;s reacting to <em>noise</em>). Real voice scrolling - word tracking - follows your actual words and position, so you can skip, ad-lib, or scroll back and it keeps up. VoicePrompter offers both.</p>
 <p><strong>Do any Mac teleprompters stay invisible during screen sharing?</strong> Very few. VoicePrompter is built around a transparent overlay that&#39;s hidden from Zoom, Teams, Google Meet, OBS, and QuickTime recordings - most other apps appear in the share.</p>
 <p><strong>Is there a free teleprompter for Mac?</strong> Yes - the <a href="https://voiceprompter.app">VoicePrompter web app</a> is free and runs in any browser (or installs as an app). It does voice scrolling and mirror mode; the native Mac app adds always-on-top and the invisible overlay.</p>
@@ -670,7 +748,7 @@
 <li><a href="./how-to-use-teleprompter-on-zoom.html">How to Use a Teleprompter on Zoom (Without Anyone Seeing It)</a></li>
 <li><a href="./free-voice-activated-teleprompter.html">Free Voice-Activated Teleprompter for Solo Creators</a></li>
 <li><a href="./how-to-record-product-demo-video.html">How to Record a Product Demo Video</a></li>
-<li><a href="./voiceprompter-complete-guide-2025.html">VoicePrompter Complete Guide</a></li>
+<li><a href="./voiceprompter-complete-guide.html">VoicePrompter Complete Guide</a></li>
 </ul>
 
             </div>

@@ -235,6 +235,79 @@
             font-size: 0.9375rem;
         }
 
+        .article-author {
+            color: #d0d0d0;
+            font-weight: 600;
+        }
+
+        .article-author:hover {
+            color: #DAA000;
+        }
+
+        .article-author-role {
+            color: #777;
+        }
+
+        .article-hero {
+            width: 100%;
+            height: auto;
+            max-height: 340px;
+            -o-object-fit: cover;
+               object-fit: cover;
+            border-radius: 12px;
+            margin: 4px 0 8px;
+        }
+
+        .article-toc {
+            background: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+
+        .article-toc strong {
+            display: block;
+            color: #fff;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .article-toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            -moz-columns: 2;
+                 columns: 2;
+            -moz-column-gap: 24px;
+                 column-gap: 24px;
+        }
+
+        .article-toc li {
+            margin-bottom: 6px;
+            -moz-column-break-inside: avoid;
+                 break-inside: avoid;
+        }
+
+        .article-toc a {
+            color: #a0a0a0;
+            text-decoration: none;
+        }
+
+        .article-toc a:hover {
+            color: #DAA000;
+        }
+
+        @media (max-width: 560px) {
+            .article-toc ul {
+                -moz-columns: 1;
+                     columns: 1;
+            }
+        }
+
         .article-content {
             font-size: 1.0625rem;
             color: #d0d0d0;
@@ -555,24 +628,29 @@
         <article>
             <div class="article-header">
                 <h1>Teleprompter for iPhone That Scrolls as You Speak</h1>
-                <div class="article-meta">Jul 5, 2026</div>
+                <div class="article-meta">
+                    <a class="article-author" href="/about.html">Konstantin Suvorov</a>
+                    <span class="article-author-role">· builds VoicePrompter</span>
+                    <span aria-hidden="true"> · </span>Jul 5, 2026
+                </div>
             </div>
 
             <div class="article-content">
                 <div class="article-tldr" aria-label="Quick Summary">
                     <strong>TL;DR:</strong> How to use a voice-scrolling teleprompter on iPhone: film in 4K inside the app, or float your script over TikTok and Instagram while their camera records you.
                 </div>
-                <h1>Teleprompter for iPhone That Scrolls as You Speak</h1>
-<p>Yes, your iPhone can run a teleprompter that follows your voice instead of scrolling at a fixed speed. <a href="https://voiceprompter.app/ios/">VoicePrompter for iOS</a> listens as you talk, matches your words against your whole script, and scrolls at your pace - and it either records 4K video right in the app or floats your script over TikTok and Instagram while their camera records you. Here&#39;s how that works in practice.</p>
-<h2>Why fixed-speed scrolling fails on a phone</h2>
+                <img class="article-hero" src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80" alt="" decoding="async" fetchpriority="high">
+                <nav class="article-toc" aria-label="Contents"><strong>In this article</strong><ul><li><a href="#why-fixed-speed-scrolling-fails-on-a-phone">Why fixed-speed scrolling fails on a phone</a></li><li><a href="#how-do-you-record-a-video-with-a-teleprompter-on-iphone">How do you record a video with a teleprompter on iPhone?</a></li><li><a href="#three-scroll-modes-for-different-situations">Three scroll modes for different situations</a></li><li><a href="#getting-the-read-to-sound-natural">Getting the read to sound natural</a></li><li><a href="#what-does-it-cost">What does it cost?</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
+                <p>Yes, your iPhone can run a teleprompter that follows your voice instead of scrolling at a fixed speed. <a href="https://voiceprompter.app/ios/">VoicePrompter for iOS</a> listens as you talk, matches your words against your whole script, and scrolls at your pace - and it either records 4K video right in the app or floats your script over TikTok and Instagram while their camera records you. Here&#39;s how that works in practice.</p>
+<h2 id="why-fixed-speed-scrolling-fails-on-a-phone">Why fixed-speed scrolling fails on a phone</h2>
 <p>Most iPhone teleprompter apps make you set a scroll speed before you hit record. But nobody speaks at a constant rate. You slow down for the important line, speed up through the setup, pause when a dog barks. With fixed scrolling you end up chasing the text or waiting for it, and the take sounds like what it is: reading.</p>
 <p>I built VoicePrompter around the opposite idea - the script should follow you. The app tracks your speech against the entire script, not just the next few words. Skip a paragraph, ad-lib a joke, go back and redo a sentence: the text finds you and keeps scrolling. It even scrolls backward if you restart a line from earlier, which most prompters simply can&#39;t do.</p>
 <p>One early iOS reviewer described it better than I could: <em>&quot;Downloaded the app for the first time yesterday and in less than 5 minutes, I was all set up. The scroll by voice feature is super smooth and the interface is user friendly.&quot;</em> - Holdridge87, App Store review.</p>
-<h2>How do you record a video with a teleprompter on iPhone?</h2>
+<h2 id="how-do-you-record-a-video-with-a-teleprompter-on-iphone">How do you record a video with a teleprompter on iPhone?</h2>
 <p>You have two ways, depending on where the video needs to end up.</p>
 <p><strong>Record inside the app.</strong> VoicePrompter has a built-in camera: up to 4K, your choice of lens, even 10-bit HDR. The script scrolls just under the front camera, so your eyes stay close to the lens. This is the clean path for YouTube videos, course lessons, and talking-head clips you&#39;ll edit later.</p>
 <p><strong>Float the script over another app.</strong> For TikTok, Instagram Reels, or Snapchat you usually want to film in <em>their</em> camera to use their effects and posting flow. VoicePrompter opens a picture-in-picture window that stays on top of every other app. Open TikTok, start recording, and read from the floating script - the phone records you through the camera, not the screen, so the prompter never appears in your video. There&#39;s a full guide in <a href="teleprompter-for-tiktok-and-reels.html">teleprompter for TikTok and Reels</a>.</p>
-<h2>Three scroll modes for different situations</h2>
+<h2 id="three-scroll-modes-for-different-situations">Three scroll modes for different situations</h2>
 <p>Voice tracking is the headline, but it&#39;s not always the right tool, so the app has three modes:</p>
 <ul>
 <li><strong>Voice scrolling</strong> - real word tracking. Best for scripted takes where you want a natural, conversational pace. Works in 60+ languages, and recognition runs on-device.</li>
@@ -580,12 +658,12 @@
 <li><strong>Constant speed</strong> - the classic mode, for when you want full manual control or you&#39;re reading someone else&#39;s delivery.</li>
 </ul>
 <p>If you&#39;re curious how these methods compare across the whole teleprompter market, I broke that down in <a href="teleprompter-scrolling-methods.html">the five ways a teleprompter can scroll</a>.</p>
-<h2>Getting the read to sound natural</h2>
+<h2 id="getting-the-read-to-sound-natural">Getting the read to sound natural</h2>
 <p>A prompter removes the memorizing; it doesn&#39;t automatically remove the &quot;reading voice.&quot; Two habits fix most of it: keep the script window as close to the camera as possible (small eye distance means no visible eye drift), and write the script the way you actually talk - contractions, short sentences, the occasional aside. I collected the rest in <a href="how-to-read-script-without-looking-like-reading.html">how to read a script without looking like you&#39;re reading</a>.</p>
 <p>Rehearsing matters less than you&#39;d think. Because the scroll follows you, your first real take is usually usable - that&#39;s the difference between reading <em>with</em> the prompter and performing <em>for</em> it.</p>
-<h2>What does it cost?</h2>
+<h2 id="what-does-it-cost">What does it cost?</h2>
 <p>The iOS app is free to use for up to 3 custom scripts, each with unlimited words and sessions, plus an unrestricted demo script. If you need more scripts there&#39;s a Pro subscription, or a one-time Lifetime purchase if you&#39;d rather pay once and own it. It&#39;s the same app on iPhone and iPad - <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-teleprompter-for-iphone&mt=8">get it on the App Store</a>, or read more on the <a href="https://voiceprompter.app/ios/">iPhone teleprompter page</a>.</p>
-<h2>Frequently asked questions</h2>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <p><strong>Is there an iPhone teleprompter that scrolls with your voice?</strong> Yes. VoicePrompter for iOS tracks your speech against your whole script and scrolls at your pace, in 60+ languages, with recognition running on-device.</p>
 <p><strong>Can I use a teleprompter while recording in TikTok or Instagram?</strong> Yes - VoicePrompter floats a picture-in-picture script window on top of TikTok, Instagram, or Snapchat while their camera records you. The prompter is not in the video because the phone records the camera, not the screen.</p>
 <p><strong>Can the app record video itself?</strong> Yes, up to 4K with lens selection and 10-bit HDR, so you can film complete talking-head videos without leaving the app.</p>

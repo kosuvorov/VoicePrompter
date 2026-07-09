@@ -36,7 +36,7 @@
     "description": "The prep takes forever, the retakes take forever, the editing takes forever. Here's a workflow to cut all three in half.",
     "image": "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=800&q=80",
     "datePublished": "2026-02-26",
-    "dateModified": "2026-02-26",
+    "dateModified": "2026-07-07",
     "author": {
       "@type": "Person",
       "name": "Konstantin Suvorov",
@@ -77,6 +77,44 @@
         "position": 3,
         "name": "How to Record Tutorial Videos Faster (Without Sacrificing Quality)",
         "item": "https://voiceprompter.app/blog/record-tutorial-videos-faster.html"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I record tutorial videos faster?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Script the narration, then use a voice-paced teleprompter so each section lands in one take - the biggest time sink in tutorials is re-recording rambling explanations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I read a script while screen recording?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "On a Mac, yes - VoicePrompter's floating window is invisible to screen capture, so your narration script floats over the very screen you're recording."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much time can a teleprompter save per tutorial?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "As an estimate with assumptions shown: going from ~6 takes to ~2 on a 5-minute script at ~7 minutes per take saves 25-30 minutes per video."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to memorize product steps before recording?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No - keep the exact click-path in the prompter and narrate as you go; ad-libs work because word tracking waits for you."
+        }
       }
     ]
   }
@@ -171,6 +209,79 @@
         .article-meta {
             color: #888;
             font-size: 0.9375rem;
+        }
+
+        .article-author {
+            color: #d0d0d0;
+            font-weight: 600;
+        }
+
+        .article-author:hover {
+            color: #DAA000;
+        }
+
+        .article-author-role {
+            color: #777;
+        }
+
+        .article-hero {
+            width: 100%;
+            height: auto;
+            max-height: 340px;
+            -o-object-fit: cover;
+               object-fit: cover;
+            border-radius: 12px;
+            margin: 4px 0 8px;
+        }
+
+        .article-toc {
+            background: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+
+        .article-toc strong {
+            display: block;
+            color: #fff;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .article-toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            -moz-columns: 2;
+                 columns: 2;
+            -moz-column-gap: 24px;
+                 column-gap: 24px;
+        }
+
+        .article-toc li {
+            margin-bottom: 6px;
+            -moz-column-break-inside: avoid;
+                 break-inside: avoid;
+        }
+
+        .article-toc a {
+            color: #a0a0a0;
+            text-decoration: none;
+        }
+
+        .article-toc a:hover {
+            color: #DAA000;
+        }
+
+        @media (max-width: 560px) {
+            .article-toc ul {
+                -moz-columns: 1;
+                     columns: 1;
+            }
         }
 
         .article-content {
@@ -493,16 +604,22 @@
         <article>
             <div class="article-header">
                 <h1>How to Record Tutorial Videos Faster (Without Sacrificing Quality)</h1>
-                <div class="article-meta">Feb 26, 2026</div>
+                <div class="article-meta">
+                    <a class="article-author" href="/about.html">Konstantin Suvorov</a>
+                    <span class="article-author-role">· builds VoicePrompter</span>
+                    <span aria-hidden="true"> · </span>Feb 26, 2026
+                </div>
             </div>
 
             <div class="article-content">
                 <div class="article-tldr" aria-label="Quick Summary">
                     <strong>TL;DR:</strong> The prep takes forever, the retakes take forever, the editing takes forever. Here's a workflow to cut all three in half.
                 </div>
+                <img class="article-hero" src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=800&q=80" alt="" decoding="async" fetchpriority="high">
+                <nav class="article-toc" aria-label="Contents"><strong>In this article</strong><ul><li><a href="#the-pre-production-phase-where-most-time-is-lost">The Pre-Production Phase: Where Most Time Is Lost</a></li><li><a href="#write-a-script-for-the-hard-parts">Write a Script for the Hard Parts</a></li><li><a href="#use-a-teleprompter-for-your-scripted-sections">Use a Teleprompter for Your Scripted Sections</a></li><li><a href="#recording-in-segments">Recording in Segments</a></li><li><a href="#the-biggest-time-saver-in-editing-better-recording-practices">The Biggest Time Saver in Editing: Better Recording Practices</a></li><li><a href="#screen-recording-specifically">Screen Recording Specifically</a></li><li><a href="#the-full-workflow-in-sequence">The Full Workflow in Sequence</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
                 <p>At some point in the career of anyone who records tutorials, a sobering realization sets in: the actual recording is the easy part. The prep takes forever, the retakes take forever, and the editing takes forever.</p>
 <p>Most of that time is recoverable. Here&#39;s the workflow I&#39;ve settled on after recording a lot of these.</p>
-<h2>The Pre-Production Phase: Where Most Time Is Lost</h2>
+<h2 id="the-pre-production-phase-where-most-time-is-lost">The Pre-Production Phase: Where Most Time Is Lost</h2>
 <p>The number one time drain in tutorial production is not recording - it&#39;s being underprepared before recording. This shows up as:</p>
 <ul>
 <li>Knowing roughly what you want to say but not exactly, leading to rambling takes</li>
@@ -512,7 +629,7 @@
 <p>The fix: before you record anything, do a full dry run of whatever you&#39;re about to demonstrate. Actually do the steps, in sequence, on your screen, while narrating out loud - but not recording. Note where it&#39;s awkward, where you need to add context, where you assumed knowledge the viewer doesn&#39;t have.</p>
 <p>Then write your script for those problem areas.</p>
 <p>This dry run takes maybe 20 minutes for a 10-minute tutorial. It saves you 90 minutes of re-recording.</p>
-<h2>Write a Script for the Hard Parts</h2>
+<h2 id="write-a-script-for-the-hard-parts">Write a Script for the Hard Parts</h2>
 <p>You don&#39;t need to script every word. You do need to script the parts where precision matters:</p>
 <ul>
 <li>The opening (what this tutorial covers, who it&#39;s for, why they should watch it)</li>
@@ -521,12 +638,12 @@
 </ul>
 <p>For everything else - &quot;and now I&#39;ll click here,&quot; &quot;you can see that X happened,&quot; &quot;let&#39;s go back to&quot; - you can narrate on the fly while showing.</p>
 <p>The scripted sections are what separates a tutorial that teaches from a tutorial that just shows. They&#39;re also the sections that take the most takes to get right when improvised, because you&#39;re searching for the right framing in real time.</p>
-<h2>Use a Teleprompter for Your Scripted Sections</h2>
+<h2 id="use-a-teleprompter-for-your-scripted-sections">Use a Teleprompter for Your Scripted Sections</h2>
 <p>For the scripted parts, use a teleprompter. Full stop.</p>
 <p><a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8">VoicePrompter for Mac</a> is what I use. It&#39;s an always-on-top transparent overlay - you can see it while screen recording, but it doesn&#39;t appear in the recording itself. So for a tutorial where you&#39;re sharing your screen, your teleprompter sits on top of your browser or application, readable to you, invisible to viewers.</p>
 <p>Voice-activated scrolling means it follows your pace. When you switch into live demonstration mode (&quot;now I&#39;ll click here...&quot;), you stop talking to the script and the scroll pauses. When you transition back to your scripted narration, it&#39;s right where you left off.</p>
 <p>For tutorials filmed at a camera (rather than screencasts), <a href="https://voiceprompter.app">voiceprompter.app</a> works on any device for free.</p>
-<h2>Recording in Segments</h2>
+<h2 id="recording-in-segments">Recording in Segments</h2>
 <p>If your tutorial is longer than 5 minutes, record it in logical sections. Typical structure:</p>
 <ul>
 <li>Section 1: Introduction and context</li>
@@ -535,19 +652,19 @@
 </ul>
 <p>Recording in sections means a stumble on the fourth step doesn&#39;t require re-recording the first three. You nail each section independently and assemble them in editing.</p>
 <p>Use a consistent format for each section so the editing is predictable. I give myself 3 seconds of silence at the start and end of each section - it gives me clean cut points without having to hunt for them.</p>
-<h2>The Biggest Time Saver in Editing: Better Recording Practices</h2>
+<h2 id="the-biggest-time-saver-in-editing-better-recording-practices">The Biggest Time Saver in Editing: Better Recording Practices</h2>
 <p>The editing time for a tutorial is roughly proportional to the number of mistakes in the recording. Cut the mistakes, cut the editing time.</p>
 <p>Three things that reduce mistakes:</p>
 <p><strong>1. Keep recording when you make a mistake.</strong> Say &quot;let me take that again from X&quot; out loud, pause two seconds, then continue. Don&#39;t stop the recording. You&#39;ll cut the mistake in editing, and you don&#39;t lose the flow. Stopping the recording on every stumble doubles your session length.</p>
 <p><strong>2. Clap at the start of each section.</strong> A single hand clap creates a sharp audio spike that&#39;s easy to find in a waveform. Mark your section starts this way and you&#39;ll spend 10 minutes in editing instead of 40.</p>
 <p><strong>3. Do one pass before uploading, not ten.</strong> Watch the recording once, note timestamps of the cuts you need to make, make them in one editing session. Most tutorial creators re-watch their footage too many times during editing, which is time-consuming and leads to over-cutting.</p>
-<h2>Screen Recording Specifically</h2>
+<h2 id="screen-recording-specifically">Screen Recording Specifically</h2>
 <p>For tutorials where you&#39;re recording your screen:</p>
 <p>Run your recording software at native resolution. Don&#39;t record at a lower resolution and then upscale - it always looks worse than you expect.</p>
 <p>Hide your dock and desktop icons before recording. Clutter in your screen recording is distracting and gives viewers things to look at besides your content.</p>
 <p>Slow your mouse movements deliberately. On screen, fast mouse movement is hard to follow. The pace that feels natural when demonstrating something in real life is too fast on screen. Move slower than you think you need to.</p>
 <p>Zoom in on the specific area you&#39;re demonstrating. Many screen recording tools have a zoom feature. Use it. Viewers should not be squinting to read the text in your recording.</p>
-<h2>The Full Workflow in Sequence</h2>
+<h2 id="the-full-workflow-in-sequence">The Full Workflow in Sequence</h2>
 <ol>
 <li><strong>Plan.</strong> Outline the tutorial: what are the steps, what needs explanation vs. demonstration.</li>
 <li><strong>Dry run.</strong> Do the whole thing once without recording. Note the rough spots.</li>
@@ -559,6 +676,11 @@
 </ol>
 <p>Followed consistently, this takes most 10-minute tutorials from a 4-hour day to a 2-hour morning. The dry run and the teleprompter are the biggest time savers.</p>
 <p>For the webinar variant of this workflow, see <a href="./how-to-record-webinars-and-podcasts.html">how to record webinars and podcasts</a>. For the product-demo-specific version, <a href="./how-to-record-product-demo-video.html">how to record a product demo video</a>.</p>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<p><strong>How do I record tutorial videos faster?</strong> Script the narration, then use a voice-paced teleprompter so each section lands in one take - the biggest time sink in tutorials is re-recording rambling explanations.</p>
+<p><strong>Can I read a script while screen recording?</strong> On a Mac, yes - VoicePrompter&#39;s floating window is invisible to screen capture, so your narration script floats over the very screen you&#39;re recording.</p>
+<p><strong>How much time can a teleprompter save per tutorial?</strong> As an estimate with assumptions shown: going from ~6 takes to ~2 on a 5-minute script at ~7 minutes per take saves 25-30 minutes per video.</p>
+<p><strong>Do I need to memorize product steps before recording?</strong> No - keep the exact click-path in the prompter and narrate as you go; ad-libs work because word tracking waits for you.</p>
 <hr>
 <p><strong>Related articles:</strong></p>
 <ul>

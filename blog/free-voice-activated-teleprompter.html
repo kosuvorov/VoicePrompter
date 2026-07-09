@@ -231,6 +231,79 @@
             font-size: 0.9375rem;
         }
 
+        .article-author {
+            color: #d0d0d0;
+            font-weight: 600;
+        }
+
+        .article-author:hover {
+            color: #DAA000;
+        }
+
+        .article-author-role {
+            color: #777;
+        }
+
+        .article-hero {
+            width: 100%;
+            height: auto;
+            max-height: 340px;
+            -o-object-fit: cover;
+               object-fit: cover;
+            border-radius: 12px;
+            margin: 4px 0 8px;
+        }
+
+        .article-toc {
+            background: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+
+        .article-toc strong {
+            display: block;
+            color: #fff;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .article-toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            -moz-columns: 2;
+                 columns: 2;
+            -moz-column-gap: 24px;
+                 column-gap: 24px;
+        }
+
+        .article-toc li {
+            margin-bottom: 6px;
+            -moz-column-break-inside: avoid;
+                 break-inside: avoid;
+        }
+
+        .article-toc a {
+            color: #a0a0a0;
+            text-decoration: none;
+        }
+
+        .article-toc a:hover {
+            color: #DAA000;
+        }
+
+        @media (max-width: 560px) {
+            .article-toc ul {
+                -moz-columns: 1;
+                     columns: 1;
+            }
+        }
+
         .article-content {
             font-size: 1.0625rem;
             color: #d0d0d0;
@@ -551,25 +624,30 @@
         <article>
             <div class="article-header">
                 <h1>Voice-Activated Teleprompter: What It Really Means (and How to Get It Free)</h1>
-                <div class="article-meta">Mar 14, 2026</div>
+                <div class="article-meta">
+                    <a class="article-author" href="/about.html">Konstantin Suvorov</a>
+                    <span class="article-author-role">· builds VoicePrompter</span>
+                    <span aria-hidden="true"> · </span>Mar 14, 2026
+                </div>
             </div>
 
             <div class="article-content">
                 <div class="article-tldr" aria-label="Quick Summary">
                     <strong>TL;DR:</strong> Most 'voice-activated' teleprompters only detect sound - they don't follow your words. Here's the real difference, and how to get true voice scrolling free.
                 </div>
-                <h1>Voice-Activated Teleprompter: What It Really Means (and How to Get It Free)</h1>
-<p>A voice-activated teleprompter scrolls your script by following your voice instead of a fixed timer - but there are <strong>two completely different versions of &quot;voice-activated,&quot; and most apps only do the weaker one.</strong> The good news: the real thing is available free in your browser with <a href="https://voiceprompter.app">VoicePrompter</a>. Here&#39;s the difference, and why it matters.</p>
-<h2>The two meanings of &quot;voice-activated&quot;</h2>
+                
+                <nav class="article-toc" aria-label="Contents"><strong>In this article</strong><ul><li><a href="#the-two-meanings-of-quot-voice-activated-quot">The two meanings of &quot;voice-activated&quot;</a></li><li><a href="#why-word-tracking-is-the-one-you-want">Why word tracking is the one you want</a></li><li><a href="#how-to-get-real-voice-scrolling-free">How to get real voice scrolling - free</a></li><li><a href="#for-mac-the-version-that-39-s-invisible-on-screen-share">For Mac: the version that&#39;s invisible on screen share</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
+                <p>A voice-activated teleprompter scrolls your script by following your voice instead of a fixed timer - but there are <strong>two completely different versions of &quot;voice-activated,&quot; and most apps only do the weaker one.</strong> The good news: the real thing is available free in your browser with <a href="https://voiceprompter.app">VoicePrompter</a>. Here&#39;s the difference, and why it matters.</p>
+<h2 id="the-two-meanings-of-quot-voice-activated-quot">The two meanings of &quot;voice-activated&quot;</h2>
 <p>Both get marketed with the same words, but they are not the same technology:</p>
 <ul>
 <li><strong>Sound detection (&quot;voice sync&quot;).</strong> The app listens for <em>sound above a volume threshold</em>. You talk, it scrolls; you go quiet, it stops. It has no idea what you&#39;re actually saying or where you are in the script. Some apps even say so plainly in their own docs - <em>&quot;voice sync, not voice recognition… simply detecting audio levels.&quot;</em> The problem: the moment you pause oddly, get interrupted, ad-lib, or jump to a different part of the script, it loses you - because it was only reacting to noise.</li>
 <li><strong>Word tracking (real speech recognition).</strong> The app follows your <em>actual words</em> and your <em>position</em> in the script. Skip a paragraph, improvise a sentence, or go back to re-read a line, and it stays with you. This is much harder to build - and it&#39;s the version that actually feels like magic.</li>
 </ul>
 <p>The simple test: if an app only scrolls while it hears noise, it&#39;s sound detection. If it follows you when you go <em>off</em> script, it&#39;s word tracking.</p>
-<h2>Why word tracking is the one you want</h2>
+<h2 id="why-word-tracking-is-the-one-you-want">Why word tracking is the one you want</h2>
 <p>Real speaking is never perfectly linear. You pause for emphasis. Someone asks a question. You decide to say your third point first. With sound detection, every one of those moments risks the text marching on without you - or stopping dead. With word tracking, the script just follows your voice, at your pace, in your order. VoicePrompter even scrolls <strong>backward</strong>: start reading an earlier line and it moves back to it. And you can <strong>tap any word</strong> to jump the prompter straight there.</p>
-<h2>How to get real voice scrolling - free</h2>
+<h2 id="how-to-get-real-voice-scrolling-free">How to get real voice scrolling - free</h2>
 <p>The free <a href="https://voiceprompter.app">VoicePrompter web app</a> does genuine voice scrolling right in your browser. No download, no account, no cost:</p>
 <div class="video-responsive"><iframe src="https://www.youtube.com/embed/AFw-cO8qsEM" title="VoicePrompter - free voice-activated teleprompter demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
 
@@ -587,9 +665,9 @@
 <li>Tap the microphone to turn on speech recognition.</li>
 <li>Start talking.</li>
 </ol>
-<h2>For Mac: the version that&#39;s invisible on screen share</h2>
+<h2 id="for-mac-the-version-that-39-s-invisible-on-screen-share">For Mac: the version that&#39;s invisible on screen share</h2>
 <p>If you record on a Mac and need the text to <strong>stay invisible during screen sharing</strong> - Zoom, Google Meet, Teams, OBS - and float on top of every app, the native <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-voice-activated&mt=8">VoicePrompter for Mac</a> adds that, plus a more advanced engine and 60+ languages. One reviewer put it simply: <em>&quot;the most robust, reliable, versatile and customizable one I&#39;ve tried… it follows them word for word.&quot;</em> More on that in <a href="./best-teleprompter-app-for-mac.html">best teleprompter app for Mac</a>.</p>
-<h2>Frequently asked questions</h2>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <p><strong>Is a voice-activated teleprompter free?</strong> Yes - the VoicePrompter web app does real voice scrolling for free, with no account. The native Mac app (invisible overlay, 60+ languages) is a paid upgrade.</p>
 <p><strong>What&#39;s the difference between sound scrolling and voice scrolling?</strong> Sound scrolling moves the text whenever it hears noise; real voice scrolling follows your actual words and position, so you can pause, ad-lib, or jump around and it keeps up.</p>
 <p><strong>Does it work if English isn&#39;t my first language?</strong> Yes - the web app supports 34 languages and the Mac app 60+, with on-device recognition that handles accents well.</p>
@@ -600,7 +678,7 @@
 <p><strong>Related articles:</strong></p>
 <ul>
 <li><a href="./best-teleprompter-app-for-mac.html">Best Teleprompter App for Mac in 2026: An Honest Look</a></li>
-<li><a href="./voice-scrolling-solo-creators.html">Why Voice Scrolling is Essential for Solo Creators</a></li>
+<li><a href="./free-voice-activated-teleprompter.html">Why Voice Scrolling is Essential for Solo Creators</a></li>
 <li><a href="./multilingual-teleprompter-60-languages.html">Teleprompter in 60+ Languages - Auto Language Detection</a></li>
 <li><a href="./how-to-use-teleprompter-naturally.html">How to Use a Teleprompter Naturally</a></li>
 </ul>

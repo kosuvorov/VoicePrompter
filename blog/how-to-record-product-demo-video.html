@@ -36,7 +36,7 @@
     "description": "Stop re-recording your demos. A practical workflow for founders, PMs, and marketers who need to ship demo videos without the stress.",
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
     "datePublished": "2026-03-06",
-    "dateModified": "2026-03-06",
+    "dateModified": "2026-07-07",
     "author": {
       "@type": "Person",
       "name": "Konstantin Suvorov",
@@ -77,6 +77,44 @@
         "position": 3,
         "name": "How to Record a Product Demo Video Without 50 Takes",
         "item": "https://voiceprompter.app/blog/how-to-record-product-demo-video.html"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I narrate a product demo without stumbling?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Script the narration and read it from a prompter floating over the product itself - on a Mac the window is invisible to the screen recording."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I pause the demo to click through the product?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes - voice tracking pauses when you stop talking and resumes when you do, so clicks and typing don't desync the script."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do accented speakers love prompters for demos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "One reviewer, a non-native speaker, said it keeps up with his accent and already saved him time across many product demos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are one-take demos realistic?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "With voice-paced scrolling, mostly yes: stumbles mean re-reading a sentence (it scrolls backward with you), not restarting the recording."
+        }
       }
     ]
   }
@@ -171,6 +209,79 @@
         .article-meta {
             color: #888;
             font-size: 0.9375rem;
+        }
+
+        .article-author {
+            color: #d0d0d0;
+            font-weight: 600;
+        }
+
+        .article-author:hover {
+            color: #DAA000;
+        }
+
+        .article-author-role {
+            color: #777;
+        }
+
+        .article-hero {
+            width: 100%;
+            height: auto;
+            max-height: 340px;
+            -o-object-fit: cover;
+               object-fit: cover;
+            border-radius: 12px;
+            margin: 4px 0 8px;
+        }
+
+        .article-toc {
+            background: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+
+        .article-toc strong {
+            display: block;
+            color: #fff;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .article-toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            -moz-columns: 2;
+                 columns: 2;
+            -moz-column-gap: 24px;
+                 column-gap: 24px;
+        }
+
+        .article-toc li {
+            margin-bottom: 6px;
+            -moz-column-break-inside: avoid;
+                 break-inside: avoid;
+        }
+
+        .article-toc a {
+            color: #a0a0a0;
+            text-decoration: none;
+        }
+
+        .article-toc a:hover {
+            color: #DAA000;
+        }
+
+        @media (max-width: 560px) {
+            .article-toc ul {
+                -moz-columns: 1;
+                     columns: 1;
+            }
         }
 
         .article-content {
@@ -493,23 +604,29 @@
         <article>
             <div class="article-header">
                 <h1>How to Record a Product Demo Video Without 50 Takes</h1>
-                <div class="article-meta">Mar 6, 2026</div>
+                <div class="article-meta">
+                    <a class="article-author" href="/about.html">Konstantin Suvorov</a>
+                    <span class="article-author-role">· builds VoicePrompter</span>
+                    <span aria-hidden="true"> · </span>Mar 6, 2026
+                </div>
             </div>
 
             <div class="article-content">
                 <div class="article-tldr" aria-label="Quick Summary">
                     <strong>TL;DR:</strong> Stop re-recording your demos. A practical workflow for founders, PMs, and marketers who need to ship demo videos without the stress.
                 </div>
+                <img class="article-hero" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="" decoding="async" fetchpriority="high">
+                <nav class="article-toc" aria-label="Contents"><strong>In this article</strong><ul><li><a href="#start-with-a-real-script-not-bullets">Start With a Real Script, Not Bullets</a></li><li><a href="#structure-your-demo-like-this">Structure Your Demo Like This</a></li><li><a href="#use-a-teleprompter-but-use-it-correctly">Use a Teleprompter - But Use It Correctly</a></li><li><a href="#record-in-sections-not-all-at-once">Record in Sections, Not All at Once</a></li><li><a href="#the-single-best-technical-tip">The Single Best Technical Tip</a></li><li><a href="#when-you-make-a-mistake-mid-take">When You Make a Mistake Mid-Take</a></li><li><a href="#what-a-good-demo-actually-looks-like">What a Good Demo Actually Looks Like</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
                 <p>You hit record. You get through the intro. You mess up a line. You start over. You get through the intro again, nail the first section, then stumble on the pricing slide. Start over again. By take six, your voice sounds stiff and mechanical. By take twelve, you&#39;re questioning every decision you&#39;ve ever made.</p>
 <p>Sound familiar? Because this was my exact workflow for a long time.</p>
 <p>Here&#39;s the thing: most of the people recording product demos are not professional presenters. They&#39;re founders, product managers, engineers, marketers - people who know their product inside out but have never had media training. And the advice you&#39;ll find online (&quot;just practice more,&quot; &quot;be more relaxed&quot;) is not particularly useful when you&#39;re on take nineteen and the deadline is tomorrow.</p>
 <p>So here&#39;s what actually works.</p>
-<h2>Start With a Real Script, Not Bullets</h2>
+<h2 id="start-with-a-real-script-not-bullets">Start With a Real Script, Not Bullets</h2>
 <p>The most common mistake I see is going into a recording with bullet points instead of a script. The idea is that bullets will force you to speak naturally, like you&#39;re explaining something rather than reading.</p>
 <p>In theory: correct. In practice: you end up saying &quot;um&quot; forty times, repeating yourself, losing track of where you are in the demo, and recording twenty takes instead of five.</p>
 <p>Write the full script. Every word. At least for your first draft. Once you have the words on paper, you can start making deliberate choices about where to be more spontaneous versus where you need to stay precise (feature explanations, pricing, calls to action).</p>
 <p>A full script also means you can use a teleprompter. More on that in a moment.</p>
-<h2>Structure Your Demo Like This</h2>
+<h2 id="structure-your-demo-like-this">Structure Your Demo Like This</h2>
 <p>The structure that works for product demos:</p>
 <ol>
 <li><p><strong>The pain, in one sentence.</strong> What problem does this solve? Make it specific and recognizable. &quot;If you record demos, tutorials, or product videos, you know the drill - hit record, mess up a line, start over.&quot;</p>
@@ -523,13 +640,13 @@
 <li><p><strong>The single next step.</strong> One CTA. Not &quot;visit our website, follow us on LinkedIn, sign up for the newsletter, book a demo, watch our other videos.&quot; Just one thing.</p>
 </li>
 </ol>
-<h2>Use a Teleprompter - But Use It Correctly</h2>
+<h2 id="use-a-teleprompter-but-use-it-correctly">Use a Teleprompter - But Use It Correctly</h2>
 <p>A teleprompter doesn&#39;t just reduce takes. It changes the quality of your delivery.</p>
 <p>When you know your script is there and reliable, you stop trying to hold everything in your head. That cognitive load - &quot;what was the next point, did I forget to mention the integration, how do I say this precisely?&quot; - disappears. You can focus entirely on delivery: pace, tone, energy, eye contact.</p>
 <p>The key is using a teleprompter that works correctly. <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=vp-blog&mt=8">VoicePrompter for Mac</a> is what I use. It&#39;s an always-on-top, transparent overlay that follows your speech automatically using Apple&#39;s on-device voice recognition. You talk, it scrolls. You pause, it waits.</p>
 <p>Crucially: it&#39;s completely invisible in screen recordings and screen shares. If you&#39;re recording a demo where you&#39;re also sharing your screen or your Mac display, your teleprompter doesn&#39;t appear in the recording. Your screen shows the product. Your face shows you. Nobody sees the script.</p>
 <p>You can position the window right below your camera so the angle between your eyes and the lens is minimal. When done well, the viewer can&#39;t tell you&#39;re reading at all. For the technique side, read <a href="./how-to-read-script-without-looking-like-reading.html">how to read a script without looking like you&#39;re reading</a>.</p>
-<h2>Record in Sections, Not All at Once</h2>
+<h2 id="record-in-sections-not-all-at-once">Record in Sections, Not All at Once</h2>
 <p>If your demo is longer than two or three minutes, don&#39;t try to record it in a single uninterrupted take. Break it into logical sections:</p>
 <ul>
 <li>Introduction (30 seconds)</li>
@@ -539,22 +656,27 @@
 </ul>
 <p>Record each section separately. If you nail the intro on take two and stumble on the pricing section, you only re-record the pricing section - not the whole thing. Your editing time collapses dramatically.</p>
 <p>Use a slate (clap your hands or snap your fingers) at the start of each section to make the edit points easy to find in your editing software.</p>
-<h2>The Single Best Technical Tip</h2>
+<h2 id="the-single-best-technical-tip">The Single Best Technical Tip</h2>
 <p>Record more than you think you need.</p>
 <p>Don&#39;t cut the recording the second you finish your last sentence. Let it run for five extra seconds of silence. Similarly, don&#39;t start talking the instant you hit record - give yourself three seconds first.</p>
 <p>This sounds trivial but it eliminates a huge amount of editing frustration. The extra silence at the start and end gives you clean cut points, prevents your first and last words from being clipped, and removes the pressure of getting the exact start and stop timing right.</p>
-<h2>When You Make a Mistake Mid-Take</h2>
+<h2 id="when-you-make-a-mistake-mid-take">When You Make a Mistake Mid-Take</h2>
 <p>Don&#39;t stop recording. Ever.</p>
 <p>Just pause. Take a breath. Say &quot;let me restart from the last paragraph&quot; out loud (you&#39;ll cut this in editing). Then continue from a clean point.</p>
 <p>If you stop the recording on every mistake, you end up with twenty short files that are hard to navigate, and you lose the flow you&#39;d built up before the mistake. If you keep recording and just mark the restart, you&#39;ll have fewer files and easier edit points.</p>
 <p>With a voice-activated teleprompter, you can even tap the screen to jump back to any word in your script and re-record from there without stopping the recording at all.</p>
-<h2>What a Good Demo Actually Looks Like</h2>
+<h2 id="what-a-good-demo-actually-looks-like">What a Good Demo Actually Looks Like</h2>
 <p>The best product demos I&#39;ve seen share a few qualities:</p>
 <p>They&#39;re short. Two minutes, maybe three. Every sentence has a purpose.</p>
 <p>They show real usage. Not a clean demo environment with no data - actual usage that looks like something the viewer might do.</p>
 <p>The presenter sounds like they care. Not like they&#39;re reading a brochure, not like they&#39;re on call #47 of the day. Like they&#39;re showing you something that actually solves a problem.</p>
 <p>That last quality is the hardest to manufacture and the easiest to lose when you&#39;re on take fifteen. Get your setup right, reduce the takes, and the genuine energy takes care of itself.</p>
 <p>For more on the full production workflow, see <a href="./record-tutorial-videos-faster.html">how to record tutorial videos faster</a>.</p>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<p><strong>How do I narrate a product demo without stumbling?</strong> Script the narration and read it from a prompter floating over the product itself - on a Mac the window is invisible to the screen recording.</p>
+<p><strong>Can I pause the demo to click through the product?</strong> Yes - voice tracking pauses when you stop talking and resumes when you do, so clicks and typing don&#39;t desync the script.</p>
+<p><strong>Why do accented speakers love prompters for demos?</strong> One reviewer, a non-native speaker, said it keeps up with his accent and already saved him time across many product demos.</p>
+<p><strong>Are one-take demos realistic?</strong> With voice-paced scrolling, mostly yes: stumbles mean re-reading a sentence (it scrolls backward with you), not restarting the recording.</p>
 <hr>
 <p><strong>Related articles:</strong></p>
 <ul>
