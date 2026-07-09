@@ -14,12 +14,24 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Google+Sans+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/google-sans:vf@latest/latin.css">
 
+    <link rel="canonical" href="https://voiceprompter.app/blog/">
+
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://voiceprompter.app/blog/">
     <meta property="og:title" content="VoicePrompter Blog - Teleprompter Tips & Guides">
     <meta property="og:description" content="Expert tips on voice-activated scrolling, natural delivery, and video production workflow.">
+    <meta property="og:image" content="https://voiceprompter.app/og-image.png">
     <meta property="og:site_name" content="VoicePrompter">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="VoicePrompter Blog - Teleprompter Tips & Guides">
+    <meta name="twitter:description" content="Expert tips on voice-activated scrolling, natural delivery, and video production workflow.">
+    <meta name="twitter:image" content="https://voiceprompter.app/og-image.png">
+
+    <!-- JSON-LD -->
+    /*BLOG_SCHEMA*/
 
     <style>
         :root {
@@ -34,6 +46,34 @@
         }
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        .blog-byline {
+            margin-top: 14px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .blog-byline a { color: var(--pop); text-decoration: none; }
+
+        .blog-faq {
+            max-width: 760px;
+            margin: 56px auto 0;
+        }
+
+        .blog-faq h2 {
+            font-family: var(--font-serif);
+            font-size: 26px;
+            margin-bottom: 18px;
+        }
+
+        .blog-faq details {
+            border-bottom: 1px solid var(--surface-border);
+            padding: 13px 2px;
+        }
+
+        .blog-faq summary { cursor: pointer; font-weight: 600; }
+
+        .blog-faq p { margin-top: 10px; color: var(--text-light); font-size: 0.95rem; line-height: 1.7; }
 
         body {
             font-family: var(--font-sans);
@@ -288,14 +328,36 @@
     <!-- ═══════════════════════ Blog Header ═══════════════════════ -->
     <div class="container">
         <div class="blog-header fade-up">
-            <h1>Blog</h1>
-            <p>Tips on teleprompter delivery, video production workflow, and building confidence on camera.</p>
+            <h1>Teleprompter Tips &amp; Guides</h1>
+            <p>Hands-on guides to voice tracking (speech recognition that scrolls your script as you speak),
+            natural on-camera delivery, and faster video production. I write everything here myself -
+            I build VoicePrompter and test each setup before recommending it. If you're new to the
+            <a href="https://en.wikipedia.org/wiki/Teleprompter" target="_blank" rel="noopener">teleprompter</a>
+            world, start with the comparison guides.</p>
+            <p class="blog-byline">Articles by <a href="/about.html">Konstantin Suvorov</a>, maker of VoicePrompter</p>
         </div>
 
         <div class="article-grid fade-up" id="articles">
             /*ARTICLES_HTML*/
         </div>
     </div>
+
+    <!-- ═══════════════════════ FAQ ═══════════════════════ -->
+    <section class="blog-faq" aria-label="Frequently asked questions">
+        <h2>Frequently asked questions</h2>
+        <details>
+            <summary>What is a voice-scrolling teleprompter?</summary>
+            <p>A teleprompter that uses speech recognition to follow your actual words and advance the script as you speak - pausing when you pause - instead of crawling at a fixed speed. The full breakdown is in <a href="/blog/teleprompter-scrolling-methods.html">the five ways a teleprompter can scroll</a>.</p>
+        </details>
+        <details>
+            <summary>Can I use a teleprompter with Zoom or Google Meet?</summary>
+            <p>Yes - on a Mac, VoicePrompter floats above the call and stays invisible during screen sharing. Step-by-step guides: <a href="/blog/how-to-use-teleprompter-on-zoom.html">Zoom</a> and <a href="/blog/how-to-use-teleprompter-on-google-meet.html">Google Meet</a>.</p>
+        </details>
+        <details>
+            <summary>Is there a free teleprompter app?</summary>
+            <p>Yes - the VoicePrompter web app is completely free in any browser, and the native apps have a free tier with full voice tracking. See <a href="/blog/best-free-teleprompter-app-for-iphone.html">what's actually free on iPhone</a> and <a href="/blog/teleprompter-online-no-download.html">the no-download online version</a>.</p>
+        </details>
+    </section>
 
     <!-- ═══════════════════════ Footer ═══════════════════════ -->
     <footer class="footer">
@@ -335,7 +397,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>Made by <a href="https://instagram.com/kosuvorov" target="_blank" rel="noopener" style="color:var(--text-light);text-decoration:underline;text-underline-offset:2px;">Konstantin Suvorov</a> · © 2026 VoicePrompter</p>
+            <p>Made by <a href="/about.html" style="color:var(--text-light);text-decoration:underline;text-underline-offset:2px;">Konstantin Suvorov</a> · © 2026 VoicePrompter</p>
             <div class="footer-social">
                 <a href="https://www.instagram.com/voiceprompter" target="_blank" rel="noopener" aria-label="Instagram">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>

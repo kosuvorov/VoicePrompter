@@ -149,13 +149,14 @@ mdFiles.forEach(file => {
         video: Boolean(frontmatter.video && frontmatter.video.videoId)
     };
 
-    articles.push(article);
-
     // Generate JSON-LD Schema
     const isoDate = (() => {
         const d = new Date(article.date);
         return isNaN(d.getTime()) ? new Date().toISOString().split('T')[0] : d.toISOString().split('T')[0];
     })();
+    article.isoDate = isoDate;
+
+    articles.push(article);
     
     const schemas = [];
     
@@ -282,7 +283,61 @@ const articleCards = articles.map(article => `
                 </div>
             </a>`).join('\n');
 
-const indexHtml = indexTemplate.replace('/*ARTICLES_HTML*/', articleCards);
+// Blog + FAQPage JSON-LD for the index page
+const blogSchema = [
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "@id": "https://voiceprompter.app/blog/",
+        "name": "VoicePrompter Blog",
+        "description": "Hands-on guides to voice-tracking teleprompters, natural on-camera delivery, and faster video production.",
+        "url": "https://voiceprompter.app/blog/",
+        "dateModified": new Date().toISOString().split('T')[0],
+        "author": {
+            "@type": "Person",
+            "name": "Konstantin Suvorov",
+            "url": "https://voiceprompter.app/about.html"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "VoicePrompter",
+            "url": "https://voiceprompter.app/",
+            "logo": { "@type": "ImageObject", "url": "https://voiceprompter.app/logo-no-bg.png" }
+        },
+        "blogPost": articles.slice(0, 30).map(a => ({
+            "@type": "BlogPosting",
+            "headline": a.title,
+            "url": `https://voiceprompter.app/blog/${a.slug}.html`,
+            "datePublished": a.isoDate || undefined
+        }))
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is a voice-scrolling teleprompter?",
+                "acceptedAnswer": { "@type": "Answer", "text": "A teleprompter that uses speech recognition to follow your actual words and advance the script as you speak, pausing when you pause, instead of crawling at a fixed speed." }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use a teleprompter with Zoom or Google Meet?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. On a Mac, VoicePrompter floats above the call and stays invisible during screen sharing, so participants and recordings never see your script." }
+            },
+            {
+                "@type": "Question",
+                "name": "Is there a free teleprompter app?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. The VoicePrompter web app is completely free in any browser, and the native Mac, iPhone, and iPad apps have a free tier that includes full voice tracking with 3 custom scripts." }
+            }
+        ]
+    }
+];
+const blogSchemaBlock = `<script type="application/ld+json">\n${JSON.stringify(blogSchema, null, 2)}\n</script>`;
+
+const indexHtml = indexTemplate
+    .replace('/*BLOG_SCHEMA*/', blogSchemaBlock)
+    .replace('/*ARTICLES_HTML*/', articleCards);
 fs.writeFileSync(path.join(BLOG_DIR, 'index.html'), indexHtml);
 console.log(`✓ Generated static blog index with ${articles.length} articles`);
 
