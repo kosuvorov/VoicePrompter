@@ -46,6 +46,46 @@
     }
     </script>
 
+    <!-- FAQ schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is VoicePrompter free?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. The web app is completely free and open source. The Mac, iPhone, and iPad apps are free to use for up to 3 custom scripts plus an unlimited demo script; paid plans, including a one-time Lifetime option, unlock more." }
+        },
+        {
+          "@type": "Question",
+          "name": "How does voice-activated scrolling work?",
+          "acceptedAnswer": { "@type": "Answer", "text": "VoicePrompter matches your spoken words against your entire script in real time and scrolls only as you speak, pausing when you pause and resuming when you continue. In the browser it uses the Web Speech API; the native Mac, iPhone, and iPad apps use Apple's on-device speech recognition." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my script private?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Speech recognition and your scripts stay on your device - nothing is uploaded to a server and no account is required. Everything works offline." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the teleprompter stay invisible during screen sharing?",
+          "acceptedAnswer": { "@type": "Answer", "text": "On Mac, yes. The app window is excluded from screen capture at the macOS level, so it stays invisible in Zoom, Google Meet, Teams, OBS, and QuickTime recordings while remaining visible only to you." }
+        },
+        {
+          "@type": "Question",
+          "name": "What platforms does VoicePrompter support?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Native apps for macOS, iPhone, and iPad (one Universal Purchase covers all three), plus a free web app that runs in Chrome, Edge, and Safari on any device, including Windows and Android." }
+        },
+        {
+          "@type": "Question",
+          "name": "How many languages does it support?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The native apps track 60+ languages with automatic detection from your script; the free web app supports 34." }
+        }
+      ]
+    }
+    </script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -672,8 +712,9 @@
                 </div>
 
                 <div class="live-stat" id="live-stat">
-                    <span>Trusted by <span class="stat-number" id="stat-creators"> - </span> creators and counting</span>
+                    <span>Trusted by <span class="stat-number" id="stat-creators">1,000+</span> creators and counting</span>
                 </div>
+                <p class="hero-proof">Used by creators in 125+ countries · 5.0&#9733; on the App Store · 100% private, on-device</p>
             </div>
 
             <!-- Fork Cards -->
@@ -687,8 +728,8 @@
                         your voice.</p>
                     <ul class="card-perks">
                         <li>Voice-activated scrolling</li>
-                        <li>Works offline as a PWA app</li>
-                        <li>Mirror mode for teleprompter glass</li>
+                        <li>Works offline as a PWA (installable web app)</li>
+                        <li>Mirror mode (flips text for teleprompter glass)</li>
                         <li>34 languages, auto-detected</li>
                         <li>Voice commands: back, forward, restart</li>
                         <li>Built-in video recording</li>
@@ -725,6 +766,81 @@
             </div>
         </div>
     </div>
+
+    <!-- ═══════════════════════ FAQ ═══════════════════════ -->
+    <style>
+        .hero-proof {
+            margin-top: 8px;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+        .home-faq {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 40px 32px 20px;
+        }
+        .home-faq h2 {
+            font-family: var(--font-serif);
+            font-size: 30px;
+            color: var(--accent);
+            text-align: center;
+            margin-bottom: 28px;
+            letter-spacing: -0.02em;
+        }
+        .home-faq details {
+            border-bottom: 1px solid var(--surface-border);
+            padding: 16px 4px;
+        }
+        .home-faq summary {
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 17px;
+            color: var(--text);
+            list-style: none;
+        }
+        .home-faq summary::-webkit-details-marker { display: none; }
+        .home-faq summary::after {
+            content: '+';
+            float: right;
+            color: var(--pop);
+            font-weight: 400;
+        }
+        .home-faq details[open] summary::after { content: '\2013'; }
+        .home-faq p {
+            margin-top: 12px;
+            color: var(--text-light);
+            font-size: 15.5px;
+            line-height: 1.7;
+        }
+        .home-faq a { color: var(--pop); }
+    </style>
+    <section class="home-faq" aria-label="Frequently asked questions">
+        <h2>Frequently asked questions</h2>
+        <details>
+            <summary>Is VoicePrompter free?</summary>
+            <p>Yes. The <a href="/web/">web app</a> is completely free and open source. The Mac, iPhone, and iPad apps are free to use for up to 3 custom scripts plus an unlimited demo script; paid plans, including a one-time Lifetime option, unlock more.</p>
+        </details>
+        <details>
+            <summary>How does voice-activated scrolling work?</summary>
+            <p>VoicePrompter matches your spoken words against your entire script in real time and scrolls only as you speak, pausing when you pause. In the browser it uses the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API" target="_blank" rel="noopener">Web Speech API</a>; the native apps use <a href="https://developer.apple.com/documentation/speech" target="_blank" rel="noopener">Apple's on-device Speech framework</a>.</p>
+        </details>
+        <details>
+            <summary>Is my script private?</summary>
+            <p>Yes. Speech recognition and your scripts stay on your device - nothing is uploaded to a server and no account is required. Everything works offline.</p>
+        </details>
+        <details>
+            <summary>Does the teleprompter stay invisible during screen sharing?</summary>
+            <p>On Mac, yes. The app window is excluded from screen capture at the macOS level, so it stays invisible in Zoom, Google Meet, Teams, OBS, and QuickTime recordings while remaining visible only to you.</p>
+        </details>
+        <details>
+            <summary>What platforms does it support?</summary>
+            <p>Native apps for macOS, iPhone, and iPad (one Universal Purchase covers all three), plus a free web app that runs in Chrome, Edge, and Safari on any device, including Windows and Android.</p>
+        </details>
+        <details>
+            <summary>How many languages does it support?</summary>
+            <p>The native apps track 60+ languages with automatic detection from your script; the free web app supports 34.</p>
+        </details>
+    </section>
 
     <!-- ═══════════════════════ Footer ═══════════════════════ -->
     <footer class="footer">
