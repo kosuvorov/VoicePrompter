@@ -602,7 +602,7 @@
 
         /* ───────────────────────── Footer ───────────────────────── */
         .footer {
-            padding: 64px 32px 40px;
+            padding: 44px 32px 28px;
             border-top: 1px solid var(--surface-border);
             max-width: 960px;
             margin: 0 auto;
@@ -611,8 +611,10 @@
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 40px;
-            margin-bottom: 48px;
+            -moz-column-gap: 40px;
+                 column-gap: 40px;
+            row-gap: 24px;
+            margin-bottom: 32px;
         }
 
         .footer-col h4 {
@@ -622,7 +624,7 @@
             text-transform: uppercase;
             letter-spacing: 0.08em;
             color: var(--text-light);
-            margin-bottom: 16px;
+            margin-bottom: 10px;
         }
 
         .footer-col a {
@@ -630,7 +632,7 @@
             font-size: 14px;
             color: var(--text);
             text-decoration: none;
-            padding: 4px 0;
+            padding: 2px 0;
             transition: color 0.2s;
         }
 
@@ -642,10 +644,10 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding-top: 24px;
+            padding-top: 16px;
             border-top: 1px solid var(--surface-border);
             flex-wrap: wrap;
-            gap: 16px;
+            gap: 12px;
         }
 
         .footer-bottom p {
@@ -915,7 +917,9 @@
 
             .footer-grid {
                 grid-template-columns: repeat(3, 1fr);
-                gap: 32px;
+                -moz-column-gap: 32px;
+                     column-gap: 32px;
+                row-gap: 24px;
             }
 
             .reviews-marquee h2 {
@@ -1042,7 +1046,7 @@
 
             .footer-grid {
                 grid-template-columns: 1fr;
-                gap: 32px;
+                gap: 20px;
             }
 
             .footer-bottom {
