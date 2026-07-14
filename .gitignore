@@ -7,3 +7,6 @@ dist/
 !.env.example
 
 .obsidian/
+
+# Claude Cowork artifact
+AGENTS.md
