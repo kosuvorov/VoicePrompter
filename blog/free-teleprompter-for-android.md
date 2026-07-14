@@ -1,8 +1,9 @@
 ---
 title: "Free Teleprompter for Android That Follows Your Voice (No App Needed)"
 description: "You don't need to install anything: a free voice-scrolling teleprompter that runs in Chrome on any Android phone or tablet. Paste your script and start talking."
-keywords: ["free teleprompter app for android", "teleprompter for android", "android teleprompter", "voice teleprompter android"]
+keywords: ["free teleprompter app for android", "teleprompter for android", "android teleprompter", "voice tracking teleprompter for android", "teleprompter for samsung"]
 date: "Jul 7, 2026"
+updated: "Jul 14, 2026"
 image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80"
 video:
   videoId: "AFw-cO8qsEM"
@@ -29,6 +30,12 @@ VoicePrompter's web app uses the speech recognition built into Chrome to follow 
 
 For filming, put the phone or tablet as close to your camera as possible - or prop the Android tablet next to a dedicated camera as a budget prompter screen, the same way I described for [iPad rig setups](https://konsu.dev/blog/beam-splitter-teleprompter-iphone-ipad/).
 
+## Does voice tracking work on Samsung phones?
+
+Yes - a Samsung Galaxy phone or Galaxy Tab running Chrome is one of the best homes for this. Voice tracking here means real word tracking, not the sound-activated scrolling many Android prompter apps market as "voice control": the app follows your *actual words*, so you can pause, ad-lib, or restart a line and the text stays with you. (The difference is worth two minutes of your time - I broke it down in [the five ways a teleprompter can scroll](teleprompter-scrolling-methods.html).)
+
+Two Samsung-specific notes. Use **Chrome rather than Samsung Internet** - Chrome's speech recognition support on Android is the most reliable, and it's what the prompter's voice tracking runs on. And a **Galaxy Tab makes an excellent tripod prompter**: mount it above or beside your camera, crank the font size, and the big screen reads comfortably from filming distance with nothing to tap mid-take.
+
 ## Honest limits of the web version on Android
 
 - **Language support is 34 languages** in the web app (the native apps track 60+), auto-detected from your script.
@@ -45,6 +52,10 @@ If you also work on Apple devices, the [native apps](https://voiceprompter.app) 
 **Is there a free teleprompter app for Android?** Yes - the VoicePrompter web app is completely free on Android: open it in Chrome, paste your script, and it scrolls as you speak. No download or account needed.
 
 **Does voice-activated teleprompting work on Android?** Yes, in Chrome. The web app uses the browser's built-in speech recognition to follow your words, with all processing on your device.
+
+**Is there a voice tracking teleprompter for Samsung phones?** Yes - open the VoicePrompter web app in Chrome on any Galaxy phone or Galaxy Tab and it tracks your actual words as you speak. Use Chrome rather than Samsung Internet for the most reliable recognition.
+
+**What's the difference between voice tracking and sound-activated scrolling?** Sound-activated apps scroll whenever they hear noise; voice tracking follows your real words and position, so it survives pauses, ad-libs, and retakes. Most "voice-controlled" Android prompters only do the former.
 
 **Can I install it like a normal app?** Yes - it's a PWA. Use Chrome's "Add to Home screen" and it behaves like an installed app, including offline use.
 

@@ -19,7 +19,9 @@ Key facts: whole-script voice tracking (skip ahead, ad-lib or backtrack and it f
 ## Guides
 
 - [Blog](https://voiceprompter.app/blog/): Guides on reading naturally on camera, teleprompter comparisons and use cases
+- [Top 10 teleprompter software](https://voiceprompter.app/blog/top-10-teleprompter-software.html): Cross-platform comparison of the top 10 teleprompter apps of 2026
 - [Best teleprompter app for Mac](https://voiceprompter.app/blog/best-teleprompter-app-for-mac.html): Honest comparison of Mac teleprompter apps
 - [Free voice-activated teleprompter](https://voiceprompter.app/blog/free-voice-activated-teleprompter.html): What voice activation really means, free options compared
 - [How teleprompters scroll](https://voiceprompter.app/blog/teleprompter-scrolling-methods.html): The five scrolling methods compared, from fixed speed to word tracking
+- [Turn an iPad into a teleprompter](https://voiceprompter.app/blog/turn-ipad-into-teleprompter.html): Three iPad prompter setups, from tripod to beam-splitter rig
 - [About](https://voiceprompter.app/about.html): Who builds VoicePrompter

@@ -2,8 +2,9 @@
 title: "5 Ways a Teleprompter Can Scroll (and Which One Is Best)"
 description: "Constant speed, sound, voice tracking, a remote, or an operator - the five ways teleprompter text scrolls, compared. Here's which works best and why."
 date: "Jun 30, 2026"
+updated: "Jul 14, 2026"
 image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80"
-keywords: ["teleprompter scrolling methods", "how does a teleprompter scroll", "voice scrolling teleprompter", "teleprompter remote control"]
+keywords: ["teleprompter scrolling methods", "how does a teleprompter scroll", "voice scrolling teleprompter", "teleprompter remote control", "how to scroll teleprompter without a remote"]
 video:
   videoId: "07Xnj7q2c9Y"
 ---
@@ -45,6 +46,10 @@ Three things decide whether a scrolling method actually helps: does it **stay in
 | **Voice (word) tracking** | **Yes** | **Yes** | **Yes** | **Solo creators, most people** |
 | Remote / pedal | Manual | No | Manual | Live stage, broadcast |
 | Separate operator | Yes | Yes | Yes | Pro sets (needs a person) |
+
+## How do you scroll a teleprompter without a remote?
+
+Let your voice do it. If your prompter has word tracking, the script scrolls itself: it advances as you speak, waits when you pause, and rewinds when you restart a line - which covers everything a remote does, hands-free. Sound-activated scrolling is the budget version of the same idea (scrolls on noise, pauses on silence), and a fixed-speed timer is the last resort if your app has neither. This matters most when the prompter is physically out of reach - an iPad on a tripod, a phone in a rig, a screen across the room. I walk through those setups in [how to turn an iPad into a teleprompter](./turn-ipad-into-teleprompter.md).
 
 ## The verdict
 

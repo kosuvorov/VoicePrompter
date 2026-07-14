@@ -2,9 +2,9 @@
 title: "How to Give a Virtual Keynote Speech That Doesn't Lose Your Audience"
 description: "Practical techniques for delivering a compelling virtual keynote - from setup and scripting to engagement and delivery without notes."
 date: "Mar 29, 2026"
-updated: "Jul 7, 2026"
+updated: "Jul 14, 2026"
 image: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80"
-keywords: ["teleprompter", "video production"]
+keywords: ["virtual keynote speech", "teleprompter for keynote speakers", "corporate keynote speaker", "virtual presentation tips"]
 ---
 
 Virtual keynotes are harder than in-person ones. This isn't obvious until you've done both.
@@ -87,6 +87,16 @@ Instead: "That's the core of what I wanted to share today. I'll sum it up in one
 
 Clear. Confident. Invites engagement. And you didn't have to think of it on the spot because it was on your teleprompter.
 
+## What Corporate Keynote Speakers Need From a Teleprompter
+
+The best teleprompter for a corporate keynote is one that survives 30 to 60 minutes of continuous delivery without a handler: reliable voice-paced scrolling, a window that stays above full-screen presentation mode, and invisibility on whatever platform the event runs. That's a different bar than a 90-second YouTube intro, so it's worth being specific.
+
+Reliability comes first. A prompter that loses your place at minute 40 of a paid keynote is worse than paper notes, because you trusted it. Whole-script tracking is the safety net here: even if you depart from the script to answer a chat comment or riff on a slide, the text finds you again when you return to it - at any line, in either direction.
+
+Script management matters more than speakers expect. Corporate keynotes get revised until the last minute; legal wants a sentence changed, the sponsor wants a mention added. A prompter that loads the current version straight from your clipboard beats one where the script lives in an in-app editor you have to re-edit separately.
+
+And check the platform fit before the event, not during it. Corporate events run on Zoom, Teams, Webex, or a webinar platform the AV team chose - an overlay that's excluded from screen sharing works on all of them, but rehearse once on the real platform with the real slide deck. One speaker's review captures the failure mode you're avoiding: *"I use it mostly for interviews and video calls, and it reduces my stress by quite a lot!"* The prompter's job in a keynote is exactly that - removing the fear of losing your place so your attention goes to the audience.
+
 ## The Uncomfortable Truth About Virtual Speaking
 
 The speakers who look effortless on virtual stages are not winging it. They're more prepared than they would be for an in-person talk, not less.
@@ -106,6 +116,8 @@ For the Zoom-specific version of many of these tips, see [Zoom presentation tips
 **How do I keep energy up in a long virtual talk?** Write spoken-style, stand if you can, and let voice-paced scrolling handle the place-keeping so your attention goes to delivery.
 
 **What if I lose my place mid-keynote?** With whole-script tracking you practically can't: start any line and the text scrolls to meet you, even backward.
+
+**What's the best teleprompter for corporate keynote speakers?** One that combines whole-script voice tracking (so a 45-minute talk can't lose you), an always-on-top window that survives full-screen slides, and invisibility on screen shares. On a Mac, [VoicePrompter](./how-to-use-teleprompter-on-zoom.md) is built around exactly that combination.
 
 ---
 

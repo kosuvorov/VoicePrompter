@@ -40,7 +40,9 @@
             --surface-border: #2A2A2A;
             --text: #E8E8E8;
             --text-light: #999;
+            --accent: #F5F0EB;
             --pop: #FFBB00;
+            --radius: 18px;
             --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
             --font-serif: 'Google Sans', 'Google Sans Flex', 'Product Sans', -apple-system, BlinkMacSystemFont, sans-serif;
         }
@@ -55,25 +57,144 @@
 
         .blog-byline a { color: var(--pop); text-decoration: none; }
 
+        /* Header intro "show more" */
+        .blog-header p a { color: var(--pop); }
+
+        .intro-more { display: none; }
+
+        .blog-header p.expanded .intro-more { display: inline; }
+
+        .intro-more-btn {
+            font-family: var(--font-sans);
+            font-size: 15px;
+            color: var(--text-light);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: color 0.2s;
+        }
+
+        .intro-more-btn:hover { color: var(--accent); }
+
+        /* FAQ — mirrors the homepage .faq styles */
         .blog-faq {
-            max-width: 760px;
-            margin: 56px auto 0;
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 48px 32px 24px;
         }
 
         .blog-faq h2 {
             font-family: var(--font-serif);
-            font-size: 26px;
-            margin-bottom: 18px;
+            font-size: 42px;
+            text-align: center;
+            color: var(--accent);
+            margin-bottom: 56px;
+            letter-spacing: -0.02em;
         }
 
-        .blog-faq details {
-            border-bottom: 1px solid var(--surface-border);
-            padding: 13px 2px;
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
         }
 
-        .blog-faq summary { cursor: pointer; font-weight: 600; }
+        .faq-item {
+            background: var(--surface);
+            border: 1px solid var(--surface-border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: background 0.3s ease;
+            interpolate-size: allow-keywords;
+        }
 
-        .blog-faq p { margin-top: 10px; color: var(--text-light); font-size: 0.95rem; line-height: 1.7; }
+        .faq-item:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .faq-item summary {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--accent);
+            padding: 18px 24px;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: '+';
+            font-size: 20px;
+            font-weight: 300;
+            line-height: 1;
+            color: var(--text-light);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-item[open] summary::after {
+            content: '−';
+        }
+
+        .faq-content {
+            padding: 0 24px 24px;
+            color: var(--text-light);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .faq-content a {
+            color: var(--pop);
+        }
+
+        .faq-item::details-content {
+            opacity: 0;
+            block-size: 0;
+            overflow: hidden;
+            transition: block-size 0.35s ease, opacity 0.3s ease, content-visibility 0.35s allow-discrete;
+        }
+
+        .faq-item[open]::details-content {
+            opacity: 1;
+            block-size: auto;
+        }
+
+        .faq-list:not(.expanded) .faq-item:nth-child(n+6) {
+            display: none;
+        }
+
+        .faq-more {
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .faq-more-btn {
+            font-family: var(--font-sans);
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-light);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px 16px;
+            transition: color 0.2s;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        .faq-more-btn:hover {
+            color: var(--accent);
+        }
 
         body {
             font-family: var(--font-sans);
@@ -297,6 +418,9 @@
         @media (max-width: 768px) {
             .blog-header h1 { font-size: 36px; }
             .blog-header p { font-size: 16px; }
+            .blog-faq h2 { font-size: 32px; margin-bottom: 36px; }
+            .faq-item summary { font-size: 15px; padding: 16px 20px; }
+            .faq-content { padding: 0 20px 20px; font-size: 14.5px; }
             .article-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
             .footer-grid { grid-template-columns: repeat(3, 1fr); column-gap: 32px; row-gap: 24px; }
         }
@@ -330,11 +454,13 @@
     <div class="container">
         <div class="blog-header fade-up">
             <h1>Teleprompter Tips &amp; Guides</h1>
-            <p>Hands-on guides to voice tracking (speech recognition that scrolls your script as you speak),
-            natural on-camera delivery, and faster video production. I write everything here myself -
-            I build VoicePrompter and test each setup before recommending it. If you're new to the
+            <p id="blog-intro">Hands-on guides to voice tracking, natural on-camera delivery, and faster
+            video production.<span class="intro-more"> Voice tracking means speech recognition that scrolls
+            your script as you speak. I write everything here myself - I build VoicePrompter and test each
+            setup before recommending it. If you're new to the
             <a href="https://en.wikipedia.org/wiki/Teleprompter" target="_blank" rel="noopener">teleprompter</a>
-            world, start with the comparison guides.</p>
+            world, start with the comparison guides.</span>
+            <button class="intro-more-btn" id="intro-more-btn" aria-expanded="false">Show more</button></p>
             <p class="blog-byline">Articles by <a href="/about.html">Konstantin Suvorov</a>, maker of VoicePrompter</p>
         </div>
 
@@ -346,18 +472,39 @@
     <!-- ═══════════════════════ FAQ ═══════════════════════ -->
     <section class="blog-faq" aria-label="Frequently asked questions">
         <h2>Frequently asked questions</h2>
-        <details>
-            <summary>What is a voice-scrolling teleprompter?</summary>
-            <p>A teleprompter that uses speech recognition to follow your actual words and advance the script as you speak - pausing when you pause - instead of crawling at a fixed speed. The full breakdown is in <a href="/blog/teleprompter-scrolling-methods.html">the five ways a teleprompter can scroll</a>.</p>
-        </details>
-        <details>
-            <summary>Can I use a teleprompter with Zoom or Google Meet?</summary>
-            <p>Yes - on a Mac, VoicePrompter floats above the call and stays invisible during screen sharing. Step-by-step guides: <a href="/blog/how-to-use-teleprompter-on-zoom.html">Zoom</a> and <a href="/blog/how-to-use-teleprompter-on-google-meet.html">Google Meet</a>.</p>
-        </details>
-        <details>
-            <summary>Is there a free teleprompter app?</summary>
-            <p>Yes - the VoicePrompter web app is completely free in any browser, and the native apps have a free tier with full voice tracking. See <a href="/blog/best-free-teleprompter-app-for-iphone.html">what's actually free on iPhone</a> and <a href="/blog/teleprompter-online-no-download.html">the no-download online version</a>.</p>
-        </details>
+        <div class="faq-list" id="blog-faq-list">
+            <details class="faq-item">
+                <summary>What is a voice-scrolling teleprompter?</summary>
+                <div class="faq-content">A teleprompter that uses speech recognition to follow your actual words and advance the script as you speak - pausing when you pause - instead of crawling at a fixed speed. The full breakdown is in <a href="/blog/teleprompter-scrolling-methods.html">the five ways a teleprompter can scroll</a>.</div>
+            </details>
+            <details class="faq-item">
+                <summary>Can I use a teleprompter with Zoom or Google Meet?</summary>
+                <div class="faq-content">Yes - on a Mac, VoicePrompter floats above the call and stays invisible during screen sharing. Step-by-step guides: <a href="/blog/how-to-use-teleprompter-on-zoom.html">Zoom</a> and <a href="/blog/how-to-use-teleprompter-on-google-meet.html">Google Meet</a>.</div>
+            </details>
+            <details class="faq-item">
+                <summary>Is there a free teleprompter app?</summary>
+                <div class="faq-content">Yes - the VoicePrompter web app is completely free in any browser, and the native apps have a free tier with full voice tracking. See <a href="/blog/best-free-teleprompter-app-for-iphone.html">what's actually free on iPhone</a> and <a href="/blog/teleprompter-online-no-download.html">the no-download online version</a>.</div>
+            </details>
+            <details class="faq-item">
+                <summary>What's the best teleprompter app?</summary>
+                <div class="faq-content">It depends on your device and how the app scrolls - that's the axis that decides whether your read sounds natural. The cross-platform ranking is in <a href="/blog/top-10-teleprompter-software.html">the top 10 teleprompter software of 2026</a>, with deeper dives for <a href="/blog/best-teleprompter-app-for-mac.html">Mac</a> and <a href="/blog/best-teleprompter-app-for-iphone.html">iPhone and iPad</a>.</div>
+            </details>
+            <details class="faq-item">
+                <summary>How do I read a script without looking like I'm reading?</summary>
+                <div class="faq-content">Write like you speak, put the text as close to the lens as possible, and use voice-paced scrolling so the prompter follows your natural rhythm. The techniques are in <a href="/blog/how-to-read-script-without-looking-like-reading.html">how to read a script without looking like you're reading</a> and <a href="/blog/how-to-use-teleprompter-naturally.html">how to use a teleprompter naturally</a>.</div>
+            </details>
+            <details class="faq-item">
+                <summary>Can I turn an iPad or Android tablet into a teleprompter?</summary>
+                <div class="faq-content">Yes - a tablet is one of the best prompter screens you can get. Three iPad setups (tripod, beam-splitter rig, across the room) are in <a href="/blog/turn-ipad-into-teleprompter.html">how to turn an iPad into a teleprompter</a>; for Android tablets see <a href="/blog/free-teleprompter-for-android.html">the free browser teleprompter for Android</a>.</div>
+            </details>
+            <details class="faq-item">
+                <summary>Do I need a remote to control a teleprompter?</summary>
+                <div class="faq-content">Not if it tracks your voice - the script advances as you speak, waits when you pause, and rewinds when you restart a line, which covers everything a remote does hands-free. See <a href="/blog/teleprompter-scrolling-methods.html">how to scroll a teleprompter without a remote</a>.</div>
+            </details>
+        </div>
+        <div class="faq-more">
+            <button class="faq-more-btn" id="faq-more-btn">Show more questions</button>
+        </div>
     </section>
 
     <!-- ═══════════════════════ Footer ═══════════════════════ -->
@@ -426,6 +573,28 @@
                 });
             }, { threshold: 0.12 });
             document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+            // Intro "Show more" toggle
+            const introBtn = document.getElementById('intro-more-btn');
+            const intro = document.getElementById('blog-intro');
+            if (introBtn && intro) {
+                introBtn.addEventListener('click', () => {
+                    const expanded = intro.classList.toggle('expanded');
+                    introBtn.textContent = expanded ? 'Show less' : 'Show more';
+                    introBtn.setAttribute('aria-expanded', String(expanded));
+                });
+            }
+
+            // FAQ "Show more questions" (mirrors the homepage)
+            const faqBtn = document.getElementById('faq-more-btn');
+            const faqList = document.getElementById('blog-faq-list');
+            if (faqBtn && faqList) {
+                if (faqList.children.length <= 5) faqBtn.parentElement.style.display = 'none';
+                faqBtn.addEventListener('click', () => {
+                    faqList.classList.add('expanded');
+                    faqBtn.parentElement.style.display = 'none';
+                });
+            }
         });
     </script>
 
