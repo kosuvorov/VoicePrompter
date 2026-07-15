@@ -18,7 +18,8 @@
     "tailwindcss": "^3.3.5",
     "typescript": "^5.2.2",
     "vite": "^5.0.0",
-    "vite-plugin-pwa": "^0.16.7"
+    "vite-plugin-pwa": "^0.16.7",
+    "wrangler": "^4.111.0"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

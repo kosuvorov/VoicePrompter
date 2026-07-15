@@ -45,11 +45,12 @@ export async function fetchGoogleDocText(docUrl: string): Promise<string> {
     }
 
     const exportUrl = `https://docs.google.com/document/d/${docId}/export?format=txt&cb=${Date.now()}`;
-    
-    // List of public CORS proxies to try, ordered by likelihood of production success.
-    // We put codetabs first since it works instantly in production, followed by allorigins and corsproxy.io as fallbacks.
+
+    // Primary: our own Cloudflare Worker (source: cloudflare/gdoc-proxy/worker.js).
+    // The public CORS proxies below are legacy fallbacks only — they are unreliable
+    // (all three were down in July 2026) and may never recover.
     const proxies = [
-        `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(exportUrl)}`,
+        `https://gdoc-proxy.kosuvorov.workers.dev/?id=${docId}`,
         `https://api.allorigins.win/raw?url=${encodeURIComponent(exportUrl)}`,
         `https://corsproxy.io/?${encodeURIComponent(exportUrl)}`
     ];
