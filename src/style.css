@@ -126,6 +126,16 @@ input[type=range]::-moz-range-track {
     transform: scaleX(-1) rotate(180deg);
 }
 
+/* Horizontal Mirror (beta, ?beta=hmirror) - plain horizontal flip */
+.mirror-mode-h {
+    transform: scaleX(-1);
+}
+
+/* Both mirrors combined = vertical flip + horizontal flip = 180deg rotation */
+.mirror-mode.mirror-mode-h {
+    transform: rotate(180deg);
+}
+
 /* Screen Rotation - Rotate entire app 90deg clockwise for iOS */
 .screen-rotated {
     transform: rotate(90deg);

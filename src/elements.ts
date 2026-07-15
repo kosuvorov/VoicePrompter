@@ -27,6 +27,9 @@ export interface Elements {
     micIcon: HTMLElement;
     statusIndicator: HTMLElement;
     mirrorToggle: HTMLInputElement;
+    mirrorModeLabel: HTMLElement;
+    hMirrorRow: HTMLElement;
+    hMirrorToggle: HTMLInputElement;
     browserWarning: HTMLElement;
     dismissWarningBtn: HTMLElement;
     ipadPwaWarning: HTMLElement;
@@ -143,6 +146,9 @@ export function initElements(): void {
         micIcon: document.getElementById('micIcon')!,
         statusIndicator: document.getElementById('statusIndicator')!,
         mirrorToggle: document.getElementById('mirrorToggle') as HTMLInputElement,
+        mirrorModeLabel: document.getElementById('mirrorModeLabel')!,
+        hMirrorRow: document.getElementById('hMirrorRow')!,
+        hMirrorToggle: document.getElementById('hMirrorToggle') as HTMLInputElement,
         browserWarning: document.getElementById('browserWarning')!,
         dismissWarningBtn: document.getElementById('dismissWarningBtn')!,
         ipadPwaWarning: document.getElementById('ipadPwaWarning')!,

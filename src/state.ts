@@ -6,6 +6,7 @@ export const state: AppState = {
     recognition: null,
     isListening: false,
     isMirrored: false,
+    isMirroredH: false,
     isScreenRotated: false,
     selectedLanguage: 'en-US', // Target language for SpeechRecognition
     languageSetting: 'auto', // User's dropdown preference

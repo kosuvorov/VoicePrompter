@@ -819,6 +819,17 @@ els.mirrorToggle.addEventListener('change', (e) => {
     }
 });
 
+// Horizontal Mirror Toggle (beta, revealed via ?beta=hmirror)
+els.hMirrorToggle.addEventListener('change', (e) => {
+    state.isMirroredH = (e.target as HTMLInputElement).checked;
+
+    if (state.isMirroredH) {
+        els.scrollContainer.classList.add('mirror-mode-h');
+    } else {
+        els.scrollContainer.classList.remove('mirror-mode-h');
+    }
+});
+
 // Stop Sign Toggle
 els.stopSignToggle.addEventListener('change', (e) => {
     state.config.showStopIcon = (e.target as HTMLInputElement).checked;
@@ -983,6 +994,17 @@ els.videoStopBtn.addEventListener('click', stopRecording);
 
 // --- Initialization ---
 function initializeUI(): void {
+    // Hidden beta flag: visiting with ?beta=hmirror persistently unlocks the
+    // horizontal mirror toggle on this device (and relabels the vertical one).
+    if (new URLSearchParams(window.location.search).get('beta') === 'hmirror') {
+        localStorage.setItem('beta-hmirror', '1');
+    }
+    if (localStorage.getItem('beta-hmirror') === '1') {
+        els.hMirrorRow.classList.remove('hidden');
+        els.hMirrorRow.classList.add('flex');
+        els.mirrorModeLabel.textContent = 'Mirror Mode (vertical)';
+    }
+
     // Set UI values from state
     els.fontSizeVal.textContent = `${state.config.fontSize}px`;
     els.fontSizeInput.value = state.config.fontSize.toString();
