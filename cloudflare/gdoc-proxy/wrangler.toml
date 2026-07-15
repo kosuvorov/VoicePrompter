@@ -4,3 +4,11 @@ compatibility_date = "2026-07-01"
 
 [observability]
 enabled = true
+
+# Per-IP rate limit: 20 requests per 60 seconds is far above what a real
+# user importing a doc ever needs, but stops scripted quota-burning.
+[[unsafe.bindings]]
+name = "RATE_LIMITER"
+type = "ratelimit"
+namespace_id = "1001"
+simple = { limit = 20, period = 60 }
