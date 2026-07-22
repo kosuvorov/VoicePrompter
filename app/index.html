@@ -69,8 +69,8 @@
     <script defer src="https://reactive-analytics.up.railway.app/recorder.js"
         data-website-id="eee38a2c-9b72-4937-9ee4-37827bae546c" data-sample-rate="0.3" data-mask-level="moderate"
         data-max-duration="300000" data-block-selector="#scriptContent, #historyList"></script>
-  <script type="module" crossorigin src="/assets/app-Y2c_2tov.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/app-DMjVPGDF.css">
+  <script type="module" crossorigin src="/assets/app-FQieXWsl.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/app-CZ18WMfU.css">
 <link rel="manifest" href="/manifest.webmanifest"></head>
 
 <body id="appBody" class="bg-black text-white font-mono selection:bg-blue-500 selection:text-white">
@@ -519,6 +519,45 @@
                 </button>
             </div>
 
+            <!-- Scrolling Mode -->
+            <div class="mb-4 pb-4 border-b border-neutral-800">
+                <label for="scrollingModeSelect" class="block text-xs text-neutral-400 mb-2">Scrolling Mode</label>
+                <div class="relative w-full">
+                    <select id="scrollingModeSelect"
+                        class="w-full bg-neutral-800 border border-neutral-700 rounded px-3 pr-8 h-[38px] text-sm text-neutral-300 focus:ring-2 focus:ring-[#FFBB00] focus:border-transparent outline-none transition-colors appearance-none">
+                        <option value="voice">Voice Scrolling</option>
+                        <option value="sound">Sound Scrolling</option>
+                        <option value="constant">Constant Scrolling</option>
+                    </select>
+                    <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                        <svg class="w-4 h-4 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
+                </div>
+                <p id="scrollingModeDescription" class="text-[10px] text-neutral-500 mt-1.5 leading-normal"></p>
+
+                <div id="scrollSpeedContainer" class="hidden mt-4">
+                    <div class="flex justify-between text-sm mb-1">
+                        <label for="scrollSpeedInput" class="text-neutral-300">Scroll Speed</label>
+                        <span id="scrollSpeedVal" class="text-[#FFBB00] font-mono">3.5 w/s</span>
+                    </div>
+                    <input id="scrollSpeedInput" type="range" min="1" max="6" step="0.1" value="3.5"
+                        class="w-full h-2 bg-neutral-700 rounded-lg appearance-none cursor-pointer">
+                    <p class="text-[10px] text-neutral-500 mt-1.5 leading-normal">Average speaking pace is roughly 2-3 words per second.</p>
+                </div>
+
+                <div id="soundSensitivityContainer" class="hidden mt-4">
+                    <div class="flex justify-between text-sm mb-1">
+                        <label for="soundSensitivityInput" class="text-neutral-300">Sound Sensitivity</label>
+                        <span id="soundSensitivityVal" class="text-[#FFBB00] font-mono">75%</span>
+                    </div>
+                    <input id="soundSensitivityInput" type="range" min="0" max="1" step="0.05" value="0.75"
+                        class="w-full h-2 bg-neutral-700 rounded-lg appearance-none cursor-pointer">
+                    <p class="text-[10px] text-neutral-500 mt-1.5 leading-normal">Increase if scrolling stops too often; decrease if it scrolls during silence.</p>
+                </div>
+            </div>
+
             <!-- Alignment -->
             <div class="mb-4">
                 <label class="block text-xs text-neutral-400 mb-2">Alignment</label>
@@ -740,7 +779,7 @@
                             </svg>
                         </div>
                     </div>
-                    <span class="block text-[10px] text-neutral-500 mt-1 leading-normal">Note: Voice scrolling always uses your browser's default microphone. This selects the mic for video recordings.</span>
+                    <span class="block text-[10px] text-neutral-500 mt-1 leading-normal">Used by Sound Scrolling and video recordings. Voice Scrolling uses your browser's default microphone.</span>
                 </div>
             </div>
 
