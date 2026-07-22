@@ -6,7 +6,7 @@ import { renderScript, updateHighlight, scrollToCurrent, applySettings, renderHi
 import { initSpeech, startListening, stopListening } from './speech';
 import { autoScrollManager } from './autoscroll';
 import { saveToHistory, getHistory, clearAllHistory } from './storage';
-import { ScriptWord } from './types';
+import { ScriptWord, ScrollingMode } from './types';
 import { enterVideoMode, exitVideoMode, toggleVideoLayout, startRecording, stopRecording, flipCamera, getMediaConstraints } from './video';
 import { detectAll } from 'tinyld/light';
 import { fetchGoogleDocText } from './gdoc';
@@ -321,6 +321,8 @@ function loadScript(text: string, googleDocUrl: string | null = null): void {
 
 function resetApp(): void {
     stopListening();
+    autoScrollManager.stop();
+    isAutoScrollStarting = false;
     unlockBodyScroll();
     els.prompterContainer.classList.add('hidden');
     els.setupScreen.classList.remove('hidden');
@@ -553,7 +555,15 @@ els.copyGoogleDocUrlBtn.addEventListener('click', async () => {
 });
 
 // Play / Pause / Record Button
-els.micButton.addEventListener('click', () => {
+let isAutoScrollStarting = false;
+
+els.micButton.addEventListener('click', async () => {
+    if (isAutoScrollStarting) {
+        autoScrollManager.stop();
+        isAutoScrollStarting = false;
+        return;
+    }
+
     if (state.isListening) {
         if (state.config.scrollingMode === 'voice') {
             (window as any).umami?.track('mic-stop');
@@ -571,9 +581,18 @@ els.micButton.addEventListener('click', () => {
             (window as any).umami?.track('mic-start');
             startListening();
         } else {
+            isAutoScrollStarting = true;
+            const started = await autoScrollManager.start();
+            isAutoScrollStarting = false;
+            if (!started) {
+                if (state.config.scrollingMode === 'sound') {
+                    alert('Sound Scrolling needs microphone access. Please allow microphone permission and try again.');
+                }
+                return;
+            }
             state.isListening = true;
-            import('./render').then(({ updateMicUI }) => updateMicUI(true));
-            autoScrollManager.start();
+            const { updateMicUI } = await import('./render');
+            updateMicUI(true);
         }
         // Fade dock while listening
         const dock = document.getElementById('mainControlsDock');
@@ -1133,12 +1152,22 @@ async function handleDeviceChange(): Promise<void> {
         }
     }
 
-    // If speech recognition is listening, restart it to apply the new microphone selection context
+    // Apply microphone changes to whichever microphone-driven mode is active.
     if (state.isListening) {
-        stopListening();
-        setTimeout(() => {
-            startListening();
-        }, 400);
+        if (state.config.scrollingMode === 'sound') {
+            autoScrollManager.stop();
+            const started = await autoScrollManager.start();
+            if (!started) {
+                state.isListening = false;
+                const { updateMicUI } = await import('./render');
+                updateMicUI(false);
+            }
+        } else if (state.config.scrollingMode === 'voice') {
+            stopListening();
+            setTimeout(() => {
+                startListening();
+            }, 400);
+        }
     }
 }
 
@@ -1180,19 +1209,21 @@ if (!isIOS) {
 }
 
 function updateScrollingUI() {
-    // NOTE: the scrolling-mode settings controls (select + speed/sensitivity
-    // sliders) are referenced here but were never added to app/index.html, so
-    // these els are null at runtime. Guard every access — an unguarded throw
-    // here aborts module/init and prevents the Recent Scripts list (and the
-    // dock pin) from ever rendering on load.
-    if (els.scrollingModeSelect) els.scrollingModeSelect.value = state.config.scrollingMode;
-    if (els.scrollSpeedInput) els.scrollSpeedInput.value = state.config.scrollSpeed.toString();
-    if (els.scrollSpeedVal) els.scrollSpeedVal.textContent = `${state.config.scrollSpeed.toFixed(1)} wps`;
-    if (els.soundSensitivityInput) els.soundSensitivityInput.value = state.config.soundSensitivity.toString();
-    if (els.soundSensitivityVal) els.soundSensitivityVal.textContent = `${Math.round(state.config.soundSensitivity * 100)}%`;
+    els.scrollingModeSelect.value = state.config.scrollingMode;
+    els.scrollSpeedInput.value = state.config.scrollSpeed.toString();
+    els.scrollSpeedVal.textContent = `${state.config.scrollSpeed.toFixed(1)} w/s`;
+    els.soundSensitivityInput.value = state.config.soundSensitivity.toString();
+    els.soundSensitivityVal.textContent = `${Math.round(state.config.soundSensitivity * 100)}%`;
 
-    els.scrollSpeedContainer?.classList.toggle('hidden', state.config.scrollingMode === 'voice');
-    els.soundSensitivityContainer?.classList.toggle('hidden', state.config.scrollingMode !== 'sound');
+    els.scrollSpeedContainer.classList.toggle('hidden', state.config.scrollingMode === 'voice');
+    els.soundSensitivityContainer.classList.toggle('hidden', state.config.scrollingMode !== 'sound');
+
+    const descriptions: Record<ScrollingMode, string> = {
+        voice: 'Follows the words you say and pauses when you pause.',
+        sound: 'Scrolls while microphone sound is detected and pauses during silence.',
+        constant: 'Scrolls continuously at the speed you choose.'
+    };
+    els.scrollingModeDescription.textContent = descriptions[state.config.scrollingMode];
 
     // Update Mic button icon based on mode
     const path = els.micButton.querySelector('path');
@@ -1206,11 +1237,10 @@ function updateScrollingUI() {
     }
 }
 
-// Optional chaining: these controls are absent from app/index.html, so without
-// the `?.` the first of these top-level calls throws during module evaluation
-// and everything after it (boot/init, history render, dock pin) never runs.
-els.scrollingModeSelect?.addEventListener('change', (e) => {
-    state.config.scrollingMode = (e.target as HTMLSelectElement).value as any;
+els.scrollingModeSelect.addEventListener('change', (e) => {
+    state.config.scrollingMode = (e.target as HTMLSelectElement).value as ScrollingMode;
+    autoScrollManager.stop();
+    isAutoScrollStarting = false;
     updateScrollingUI();
     if (state.isListening) {
         // Stop current mode
@@ -1221,14 +1251,14 @@ els.scrollingModeSelect?.addEventListener('change', (e) => {
     }
 });
 
-els.scrollSpeedInput?.addEventListener('input', (e) => {
+els.scrollSpeedInput.addEventListener('input', (e) => {
     state.config.scrollSpeed = parseFloat((e.target as HTMLInputElement).value);
-    if (els.scrollSpeedVal) els.scrollSpeedVal.textContent = `${state.config.scrollSpeed.toFixed(1)} wps`;
+    els.scrollSpeedVal.textContent = `${state.config.scrollSpeed.toFixed(1)} w/s`;
 });
 
-els.soundSensitivityInput?.addEventListener('input', (e) => {
+els.soundSensitivityInput.addEventListener('input', (e) => {
     state.config.soundSensitivity = parseFloat((e.target as HTMLInputElement).value);
-    if (els.soundSensitivityVal) els.soundSensitivityVal.textContent = `${Math.round(state.config.soundSensitivity * 100)}%`;
+    els.soundSensitivityVal.textContent = `${Math.round(state.config.soundSensitivity * 100)}%`;
 });
 
 function boot(): void {
@@ -1330,4 +1360,3 @@ function pinDockToVisualViewport(): void {
     }
 }
 pinDockToVisualViewport();
-

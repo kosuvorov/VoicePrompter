@@ -83,6 +83,7 @@ export interface Elements {
         openDyslexic: HTMLElement;
     };
     scrollingModeSelect: HTMLSelectElement;
+    scrollingModeDescription: HTMLElement;
     scrollSpeedContainer: HTMLElement;
     scrollSpeedInput: HTMLInputElement;
     scrollSpeedVal: HTMLElement;
@@ -202,6 +203,7 @@ export function initElements(): void {
             openDyslexic: document.getElementById('fontFamilyOpenDyslexicBtn')!
         },
         scrollingModeSelect: document.getElementById('scrollingModeSelect') as HTMLSelectElement,
+        scrollingModeDescription: document.getElementById('scrollingModeDescription')!,
         scrollSpeedContainer: document.getElementById('scrollSpeedContainer')!,
         scrollSpeedInput: document.getElementById('scrollSpeedInput') as HTMLInputElement,
         scrollSpeedVal: document.getElementById('scrollSpeedVal')!,
