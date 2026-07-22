@@ -12,23 +12,30 @@ class AutoScrollManager {
     private lastSoundTime: number = 0;
     private readonly soundHoldDuration: number = 250; // ms
     private mediaStream: MediaStream | null = null;
+    private sessionId: number = 0;
 
-    public start() {
+    public async start(): Promise<boolean> {
         this.stop();
+        const sessionId = this.sessionId;
         this.accumulator = 0;
         this.lastSoundTime = 0;
 
         if (state.config.scrollingMode === 'sound') {
-            this.startAudioMonitor();
+            const audioStarted = await this.startAudioMonitor(sessionId);
+            if (!audioStarted || sessionId !== this.sessionId || state.config.scrollingMode !== 'sound') {
+                return false;
+            }
         }
 
         // Timer runs every 100ms
         this.timer = window.setInterval(() => {
             this.tick();
         }, 100);
+        return true;
     }
 
     public stop() {
+        this.sessionId++;
         if (this.timer) {
             clearInterval(this.timer);
             this.timer = null;
@@ -37,11 +44,17 @@ class AutoScrollManager {
         this.accumulator = 0;
     }
 
-    private async startAudioMonitor() {
+    private async startAudioMonitor(sessionId: number): Promise<boolean> {
         try {
             const stream = await navigator.mediaDevices.getUserMedia({ 
                 audio: state.selectedAudioDeviceId ? { deviceId: { exact: state.selectedAudioDeviceId } } : true 
             });
+
+            // The mode may have changed while the browser permission prompt was open.
+            if (sessionId !== this.sessionId || state.config.scrollingMode !== 'sound') {
+                stream.getTracks().forEach(track => track.stop());
+                return false;
+            }
             this.mediaStream = stream;
             
             const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
@@ -54,9 +67,11 @@ class AutoScrollManager {
             this.source.connect(this.analyser);
             
             this.pollAudio();
+            return true;
         } catch (err) {
             console.error('Failed to start audio monitor for sound activation:', err);
-            // Optionally revert to constant scrolling or show an error
+            this.stopAudioMonitor();
+            return false;
         }
     }
 
@@ -127,6 +142,11 @@ class AutoScrollManager {
             if (this.accumulator >= wordChars) {
                 this.accumulator -= wordChars;
                 state.currentIndex++;
+                // Match the native apps: instructions, paragraph breaks, and
+                // other non-spoken tokens do not consume scrolling time.
+                while (state.currentIndex < state.scriptWords.length && state.scriptWords[state.currentIndex].skip) {
+                    state.currentIndex++;
+                }
                 advanced = true;
             } else {
                 break;
