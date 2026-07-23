@@ -20,6 +20,9 @@ export interface Elements {
     activeLinePositionVal: HTMLElement;
     lookaheadWordsInput: HTMLInputElement;
     lookaheadWordsVal: HTMLElement;
+    matchGroupSizeInput: HTMLInputElement;
+    matchGroupSizeVal: HTMLElement;
+    lookBackToggle: HTMLInputElement;
     textColorInput: HTMLInputElement;
     bgColorInput: HTMLInputElement;
     appBody: HTMLElement;
@@ -140,6 +143,9 @@ export function initElements(): void {
         activeLinePositionVal: document.getElementById('activeLinePositionVal')!,
         lookaheadWordsInput: document.getElementById('lookaheadWordsInput') as HTMLInputElement,
         lookaheadWordsVal: document.getElementById('lookaheadWordsVal')!,
+        matchGroupSizeInput: document.getElementById('matchGroupSizeInput') as HTMLInputElement,
+        matchGroupSizeVal: document.getElementById('matchGroupSizeVal')!,
+        lookBackToggle: document.getElementById('lookBackToggle') as HTMLInputElement,
         textColorInput: document.getElementById('textColorInput') as HTMLInputElement,
         bgColorInput: document.getElementById('bgColorInput') as HTMLInputElement,
         appBody: document.getElementById('appBody')!,
