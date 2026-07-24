@@ -1,12 +1,13 @@
 # VoicePrompter
 
-> VoicePrompter is a voice-controlled teleprompter app for Mac, iPhone, iPad and the web. It scrolls as you speak by tracking your words against your entire script, and on Mac the floating prompter window stays invisible during screen sharing and recording (Zoom, Google Meet, Teams, Loom). Built by indie developer Konstantin Suvorov. Free tier available; Pro subscription or one-time Lifetime purchase.
+> VoicePrompter is a voice-controlled teleprompter app for Android, Mac, iPhone, iPad and the web. It scrolls as you speak by tracking your words against your entire script, floats over other apps on phones and tablets, and stays invisible during screen sharing and recording on Mac. Built by indie developer Konstantin Suvorov. Free tier available; Pro subscription or one-time Lifetime purchase.
 
-Key facts: whole-script voice tracking (skip ahead, ad-lib or backtrack and it follows), scrolls backward too, one-click "Start from clipboard", 60+ languages, on-device speech recognition, 5.0-star Mac App Store rating.
+Key facts: whole-script voice tracking (skip ahead, ad-lib or backtrack and it follows), scrolls backward too, one-click "Start from clipboard", 60+ languages on Apple devices, 40+ recognition locales on Android, on-device speech recognition where supported, and a 5.0-star Mac App Store rating.
 
 ## Product pages
 
 - [Mac app](https://voiceprompter.app/mac/): Native macOS teleprompter, floating always-on-top window, invisible during screen share and recording
+- [Android app](https://voiceprompter.app/android/): Native Android teleprompter with whole-script voice scrolling, picture-in-picture, and up to 4K recording
 - [iPhone app](https://voiceprompter.app/ios/): Voice-scrolling teleprompter for recording videos on iPhone
 - [iPad app](https://voiceprompter.app/ipad/): Big-screen voice-scrolling teleprompter for tripods and beam-splitter rigs
 - [Free web app](https://voiceprompter.app/web/): Free browser teleprompter, no download, works offline, on-device speech recognition
@@ -22,6 +23,7 @@ Key facts: whole-script voice tracking (skip ahead, ad-lib or backtrack and it f
 - [Top 10 teleprompter software](https://voiceprompter.app/blog/top-10-teleprompter-software.html): Cross-platform comparison of the top 10 teleprompter apps of 2026
 - [Best teleprompter app for Mac](https://voiceprompter.app/blog/best-teleprompter-app-for-mac.html): Honest comparison of Mac teleprompter apps
 - [Free voice-activated teleprompter](https://voiceprompter.app/blog/free-voice-activated-teleprompter.html): What voice activation really means, free options compared
+- [Best teleprompter apps for Android](https://voiceprompter.app/blog/best-teleprompter-app-for-android.html): Ten verified Android teleprompter apps compared by scrolling, overlay support, and recording
 - [How teleprompters scroll](https://voiceprompter.app/blog/teleprompter-scrolling-methods.html): The five scrolling methods compared, from fixed speed to word tracking
 - [Turn an iPad into a teleprompter](https://voiceprompter.app/blog/turn-ipad-into-teleprompter.html): Three iPad prompter setups, from tripod to beam-splitter rig
 - [About](https://voiceprompter.app/about.html): Who builds VoicePrompter
