@@ -44,53 +44,42 @@ export async function fetchGoogleDocText(docUrl: string): Promise<string> {
         throw new Error('Invalid Google Doc URL. Please check the link and try again.');
     }
 
-    const exportUrl = `https://docs.google.com/document/d/${docId}/export?format=txt&cb=${Date.now()}`;
+    // Routed exclusively through our own Cloudflare Worker
+    // (source: cloudflare/gdoc-proxy/worker.js). This previously fell back to
+    // public CORS proxies (allorigins, corsproxy.io) which were unreliable — all
+    // were down as of July 2026 — and which would have relayed the user's
+    // document through unaffiliated third parties. A first-party-only path is
+    // both more predictable and a better match for the app's privacy promise.
+    const proxyUrl = `https://gdoc-proxy.kosuvorov.workers.dev/?id=${docId}`;
 
-    // Primary: our own Cloudflare Worker (source: cloudflare/gdoc-proxy/worker.js).
-    // The public CORS proxies below are legacy fallbacks only — they are unreliable
-    // (all three were down in July 2026) and may never recover.
-    const proxies = [
-        `https://gdoc-proxy.kosuvorov.workers.dev/?id=${docId}`,
-        `https://api.allorigins.win/raw?url=${encodeURIComponent(exportUrl)}`,
-        `https://corsproxy.io/?${encodeURIComponent(exportUrl)}`
-    ];
+    let response: Response;
+    try {
+        // 6-second timeout to keep the experience responsive
+        response = await fetchWithTimeout(proxyUrl, { cache: 'no-store' }, 6000);
+    } catch (error) {
+        console.warn('Google Doc import: request to the document proxy failed:', error);
+        throw new Error('Couldn\'t reach the document service. Please check your connection and try again.');
+    }
 
-    let lastError: any = null;
-
-    for (const proxyUrl of proxies) {
-        try {
-            // Fetch with a 6-second timeout per proxy to keep the experience responsive
-            const response = await fetchWithTimeout(proxyUrl, { cache: 'no-store' }, 6000);
-            if (!response.ok) {
-                throw new Error(`Proxy returned status ${response.status}`);
-            }
-            
-            const text = await response.text();
-            if (!text || text.trim().length === 0) {
-                throw new Error('The retrieved document is empty.');
-            }
-
-            // Check if we received HTML (login page redirect)
-            if (text.trim().startsWith('<!DOCTYPE html>') || text.includes('<html')) {
-                if (text.includes('google-signin') || text.includes('accounts.google.com') || text.includes('ServiceLogin')) {
-                    throw new Error('Document access denied. Please verify your Google Doc is shared with "Anyone with the link" as a Viewer.');
-                }
-                throw new Error('Failed to retrieve plain text. The page was redirected.');
-            }
-
-            return text;
-        } catch (error: any) {
-            console.warn(`Failed to fetch via proxy ${proxyUrl}:`, error);
-            lastError = error;
-            // Continue to the next proxy
+    if (!response.ok) {
+        if (response.status === 403 || response.status === 404) {
+            throw new Error('Document access denied. Please verify your Google Doc is shared with "Anyone with the link" as a Viewer.');
         }
+        throw new Error(`Couldn't retrieve the document (error ${response.status}). Please try again later.`);
     }
 
-    // If all proxies failed, report the error details
-    const isPermissionError = lastError?.message && lastError.message.includes('access denied');
-    if (isPermissionError) {
-        throw lastError;
+    const text = await response.text();
+    if (!text || text.trim().length === 0) {
+        throw new Error('The retrieved document is empty.');
     }
-    
-    throw new Error('Failed to connect to Google Docs. Please verify your document is shared with "Anyone with the link" as a Viewer, or try again later.');
+
+    // Check if we received HTML (login page redirect)
+    if (text.trim().startsWith('<!DOCTYPE html>') || text.includes('<html')) {
+        if (text.includes('google-signin') || text.includes('accounts.google.com') || text.includes('ServiceLogin')) {
+            throw new Error('Document access denied. Please verify your Google Doc is shared with "Anyone with the link" as a Viewer.');
+        }
+        throw new Error('Failed to retrieve plain text. The page was redirected.');
+    }
+
+    return text;
 }

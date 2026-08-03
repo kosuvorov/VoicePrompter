@@ -1,6 +1,7 @@
 import { state } from './state';
 import { els } from './elements';
 import { updateMicUI, updateHighlight, scrollToCurrent, advancePastSkipped, restartScript, navigateParagraphs } from './render';
+import { SpeechRecognition, SpeechRecognitionEvent, SpeechRecognitionErrorEvent } from './types';
 
 // Track the last matched word to prevent matching the same word twice in a row
 let lastMatchedWord = '';
@@ -22,20 +23,21 @@ function showBrowserWarning() {
 }
 
 export function initSpeech(): void {
-    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    const SpeechRecognitionCtor = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
 
-    if (!SpeechRecognition) {
+    if (!SpeechRecognitionCtor) {
         // No API at all — Firefox, older browsers
         showBrowserWarning();
         return;
     }
 
-    state.recognition = new SpeechRecognition();
-    state.recognition.continuous = true;
-    state.recognition.interimResults = true;
-    state.recognition.lang = state.selectedLanguage;
+    const recognition: SpeechRecognition = new SpeechRecognitionCtor();
+    state.recognition = recognition;
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.lang = state.selectedLanguage;
 
-    state.recognition.onresult = (event: any) => {
+    recognition.onresult = (event: SpeechRecognitionEvent) => {
         // Mark that we got real results on first start (rules out Arc silent fail)
         if (isFirstStart) {
             gotResultOnFirstStart = true;
@@ -107,7 +109,7 @@ export function initSpeech(): void {
         matchWords(spokenWords.slice(-5));
     };
 
-    state.recognition.onerror = (e: any) => {
+    recognition.onerror = (e: SpeechRecognitionErrorEvent) => {
         console.log('error:', e.error, e.message);
 
         // Arc / silent-fail detection: error fires immediately on first start with no results
@@ -141,7 +143,7 @@ export function initSpeech(): void {
         }
     };
 
-    state.recognition.onend = () => {
+    recognition.onend = () => {
         console.log('ended');
 
         // Arc / silent-fail detection: ended immediately on first start with no results and no error
@@ -158,7 +160,7 @@ export function initSpeech(): void {
         if (state.isListening) {
 
             try {
-                state.recognition.start();
+                recognition.start();
             } catch (error) {
                 console.error('Failed to restart speech recognition:', error);
             }
