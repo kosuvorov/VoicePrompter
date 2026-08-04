@@ -2,7 +2,7 @@
 
 > VoicePrompter is a voice-controlled teleprompter app for Android, Mac, iPhone, iPad and the web. It scrolls as you speak by tracking your words against your entire script, floats over other apps on phones and tablets, and stays invisible during screen sharing and recording on Mac. Built by indie developer Konstantin Suvorov. Free tier available; Pro subscription or one-time Lifetime purchase.
 
-Key facts: whole-script voice tracking (skip ahead, ad-lib or backtrack and it follows), scrolls backward too, one-click "Start from clipboard", 60+ languages on Apple devices, 40+ recognition locales on Android, on-device speech recognition where supported, and a 5.0-star Mac App Store rating.
+Key facts: whole-script voice tracking (skip ahead, ad-lib or backtrack and it follows), scrolls backward too, one-click "Start from clipboard", 60+ languages on Apple devices, 40+ recognition locales on Android, and on-device speech recognition where supported.
 
 ## Product pages
 
@@ -20,7 +20,11 @@ Key facts: whole-script voice tracking (skip ahead, ad-lib or backtrack and it f
 ## Guides
 
 - [Blog](https://voiceprompter.app/blog/): Guides on reading naturally on camera, teleprompter comparisons and use cases
-- [Top 10 teleprompter software](https://voiceprompter.app/blog/top-10-teleprompter-software.html): Cross-platform comparison of the top 10 teleprompter apps of 2026
+- [Best teleprompter apps](https://voiceprompter.app/blog/top-10-teleprompter-software.html): Cross-platform comparison of 10 teleprompter apps by voice tracking, capture privacy, workflow and buyer fit
+- [Teleprompter without a subscription](https://voiceprompter.app/blog/teleprompter-without-subscription.html): Pay-once native and completely free browser teleprompter options with honest limitations
+- [Best teleprompter for YouTube](https://voiceprompter.app/blog/teleprompter-for-youtube-videos.html): YouTube teleprompter comparison for talking-head videos, tutorials, screen recordings and Shorts
+- [Best teleprompter for video calls](https://voiceprompter.app/blog/best-teleprompter-for-video-calls.html): Invisible prompting workflows for Zoom, Google Meet, Microsoft Teams, Loom and Riverside
+- [Teleprompter for TikTok, Reels and Shorts](https://voiceprompter.app/blog/teleprompter-for-tiktok-and-reels.html): Floating mobile prompts, vertical recording and voice scrolling for short-form video
 - [Best teleprompter app for Mac](https://voiceprompter.app/blog/best-teleprompter-app-for-mac.html): Honest comparison of Mac teleprompter apps
 - [Free voice-activated teleprompter](https://voiceprompter.app/blog/free-voice-activated-teleprompter.html): What voice activation really means, free options compared
 - [Best teleprompter apps for Android](https://voiceprompter.app/blog/best-teleprompter-app-for-android.html): Ten verified Android teleprompter apps compared by scrolling, overlay support, and recording

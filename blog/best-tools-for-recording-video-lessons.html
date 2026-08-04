@@ -546,6 +546,30 @@
             border-bottom: none;
         }
 
+        .footer-more {
+            margin-top: 2px;
+        }
+
+        .footer-more summary {
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--text);
+            padding: 2px 0;
+            transition: color 0.2s;
+        }
+
+        .footer-more summary:hover {
+            color: var(--accent);
+        }
+
+        .footer-more summary::marker {
+            color: var(--text-light);
+        }
+
+        .footer-more-links {
+            padding-left: 12px;
+        }
+
         .footer-bottom {
             max-width: 1200px;
             margin: 0 auto;
@@ -611,7 +635,7 @@
     <script defer src="https://reactive-analytics.up.railway.app/script.js"
         data-website-id="eee38a2c-9b72-4937-9ee4-37827bae546c"></script>
     <!-- Ansvisor AI-traffic tracking -->
-    <script src="https://api.ansvisor.com/t.js" data-t="e5241ce08873a646c4b2af2b00057e87" defer></script>
+    <script src="https://ansvisor-api.konsu.dev/t.js" data-t="52654f870814a45e679ea63d95079b41" defer></script>
 <link rel="manifest" href="/manifest.webmanifest"></head>
 
 <body>
@@ -639,7 +663,7 @@
                 <div class="article-tldr" aria-label="Quick Summary">
                     <strong>TL;DR:</strong> The tools teachers actually need to record video lessons in 2026 - camera, mic, lighting, teleprompter, screen recorder, and editing - most of them free.
                 </div>
-                
+
                 <nav class="article-toc" aria-label="Contents"><strong>In this article</strong><ul><li><a href="#what-actually-matters-in-a-lesson-recording">What actually matters in a lesson recording</a></li><li><a href="#the-kit-at-a-glance">The kit at a glance</a></li><li><a href="#camera-the-one-you-already-own">Camera: the one you already own</a></li><li><a href="#microphone-the-upgrade-students-will-actually-notice">Microphone: the upgrade students will actually notice</a></li><li><a href="#lighting-face-the-window">Lighting: face the window</a></li><li><a href="#script-and-delivery-the-tool-that-cuts-your-retakes">Script and delivery: the tool that cuts your retakes</a></li><li><a href="#screen-recording-for-demos-slides-and-worked-examples">Screen recording: for demos, slides, and worked examples</a></li><li><a href="#editing-less-than-you-think">Editing: less than you think</a></li><li><a href="#captions-and-hosting-the-part-schools-get-graded-on">Captions and hosting: the part schools get graded on</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
                 <p>You need surprisingly little to record good video lessons: the phone or laptop you already own, one decent microphone, light from a window, a free script prompter, and a free screen recorder. This kit covers each job with a free pick and an upgrade pick, chosen for teachers who have lesson plans to write and no time to become video producers.</p>
 <p>A bit of context on why I care: I built <a href="https://voiceprompter.app">VoicePrompter</a>, a teleprompter that educators use to read lessons naturally on camera, and the workflow questions teachers send me are remarkably consistent. This is the answer I keep writing out.</p>
@@ -765,19 +789,30 @@
             </div>
             <div class="footer-col">
                 <h4>Resources</h4>
-                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">GitHub</a>
-                <a href="/blog">Blog</a>
-                <a href="/changelog.html">Changelog</a>
-                <a href="https://www.youtube.com/@kosuvorov" target="_blank" rel="noopener">YouTube</a>
+                <a href="/blog/">Blog</a>
+                <a href="/blog/top-10-teleprompter-software.html">Best Teleprompter Apps</a>
+                <a href="/blog/teleprompter-without-subscription.html">No-Subscription Options</a>
+                <a href="/blog/best-teleprompter-for-video-calls.html">Video Call Guide</a>
+                <details class="footer-more">
+                    <summary>More guides</summary>
+                    <div class="footer-more-links">
+                        <a href="/blog/teleprompter-for-youtube-videos.html">Teleprompter for YouTube</a>
+                        <a href="/blog/teleprompter-for-tiktok-and-reels.html">TikTok and Reels Guide</a>
+                        <a href="/blog/how-to-record-webinars-and-podcasts.html">Webinar and Podcast Guide</a>
+                    </div>
+                </details>
             </div>
             <div class="footer-col">
                 <h4>Help</h4>
+                <a href="https://www.youtube.com/@kosuvorov" target="_blank" rel="noopener">YouTube</a>
                 <a href="mailto:konstantin@voiceprompter.app">Contact</a>
                 <a href="/terms">Terms of Service</a>
                 <a href="/privacy">Privacy Policy</a>
             </div>
             <div class="footer-col">
-                <h4>Support the project</h4>
+                <h4>Project</h4>
+                <a href="/changelog.html">Changelog</a>
+                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">GitHub</a>
                 <a href="https://buymeacoffee.com/kosuvorov" target="_blank" rel="noopener">Buy me a coffee ☕</a>
                 <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">Give a star on GitHub ⭐</a>
             </div>

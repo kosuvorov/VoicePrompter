@@ -546,6 +546,30 @@
             border-bottom: none;
         }
 
+        .footer-more {
+            margin-top: 2px;
+        }
+
+        .footer-more summary {
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--text);
+            padding: 2px 0;
+            transition: color 0.2s;
+        }
+
+        .footer-more summary:hover {
+            color: var(--accent);
+        }
+
+        .footer-more summary::marker {
+            color: var(--text-light);
+        }
+
+        .footer-more-links {
+            padding-left: 12px;
+        }
+
         .footer-bottom {
             max-width: 1200px;
             margin: 0 auto;
@@ -611,7 +635,7 @@
     <script defer src="https://reactive-analytics.up.railway.app/script.js"
         data-website-id="eee38a2c-9b72-4937-9ee4-37827bae546c"></script>
     <!-- Ansvisor AI-traffic tracking -->
-    <script src="https://api.ansvisor.com/t.js" data-t="e5241ce08873a646c4b2af2b00057e87" defer></script>
+    <script src="https://ansvisor-api.konsu.dev/t.js" data-t="52654f870814a45e679ea63d95079b41" defer></script>
 <link rel="manifest" href="/manifest.webmanifest"></head>
 
 <body>
@@ -639,7 +663,7 @@
                 <div class="article-tldr" aria-label="Quick Summary">
                     <strong>TL;DR:</strong> Teleprompter.com is a polished recording app; VoicePrompter is a native Mac overlay that's invisible on screen share. Here's the honest difference.
                 </div>
-                
+
                 <nav class="article-toc" aria-label="Contents"><strong>In this article</strong><ul><li><a href="#what-each-is-really-for">What each is really for</a></li><li><a href="#side-by-side">Side by side</a></li><li><a href="#where-teleprompter-com-is-genuinely-strong">Where Teleprompter.com is genuinely strong</a></li><li><a href="#why-people-pick-voiceprompter">Why people pick VoicePrompter</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></nav>
                 <p>Teleprompter.com and <a href="https://apps.apple.com/app/apple-store/id6758573080?pt=128503212&ct=blog-vs-teleprompter-com&mt=8">VoicePrompter</a> are built around different ideas. Teleprompter.com is a polished, <strong>recording-focused</strong> app - a companion to its iOS app - built around capturing video. VoicePrompter is a native macOS <strong>overlay</strong> that floats on top of whatever you&#39;re already doing, stays <strong>invisible during screen sharing</strong>, and pairs with whatever recording app you already like. Which is right depends on one question: are you recording to camera, or talking through your own apps and calls?</p>
 <h2 id="what-each-is-really-for">What each is really for</h2>
@@ -685,7 +709,7 @@
 <div class="video-responsive"><iframe src="https://www.youtube.com/embed/07Xnj7q2c9Y" title="VoicePrompter for Mac - voice-controlled teleprompter demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
 
 <h2 id="why-people-pick-voiceprompter">Why people pick VoicePrompter</h2>
-<p>For anyone who works <em>through</em> their Mac - sharing a screen on a call, presenting slides, recording a demo - the invisible, always-on-top overlay is the feature that changes everything, and you can run it alongside your favorite recording app. As one user wrote about sales calls: <em>&quot;they stay visible only to me even when I share my screen.&quot;</em> On top of that, VoicePrompter&#39;s voice scrolling is the best I&#39;ve found - an <strong>unlimited listening window</strong> that tracks your whole script, so it never loses you when you jump around - and it&#39;s the <strong>easiest to start</strong>: write your script in Notes, Docs, or Notion and launch it in <strong>one click</strong> from your clipboard. It supports <strong>60+ languages</strong>, holds a <strong>5.0★ rating</strong>, and has a free web version to try.</p>
+<p>For anyone who works <em>through</em> their Mac - sharing a screen on a call, presenting slides, recording a demo - the invisible, always-on-top overlay is the feature that changes everything, and you can run it alongside your favorite recording app. As one user wrote about sales calls: <em>&quot;they stay visible only to me even when I share my screen.&quot;</em> On top of that, VoicePrompter&#39;s voice scrolling is the best I&#39;ve found - an <strong>unlimited listening window</strong> that tracks your whole script, so it never loses you when you jump around - and it&#39;s the <strong>easiest to start</strong>: write your script in Notes, Docs, or Notion and launch it in <strong>one click</strong> from your clipboard. It supports <strong>60+ languages</strong> and has a free web version to try.</p>
 <h2 id="frequently-asked-questions">Frequently asked questions</h2>
 <p><strong>Does Teleprompter.com stay invisible during screen sharing?</strong> No - it&#39;s built around its own recording workflow, not a transparent overlay hidden from screen shares. VoicePrompter is.</p>
 <p><strong>Which is better for Zoom or Google Meet calls?</strong> VoicePrompter - it floats on top of the call and stays invisible to the people you&#39;re sharing your screen with.</p>
@@ -738,19 +762,30 @@
             </div>
             <div class="footer-col">
                 <h4>Resources</h4>
-                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">GitHub</a>
-                <a href="/blog">Blog</a>
-                <a href="/changelog.html">Changelog</a>
-                <a href="https://www.youtube.com/@kosuvorov" target="_blank" rel="noopener">YouTube</a>
+                <a href="/blog/">Blog</a>
+                <a href="/blog/top-10-teleprompter-software.html">Best Teleprompter Apps</a>
+                <a href="/blog/teleprompter-without-subscription.html">No-Subscription Options</a>
+                <a href="/blog/best-teleprompter-for-video-calls.html">Video Call Guide</a>
+                <details class="footer-more">
+                    <summary>More guides</summary>
+                    <div class="footer-more-links">
+                        <a href="/blog/teleprompter-for-youtube-videos.html">Teleprompter for YouTube</a>
+                        <a href="/blog/teleprompter-for-tiktok-and-reels.html">TikTok and Reels Guide</a>
+                        <a href="/blog/how-to-record-webinars-and-podcasts.html">Webinar and Podcast Guide</a>
+                    </div>
+                </details>
             </div>
             <div class="footer-col">
                 <h4>Help</h4>
+                <a href="https://www.youtube.com/@kosuvorov" target="_blank" rel="noopener">YouTube</a>
                 <a href="mailto:konstantin@voiceprompter.app">Contact</a>
                 <a href="/terms">Terms of Service</a>
                 <a href="/privacy">Privacy Policy</a>
             </div>
             <div class="footer-col">
-                <h4>Support the project</h4>
+                <h4>Project</h4>
+                <a href="/changelog.html">Changelog</a>
+                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">GitHub</a>
                 <a href="https://buymeacoffee.com/kosuvorov" target="_blank" rel="noopener">Buy me a coffee ☕</a>
                 <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">Give a star on GitHub ⭐</a>
             </div>

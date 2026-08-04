@@ -141,7 +141,7 @@
     <script defer src="https://reactive-analytics.up.railway.app/script.js"
         data-website-id="eee38a2c-9b72-4937-9ee4-37827bae546c"></script>
     <!-- Ansvisor AI-traffic tracking -->
-    <script src="https://api.ansvisor.com/t.js" data-t="e5241ce08873a646c4b2af2b00057e87" defer></script>
+    <script src="https://ansvisor-api.konsu.dev/t.js" data-t="52654f870814a45e679ea63d95079b41" defer></script>
 
     <style>
         /* ───────────────────────── Reset & Tokens ───────────────────────── */
@@ -548,6 +548,30 @@
             color: var(--pop);
         }
 
+        .footer-more {
+            margin-top: 2px;
+        }
+
+        .footer-more summary {
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--text);
+            padding: 2px 0;
+            transition: color 0.2s;
+        }
+
+        .footer-more summary:hover {
+            color: var(--pop);
+        }
+
+        .footer-more summary::marker {
+            color: var(--text-light);
+        }
+
+        .footer-more-links {
+            padding-left: 12px;
+        }
+
         .footer-bottom {
             display: flex;
             align-items: center;
@@ -764,7 +788,7 @@
                 </div>
 
                 <div class="live-stat" id="live-stat">
-                    <span>Trusted by <span class="stat-number" id="stat-creators">1,000+</span> creators and counting</span>
+                    <span>Trusted by <span class="stat-number" id="stat-creators">23,000+</span> creators and counting</span>
                 </div>
             </div>
 
@@ -1197,7 +1221,7 @@
     <section class="reviews fade-up" aria-label="What users are saying">
         <h2>What users are saying</h2>
 
-        <p class="reviews-sub">Used by creators in 125+ countries · 5.0 stars on the App Store</p>
+        <p class="reviews-sub">Used by creators in 125+ countries</p>
 
         <div class="reviews-wall-clip" id="reviews-wall-clip">
             <div class="reviews-featured">
@@ -1531,7 +1555,7 @@
             <details class="faq-item">
                 <summary>Is VoicePrompter free?</summary>
                 <div class="faq-content">
-                    Yes. The <a href="/web/">web app</a> is completely free and open source. The native <a href="/android/">Android</a>, Mac, iPhone, and iPad apps are free to try with up to 3 custom scripts plus an unlimited demo script; paid plans, including a one-time Lifetime option, unlock more.
+                    Yes. The <a href="/web/">web app</a> is completely free and open source. The native <a href="/android/">Android</a>, <a href="/mac/">Mac</a>, <a href="/ios/">iPhone</a>, and <a href="/ipad/">iPad</a> apps are free to try with up to 3 custom scripts plus an unlimited demo script; paid plans, including a one-time Lifetime option, unlock more.
                 </div>
             </details>
             <details class="faq-item">
@@ -1637,19 +1661,30 @@
             </div>
             <div class="footer-col">
                 <h4>Resources</h4>
-                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">GitHub</a>
-                <a href="/blog">Blog</a>
-                <a href="/changelog.html">Changelog</a>
-                <a href="https://www.youtube.com/@kosuvorov" target="_blank" rel="noopener">YouTube</a>
+                <a href="/blog/">Blog</a>
+                <a href="/blog/top-10-teleprompter-software.html">Best Teleprompter Apps</a>
+                <a href="/blog/teleprompter-without-subscription.html">No-Subscription Options</a>
+                <a href="/blog/best-teleprompter-for-video-calls.html">Video Call Guide</a>
+                <details class="footer-more">
+                    <summary>More guides</summary>
+                    <div class="footer-more-links">
+                        <a href="/blog/teleprompter-for-youtube-videos.html">Teleprompter for YouTube</a>
+                        <a href="/blog/teleprompter-for-tiktok-and-reels.html">TikTok and Reels Guide</a>
+                        <a href="/blog/how-to-record-webinars-and-podcasts.html">Webinar and Podcast Guide</a>
+                    </div>
+                </details>
             </div>
             <div class="footer-col">
                 <h4>Help</h4>
+                <a href="https://www.youtube.com/@kosuvorov" target="_blank" rel="noopener">YouTube</a>
                 <a href="mailto:konstantin@voiceprompter.app">Contact</a>
                 <a href="/terms">Terms of Service</a>
                 <a href="/privacy">Privacy Policy</a>
             </div>
             <div class="footer-col">
-                <h4>Support the project</h4>
+                <h4>Project</h4>
+                <a href="/changelog.html">Changelog</a>
+                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">GitHub</a>
                 <a href="https://buymeacoffee.com/kosuvorov" target="_blank" rel="noopener">Buy me a coffee ☕</a>
                 <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">Give a star on
                     GitHub ⭐</a>
@@ -1717,7 +1752,7 @@
 
             // Start with fallback immediately
             container.classList.add('visible');
-            animateTo(0, 10000, 1800);
+            animateTo(0, 23000, 1800);
 
             // Fetch real data and continue from wherever we are
             fetch('https://umami-proxy.kosuvorov.workers.dev/')

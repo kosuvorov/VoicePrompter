@@ -30,7 +30,7 @@
     <script defer src="https://reactive-analytics.up.railway.app/script.js"
         data-website-id="eee38a2c-9b72-4937-9ee4-37827bae546c"></script>
     <!-- Ansvisor AI-traffic tracking -->
-    <script src="https://api.ansvisor.com/t.js" data-t="e5241ce08873a646c4b2af2b00057e87" defer></script>
+    <script src="https://ansvisor-api.konsu.dev/t.js" data-t="52654f870814a45e679ea63d95079b41" defer></script>
 
     <style>
         * {
@@ -265,6 +265,30 @@
             border-bottom: none;
         }
 
+        .footer-more {
+            margin-top: 2px;
+        }
+
+        .footer-more summary {
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--text);
+            padding: 2px 0;
+            transition: color 0.2s;
+        }
+
+        .footer-more summary:hover {
+            color: var(--accent);
+        }
+
+        .footer-more summary::marker {
+            color: var(--text-light);
+        }
+
+        .footer-more-links {
+            padding-left: 12px;
+        }
+
         .footer-bottom {
             max-width: 1200px;
             margin: 0 auto;
@@ -391,7 +415,7 @@
                     </div>
                 </div>
                 <p>VoicePrompter started as my own problem. I spent years recording videos, demos, and presentations, and I never found a teleprompter that actually followed the way I speak or stayed out of my screen shares. So I built one. I wrote the whole-script voice-tracking engine myself - the part that matches your speech against your <em>entire</em> script instead of just the next few words - and open-sourced the web version so the core would be free for anyone to use.</p>
-                <p>Today VoicePrompter is a family of native apps for Android, Mac, iPhone, and iPad plus a free browser app, used by creators in <strong>125+ countries</strong> with a <strong>5.0-star</strong> App Store rating. I also build <a href="https://1moment.io" target="_blank" rel="noopener">1moment.io</a>, a QR-code service platform for restaurants, and write about what I make at <a href="https://konsu.dev" target="_blank" rel="noopener">konsu.dev</a>.</p>
+                <p>Today VoicePrompter is a family of native apps for Android, Mac, iPhone, and iPad plus a free browser app, used by creators in <strong>125+ countries</strong>. I also build <a href="https://1moment.io" target="_blank" rel="noopener">1moment.io</a>, a QR-code service platform for restaurants, and write about what I make at <a href="https://konsu.dev" target="_blank" rel="noopener">konsu.dev</a>.</p>
                 <p>I'm a team of one, so if you have feedback, a bug, or a feature request, email me directly at <a href="mailto:konstantin@voiceprompter.app">konstantin@voiceprompter.app</a> - I read and answer everything myself. (A few App Store reviewers have been kind enough to mention how responsive I am; that's just what happens when the developer <em>is</em> the support team.)</p>
 
                 <h2>Key Features</h2>
@@ -466,19 +490,30 @@
             </div>
             <div class="footer-col">
                 <h4>Resources</h4>
-                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">GitHub</a>
-                <a href="/blog">Blog</a>
-                <a href="/changelog.html">Changelog</a>
-                <a href="https://www.youtube.com/@kosuvorov" target="_blank" rel="noopener">YouTube</a>
+                <a href="/blog/">Blog</a>
+                <a href="/blog/top-10-teleprompter-software.html">Best Teleprompter Apps</a>
+                <a href="/blog/teleprompter-without-subscription.html">No-Subscription Options</a>
+                <a href="/blog/best-teleprompter-for-video-calls.html">Video Call Guide</a>
+                <details class="footer-more">
+                    <summary>More guides</summary>
+                    <div class="footer-more-links">
+                        <a href="/blog/teleprompter-for-youtube-videos.html">Teleprompter for YouTube</a>
+                        <a href="/blog/teleprompter-for-tiktok-and-reels.html">TikTok and Reels Guide</a>
+                        <a href="/blog/how-to-record-webinars-and-podcasts.html">Webinar and Podcast Guide</a>
+                    </div>
+                </details>
             </div>
             <div class="footer-col">
                 <h4>Help</h4>
+                <a href="https://www.youtube.com/@kosuvorov" target="_blank" rel="noopener">YouTube</a>
                 <a href="mailto:konstantin@voiceprompter.app">Contact</a>
                 <a href="/terms">Terms of Service</a>
                 <a href="/privacy">Privacy Policy</a>
             </div>
             <div class="footer-col">
-                <h4>Support the project</h4>
+                <h4>Project</h4>
+                <a href="/changelog.html">Changelog</a>
+                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">GitHub</a>
                 <a href="https://buymeacoffee.com/kosuvorov" target="_blank" rel="noopener">Buy me a coffee ☕</a>
                 <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">Give a star on GitHub ⭐</a>
             </div>

@@ -81,10 +81,10 @@
       },
       {
         "@type": "Question",
-        "name": "Are my scripts saved?",
+        "name": "Do my scripts sync across Mac, iPhone, and iPad?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "VoicePrompter automatically saves up to 100 recent scripts locally on your device so you can reload them with one click. Nothing is uploaded or synced anywhere."
+          "text": "Yes. VoicePrompter saves up to 100 recent scripts and syncs them between Mac, iPhone, and iPad through iCloud when the devices use the same Apple ID. Create or edit a script on one Apple device and it becomes available on the others. The apps continue to work offline and sync changes when iCloud is available."
         }
       },
       {
@@ -132,7 +132,7 @@
         "name": "Is my data private?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "VoicePrompter does not collect, process, or transmit your scripts or any other personal data. Everything runs on your device. This is verified by Apple - the app passed Apple's review process for security and data privacy before being approved on the Mac App Store."
+          "text": "VoicePrompter does not collect or send your scripts or audio to VoicePrompter servers. Speech recognition runs on your device. When iCloud is enabled, Apple syncs saved scripts between your Mac, iPhone, and iPad under the same Apple ID."
         }
       },
       {
@@ -169,7 +169,7 @@
     <script defer src="https://reactive-analytics.up.railway.app/script.js"
         data-website-id="eee38a2c-9b72-4937-9ee4-37827bae546c"></script>
     <!-- Ansvisor AI-traffic tracking -->
-    <script src="https://api.ansvisor.com/t.js" data-t="e5241ce08873a646c4b2af2b00057e87" defer></script>
+    <script src="https://ansvisor-api.konsu.dev/t.js" data-t="52654f870814a45e679ea63d95079b41" defer></script>
 
     <style>
         /* ───────────────────────── Reset & Tokens ───────────────────────── */
@@ -1528,6 +1528,30 @@
             color: var(--pop);
         }
 
+        .footer-more {
+            margin-top: 2px;
+        }
+
+        .footer-more summary {
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--text);
+            padding: 2px 0;
+            transition: color 0.2s;
+        }
+
+        .footer-more summary:hover {
+            color: var(--pop);
+        }
+
+        .footer-more summary::marker {
+            color: var(--text-light);
+        }
+
+        .footer-more-links {
+            padding-left: 12px;
+        }
+
         .footer-bottom {
             display: flex;
             align-items: center;
@@ -1948,7 +1972,7 @@
         </div>
 
         <p class="hero-trust">
-            Trusted by <span class="stat-number">10,000+</span> creators worldwide
+            Trusted by <span class="stat-number">23,000+</span> creators worldwide
         </p>
 
         <div class="hero-image">
@@ -2563,9 +2587,9 @@
                 </div>
             </details>
             <details class="faq-item">
-                <summary>Are my scripts saved?</summary>
+                <summary>Do my scripts sync across Mac, iPhone, and iPad?</summary>
                 <div class="faq-content">
-                    VoicePrompter automatically saves up to 100 recent scripts locally on your device so you can reload them with one click. Nothing is uploaded or synced anywhere.
+                    Yes. VoicePrompter saves up to 100 recent scripts and syncs them between Mac, iPhone, and iPad through iCloud when the devices use the same Apple ID. Create or edit a script on one Apple device and it becomes available on the others. The apps continue to work offline and sync changes when iCloud is available.
                 </div>
             </details>
             <details class="faq-item">
@@ -2601,7 +2625,7 @@
             <details class="faq-item">
                 <summary>Is my data private?</summary>
                 <div class="faq-content">
-                    VoicePrompter does not collect, process, or transmit your scripts or any other personal data. Everything runs on your device. This is verified by Apple - the app passed Apple's review process for security and data privacy before being approved on the Mac App Store.
+                    VoicePrompter does not collect or send your scripts or audio to VoicePrompter servers. Speech recognition runs on your device. When iCloud is enabled, Apple syncs saved scripts between your Mac, iPhone, and iPad under the same Apple ID.
                 </div>
             </details>
             <details class="faq-item">
@@ -2662,19 +2686,30 @@
             </div>
             <div class="footer-col">
                 <h4>Resources</h4>
-                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">GitHub</a>
-                <a href="/blog">Blog</a>
-                <a href="/changelog.html">Changelog</a>
-                <a href="https://www.youtube.com/@kosuvorov" target="_blank" rel="noopener">YouTube</a>
+                <a href="/blog/">Blog</a>
+                <a href="/blog/top-10-teleprompter-software.html">Best Teleprompter Apps</a>
+                <a href="/blog/teleprompter-without-subscription.html">No-Subscription Options</a>
+                <a href="/blog/best-teleprompter-for-video-calls.html">Video Call Guide</a>
+                <details class="footer-more">
+                    <summary>More guides</summary>
+                    <div class="footer-more-links">
+                        <a href="/blog/teleprompter-for-youtube-videos.html">Teleprompter for YouTube</a>
+                        <a href="/blog/teleprompter-for-tiktok-and-reels.html">TikTok and Reels Guide</a>
+                        <a href="/blog/how-to-record-webinars-and-podcasts.html">Webinar and Podcast Guide</a>
+                    </div>
+                </details>
             </div>
             <div class="footer-col">
                 <h4>Help</h4>
+                <a href="https://www.youtube.com/@kosuvorov" target="_blank" rel="noopener">YouTube</a>
                 <a href="mailto:konstantin@voiceprompter.app">Contact</a>
                 <a href="/terms">Terms of Service</a>
                 <a href="/privacy">Privacy Policy</a>
             </div>
             <div class="footer-col">
-                <h4>Support the project</h4>
+                <h4>Project</h4>
+                <a href="/changelog.html">Changelog</a>
+                <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">GitHub</a>
                 <a href="https://buymeacoffee.com/kosuvorov" target="_blank" rel="noopener">Buy me a coffee ☕</a>
                 <a href="https://github.com/kosuvorov/VoicePrompter" target="_blank" rel="noopener">Give a star on GitHub ⭐</a>
             </div>
@@ -2942,7 +2977,7 @@
             }
 
             // Start with fallback immediately
-            animateTo(0, 10000, 1800);
+            animateTo(0, 23000, 1800);
 
             // Fetch real data and continue from wherever we are
             fetch('https://umami-proxy.kosuvorov.workers.dev/')
