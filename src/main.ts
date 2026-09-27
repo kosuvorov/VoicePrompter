@@ -29,6 +29,7 @@ const AUTO_LANGS: LangItem[] = [
     { id: 'zh-CN', name: 'Chinese' },
     { id: 'ko-KR', name: 'Korean' },
     { id: 'ar-SA', name: 'Arabic' },
+    { id: 'he-IL', name: 'Hebrew' },
     { id: 'nl-NL', name: 'Dutch' },
     { id: 'pl-PL', name: 'Polish' },
     { id: 'uk-UA', name: 'Ukrainian' },
@@ -46,7 +47,6 @@ const MANUAL_LANGS: LangItem[] = [
     { id: 'ca-ES', name: 'Catalan' },
     { id: 'cs-CZ', name: 'Czech' },
     { id: 'el-GR', name: 'Greek' },
-    { id: 'he-IL', name: 'Hebrew' },
     { id: 'hu-HU', name: 'Hungarian' },
     { id: 'ro-RO', name: 'Romanian' },
     { id: 'sk-SK', name: 'Slovak' },
@@ -60,7 +60,7 @@ const MANUAL_LANGS: LangItem[] = [
 const LANG_MAP: Record<string, string> = {
     'en': 'en-US', 'es': 'es-ES', 'fr': 'fr-FR', 'de': 'de-DE',
     'it': 'it-IT', 'pt': 'pt-PT', 'ru': 'ru-RU', 'ja': 'ja-JP',
-    'zh': 'zh-CN', 'ko': 'ko-KR', 'ar': 'ar-SA', 'nl': 'nl-NL',
+    'zh': 'zh-CN', 'ko': 'ko-KR', 'ar': 'ar-SA', 'he': 'he-IL', 'nl': 'nl-NL',
     'pl': 'pl-PL', 'uk': 'uk-UA', 'hi': 'hi-IN', 'tr': 'tr-TR',
     'sv': 'sv-SE', 'da': 'da-DK', 'fi': 'fi-FI', 'no': 'no-NO'
 };
@@ -723,7 +723,7 @@ els.lineHeightInput.addEventListener('input', (e) => {
     const val = parseFloat((e.target as HTMLInputElement).value);
     state.config.lineHeight = val;
     els.lineHeightVal.textContent = `${val}x`;
-    els.scriptContent.style.lineHeight = `${val}`;
+    applySettings();
 });
 
 // Paragraph Spacing Slider
@@ -797,9 +797,9 @@ els.bgColorInput.addEventListener('input', (e) => {
 });
 
 // Text Direction Buttons
-(['ltr', 'rtl'] as const).forEach(dir => {
+(['auto', 'ltr', 'rtl'] as const).forEach(dir => {
     els.dirBtns[dir].addEventListener('click', () => {
-        state.config.textDirection = dir as 'ltr' | 'rtl';
+        state.config.textDirection = dir;
         applySettings();
         updateDirectionButtons();
     });
@@ -1098,7 +1098,7 @@ function updateAlignmentButtons(): void {
 }
 
 function updateDirectionButtons(): void {
-    (['ltr', 'rtl'] as const).forEach(dir => {
+    (['auto', 'ltr', 'rtl'] as const).forEach(dir => {
         const btn = els.dirBtns[dir];
         const isActive = state.config.textDirection === dir;
         btn.classList.toggle('bg-neutral-700', isActive);
