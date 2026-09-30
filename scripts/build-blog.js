@@ -455,6 +455,11 @@ const sitemapEntries = [
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>`,
+    `  <url>
+    <loc>https://voiceprompter.app/support/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`,
     ...useCases
         .filter(useCase => !useCase.isRootMac)
         .map(useCase => `  <url>

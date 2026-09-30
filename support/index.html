@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support & Tutorials | VoicePrompter</title>
+<meta name="description" content="Get help with VoicePrompter. Find answers about voice scrolling, recording, floating windows, and licenses for Android, iPhone, iPad, and Mac.">
+<link rel="canonical" href="https://voiceprompter.app/support/">
+<link rel="icon" type="image/svg+xml" href="/logo-icon-no-bg.svg">
+<meta property="og:title" content="VoicePrompter Support"><meta property="og:description" content="Find answers about VoicePrompter setup, voice scrolling, recording, and licenses."><meta property="og:image" content="https://voiceprompter.app/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Google+Sans+Flex:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/src/support.css">
+</head>
+<body>
+<a class="skip" href="#answers">Skip to answers</a>
+<header class="nav"><a class="brand" href="/"><img src="/logo-icon-no-bg.svg" width="30" height="30" alt="">VoicePrompter</a><nav aria-label="Main"><button class="contact-trigger nav-contact">Email me directly</button></nav></header>
+<main>
+<section class="hero"><h1>Get to know VoicePrompter better</h1><p>Find answers about setup, voice scrolling, recording and many more :)</p>
+<div class="search-box"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><label class="sr-only" for="search">Search questions and answers</label><input id="search" type="search" placeholder="What do you need help with?" autocomplete="off"><kbd aria-hidden="true">/</kbd></div>
+<div class="filters" role="group" aria-label="Filter by platform"><button data-platform="all" aria-pressed="true">All devices</button><button data-platform="android" aria-pressed="false">#android</button><button data-platform="iOS" aria-pressed="false">#iOS</button><button data-platform="iPadOS" aria-pressed="false">#iPadOS</button><button data-platform="macOS" aria-pressed="false">#macOS</button></div>
+</section>
+<div class="content-layout"><aside><p class="eyebrow">BROWSE BY TOPIC</p><nav id="topics" aria-label="Support topics"></nav></aside>
+<section id="answers" tabindex="-1"><div class="results-heading"><h2 id="results-title">All questions</h2><span id="result-count" role="status" aria-live="polite"></span></div><div id="article-list"></div><div id="empty" hidden><span aria-hidden="true">⌕</span><h3>No matching answers yet</h3><p>Try a different phrase or clear your filters.<br>You can always email me for a hand.</p><button id="reset">Clear search & filters</button></div></section></div>
+<section class="contact-card"><div class="founder"><img src="/konstantin-suvorov.jpg" alt="Konstantin, the developer of VoicePrompter" width="64" height="64"></div><div><h2>Still need a hand?</h2><p>I’m Konstantin, the developer of VoicePrompter.<br>If you haven’t found the answer to your question, you can email me directly.</p></div><button class="primary contact-trigger">Email me directly</button></section>
+<noscript><p>Please enable JavaScript to search and read the support answers.</p></noscript>
+</main>
+<footer><a class="brand" href="/">VoicePrompter</a><div><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/changelog.html">What’s new</a></div></footer>
+<dialog id="contact-dialog" aria-labelledby="contact-title"><button class="close" aria-label="Close contact dialog">×</button><h2 id="contact-title">Email support</h2><p>Please check the FAQ first - your answer might already be there.</p><button id="search-faq" class="faq-return">Search the FAQ</button><p>Still need help? In your email, please include:</p><ul class="contact-checklist"><li><strong>Device model, OS and app version</strong></li><li><strong>What went wrong and how to reproduce it</strong></li><li><strong>A screenshot or short recording of the issue</strong></li></ul><p class="small">Audio issue? Add your mic and connection type.<br>Purchase issue? Attach your store receipt.</p><button id="reveal-email" class="primary">I haven’t found an answer myself</button><div id="email-details" hidden><p id="email-address"></p><div class="email-actions"><a id="mail-link" class="primary">Open email app</a><button id="copy-email">Copy email</button></div><p id="copy-status" role="status" aria-live="polite"></p></div></dialog>
+<script type="module" src="/src/support.ts"></script>
+</body></html>
