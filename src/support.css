@@ -13,3 +13,5 @@
 
 /* Keep mobile inputs at 16px so focusing search does not trigger iOS zoom. */
 .search-box input{font-size:16px}.search-box{margin-bottom:10px}.search-feedback{max-width:680px;margin:0 auto 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;min-height:34px}.search-feedback #search-status{font-size:13px;color:var(--muted);line-height:1.5}.search-feedback button{flex-shrink:0;background:var(--accent);color:var(--bg);border-radius:24px;padding:7px 13px;font-size:13px}.search-feedback button:hover{background:var(--accent-hover)}#answers{scroll-margin-top:20px}
+
+.article-actions .related-topic{border:1px solid var(--border);border-radius:20px;padding:7px 12px;background:transparent;color:var(--accent);font-size:12px;text-align:left;line-height:1.5}.article-actions .related-topic:hover{background:#252525;border-color:#ffffff33}.article-actions{align-items:center}

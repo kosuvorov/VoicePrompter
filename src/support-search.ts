@@ -5,6 +5,7 @@ const groups = [
   ['microphone', 'mic', 'audio'],
   ['text', 'words', 'word', 'script', 'scripts'],
   ['scrolling', 'scroll', 'moving', 'move'],
+  ['work', 'works', 'working'],
   ['stuck', 'frozen', 'freeze', 'stopped', 'stops', 'stop'],
   ['slow', 'lag', 'lagging', 'delay', 'delayed', 'faster', 'speed', 'behind'],
   ['record', 'recording', 'film', 'filming', 'video'],
@@ -19,9 +20,14 @@ const groups = [
   ['iphone', 'ios'], ['ipad', 'ipados'], ['mac', 'macos', 'macbook'],
 ];
 const aliases = new Map(groups.flatMap(group => group.map(word => [word, group[0]] as const)));
-const ignored = new Set('a an the i my me we you your it its is are was be been do does did how what why where when can could would should to for from of on in with and or as at that this have has get app voiceprompter please help not no don t doesn isn won want need use using'.split(' '));
+const ignored = new Set('a an the i my me we you your it its is are was be been do does did how what why where when can could would should to for from of on in with and or as at that this have has get app voiceprompter please help not no don t doesn isn aren won cannot want need use using'.split(' '));
 const normalize = (text: string) => text.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/picture[ -]in[ -]picture/g, 'pip');
-const tokens = (text: string) => [...new Set((normalize(text).match(/[a-z0-9]+/g) || []).filter(word => !ignored.has(word)).map(word => aliases.get(word) || word))];
+// Normalize negative phrases together, without losing their meaning for phrase ranking.
+const phraseText = (text: string) => normalize(text)
+  .replace(/\b(?:doesn|don|isn|aren|won|can)['’]?t\b|\bcannot\b/g, 'not')
+  .replace(/\b(?:does|do|is|are|will|can) not\b/g, 'not')
+  .replace(/[^a-z0-9]+/g, ' ').trim();
+const tokens = (text: string) => [...new Set((phraseText(text).match(/[a-z0-9]+/g) || []).filter(word => !ignored.has(word)).map(word => aliases.get(word) || word))];
 function near(a: string, b: string) {
   if (a === b) return true;
   if (Math.min(a.length, b.length) < 4 || Math.abs(a.length - b.length) > 1) return false;
@@ -35,10 +41,11 @@ function near(a: string, b: string) {
   while (i < short.length && short[i] === long[i]) i++;
   return short.slice(i) === long.slice(i + 1);
 }
-export function createSupportSearch(entries: { id: string; question: string; keywords: string; text: string }[]) {
-  const index = entries.map(entry => ({ ...entry, title: tokens(entry.question), hints: tokens(entry.keywords), body: tokens(entry.text) }));
+export function createSupportSearch(entries: { id: string; question: string; keywords: string; text: string; searchPhrases?: string[] }[]) {
+  const index = entries.map(entry => ({ ...entry, title: tokens(entry.question), hints: tokens(`${entry.keywords} ${(entry.searchPhrases || []).join(' ')}`), body: tokens(entry.text), phrases: (entry.searchPhrases || []).map(phraseText) }));
   return (query: string) => {
     const words = tokens(query);
+    const phrase = ` ${phraseText(query)} `;
     return new Map(index.map(entry => {
       let matched = 0;
       let score = 0;
@@ -50,7 +57,9 @@ export function createSupportSearch(entries: { id: string; question: string; key
       }
       // Keep results relevant; a loose single-word overlap is not enough.
       const relevant = words.length > 0 && matched >= Math.ceil(words.length * .75);
-      return [entry.id, !query.trim() ? 1 : relevant ? score : 0];
+      // One phrase bonus only; longer lists do not inflate the score.
+      const phraseMatch = entry.phrases.some(value => phrase.includes(` ${value} `));
+      return [entry.id, !query.trim() ? 1 : relevant ? score + (phraseMatch ? 12 : 0) : 0];
     }));
   };
 }

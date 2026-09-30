@@ -1,6 +1,7 @@
 export interface SupportArticle {
- id: string; question: string; category: string; platforms: string[]; answer: string; keywords: string; videoUrl: string | null;
+ id: string; question: string; category: string; platforms: string[]; answer: string; keywords: string; searchPhrases?: string[]; videoUrl: string | null;
 }
+// Search phrases reflect common support wording; keep these short and specific.
 // Add a YouTube URL to videoUrl when a tutorial is ready.
 export const articles: SupportArticle[] = [
   {
@@ -55,6 +56,7 @@ export const articles: SupportArticle[] = [
       "macOS"
     ],
     "answer": "<p>First, make sure you selected <strong>Voice scrolling</strong> and started listening. Then check these common causes:</p><ul><li><strong>On iPhone, iPad, or Mac:</strong> enable Siri and Dictation in your system settings. Make sure the speech-recognition language you need is downloaded in Dictation settings where available.</li><li><strong>Check microphone access:</strong> allow VoicePrompter to use the mic and make sure the intended microphone is connected.</li><li><strong>Check your place in the script:</strong> if you scrolled manually, tap or click the word you want to read from. Moving the view alone can leave the active word much earlier in the script.</li><li><strong>Check the recognition language:</strong> it should match the language you are reading.</li></ul><p>If it still does not move, send me a short recording showing the script and what happens when you speak.</p>",
+    "searchPhrases": ["voice scrolling doesn't work", "voice scrolling not working", "in voice it doesn't move", "stops following the script"],
     "keywords": "stuck frozen no movement siri dictation language permission active line listening",
     "videoUrl": null
   },
@@ -69,6 +71,7 @@ export const articles: SupportArticle[] = [
       "macOS"
     ],
     "answer": "<p>Voice scrolling follows the words it recognizes, so the first thing to check is how clearly your device can hear you.</p><ul><li>Try reading with the device closer to you. If it keeps up, distance is likely part of the problem.</li><li>Reduce background noise. Strong accents can also make recognition take longer.</li><li>Enable <strong>Show recognized words</strong> to see what the app is hearing.</li><li>For recording at a distance, use an external microphone connected through your device’s port. A wireless mic with its receiver plugged into the port works differently from a Bluetooth-only mic.</li></ul><p>A fixed scrolling-speed control will not make speech recognition faster.</p>",
+    "searchPhrases": ["voice scrolling can't keep up", "scrolling falls behind", "doesn't follow my reading speed", "speech recognition is too slow"],
     "keywords": "lag delay speed faster accent noise distance slow",
     "videoUrl": null
   },
@@ -83,6 +86,7 @@ export const articles: SupportArticle[] = [
       "macOS"
     ],
     "answer": "<p>Yes. Use a wired microphone or a wireless microphone with its <strong>receiver connected through your device’s port</strong>, using a compatible adapter if needed.</p><p><strong>On iOS and Android, use a port-connected mic, not a Bluetooth-only connection.</strong> Bluetooth microphones are not supported for this VoicePrompter recording and voice-scrolling setup because of platform audio restrictions.</p><p>Before a full recording, make a short test to check that the intended microphone is being used. On Mac, also check your selected audio input.</p>",
+    "searchPhrases": ["bluetooth mic not working", "can I use AirPods", "connect a wireless microphone"],
     "keywords": "bluetooth usb usb-c lightning wireless rode dji receiver headset airpods audio input",
     "videoUrl": null
   },
@@ -95,6 +99,7 @@ export const articles: SupportArticle[] = [
       "iPadOS"
     ],
     "answer": "<p>The native Camera app does not rotate its entire interface when you turn your device, so the floating text can stay in portrait.</p><ol><li>Open <strong>VoicePrompter → Settings → Picture in Picture</strong>.</li><li>Use the option to <strong>force rotate the content</strong> of the floating window.</li><li>Return to the Camera app and check that the text faces the right way for your landscape recording.</li></ol><p>This rotates the text inside Picture in Picture.</p>",
+    "searchPhrases": ["text is sideways", "floating window won't rotate", "turn text horizontal"],
     "keywords": "pip sideways horizontal landscape native camera rotation orientation",
     "videoUrl": null
   },
@@ -119,6 +124,7 @@ export const articles: SupportArticle[] = [
       "android"
     ],
     "answer": "<p>On some Android devices, the camera takes over microphone access when recording starts. VoicePrompter then cannot hear you, even though the floating script is still visible.</p><p class=\"notice\"><strong>An update is in review.</strong> I have submitted a new version designed to resolve this issue. It is not available to everyone yet.</p><p>Until it is available, try the built-in Video mode if you were using another camera app. If your device still blocks voice scrolling, use Constant scrolling or record on a separate device.</p>",
+    "searchPhrases": ["voice scrolling doesn't work when recording", "voice scrolling stops when I record", "camera stops voice scrolling", "can't record and scroll at the same time"],
     "keywords": "samsung pixel microphone sharing simultaneous camera freeze accessibility",
     "videoUrl": null
   },
@@ -168,6 +174,7 @@ export const articles: SupportArticle[] = [
       "macOS"
     ],
     "answer": "<p>Some external-display setups can conflict with the setting that hides VoicePrompter from screen capture.</p><ol><li>Turn off <strong>Hidden from screen sharing and recordings</strong> in VoicePrompter’s settings.</li><li>Move the prompter to the external screen again.</li><li>If needed, check VoicePrompter’s permission under <strong>System Settings → Privacy &amp; Security → Screen &amp; System Audio Recording</strong>.</li></ol><p>Turning off the hiding setting can make your script visible in screen shares and recordings. Test your setup before going live.</p>",
+    "searchPhrases": ["prompter disappeared on second screen", "Elgato screen is blank"],
     "keywords": "elgato display monitor disappears invisible screen permission",
     "videoUrl": null
   },
@@ -179,6 +186,7 @@ export const articles: SupportArticle[] = [
       "android"
     ],
     "answer": "<ol><li>Make sure Google Play uses the <strong>same Google account that made the purchase</strong> on both devices.</li><li>In Android Settings, open <strong>Apps → Google Play Store → Storage &amp; cache → Clear cache</strong>. If needed, do the same for Google Play services.</li><li>Choose <strong>Clear cache only</strong>, not Clear storage or Clear data.</li><li>Restart the device, open the Play Store, then return to VoicePrompter and tap <strong>Restore Purchases</strong>.</li></ol><p>Google Play sometimes takes time to recognize a purchase on another device. If it still does not appear, email me your Google receipt or order number and the models of both devices.</p>",
+    "searchPhrases": ["unable to restore purchase", "paid but still says free", "can't get pro on my other device", "asking me to pay again"],
     "keywords": "restore purchases pro free paid tablet sync license google account",
     "videoUrl": null
   },
@@ -193,6 +201,7 @@ export const articles: SupportArticle[] = [
       "macOS"
     ],
     "answer": "<p><strong>Apple:</strong> one purchase works across your Mac, iPhone, and iPad when they use the same App Store account.</p><p><strong>Android:</strong> one purchase works across your Android phones and tablets using the same Google Play account.</p><p>Apple and Android licenses are separate. A purchase from one store cannot be restored through the other. VoicePrompter does not have a separate account to sign into.</p>",
+    "searchPhrases": ["licence cover Mac and Android", "use on more than one device", "bought on my phone can I use my tablet"],
     "keywords": "cross platform transfer lifetime subscription account devices license",
     "videoUrl": null
   },

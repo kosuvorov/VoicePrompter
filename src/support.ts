@@ -16,7 +16,7 @@ const plainText = (html: string) => {
 };
 const searchArticles = createSupportSearch(articles.map(article => ({ ...article, text: `${plainText(article.answer)} ${article.platforms.join(' ')}` })));
 
-function render() {
+function render(collapseAnswers = false) {
   const openIds = new Set([...list.querySelectorAll<HTMLDetailsElement>('details[open]')].map(el => el.id));
   const scores = searchArticles(search.value);
   const eligible = articles.filter(article => (platform === 'all' || article.platforms.includes(platform)) && scores.get(article.id)! > 0)
@@ -40,7 +40,7 @@ function render() {
   visible.forEach(article => {
     const details = document.createElement('details');
     details.id = article.id;
-    details.open = openIds.has(article.id) || Boolean(search.value.trim());
+    details.open = !collapseAnswers && (openIds.has(article.id) || Boolean(search.value.trim()));
     const summary = document.createElement('summary');
     const heading = document.createElement('div');
     const question = document.createElement('div');
@@ -81,6 +81,20 @@ function render() {
       }
     });
     actions.append(link, status);
+    if ((search.value.trim() || category !== article.category) && articles.some(other =>
+      other.id !== article.id && other.category === article.category && (platform === 'all' || other.platforms.includes(platform)))) {
+      const more = document.createElement('button');
+      more.type = 'button';
+      more.className = 'related-topic';
+      more.textContent = `More in ${article.category}`;
+      more.addEventListener('click', () => {
+        search.value = '';
+        category = article.category;
+        render(true);
+        viewResults();
+      });
+      actions.append(more);
+    }
     if (article.videoUrl) {
       try {
         const url = new URL(article.videoUrl);
@@ -98,12 +112,12 @@ function render() {
   const query = search.value.trim();
   document.querySelector('#search-status')!.textContent = query
     ? `${visible.length ? `Search updated - ${visible.length} ${visible.length === 1 ? 'answer' : 'answers'} found` : 'Search updated - no matching answers'}${platform !== 'all' || category !== 'All questions' ? ' with your filters' : ''}.`
-    : 'Results update as you type.';
+    : category !== 'All questions' ? `Showing all ${visible.length} ${visible.length === 1 ? 'answer' : 'answers'} in ${category}${platform !== 'all' ? ` for ${platform}` : ''}.` : 'Results update as you type.';
   (document.querySelector('#view-results') as HTMLButtonElement).hidden = !query || !visible.length;
   (document.querySelector('#empty') as HTMLElement).hidden = visible.length !== 0;
   platformButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.platform === platform)));
 }
-search.addEventListener('input', render);
+search.addEventListener('input', () => render());
 function viewResults() {
   search.blur();
   const answers = document.querySelector<HTMLElement>('#answers')!;
