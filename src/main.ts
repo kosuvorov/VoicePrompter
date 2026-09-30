@@ -2,209 +2,18 @@ import './style.css';
 import { registerSW } from 'virtual:pwa-register';
 import { initElements, els } from './elements';
 import { state } from './state';
-import { renderScript, updateHighlight, scrollToCurrent, applySettings, renderHistoryList, restartScript } from './render';
+import { renderScript, updateHighlight, scrollToCurrent, applySettings, renderHistoryList, restartScript, stopChaseScroll } from './render';
 import { initSpeech, startListening, stopListening } from './speech';
 import { autoScrollManager } from './autoscroll';
 import { saveToHistory, getHistory, clearAllHistory } from './storage';
 import { ScriptWord, ScrollingMode } from './types';
 import { enterVideoMode, exitVideoMode, toggleVideoLayout, startRecording, stopRecording, flipCamera, getMediaConstraints } from './video';
-import { detectAll } from 'tinyld/light';
 import { fetchGoogleDocText } from './gdoc';
 import { enumerateAndPopulateDevices } from './devices';
-import { detectVisitorPlatform, getNativePromo } from './platform-promo';
+import { initLanguageUI, updateAutoDetectText, applyLanguageForScript } from './language';
+import { initPromoBanner, startPromoAnimation, stopPromoAnimation } from './promo-banner';
 
 const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-
-interface LangItem { id: string; name: string }
-
-const AUTO_LANGS: LangItem[] = [
-    { id: 'en-US', name: 'English' },
-    { id: 'es-ES', name: 'Spanish' },
-    { id: 'fr-FR', name: 'French' },
-    { id: 'de-DE', name: 'German' },
-    { id: 'it-IT', name: 'Italian' },
-    { id: 'pt-PT', name: 'Portuguese' },
-    { id: 'ru-RU', name: 'Russian' },
-    { id: 'ja-JP', name: 'Japanese' },
-    { id: 'zh-CN', name: 'Chinese' },
-    { id: 'ko-KR', name: 'Korean' },
-    { id: 'ar-SA', name: 'Arabic' },
-    { id: 'nl-NL', name: 'Dutch' },
-    { id: 'pl-PL', name: 'Polish' },
-    { id: 'uk-UA', name: 'Ukrainian' },
-    { id: 'hi-IN', name: 'Hindi' },
-    { id: 'tr-TR', name: 'Turkish' },
-    { id: 'sv-SE', name: 'Swedish' },
-    { id: 'da-DK', name: 'Danish' },
-    { id: 'fi-FI', name: 'Finnish' },
-    { id: 'no-NO', name: 'Norwegian' }
-].sort((a, b) => a.name.localeCompare(b.name));
-
-const MANUAL_LANGS: LangItem[] = [
-    { id: 'id-ID', name: 'Indonesian' },
-    { id: 'ms-MY', name: 'Malay' },
-    { id: 'ca-ES', name: 'Catalan' },
-    { id: 'cs-CZ', name: 'Czech' },
-    { id: 'el-GR', name: 'Greek' },
-    { id: 'he-IL', name: 'Hebrew' },
-    { id: 'hu-HU', name: 'Hungarian' },
-    { id: 'ro-RO', name: 'Romanian' },
-    { id: 'sk-SK', name: 'Slovak' },
-    { id: 'th-TH', name: 'Thai' },
-    { id: 'vi-VN', name: 'Vietnamese' },
-    { id: 'bg-BG', name: 'Bulgarian' },
-    { id: 'hr-HR', name: 'Croatian' },
-    { id: 'sr-RS', name: 'Serbian' },
-].sort((a, b) => a.name.localeCompare(b.name));
-
-const LANG_MAP: Record<string, string> = {
-    'en': 'en-US', 'es': 'es-ES', 'fr': 'fr-FR', 'de': 'de-DE',
-    'it': 'it-IT', 'pt': 'pt-PT', 'ru': 'ru-RU', 'ja': 'ja-JP',
-    'zh': 'zh-CN', 'ko': 'ko-KR', 'ar': 'ar-SA', 'nl': 'nl-NL',
-    'pl': 'pl-PL', 'uk': 'uk-UA', 'hi': 'hi-IN', 'tr': 'tr-TR',
-    'sv': 'sv-SE', 'da': 'da-DK', 'fi': 'fi-FI', 'no': 'no-NO'
-};
-
-function renderLanguageDropdowns() {
-    [els.languageSelectContainer, els.languageSelectSettingsContainer].forEach(container => {
-        container.innerHTML = `
-            <button class="w-full flex items-center justify-between text-left bg-neutral-800 border border-neutral-700 rounded px-3 h-[38px] text-sm text-neutral-300 focus:ring-2 focus:ring-[#FFBB00] focus:border-transparent outline-none transition-colors hover:bg-neutral-700 min-w-[200px]" data-dropdown-toggle>
-                <div class="flex flex-col flex-1 truncate">
-                    <span class="font-medium dropdown-title">Auto-detect</span>
-                    <span class="text-[10px] text-neutral-400 dropdown-subtitle truncate h-3 mt-0.5" style="display: none;"></span>
-                </div>
-                <svg class="w-4 h-4 ml-2 flex-shrink-0 text-neutral-400 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-            </button>
-            <div class="absolute z-50 w-full mt-1 bg-neutral-900 border border-neutral-700 rounded-lg shadow-2xl opacity-0 scale-95 pointer-events-none transition-all duration-200 origin-top dropdown-menu overflow-hidden flex flex-col max-h-[60vh] sm:max-h-[300px]">
-                <div class="overflow-y-auto no-scrollbar py-2">
-                    <button class="w-full text-left px-3 py-2 hover:bg-neutral-800 transition-colors flex flex-col lang-option" data-value="auto">
-                        <div class="flex items-center justify-between w-full">
-                            <span class="font-medium text-white">Automatic</span>
-                            <span class="text-[10px] text-neutral-500 auto-detected-label ml-2 truncate"></span>
-                        </div>
-                    </button>
-                    
-                    <div class="px-3 py-1 mt-1 flex items-center justify-between">
-                        <span class="text-[10px] uppercase font-bold text-neutral-500 tracking-wider">With Auto-Detection</span>
-                    </div>
-                    
-                    ${AUTO_LANGS.map(lang => `
-                        <button class="w-full text-left px-3 py-1.5 hover:bg-neutral-800 transition-colors flex items-center justify-between lang-option" data-value="${lang.id}">
-                            <span class="text-sm text-neutral-300">${lang.name}</span>
-                            <span class="text-[9px] font-bold bg-[#FFBB00]/10 text-[#FFBB00] px-1.5 py-0.5 rounded-full tracking-wider">AUTO</span>
-                        </button>
-                    `).join('')}
-
-                    <div class="px-3 py-1 mt-2 flex items-center justify-between border-t border-neutral-800 pt-2">
-                        <span class="text-[10px] uppercase font-bold text-neutral-500 tracking-wider">Manual Selection</span>
-                    </div>
-
-                    ${MANUAL_LANGS.map(lang => `
-                        <button class="w-full text-left px-3 py-1.5 hover:bg-neutral-800 transition-colors flex items-center justify-between lang-option" data-value="${lang.id}">
-                            <span class="text-sm text-neutral-300">${lang.name}</span>
-                        </button>
-                    `).join('')}
-                </div>
-            </div>
-        `;
-
-        const toggle = container.querySelector('[data-dropdown-toggle]') as HTMLButtonElement;
-        const menu = container.querySelector('.dropdown-menu') as HTMLDivElement;
-        const svg = toggle.querySelector('svg') as SVGElement;
-
-        toggle.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            const isOpen = !menu.classList.contains('opacity-0');
-
-            // Close all
-            document.querySelectorAll('.dropdown-menu').forEach(m => {
-                m.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-                const btn = m.previousElementSibling as HTMLButtonElement;
-                if (btn) btn.querySelector('svg')?.classList.remove('rotate-180');
-            });
-
-            if (!isOpen) {
-                menu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
-                svg.classList.add('rotate-180');
-
-                // Smart positioning
-                const rect = menu.getBoundingClientRect();
-                if (rect.bottom > window.innerHeight) {
-                    menu.style.bottom = '100%';
-                    menu.style.top = 'auto';
-                    menu.style.marginBottom = '0.5rem';
-                } else {
-                    menu.style.bottom = 'auto';
-                    menu.style.top = '100%';
-                    menu.style.marginBottom = '0';
-                }
-            }
-        });
-
-        const options = menu.querySelectorAll('.lang-option');
-        options.forEach(opt => {
-            opt.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                const val = (opt as HTMLButtonElement).dataset.value!;
-                handleLanguageChange(val);
-                menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-                svg.classList.remove('rotate-180');
-            });
-        });
-    });
-
-    window.addEventListener('click', () => {
-        document.querySelectorAll('.dropdown-menu').forEach(menu => {
-            menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-            const btn = menu.previousElementSibling as HTMLButtonElement;
-            if (btn) btn.querySelector('svg')?.classList.remove('rotate-180');
-        });
-    });
-}
-
-function updateAutoDetectText(detectedVal: string | null) {
-    let detectedName = '';
-    const allLangs = [...AUTO_LANGS, ...MANUAL_LANGS];
-
-    if (detectedVal) {
-        const found = allLangs.find(l => l.id === detectedVal);
-        detectedName = found ? found.name : detectedVal;
-    }
-
-    [els.languageSelectContainer, els.languageSelectSettingsContainer].forEach(container => {
-        const toggleTitle = container.querySelector('.dropdown-title') as HTMLElement;
-        const toggleSub = container.querySelector('.dropdown-subtitle') as HTMLElement;
-        const autoOptLabel = container.querySelector('.auto-detected-label') as HTMLElement;
-
-        if (!toggleTitle) return;
-
-        // Ensure subtitle is always hidden since we are using brackets in the title now
-        if (toggleSub) toggleSub.style.display = 'none';
-
-        if (state.languageSetting === 'auto') {
-            if (detectedName) {
-                toggleTitle.textContent = `Automatic (${detectedName})`;
-                if (autoOptLabel) autoOptLabel.textContent = `${detectedName} detected`;
-            } else {
-                toggleTitle.textContent = 'Auto-detect';
-                if (autoOptLabel) autoOptLabel.textContent = '';
-            }
-            toggleTitle.classList.add('text-white');
-            toggleTitle.classList.remove('text-neutral-300');
-        } else {
-            const found = allLangs.find(l => l.id === state.languageSetting);
-            toggleTitle.textContent = found ? found.name : state.languageSetting;
-            toggleTitle.classList.remove('text-white');
-            toggleTitle.classList.add('text-neutral-300');
-
-            if (autoOptLabel) autoOptLabel.textContent = detectedName ? `${detectedName} detected` : '';
-        }
-    });
-}
 
 // --- PWA Update Handling ---
 registerSW({ immediate: true });
@@ -212,16 +21,8 @@ registerSW({ immediate: true });
 // --- Initialization ---
 initElements();
 initSpeech();
-renderLanguageDropdowns();
-
-// --- Toast ---
-let langWarningTimer: ReturnType<typeof setTimeout> | null = null;
-function showLangDetectionWarning() {
-    const toast = els.langDetectionWarning;
-    toast.classList.remove('hidden');
-    if (langWarningTimer) clearTimeout(langWarningTimer);
-    langWarningTimer = setTimeout(() => toast.classList.add('hidden'), 6000);
-}
+initLanguageUI();
+initPromoBanner();
 
 // --- Main Logic ---
 
@@ -236,30 +37,7 @@ function loadScript(text: string, googleDocUrl: string | null = null): void {
     saveToHistory(scriptText, googleDocUrl);
 
     // Detect language and update Speech Recognition
-    let targetLang = state.languageSetting;
-
-    if (targetLang === 'auto') {
-        const results = detectAll(scriptText);
-        const top = results[0];
-        const confidence = top?.accuracy ?? 0;
-        const detection = top?.lang ?? '';
-        let mappedLang = LANG_MAP[detection] || 'en-US';
-        state.detectedLanguage = mappedLang;
-        targetLang = mappedLang;
-        updateAutoDetectText(mappedLang);
-        if (confidence < 0.5) {
-            showLangDetectionWarning();
-        }
-    } else {
-        state.detectedLanguage = null;
-        updateAutoDetectText(null);
-    }
-
-    state.selectedLanguage = targetLang;
-    if (state.recognition) {
-        state.recognition.lang = targetLang;
-    }
-
+    applyLanguageForScript(scriptText);
 
     // Instant Update Logic:
     // If preserveFormatting is ON, we want to treat newlines as actual breaks.
@@ -323,6 +101,7 @@ function loadScript(text: string, googleDocUrl: string | null = null): void {
 function resetApp(): void {
     stopListening();
     autoScrollManager.stop();
+    stopChaseScroll();
     isAutoScrollStarting = false;
     unlockBodyScroll();
     els.prompterContainer.classList.add('hidden');
@@ -607,78 +386,6 @@ els.resetAppBtn.addEventListener('click', resetApp);
 // Restart Script Button
 els.restartScriptBtn.addEventListener('click', restartScript);
 
-const visitorPlatform = detectVisitorPlatform();
-const nativePromo = getNativePromo(visitorPlatform);
-els.nativePromoTitle.textContent = nativePromo.title;
-
-let promoTimeout: number | null = null;
-let currentPromoPairIndex = 0;
-let currentPromoPairStatic = '';
-let currentPromoWord = '';
-
-function startPromoAnimation() {
-    if (promoTimeout) {
-        window.clearTimeout(promoTimeout);
-        promoTimeout = null;
-    }
-
-    const subtitleEl = els.nativePromoSubtitle;
-
-    const pair = nativePromo.pairs[currentPromoPairIndex];
-    currentPromoPairIndex = (currentPromoPairIndex + 1) % nativePromo.pairs.length;
-    
-    currentPromoPairStatic = pair.line1;
-
-    if (pair.rotating.length === 0) {
-        currentPromoWord = '';
-        subtitleEl.innerHTML = `<div>${pair.line1}</div><div>${pair.line2}</div>`;
-        return;
-    }
-
-    let currentIndex = 0;
-    currentPromoWord = pair.rotating[currentIndex];
-
-    subtitleEl.innerHTML = `<div>${pair.line1}</div><div class="flex items-center">${pair.line2}<span class="promo-rotating-word inline-block transition-all duration-500 opacity-100 translate-y-0 text-[#FFBB00] font-medium whitespace-nowrap ml-1">${pair.rotating[currentIndex]}</span></div>`;
-
-    const rotatingEl = subtitleEl.querySelector('.promo-rotating-word') as HTMLElement;
-
-    function animateNextWord() {
-        promoTimeout = window.setTimeout(() => {
-            if (!document.body.contains(rotatingEl)) return;
-
-            rotatingEl.classList.remove('opacity-100', 'translate-y-0');
-            rotatingEl.classList.add('opacity-0', '-translate-y-2');
-
-            promoTimeout = window.setTimeout(() => {
-                if (!document.body.contains(rotatingEl)) return;
-                currentIndex = (currentIndex + 1) % pair.rotating.length;
-                currentPromoWord = pair.rotating[currentIndex];
-                rotatingEl.textContent = pair.rotating[currentIndex];
-
-                rotatingEl.classList.remove('-translate-y-2', 'transition-all', 'duration-500');
-                rotatingEl.classList.add('translate-y-2');
-
-                void rotatingEl.offsetWidth;
-
-                rotatingEl.classList.add('transition-all', 'duration-500');
-                rotatingEl.classList.remove('opacity-0', 'translate-y-2');
-                rotatingEl.classList.add('opacity-100', 'translate-y-0');
-
-                animateNextWord();
-            }, 500);
-        }, 1500);
-    }
-
-    animateNextWord();
-}
-
-function stopPromoAnimation() {
-    if (promoTimeout) {
-        window.clearTimeout(promoTimeout);
-        promoTimeout = null;
-    }
-}
-
 // Toggle Settings
 els.toggleSettingsBtn.addEventListener('click', () => {
     (window as any).umami?.track('settings-toggle');
@@ -697,17 +404,6 @@ els.toggleSettingsBtn.addEventListener('click', () => {
 els.closeSettingsBtn.addEventListener('click', () => {
     els.settingsPanel.classList.add('hidden');
     stopPromoAnimation();
-});
-
-// Native App Promo Card Banner
-els.settingsNativeAppBanner.addEventListener('click', () => {
-    const promoData = currentPromoWord ? `${currentPromoPairStatic} - ${currentPromoWord}` : currentPromoPairStatic;
-    (window as any).umami?.track(nativePromo.analyticsEvent, {
-        destination: nativePromo.href,
-        sourcePlatform: visitorPlatform,
-        variant: promoData
-    });
-    window.location.href = nativePromo.href;
 });
 
 // Font Size Slider
@@ -854,39 +550,6 @@ els.stopSignToggle.addEventListener('change', (e) => {
     }
 });
 
-function handleLanguageChange(lang: string) {
-    (window as any).umami?.track('language-select', { language: lang });
-    state.languageSetting = lang;
-
-    // if auto, re-detect if there is a script
-    if (lang === 'auto') {
-        if (els.inputScript.value.trim()) {
-            const results = detectAll(els.inputScript.value.trim());
-            const top = results[0];
-            const confidence = top?.accuracy ?? 0;
-            const detection = top?.lang ?? '';
-            const mappedLang = LANG_MAP[detection] || 'en-US';
-            state.detectedLanguage = mappedLang;
-            state.selectedLanguage = mappedLang;
-            updateAutoDetectText(mappedLang);
-            if (confidence < 0.5) {
-                showLangDetectionWarning();
-            }
-        } else {
-            state.selectedLanguage = 'en-US'; // fallback empty script
-            updateAutoDetectText(null);
-        }
-    } else {
-        state.selectedLanguage = lang;
-        state.detectedLanguage = null;
-        updateAutoDetectText(null);
-    }
-
-    if (state.recognition) {
-        state.recognition.lang = state.selectedLanguage;
-    }
-}
-
 // Preserve Formatting Toggle
 els.preserveFormattingToggle.addEventListener('change', (e) => {
     state.config.preserveFormatting = (e.target as HTMLInputElement).checked;
@@ -962,11 +625,7 @@ els.dismissIpadWarningBtn.addEventListener('click', () => {
     els.ipadPwaWarning.classList.add('hidden');
 });
 
-// Dismiss Language Detection Warning
-els.dismissLangWarningBtn.addEventListener('click', () => {
-    els.langDetectionWarning.classList.add('hidden');
-    if (langWarningTimer) clearTimeout(langWarningTimer);
-});
+// (Language detection warning is wired in language.ts)
 
 // Dismiss Android Video Warning
 els.dismissAndroidVideoWarningBtn.addEventListener('click', () => {
@@ -1087,40 +746,44 @@ function initializeUI(): void {
     }
 }
 
-function updateAlignmentButtons(): void {
-    (['left', 'center', 'right'] as const).forEach(a => {
-        const btn = els.alignBtns[a];
-        const isActive = a === state.config.textAlign;
-        btn.classList.toggle('bg-neutral-500', isActive);
-        btn.classList.toggle('text-white', isActive);
-        btn.classList.toggle('hover:bg-neutral-600', !isActive);
+/**
+ * Marks one button in a segmented group as selected by toggling the `active`
+ * classes on the chosen button and the `inactive` classes on the rest.
+ */
+function updateButtonGroup<K extends string>(
+    btns: Record<K, HTMLElement>,
+    activeKey: K,
+    classes: { active: string[]; inactive: string[] }
+): void {
+    (Object.keys(btns) as K[]).forEach(key => {
+        const btn = btns[key];
+        const isActive = key === activeKey;
+        classes.active.forEach(c => btn.classList.toggle(c, isActive));
+        classes.inactive.forEach(c => btn.classList.toggle(c, !isActive));
     });
+}
+
+// The alignment row is a filled segmented control; direction and font are
+// outlined cards that gain the brand border when selected.
+const ALIGN_CLASSES = {
+    active: ['bg-neutral-500', 'text-white'],
+    inactive: ['hover:bg-neutral-600']
+};
+const OUTLINED_CLASSES = {
+    active: ['bg-neutral-700', 'text-white', 'border-[#FFBB00]'],
+    inactive: ['bg-neutral-800', 'text-neutral-300', 'border-neutral-700']
+};
+
+function updateAlignmentButtons(): void {
+    updateButtonGroup(els.alignBtns, state.config.textAlign, ALIGN_CLASSES);
 }
 
 function updateDirectionButtons(): void {
-    (['ltr', 'rtl'] as const).forEach(dir => {
-        const btn = els.dirBtns[dir];
-        const isActive = state.config.textDirection === dir;
-        btn.classList.toggle('bg-neutral-700', isActive);
-        btn.classList.toggle('text-white', isActive);
-        btn.classList.toggle('border-[#FFBB00]', isActive);
-        btn.classList.toggle('bg-neutral-800', !isActive);
-        btn.classList.toggle('text-neutral-300', !isActive);
-        btn.classList.toggle('border-neutral-700', !isActive);
-    });
+    updateButtonGroup(els.dirBtns, state.config.textDirection, OUTLINED_CLASSES);
 }
 
 function updateFontFamilyButtons(): void {
-    (['mono', 'sans', 'serif', 'comicSans', 'openDyslexic'] as const).forEach(font => {
-        const btn = els.fontFamilyBtns[font];
-        const isActive = state.config.fontFamily === font;
-        btn.classList.toggle('bg-neutral-700', isActive);
-        btn.classList.toggle('text-white', isActive);
-        btn.classList.toggle('border-[#FFBB00]', isActive);
-        btn.classList.toggle('bg-neutral-800', !isActive);
-        btn.classList.toggle('text-neutral-300', !isActive);
-        btn.classList.toggle('border-neutral-700', !isActive);
-    });
+    updateButtonGroup(els.fontFamilyBtns, state.config.fontFamily as keyof typeof els.fontFamilyBtns, OUTLINED_CLASSES);
 }
 
 async function handleDeviceChange(): Promise<void> {
