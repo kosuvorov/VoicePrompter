@@ -1,4 +1,5 @@
 import { articles } from './support-data';
+import { createSupportSearch } from './support-search';
 
 const search = document.querySelector<HTMLInputElement>('#search')!;
 const list = document.querySelector<HTMLDivElement>('#article-list')!;
@@ -13,12 +14,13 @@ const plainText = (html: string) => {
   template.innerHTML = html;
   return template.content.textContent || '';
 };
-const searchable = new Map(articles.map(article => [article.id, `${article.question} ${plainText(article.answer)} ${article.keywords} ${article.platforms.join(' ')}`.toLowerCase()]));
-const matches = (id: string) => search.value.toLowerCase().trim().split(/\s+/).every(word => searchable.get(id)!.includes(word));
+const searchArticles = createSupportSearch(articles.map(article => ({ ...article, text: `${plainText(article.answer)} ${article.platforms.join(' ')}` })));
 
 function render() {
   const openIds = new Set([...list.querySelectorAll<HTMLDetailsElement>('details[open]')].map(el => el.id));
-  const eligible = articles.filter(article => (platform === 'all' || article.platforms.includes(platform)) && matches(article.id));
+  const scores = searchArticles(search.value);
+  const eligible = articles.filter(article => (platform === 'all' || article.platforms.includes(platform)) && scores.get(article.id)! > 0)
+    .sort((a, b) => scores.get(b.id)! - scores.get(a.id)!);
   topics.replaceChildren();
   categories.forEach(name => {
     const button = document.createElement('button');
@@ -93,10 +95,23 @@ function render() {
   });
   document.querySelector('#results-title')!.textContent = search.value.trim() ? 'Search results' : category;
   document.querySelector('#result-count')!.textContent = `${visible.length} ${visible.length === 1 ? 'answer' : 'answers'}`;
+  const query = search.value.trim();
+  document.querySelector('#search-status')!.textContent = query
+    ? `${visible.length ? `Search updated - ${visible.length} ${visible.length === 1 ? 'answer' : 'answers'} found` : 'Search updated - no matching answers'}${platform !== 'all' || category !== 'All questions' ? ' with your filters' : ''}.`
+    : 'Results update as you type.';
+  (document.querySelector('#view-results') as HTMLButtonElement).hidden = !query || !visible.length;
   (document.querySelector('#empty') as HTMLElement).hidden = visible.length !== 0;
   platformButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.platform === platform)));
 }
 search.addEventListener('input', render);
+function viewResults() {
+  search.blur();
+  const answers = document.querySelector<HTMLElement>('#answers')!;
+  answers.scrollIntoView({ block: 'start' });
+  answers.focus({ preventScroll: true });
+}
+search.addEventListener('keydown', event => { if (event.key === 'Enter') { event.preventDefault(); viewResults(); } });
+document.querySelector('#view-results')!.addEventListener('click', viewResults);
 platformButtons.forEach(button => button.addEventListener('click', () => { platform = button.dataset.platform!; render(); }));
 document.querySelector('#reset')!.addEventListener('click', () => { search.value = ''; platform = 'all'; category = 'All questions'; render(); search.focus(); });
 document.addEventListener('keydown', event => {
