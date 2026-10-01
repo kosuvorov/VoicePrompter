@@ -46,6 +46,21 @@ export const articles: SupportArticle[] = [
     "videoUrl": null
   },
   {
+    "id": "text-formatting",
+    "question": "Can I use bold, colors, or other text formatting in my script?",
+    "category": "Getting started",
+    "platforms": [
+      "android",
+      "iOS",
+      "iPadOS",
+      "macOS"
+    ],
+    "answer": "<p>VoicePrompter currently uses <strong>plain text</strong>. You can use CAPITAL LETTERS, emojis, and other plain-text characters to emphasize something, and add cues in square brackets, such as <strong>[pause]</strong> or <strong>[smile]</strong>.</p><p>Rich text formatting, such as bold, italics, colors, or different font sizes within a script, is not supported yet. Different character widths and sizes can interfere with smooth scrolling. I’m looking for a solution that keeps the scrolling smooth.</p>",
+    "keywords": "format formatting bold italic italics color colour highlight emphasis capitalization capitals uppercase emoji emojis brackets cues stage directions rich text markdown",
+    "searchPhrases": ["format my script", "highlight important words", "add stage directions", "change text colors"],
+    "videoUrl": null
+  },
+  {
     "id": "not-scrolling",
     "question": "Why aren’t the words scrolling with my voice?",
     "category": "Voice scrolling",
@@ -243,8 +258,24 @@ export const articles: SupportArticle[] = [
       "iPadOS",
       "macOS"
     ],
-    "answer": "<p>Your purchase is handled by the store you bought it from:</p><ul><li><strong>iPhone, iPad, or Mac:</strong> Apple sends the receipt or invoice to the email associated with your purchase.</li><li><strong>Android:</strong> Google sends it to the Google account used for the purchase.</li></ul><p>Check that inbox and your spam folder. You can also check the purchase history in your Apple or Google account. I do not issue a separate invoice for store purchases.</p>",
+    "answer": "<p><strong>Apple or Google sends your receipt or invoice. I don’t issue invoices for store purchases.</strong></p><ul><li><strong>iPhone, iPad, or Mac:</strong> Apple sends the receipt or invoice to the email associated with your purchase.</li><li><strong>Android:</strong> Google sends it to the Google account used for the purchase.</li></ul><p>Check that inbox and your spam folder. You can also check the purchase history in your Apple or Google account.</p>",
     "keywords": "receipt invoice billing tax payment order",
+    "videoUrl": null,
+    "searchPhrases": ["send me an invoice", "who sends the invoice"]
+  },
+  {
+    "id": "local-app-support",
+    "question": "Can you fix the app remotely or look up my personal information?",
+    "category": "Privacy & support",
+    "platforms": [
+      "android",
+      "iOS",
+      "iPadOS",
+      "macOS"
+    ],
+    "answer": "<p>VoicePrompter’s native apps run <strong>locally on your device</strong>. I can’t access your device or change its settings remotely, and I don’t have access to personal information such as your email address or order number unless you choose to share it with me.</p><p>I can help you troubleshoot by email. Please include your name, device model, OS and app version, what happened, and a screenshot or short recording of the issue. For a purchase issue, please attach your Apple or Google receipt so I can check the details you share.</p>",
+    "keywords": "local privacy personal information data remote remotely access support account email address order number receipt troubleshoot developer",
+    "searchPhrases": ["fix it remotely", "look up my purchase", "which account did I use", "access my information"],
     "videoUrl": null
   }
 ];

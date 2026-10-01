@@ -35,6 +35,12 @@ try {
     ['bluetooth mic not working', 'external-microphone'],
     ['text is sideways', 'rotate-pip'],
     ['prompter disappeared on second screen', 'external-monitor'],
+    ['send me an invoice', 'invoice'],
+    ['fix it remotely', 'local-app-support'],
+    ['look up my purchase', 'local-app-support'],
+    ['bold text', 'text-formatting'],
+    ['square brackets', 'text-formatting'],
+    ['highlight important words', 'text-formatting'],
     ['invioce', 'invoice'], ['4k', '4k-recording'], ['pdf', 'import-script'],
   ];
   for (const [query, expected] of cases) assert.equal(results(query)[0], expected, query);

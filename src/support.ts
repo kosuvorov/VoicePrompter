@@ -168,7 +168,7 @@ dialog.addEventListener('click', event => {
 const email = 'support@voiceprompter.app';
 document.querySelector('#reveal-email')!.addEventListener('click', () => {
   document.querySelector('#email-address')!.textContent = email;
-  const body = 'Hi Konstantin,\n\nDevice model:\nOS / app version:\n\nIssue and steps to reproduce:\n\nMicrophone / connection (if relevant):\n\nI will attach a screenshot or short recording for an issue, or my store receipt for a purchase question.\n';
+  const body = 'Hi Konstantin,\n\nName:\nDevice model:\nOS / app version:\n\nIssue and steps to reproduce:\n\nMicrophone / connection (if relevant):\n\nI will attach a screenshot or short recording for an issue, or my store receipt for a purchase question.\n';
   const link = document.querySelector<HTMLAnchorElement>('#mail-link')!;
   link.href = `mailto:${email}?subject=${encodeURIComponent('VoicePrompter support')}&body=${encodeURIComponent(body)}`;
   (document.querySelector('#email-details') as HTMLElement).hidden = false;
