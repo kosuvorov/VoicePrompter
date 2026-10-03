@@ -2,7 +2,7 @@ import { state } from './state';
 import { els } from './elements';
 import { updateMicUI, updateHighlight, scrollToCurrent, advancePastSkipped, restartScript, navigateParagraphs } from './render';
 
-// Track the last matched word to prevent matching the same word twice in a row
+// Track the last matched word group to prevent matching the same sequence twice in a row
 let lastMatchedWord = '';
 
 // Track which result indices we already processed for commands
@@ -104,7 +104,10 @@ export function initSpeech(): void {
 
         // --- Word matching: uses all results (interim + final) for responsiveness ---
         const spokenWords = transcript.trim().toLowerCase().split(/\s+/);
-        matchWords(spokenWords.slice(-5));
+        // Match on a SMALL recent window, decoupled from look-ahead, so the latest words drive
+        // matching. A large window keeps just-read words in play and blocks a backward re-read
+        // jump until a long pause clears them; this keeps just enough to form a few groups.
+        matchWords(spokenWords.slice(-(state.config.matchGroupSize + 3)));
     };
 
     state.recognition.onerror = (e: any) => {
@@ -201,51 +204,74 @@ function matchWords(spokenWords: string[]) {
     if (state.currentIndex >= state.scriptWords.length) return;
     if (spokenWords.length === 0) return;
 
-    const LOOKAHEAD = state.config.lookaheadWords;
+    const GROUP = Math.max(1, state.config.matchGroupSize);  // match consecutive word groups (bigrams by default)
+    const LOOKAHEAD = state.config.lookaheadWords * GROUP;    // longer sequences => scan proportionally farther
 
-    // Create a Set of cleaned spoken words for fast lookup
-    const spokenSet = new Set(
-        spokenWords
-            .map(w => w.replace(/[^\p{L}\p{N}]/gu, "").toLowerCase())
-            .filter(w => w.length > 0)
-    );
+    // Clean spoken words, then build the set of consecutive spoken n-grams for fast lookup
+    const cleaned = spokenWords
+        .map(w => w.replace(/[^\p{L}\p{N}]/gu, "").toLowerCase())
+        .filter(w => w.length > 0);
+    if (cleaned.length < GROUP) return;
 
-    if (spokenSet.size === 0) return;
+    const spokenGroups = new Set<string>();
+    for (let i = 0; i + GROUP <= cleaned.length; i++) {
+        spokenGroups.add(cleaned.slice(i, i + GROUP).join(' '));
+    }
 
-    // Iterate through SCRIPT words from nearest to farthest
-    // This ensures we always advance to the nearest matching word
-    let scriptPtr = state.currentIndex;
-    let validWordsChecked = 0;
-
-    while (scriptPtr < state.scriptWords.length && validWordsChecked < LOOKAHEAD) {
-        const scriptWordObj = state.scriptWords[scriptPtr];
-
-        if (scriptWordObj.skip) {
-            scriptPtr++;
-            continue;
+    // Read GROUP non-skip script words from `anchor` going in `dir`, returning the group's
+    // forward-order key and the index of its trailing (highest) word, or null at the script edge.
+    const groupAt = (anchor: number, dir: 1 | -1): { key: string; tail: number } | null => {
+        const words: string[] = [];
+        let ptr = anchor;
+        let tail = anchor;
+        while (ptr >= 0 && ptr < state.scriptWords.length && words.length < GROUP) {
+            const w = state.scriptWords[ptr];
+            if (!w.skip) {
+                words.push(w.clean);
+                tail = Math.max(tail, ptr);
+            }
+            ptr += dir;
         }
+        if (words.length < GROUP) return null;
+        if (dir === -1) words.reverse();  // express backward runs in forward reading order
+        return { key: words.join(' '), tail };
+    };
 
-        // Check if this script word was spoken
-        if (spokenSet.has(scriptWordObj.clean)) {
-            // Prevent matching the same word twice in a row (prevents double-jump)
-            // But allow it if it's at the current position (position 0 in lookahead)
-            if (scriptWordObj.clean === lastMatchedWord && validWordsChecked > 0) {
-                // Same word as last match, and not at current position - skip it
-                scriptPtr++;
-                validWordsChecked++;
+    // Scan candidate anchors outward in `dir`, jumping to the nearest spoken group match
+    const scan = (start: number, dir: 1 | -1): boolean => {
+        let anchor = start;
+        let checked = 0;
+        while (anchor >= 0 && anchor < state.scriptWords.length && checked < LOOKAHEAD) {
+            if (state.scriptWords[anchor].skip) {
+                anchor += dir;
                 continue;
             }
-
-            lastMatchedWord = scriptWordObj.clean;
-            state.currentIndex = scriptPtr + 1;
-            advancePastSkipped();
-            updateHighlight();
-            scrollToCurrent();
-            return;
+            const group = groupAt(anchor, dir);
+            if (group && spokenGroups.has(group.key)) {
+                // Prevent re-matching the same group, but allow it at the nearest position
+                if (group.key === lastMatchedWord && checked > 0) {
+                    anchor += dir;
+                    checked++;
+                    continue;
+                }
+                lastMatchedWord = group.key;
+                state.currentIndex = group.tail + 1;
+                advancePastSkipped();
+                updateHighlight();
+                scrollToCurrent();
+                return true;
+            }
+            anchor += dir;
+            checked++;
         }
+        return false;
+    };
 
-        scriptPtr++;
-        validWordsChecked++;
+    // Look forward first (nearest upcoming words); if nothing matches, look back so a re-read
+    // passage jumps backward too. The recent-words window (see caller) is kept small and
+    // independent of LOOKAHEAD so just-read words clear quickly and don't block a backward jump.
+    if (!scan(state.currentIndex, 1) && state.config.lookBackEnabled) {
+        scan(state.currentIndex - 1, -1);
     }
 }
 
