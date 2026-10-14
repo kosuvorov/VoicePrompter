@@ -19,7 +19,7 @@ html {
 
 /* The Active Word - Full white by default (no orange highlight) */
 .current-word {
-    @apply inline-block transition-colors duration-100;
+    @apply transition-colors duration-100;
 }
 
 /* Active Word Highlight - Orange (when toggle is enabled) */
@@ -27,11 +27,8 @@ html {
     @apply text-orange-500 underline decoration-orange-500 decoration-[3px];
 }
 
-/* Word Spacing Helper */
+/* Words stay plain inline (not inline-block) so bidi ordering works across words; spacing comes from real spaces */
 .script-word {
-    display: inline-block;
-    margin-right: 0.6em;
-    margin-bottom: 0.2em;
     cursor: pointer;
     overflow-wrap: break-word;
     word-break: break-word;

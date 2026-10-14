@@ -2,8 +2,19 @@ import { els } from './elements';
 import { state } from './state';
 import { HistoryItem } from './types';
 
+// Each paragraph gets its own base direction (dir="auto" = first strong character),
+// so Hebrew/Arabic/Persian paragraphs run right-to-left and English ones left-to-right.
+function newParagraph(): HTMLElement {
+    const p = document.createElement('div');
+    p.className = 'script-paragraph';
+    p.dir = state.config.textDirection;
+    els.scriptContent.appendChild(p);
+    return p;
+}
+
 export function renderScript(): void {
     els.scriptContent.innerHTML = '';
+    let paragraph = newParagraph();
     state.scriptWords.forEach((obj, index) => {
         const span = document.createElement('span');
         span.textContent = obj.word;
@@ -34,8 +45,15 @@ export function renderScript(): void {
             }
         };
 
-        els.scriptContent.appendChild(span);
         obj.element = span;
+        if (obj.isBreak) {
+            els.scriptContent.appendChild(span);
+            paragraph = newParagraph();
+            return;
+        }
+        // Real spaces between words let the bidi algorithm keep mixed-direction runs in order
+        if (paragraph.hasChildNodes()) paragraph.append(' ');
+        paragraph.appendChild(span);
     });
 
     // Apply current visibility setting
@@ -229,9 +247,11 @@ export function applySettings(): void {
     }
 
     els.scriptContent.style.setProperty('--paragraph-spacing', `${state.config.paragraphSpacing}em`);
-    els.scriptContent.style.lineHeight = `${state.config.lineHeight}`;
+    // +0.2 keeps the line pitch words had when they were inline-blocks with a 0.2em bottom margin
+    els.scriptContent.style.lineHeight = `${state.config.lineHeight + 0.2}`;
     els.scriptContent.style.textAlign = state.config.textAlign;
-    els.scriptContent.style.direction = state.config.textDirection;
+    els.scriptContent.querySelectorAll<HTMLElement>('.script-paragraph')
+        .forEach(p => { p.dir = state.config.textDirection; });
 
     if (state.config.smoothAnimations) {
         els.scriptContent.classList.add('smooth-animations');
@@ -255,6 +275,13 @@ export function applySettings(): void {
     };
     const fontStack = fontMap[state.config.fontFamily] ?? fontMap['mono'];
     els.scriptContent.style.fontFamily = fontStack;
+
+    // Words are separated by real spaces (needed for bidi); widen them to the former 0.6em gap in any font
+    const ctx = document.createElement('canvas').getContext('2d');
+    if (ctx) {
+        ctx.font = `100px ${fontStack}`;
+        els.scriptContent.style.wordSpacing = `${0.6 - ctx.measureText(' ').width / 100}em`;
+    }
 }
 
 export function updateMicUI(isListening: boolean): void {
