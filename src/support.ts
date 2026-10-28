@@ -1,6 +1,12 @@
 import { articles } from './support-data';
 import { createSupportSearch } from './support-search';
 
+function track(event: string, data?: Record<string, string>) {
+  const umami = (window as Window & { umami?: { track: (event: string, data?: Record<string, string>) => Promise<unknown> } }).umami;
+  // Analytics must never interrupt support, including when the collector is blocked.
+  try { void umami?.track(event, data)?.catch(() => {}); } catch { /* Keep support usable. */ }
+}
+
 const search = document.querySelector<HTMLInputElement>('#search')!;
 const list = document.querySelector<HTMLDivElement>('#article-list')!;
 const topics = document.querySelector<HTMLElement>('#topics')!;
@@ -30,7 +36,7 @@ function render(collapseAnswers = false) {
     const count = document.createElement('span');
     count.textContent = String(eligible.filter(article => name === 'All questions' || article.category === name).length);
     button.append(count);
-    button.addEventListener('click', () => { category = name; render();
+    button.addEventListener('click', () => { category = name; track('support-topic-select', { category }); render();
       (topics.querySelector('[aria-pressed="true"]') as HTMLButtonElement).focus();
     });
     topics.append(button);
@@ -38,10 +44,15 @@ function render(collapseAnswers = false) {
   const visible = eligible.filter(article => category === 'All questions' || article.category === category);
   list.replaceChildren();
   visible.forEach(article => {
+    const articleData = { article: article.id, question: article.question, category: article.category };
     const details = document.createElement('details');
     details.id = article.id;
     details.open = !collapseAnswers && (openIds.has(article.id) || Boolean(search.value.trim()));
     const summary = document.createElement('summary');
+    // Track clicks only, not answers expanded automatically by search or deep links.
+    summary.addEventListener('click', () => {
+      track(details.open ? 'support-answer-close' : 'support-answer-open', articleData);
+    });
     const heading = document.createElement('div');
     const question = document.createElement('div');
     question.className = 'question';
@@ -70,6 +81,7 @@ function render(collapseAnswers = false) {
     status.className = 'copy-link-status';
     status.setAttribute('role', 'status');
     link.addEventListener('click', async () => {
+      track('support-answer-copy-link', articleData);
       const url = new URL(location.href);
       url.search = '';
       url.hash = article.id;
@@ -88,6 +100,7 @@ function render(collapseAnswers = false) {
       more.className = 'related-topic';
       more.textContent = `More in ${article.category}`;
       more.addEventListener('click', () => {
+        track('support-related-topic', articleData);
         search.value = '';
         category = article.category;
         render(true);
@@ -101,6 +114,7 @@ function render(collapseAnswers = false) {
         if (url.protocol === 'https:' && ['youtube.com', 'www.youtube.com', 'youtu.be'].includes(url.hostname)) {
           const video = document.createElement('a');
           video.href = url.href; video.target = '_blank'; video.rel = 'noopener noreferrer';
+          video.addEventListener('click', () => track('support-tutorial-open', articleData));
           video.textContent = '▷ Watch the tutorial on YouTube'; actions.prepend(video);
         }
       } catch { /* Ignore unfinished tutorial URLs. */ }
@@ -124,10 +138,10 @@ function viewResults() {
   answers.scrollIntoView({ block: 'start' });
   answers.focus({ preventScroll: true });
 }
-search.addEventListener('keydown', event => { if (event.key === 'Enter') { event.preventDefault(); viewResults(); } });
-document.querySelector('#view-results')!.addEventListener('click', viewResults);
-platformButtons.forEach(button => button.addEventListener('click', () => { platform = button.dataset.platform!; render(); }));
-document.querySelector('#reset')!.addEventListener('click', () => { search.value = ''; platform = 'all'; category = 'All questions'; render(); search.focus(); });
+search.addEventListener('keydown', event => { if (event.key === 'Enter') { event.preventDefault(); track('support-view-results', { trigger: 'enter' }); viewResults(); } });
+document.querySelector('#view-results')!.addEventListener('click', () => { track('support-view-results', { trigger: 'button' }); viewResults(); });
+platformButtons.forEach(button => button.addEventListener('click', () => { platform = button.dataset.platform!; track('support-platform-select', { platform }); render(); }));
+document.querySelector('#reset')!.addEventListener('click', () => { track('support-reset'); search.value = ''; platform = 'all'; category = 'All questions'; render(); search.focus(); });
 document.addEventListener('keydown', event => {
   if (event.key === '/' && !dialog.open && !(event.target instanceof HTMLInputElement) && !(event.target instanceof HTMLTextAreaElement) && !(event.target as HTMLElement)?.isContentEditable) {
     event.preventDefault(); search.focus();
@@ -152,9 +166,11 @@ document.querySelectorAll<HTMLButtonElement>('.contact-trigger').forEach(button 
   (document.querySelector('#reveal-email') as HTMLElement).hidden = false;
   document.querySelector('#copy-status')!.textContent = '';
   dialog.showModal();
+  track('support-contact-open', { placement: button.classList.contains('nav-contact') ? 'nav' : 'footer' });
 }));
-dialog.querySelector('.close')!.addEventListener('click', () => dialog.close());
+dialog.querySelector('.close')!.addEventListener('click', () => { track('support-contact-close'); dialog.close(); });
 document.querySelector('#search-faq')!.addEventListener('click', () => {
+  track('support-contact-search-faq');
   opener = search;
   dialog.close();
   search.scrollIntoView({ block: 'center' });
@@ -174,8 +190,11 @@ document.querySelector('#reveal-email')!.addEventListener('click', () => {
   (document.querySelector('#email-details') as HTMLElement).hidden = false;
   (document.querySelector('#reveal-email') as HTMLElement).hidden = true;
   link.focus();
+  track('support-email-reveal');
 });
+document.querySelector('#mail-link')!.addEventListener('click', () => track('support-email-open'));
 document.querySelector('#copy-email')!.addEventListener('click', async () => {
+  track('support-email-copy');
   const status = document.querySelector('#copy-status')!;
   try { await navigator.clipboard.writeText(email); status.textContent = 'Email address copied. Please include the details above :)'; }
   catch { status.textContent = 'Could not copy automatically. Select and copy the address above.'; }
