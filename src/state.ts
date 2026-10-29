@@ -23,7 +23,7 @@ export const state: AppState = {
         preserveFormatting: true,
         voiceCommandsEnabled: false,
         paragraphSpacing: 0.5,
-        smoothAnimations: false,
+        smoothAnimations: true,
         highlightActiveWord: true,
         activeLinePosition: 35, // Default to 35% from top
         lookaheadWords: 5, // Default lookahead
