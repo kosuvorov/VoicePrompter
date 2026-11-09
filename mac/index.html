@@ -847,7 +847,7 @@
             background: var(--surface);
             border: 1px solid var(--surface-border);
             border-radius: var(--radius);
-            padding: 44px 36px;
+            padding: 44px 36px 32px;
             box-shadow: var(--shadow);
             text-align: center;
             position: relative;
@@ -1822,7 +1822,7 @@
             }
 
             .pricing-card {
-                padding: 40px 24px;
+                padding: 40px 24px 28px;
             }
 
             .pricing-card h3 {
@@ -1941,6 +1941,70 @@
         .reviews-more {
             text-align: center;
             margin-top: 4px;
+        }
+
+        /* ── Pro card billing toggle (yearly / monthly) ── */
+        .billing-toggle {
+            display: inline-flex;
+            gap: 2px;
+            padding: 2px;
+            margin-top: 22px;
+            border: 1px solid var(--surface-border);
+            border-radius: var(--pill);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .billing-toggle button {
+            -webkit-appearance: none;
+               -moz-appearance: none;
+                    appearance: none;
+            border: 0;
+            background: transparent;
+            color: var(--text-light);
+            font: inherit;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 1;
+            padding: 6px 12px;
+            border-radius: var(--pill);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .billing-toggle button:hover {
+            color: var(--text);
+        }
+
+        .billing-toggle button[aria-checked="true"] {
+            background: rgba(255, 187, 0, 0.14);
+            color: var(--pop);
+        }
+
+        .billing-toggle button:focus-visible {
+            outline: 2px solid var(--pop);
+            outline-offset: 2px;
+        }
+
+        .billing-save {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            opacity: 0.85;
+        }
+
+        .pricing-note {
+            font-size: 11px;
+            color: var(--text-light);
+            opacity: 0.8;
+            margin-top: 8px;
+        }
+
+        .pricing-card[data-billing="yearly"] .when-monthly,
+        .pricing-card[data-billing="monthly"] .when-yearly {
+            display: none;
         }
 
     </style>
@@ -2520,14 +2584,25 @@
                 </ul>
             </div>
 
-            <div class="pricing-card popular">
+            <div class="pricing-card popular" data-billing="yearly">
                 <h3>Pro</h3>
-                <div class="pricing-price"><strong>$3.34</strong>/mo</div>
+                <div class="pricing-price">
+                    <span class="when-yearly"><strong>$4.17</strong>/mo</span>
+                    <span class="when-monthly"><strong>$9.99</strong>/mo</span>
+                </div>
                 <ul class="pricing-features">
                     <li>Unlimited scripts</li>
                     <li>Voice scrolling</li>
                     <li>Invisible on screen share</li>
                 </ul>
+                <div class="billing-toggle" role="radiogroup" aria-label="Billing period">
+                    <button type="button" role="radio" aria-checked="true" data-period="yearly" data-umami-event="mac-pricing-yearly">Yearly <span class="billing-save">Save 58%</span></button>
+                    <button type="button" role="radio" aria-checked="false" data-period="monthly" data-umami-event="mac-pricing-monthly">Monthly</button>
+                </div>
+                <p class="pricing-note">
+                    <span class="when-yearly">$49.99 billed yearly · cancel anytime</span>
+                    <span class="when-monthly">Billed monthly · cancel anytime</span>
+                </p>
             </div>
 
             <div class="pricing-card">
@@ -2537,6 +2612,7 @@
                     <li>Unlimited scripts</li>
                     <li>Voice scrolling</li>
                     <li>Invisible on screen share</li>
+                    <li>No recurring payments</li>
                 </ul>
             </div>
         </div>
@@ -3040,6 +3116,27 @@
         });
     </script>
 
+    <!-- ═══════════════════════ Pricing Billing Toggle ═══════════════════════ -->
+    <script>
+        document.querySelectorAll('.billing-toggle').forEach((toggle) => {
+            const card = toggle.closest('.pricing-card');
+            const buttons = toggle.querySelectorAll('button[data-period]');
+            const select = (btn) => {
+                card.dataset.billing = btn.dataset.period;
+                buttons.forEach((b) => b.setAttribute('aria-checked', String(b === btn)));
+            };
+            buttons.forEach((btn, i) => {
+                btn.addEventListener('click', () => select(btn));
+                btn.addEventListener('keydown', (e) => {
+                    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+                    e.preventDefault();
+                    const next = buttons[(i + (e.key === 'ArrowRight' ? 1 : -1) + buttons.length) % buttons.length];
+                    select(next);
+                    next.focus();
+                });
+            });
+        });
+    </script>
 </body>
 
 
