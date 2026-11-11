@@ -1,6 +1,42 @@
 export type VideoLayoutMode = 'split' | 'overlay';
 export type ScrollingMode = 'voice' | 'sound' | 'constant';
 
+// ── Web Speech API ────────────────────────────────────────────────────────
+// SpeechRecognition is still non-standard and unevenly implemented, so it has
+// no DOM lib types. These describe only the surface this app actually uses.
+export interface SpeechRecognitionAlternative {
+    readonly transcript: string;
+}
+
+export interface SpeechRecognitionResult {
+    readonly length: number;
+    readonly [index: number]: SpeechRecognitionAlternative;
+}
+
+export interface SpeechRecognitionEvent {
+    readonly resultIndex: number;
+    readonly results: {
+        readonly length: number;
+        readonly [index: number]: SpeechRecognitionResult;
+    };
+}
+
+export interface SpeechRecognitionErrorEvent {
+    readonly error: string;
+    readonly message: string;
+}
+
+export interface SpeechRecognition {
+    lang: string;
+    continuous: boolean;
+    interimResults: boolean;
+    start(): void;
+    stop(): void;
+    onresult: ((event: SpeechRecognitionEvent) => void) | null;
+    onerror: ((event: SpeechRecognitionErrorEvent) => void) | null;
+    onend: (() => void) | null;
+}
+
 export interface ScriptWord {
     word: string;
     clean: string;
@@ -37,7 +73,7 @@ export interface AppState {
     isListening: boolean;
     scriptWords: ScriptWord[];
     currentIndex: number;
-    recognition: any; // Using any for SpeechRecognition as it's experimental
+    recognition: SpeechRecognition | null;
     isMirrored: boolean;
     isMirroredH: boolean;
     isScreenRotated: boolean;

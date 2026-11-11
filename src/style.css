@@ -17,14 +17,21 @@ html {
     scrollbar-width: none;
 }
 
-/* The Active Word - Full white by default (no orange highlight) */
+/* The Active Word - Full white by default (no highlight) */
 .current-word {
-    @apply inline-block transition-colors duration-100;
+    @apply inline-block;
 }
 
-/* Active Word Highlight - Orange (when toggle is enabled) */
+/* Active Word Highlight — brand gold, soft glow + gently offset underline
+   instead of a flush line, so it reads as a considered accent rather than a
+   generic "form validation" underline. */
 .highlight-active-word .current-word {
-    @apply text-orange-500 underline decoration-orange-500 decoration-[3px];
+    color: #FFBB00;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 187, 0, 0.55);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.14em;
+    text-shadow: 0 0 22px rgba(255, 187, 0, 0.28);
 }
 
 /* Word Spacing Helper */
@@ -35,6 +42,12 @@ html {
     cursor: pointer;
     overflow-wrap: break-word;
     word-break: break-word;
+    /* Every state change (future → current → read) crossfades instead of
+       snapping, so the word-by-word highlight reads as one continuous motion. */
+    transition: color 260ms cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 260ms cubic-bezier(0.22, 1, 0.36, 1),
+        text-shadow 260ms cubic-bezier(0.22, 1, 0.36, 1),
+        text-decoration-color 260ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* Skippable words (inside brackets or emojis) */
@@ -181,16 +194,17 @@ input[type=range]::-moz-range-track {
     animation: pulse-red 2s infinite;
 }
 
-/* Smooth Animations */
+/* Smooth Animations — per-word gold wipe, eased out rather than linear so it
+   settles instead of ticking. */
 .smooth-animations .current-word {
     transition: none;
-    background-image: linear-gradient(to right, #f97316 50%, var(--base-color, #ffffff) 50%);
+    background-image: linear-gradient(to right, #FFBB00 50%, var(--base-color, #ffffff) 50%);
     background-size: 200% 100%;
     background-position: 100% 0;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation: highlight-wipe 0.25s linear forwards;
+    animation: highlight-wipe 0.32s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 @keyframes highlight-wipe {
@@ -201,6 +215,43 @@ input[type=range]::-moz-range-track {
     100% {
         background-position: 0 0;
     }
+}
+
+/* Reduced motion — a teleprompter is read while performing, so respect the
+   OS setting: drop the scroll easing, the crossfades and the per-word wipe.
+   The wipe paints the active word via background-clip on transparent text, so
+   without it the word would lose its highlight entirely; fall back to a solid
+   gold fill to keep the reading position obvious. */
+@media (prefers-reduced-motion: reduce) {
+    .script-word {
+        transition: none;
+    }
+
+    .smooth-animations .current-word {
+        animation: none;
+        background-image: none;
+        -webkit-background-clip: border-box;
+        background-clip: border-box;
+        color: #FFBB00;
+    }
+}
+
+/* Scroll Edge Fade — the script text softly dissolves into the background
+   near the top/bottom of the reading area instead of hard-cutting at the
+   viewport edge. Applied to the scroll viewport itself (not the scrolled
+   content) so the fade zone stays pinned to the screen regardless of script
+   length or scroll position. */
+#scrollContainer {
+    -webkit-mask-image: linear-gradient(to bottom,
+            transparent 0,
+            black 9%,
+            black 91%,
+            transparent 100%);
+    mask-image: linear-gradient(to bottom,
+            transparent 0,
+            black 9%,
+            black 91%,
+            transparent 100%);
 }
 
 /* ═══════════════════════ Video Mode ═══════════════════════ */

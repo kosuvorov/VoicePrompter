@@ -63,9 +63,17 @@ export async function enumerateAndPopulateDevices(
         }
         const micDefaultText = micLabel ? `Default Microphone (${micLabel})` : 'Default Microphone';
 
-        // Reset dropdown contents with dynamic default labels
-        videoSelect.innerHTML = `<option value="">${cameraDefaultText}</option>`;
-        audioSelect.innerHTML = `<option value="">${micDefaultText}</option>`;
+        // Reset dropdown contents with dynamic default labels. Device labels come
+        // from the OS/hardware, so build the option with textContent rather than
+        // interpolating them into markup.
+        const defaultOption = (label: string): HTMLOptionElement => {
+            const opt = document.createElement('option');
+            opt.value = '';
+            opt.textContent = label;
+            return opt;
+        };
+        videoSelect.replaceChildren(defaultOption(cameraDefaultText));
+        audioSelect.replaceChildren(defaultOption(micDefaultText));
 
         devices.forEach(device => {
             if (device.kind === 'videoinput' && device.deviceId) {

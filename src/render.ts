@@ -99,9 +99,10 @@ export function scrollToCurrent(): void {
             const positionRatio = state.config.activeLinePosition / 100;
             const targetPosition = currentWordObj.element.offsetTop - (containerHeight * positionRatio);
 
-            if (state.config.smoothAnimations) {
-                smoothScrollTo(els.scrollContainer, targetPosition, 600);
+            if (state.config.smoothAnimations && !prefersReducedMotion()) {
+                chaseScrollTo(els.scrollContainer, targetPosition);
             } else {
+                stopChaseScroll();
                 els.scrollContainer.scrollTo({
                     top: targetPosition,
                     behavior: 'auto'
@@ -111,28 +112,53 @@ export function scrollToCurrent(): void {
     }
 }
 
-function smoothScrollTo(element: HTMLElement, target: number, duration: number): void {
-    const start = element.scrollTop;
-    const change = target - start;
-    const startTime = performance.now();
+// ── Chase scrolling ───────────────────────────────────────────────────────
+// Speech advances word-by-word, often faster than any fixed-duration tween can
+// finish. A tween that restarts from scratch on every word snaps and stutters
+// mid-flight. Instead, run ONE persistent rAF loop that continuously eases the
+// scroll position a fraction of the remaining distance closer to whatever the
+// current target is — retargeting mid-flight is just a smooth change of
+// direction, not a restart, so the motion reads as a single continuous glide.
+let chaseAnimId: number | null = null;
+let chaseTarget: number | null = null;
+const CHASE_FACTOR = 0.18; // fraction of remaining distance closed per frame
 
-    function animateScroll(currentTime: number) {
-        const timeElapsed = currentTime - startTime;
-        const progress = Math.min(timeElapsed / duration, 1);
+function prefersReducedMotion(): boolean {
+    return window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+}
 
-        // EaseInOutQuad
-        const ease = progress < 0.5
-            ? 2 * progress * progress
-            : 1 - Math.pow(-2 * progress + 2, 2) / 2;
-
-        element.scrollTop = start + change * ease;
-
-        if (timeElapsed < duration) {
-            requestAnimationFrame(animateScroll);
-        }
+export function stopChaseScroll(): void {
+    if (chaseAnimId !== null) {
+        cancelAnimationFrame(chaseAnimId);
+        chaseAnimId = null;
     }
+    chaseTarget = null;
+}
 
-    requestAnimationFrame(animateScroll);
+function chaseScrollTo(element: HTMLElement, target: number): void {
+    chaseTarget = target;
+    if (chaseAnimId !== null) return; // loop already running — it will pick up the new target next frame
+
+    const step = () => {
+        if (chaseTarget === null) {
+            chaseAnimId = null;
+            return;
+        }
+        const current = element.scrollTop;
+        const delta = chaseTarget - current;
+
+        if (Math.abs(delta) < 0.5) {
+            element.scrollTop = chaseTarget;
+            chaseAnimId = null;
+            chaseTarget = null;
+            return;
+        }
+
+        element.scrollTop = current + delta * CHASE_FACTOR;
+        chaseAnimId = requestAnimationFrame(step);
+    };
+
+    chaseAnimId = requestAnimationFrame(step);
 }
 
 export function advancePastSkipped(): void {
@@ -298,15 +324,25 @@ export function updateMicUI(isListening: boolean): void {
     }
 }
 
+// History rows are built with DOM APIs rather than an innerHTML template.
+// `preview`, `date` and `tag` all derive from user-supplied script text, so
+// interpolating them into markup let a pasted string like `<img src=x
+// onerror=...>` parse as a live element. textContent makes that impossible.
+function historyBadge(text: string, className: string): HTMLSpanElement {
+    const badge = document.createElement('span');
+    badge.className = className;
+    badge.textContent = text;
+    return badge;
+}
+
 export function renderHistoryList(history: HistoryItem[], onLoad: (text: string, googleDocUrl?: string | null) => void): void {
-    els.historyList.innerHTML = '';
+    els.historyList.replaceChildren();
 
     if (history.length === 0) {
-        els.historyList.innerHTML = `
-            <div class="text-center py-8 border border-dashed border-neutral-800 rounded-lg text-neutral-600 text-sm">
-                No previous scripts found
-            </div>
-        `;
+        const empty = document.createElement('div');
+        empty.className = "text-center py-8 border border-dashed border-neutral-800 rounded-lg text-neutral-600 text-sm";
+        empty.textContent = 'No previous scripts found';
+        els.historyList.appendChild(empty);
         els.clearHistoryBtn.classList.add('hidden');
         return;
     }
@@ -320,19 +356,28 @@ export function renderHistoryList(history: HistoryItem[], onLoad: (text: string,
             els.inputScript.value = item.text;
             onLoad(item.text, item.googleDocUrl || null);
         };
-        div.innerHTML = `
-            <div class="flex flex-col text-left overflow-hidden mr-2">
-                <span class="text-gray-300 text-sm font-medium truncate font-mono">${item.preview}</span>
-                <div class="flex items-center gap-2">
-                    <span class="text-gray-500 text-xs">${item.date}</span>
-                    ${item.tag ? `<span class="text-[9px] font-bold bg-[#FFBB00]/10 text-[#FFBB00] px-1.5 py-0.5 rounded-full uppercase tracking-wider">${item.tag}</span>` : ''}
-                    ${item.googleDocUrl ? `<span class="text-[9px] font-bold bg-blue-500/10 text-blue-400 px-1.5 py-0.5 rounded-full uppercase tracking-wider">Google Doc</span>` : ''}
-                </div>
-            </div>
-            <div class="flex-shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-blue-500 opacity-0 group-hover:opacity-100 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-            </div>
-        `;
+
+        const info = document.createElement('div');
+        info.className = "flex flex-col text-left overflow-hidden mr-2";
+        info.appendChild(historyBadge(item.preview, "text-gray-300 text-sm font-medium truncate font-mono"));
+
+        const meta = document.createElement('div');
+        meta.className = "flex items-center gap-2";
+        meta.appendChild(historyBadge(item.date, "text-gray-500 text-xs"));
+        if (item.tag) {
+            meta.appendChild(historyBadge(item.tag, "text-[9px] font-bold bg-[#FFBB00]/10 text-[#FFBB00] px-1.5 py-0.5 rounded-full uppercase tracking-wider"));
+        }
+        if (item.googleDocUrl) {
+            meta.appendChild(historyBadge('Google Doc', "text-[9px] font-bold bg-blue-500/10 text-blue-400 px-1.5 py-0.5 rounded-full uppercase tracking-wider"));
+        }
+        info.appendChild(meta);
+
+        const chevron = document.createElement('div');
+        chevron.className = "flex-shrink-0";
+        // Static markup — no interpolation, so innerHTML is safe here.
+        chevron.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-blue-500 opacity-0 group-hover:opacity-100 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>`;
+
+        div.append(info, chevron);
         els.historyList.appendChild(div);
     });
 }
