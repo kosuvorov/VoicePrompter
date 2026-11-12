@@ -17,8 +17,8 @@ export const state: AppState = {
         margin: 0,
         textColor: '#ffffff',
         bgColor: '#000000',
-        textAlign: 'left',
-        textDirection: 'ltr',
+        textAlign: 'start', // follows each paragraph's direction
+        textDirection: 'auto', // per paragraph, from its first strong character
         showStopIcon: false,
         preserveFormatting: true,
         voiceCommandsEnabled: false,
