@@ -133,6 +133,19 @@ export const articles: SupportArticle[] = [
     "videoUrl": null
   },
   {
+    "id": "resize-pip",
+    "question": "How do I resize or move the floating script window on iPhone or iPad?",
+    "category": "Floating window",
+    "platforms": [
+      "iOS",
+      "iPadOS"
+    ],
+    "answer": "<p><strong>To change the size,</strong> pinch the floating window (Picture in Picture), just like you would zoom a photo. You can also double tap it to switch between sizes.</p><p><strong>To change the shape,</strong> open <strong>Settings</strong> in VoicePrompter, then <strong>Picture in Picture</strong>, and choose <strong>Landscape</strong>, <strong>Square</strong> or <strong>Portrait</strong> under <strong>Window Shape</strong>.</p><p><strong>The position can't be set freely.</strong> VoicePrompter uses Apple's system Picture in Picture, so iOS decides where the window can go. You can drag it around, but it snaps to the corners of the screen, and apps can't place it anywhere else, like right under the camera.</p>",
+    "searchPhrases": ["make the floating window bigger", "pip window too small", "move pip under the camera", "custom pip size"],
+    "keywords": "pip picture in picture floating window size bigger smaller resize pinch zoom double tap shape square portrait landscape position move corner drag center camera",
+    "videoUrl": null
+  },
+  {
     "id": "transparent-pip",
     "question": "Can I make the floating script window transparent?",
     "category": "Floating window",
