@@ -16,8 +16,8 @@ export interface AppConfig {
     margin: number;
     textColor: string;
     bgColor: string;
-    textAlign: 'left' | 'center' | 'right';
-    textDirection: 'ltr' | 'rtl';
+    textAlign: 'start' | 'left' | 'center' | 'right';
+    textDirection: 'auto' | 'ltr' | 'rtl';
     showStopIcon: boolean;
     preserveFormatting: boolean;
     voiceCommandsEnabled: boolean;
