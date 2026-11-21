@@ -221,6 +221,18 @@ export const articles: SupportArticle[] = [
     "videoUrl": null
   },
   {
+    "id": "mac-app-store-stuck",
+    "question": "The Mac App Store won’t download VoicePrompter. What should I do?",
+    "category": "Mac setup",
+    "platforms": [
+      "macOS"
+    ],
+    "answer": "<p>A few Mac users have run into this: you click <strong>Get</strong> in the Mac App Store, a small App Store window opens, but the download never starts. It’s an App Store issue on the Mac, not something in VoicePrompter.</p><ol><li>Restart your Mac and click <strong>Get</strong> again.</li><li>In the App Store, choose <strong>Store → Sign Out</strong>, then sign back in. Accept new terms or verify your account if asked.</li><li>Check <strong>System Settings → Apple Account → Media &amp; Purchases</strong> for any warning.</li><li>Try downloading any other free app. If that one gets stuck too, the problem is the App Store on your Mac, not one app.</li><li>Start your Mac in <strong>Safe Mode</strong>, then restart normally and try again.<br><strong>Apple silicon:</strong> shut down, press and hold the power button until you see the startup options, select your startup disk, then hold <strong>Shift</strong> and click <strong>Continue in Safe Mode</strong>.<br><strong>Intel:</strong> restart and hold <strong>Shift</strong> until you see the login window.</li></ol><p>One user, Jean, had exactly this problem. Restarting and signing out didn’t help, and buying VoicePrompter on her iPhone first didn’t help either - it still wouldn’t download on her MacBook. Then she noticed she couldn’t download any free apps on her Mac, so she contacted Apple Support. They had her restart in Safe Mode, and that cleared it. After that VoicePrompter downloaded and she could finally try it.</p><p>If it’s still stuck after Safe Mode, contact Apple Support. They can check the App Store side of your Mac and account.</p><p>P.S. Thank you, Jean, for telling me what fixed it - it will help other people :)</p>",
+    "searchPhrases": ["app store won't download", "stuck on get", "can't install on mac", "download never starts"],
+    "keywords": "app store download install get button stuck hangs pending mac macbook safe mode apple support",
+    "videoUrl": null
+  },
+  {
     "id": "android-purchase",
     "question": "My purchase isn’t syncing to another Android device. What should I do?",
     "category": "License & billing",
